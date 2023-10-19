@@ -20,9 +20,17 @@ html {
 .linkleiste{
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  background-color: pink;
-  padding: 10px;
-  grid-gap: 5px;
+  text-align: center;
+}
+
+.logobox{
+  height: 100%;
+  width: 100%;
+}
+
+#logo{
+  height: 70%;
+  width: 70%;
 }
 
 .link{
@@ -30,20 +38,15 @@ html {
   border-width: medium;
 }
 
-.page {
+.grid-layout {
   display: grid;
-  grid-template-columns: 1fr 2fr auto;
-  background-color: #2196F3;
-  padding: 10px;
-  grid-gap: 5px;
+  grid-template-columns: 20% auto ;
+  align-items: center;
+  grid-gap: 2px;
 }
+
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-  background-color: white;
+  background-color: #b3d4fc;
 }
 
 .extrem2 {
