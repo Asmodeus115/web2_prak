@@ -17,6 +17,35 @@ html {
   line-height: 1.4;
 }
 
+.linkleiste{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: pink;
+  padding: 10px;
+  grid-gap: 5px;
+}
+
+.link{
+  border-color: #222222;
+  border-width: medium;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  background-color: #2196F3;
+  padding: 10px;
+  grid-gap: 5px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  background-color: white;
+}
+
 .extrem2 {
   background-color: blueviolet;
 }
@@ -263,4 +292,5 @@ textarea {
     page-break-after: avoid;
   }
 }
+
 
