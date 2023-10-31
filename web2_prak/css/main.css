@@ -22,7 +22,7 @@ html {
   background-color: #333;
   position: sticky;
   margin-top: 7%;
-  width: 100%;
+  width: 90%;
   border-radius: 20px;
 }
 
@@ -30,32 +30,32 @@ html {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  width: 22%;
+  width: 21%;
   text-decoration: none;
   font-size: 17px;
 }
 
-
-.logobox{
-  height: 100%;
-  width: 100%;
+.linkleiste a:hover{
+  background-color: pink;
 }
 
 .lageplanbox{
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-auto-rows: 10% 10% 10% 10% 10%;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(10, 10%);
+  width: 80%;
   height: 100%;
-  width: 55%;
-}
-
-.test{
-
+  margin-left: 5%;
+  background: url("../img/campusplan_raeume_albstadt.jpg") center center / 90% 100% no-repeat;
 }
 
 #logo{
   height: 100%;
-  width: 100%;
+  width: 80%;
+}
+
+.logobox{
+
 }
 
 .link{
@@ -65,44 +65,38 @@ html {
 
 .grid-layout {
   display: grid;
-  grid-template-columns: 20% auto ;
+  grid-template-columns: 18% auto ;
   align-items: center;
-  grid-gap: 2px;
 }
 
-.grid-item {
-  /* background-color: #b3d4fc; */
+.sidebar{
   font-family: "Open Sans", sans-serif;
   height: 100%;
-  width: 70%;
-  padding-top: 0;
-  padding-left: 10px;
-  position: sticky;
+  width: 100%;
+  background-color: pink;
 }
-.grid-item ul {
-    background-color: #333;
-    border-top: solid 10px #333;
-    border-bottom: 0 solid #333;
-    border-left: 1px solid #333;
-    list-style-type: none;
+
+.sidebar ul{
+  background-color: #333333;
+  height: 100%;
+  width: 70%;
+}
+.sidebar li {
+  padding-top: 30%;
+  font-size: 120%;
+  width: auto;
+  list-style-type: none;
   }
 
-.grid-item li {
-    border-top: solid 10px #333;
-    border-bottom: 1px solid #C7C6C6;
-    width: auto;
-    padding: 10px 50px 20px;
+.sidebar a {
+  color: white;
+  padding: 3%;
+  text-decoration: none;
+  background-color: #333333;
   }
 
-  .grid-item a {
-    padding: 14px 16px;
-    color: #f2f2f2;
-    font-size: 20px;
-  }
-
- .grid-item a:hover{
-    background-color: #ddd;
-    color: #333;
+.sidebar a:hover{
+  background-color: #ddd;
   }
 
 
