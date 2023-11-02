@@ -17,51 +17,94 @@ html {
   line-height: 1.4;
 }
 
-.linkleiste {
-  overflow: hidden;
-  background-color: #333;
-  position: sticky;
-  margin-top: 7%;
-  width: 90%;
-  border-radius: 20px;
-}
-
-.linkleiste a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  width: 21%;
+a{
   text-decoration: none;
-  font-size: 17px;
+  color: #dddddd;
 }
 
-.linkleiste a:hover{
-  background-color: pink;
+.btn{
+  border-radius: 10px;
+}
+
+.lageplanbox img{
+  height: 80%;
+}
+
+.btn-group{
+  align-items: center;
+  height: 30%;
+  width: 90%;
+}
+
+.btn-group button {
+  border-width: 2px;
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  width: 25%;
+  height: 100%;
+  text-decoration: none;
+  font-size: 120%;
+}
+
+.btn-group button:hover{
+  border-color: #333333;
+  border-width: 2px;
 }
 
 .lageplanbox{
-  display: grid;
-  grid-template-columns: repeat(10, 10%);
-  grid-template-rows: repeat(10, 10%);
-  width: 80%;
+  width: 65%;
   height: 100%;
-  margin-left: 5%;
+  margin-left: 10%;
   background: url("../img/campusplan_raeume_albstadt.jpg") center center / 90% 100% no-repeat;
 }
 
+.dots{
+  height: 3%;
+  width: 2%;
+  border-radius: 100%;
+  background-color: red;
+}
+
+.dots:hover{
+  cursor: pointer;
+}
+
+#dot210 {
+  position: absolute;
+  left: 745px;
+  top: 380px;
+}
+
+#dot207{
+  position: absolute;
+  left: 1160px;
+  top: 430px;
+}
+
+#dot206{
+  position: absolute;
+  left: 1230px;
+  top: 490px;
+}
+
+#dot205{
+  position: absolute;
+  left: 990px;
+  top: 406px;
+}
+#dot201{
+  position: absolute;
+  left: 1150px;
+  top: 630px;
+}
+
 #logo{
+  padding-left: 10%;
   height: 100%;
-  width: 80%;
+  width: 90%;
 }
 
-.logobox{
-
-}
-
-.link{
-  border-color: #222222;
-  border-width: medium;
-}
 
 .grid-layout {
   display: grid;
@@ -69,39 +112,33 @@ html {
   align-items: center;
 }
 
-.sidebar{
+/* sidebar items-----------------------------------*/
+
+.list-group{
   font-family: "Open Sans", sans-serif;
   height: 100%;
   width: 100%;
-  background-color: pink;
 }
 
-.sidebar ul{
-  background-color: #333333;
+.list-group ul{
   height: 100%;
-  width: 70%;
+  width: 100%;
 }
-.sidebar li {
-  padding-top: 30%;
-  font-size: 120%;
+.list-group li {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 9%;
+  font-size: 140%;
   width: auto;
   list-style-type: none;
   }
 
-.sidebar a {
-  color: white;
-  padding: 3%;
-  text-decoration: none;
-  background-color: #333333;
-  }
-
-.sidebar a:hover{
+.list-group li:hover {
   background-color: #ddd;
-  }
+}
 
-
-
-
+/*-------------------------------------*/
 .extrem2 {
   background-color: blueviolet;
 }
