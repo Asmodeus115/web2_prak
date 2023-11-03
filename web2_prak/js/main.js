@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function (){
       window.location.href="index.html";
     } else if (event.target.id === "kalenderBtn"){
       window.location.href="Calendar.html";
-    } else if (event.target.id === "testBtn"){
-      window.location.href="";
+    } else if (event.target.id === "datenschutzBtn"){
+      window.location.href="Datenschutz.html";
     } else if (event.target.id === "impressumBtn"){
-      window.location.href="";
+      window.location.href="Impressum.html";
     } else{
       console.log("fehler")
     }
