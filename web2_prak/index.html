@@ -13,7 +13,6 @@
   <meta property="og:image" content="">
 
   <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="css/normalize.css">
@@ -35,11 +34,11 @@
       </div>
       <img id="logo" src="logo.png" alt="">
     </div>
-    <div class="btn-group" role="group">
-      <button class="btn" type="button">Lageplan</button>
-      <button class="btn" type="button">test</button>
-      <button class="btn" type="button">test</button>
-      <button class="btn" type="button">Impressum</button>
+    <div class="btn-group" id="linkleiste" role="group">
+      <button class="btn" type="button" id="lageplanBtn">Lageplan</button>
+      <button class="btn" type="button" id="kalenderBtn">Kalender</button>
+      <button class="btn" type="button" id="testBtn">test</button>
+      <button class="btn" type="button" id="impressumBtn">Impressum</button>
     </div>
     <ul class="list-group" id="gebBtn">
       <li class="list-group-item btn" id="210btn">210</li>
@@ -48,9 +47,7 @@
       <li class="list-group-item btn" id="205btn">205</li>
       <li class="list-group-item btn" id="201btn">201</li>
     </ul>
-    <div class="lageplanbox">
-
-    </div>
+    <div class="lageplanbox"></div>
   </div>
 
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
@@ -60,76 +57,7 @@
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
-  document.addEventListener("click", function(event){
-    const x = event.clientX;
-    const y = event.clientY;
 
-
-    if(x >= 666 && x <= 783 && y >=363 && y <=404){
-      //window.location.href = "../geb_210.html"
-      console.log("Lecker!")
-    }
-    if(x >= 905 && x <= 1080 && y >=386 && y <=483){
-      //window.location.href = "../geb_210.html"
-      console.log("Lecker!")
-    }
-    if(x >= 666 && x <= 783 && y >=363 && y <=404){
-      //window.location.href = "../geb_210.html"
-      console.log("Lecker!")
-    }
-    if(x >= 666 && x <= 783 && y >=363 && y <=404){
-      //window.location.href = "../geb_210.html"
-      console.log("Lecker!")
-    }
-    if(x >= 666 && x <= 783 && y >=363 && y <=404){
-      //window.location.href = "../geb_210.html"
-      console.log("Lecker!")
-    }
-    console.log("pos: X:=" + x +" Y="+ y)
-  });
-
-  document.getElementById("gebBtn").addEventListener("click", function(event){
-    if (event.target.id === "210btn"){
-      window.location.href="./html_unterseiten/geb_210.html";
-    } else if (event.target.id === "207btn"){
-      window.location.href="./html_unterseiten/geb_207.html";
-    } else if (event.target.id === "206btn"){
-      window.location.href="./html_unterseiten/geb_206.html";
-    } else if (event.target.id === "205btn"){
-      window.location.href="./html_unterseiten/geb_205.html";
-    } else if (event.target.id === "201btn"){
-      window.location.href="./html_unterseiten/geb_201.html";
-    } else{
-      console.log("fehler")
-    }
-  });
-
-  document.getElementById("dots").addEventListener("click", function(event){
-    if (event.target.id === "dot210"){
-      window.location.href="./html_unterseiten/geb_210.html";
-    } else if (event.target.id === "dot207"){
-      window.location.href="./html_unterseiten/geb_207.html";
-    } else if (event.target.id === "dot206"){
-      window.location.href="./html_unterseiten/geb_206.html";
-    } else if (event.target.id === "dot205"){
-      window.location.href="./html_unterseiten/geb_205.html";
-    } else if (event.target.id === "dot201"){
-      window.location.href="./html_unterseiten/geb_201.html";
-    } else{
-      console.log("fehler")
-    }
-  });
-
-  document.addEventListener("DOMContentLoaded",
-    () => {
-      console.log("HELLOOOOOOO!")
-      let loading = document.getElementById("loading-info");
-      loading.remove();
-      initApp();
-    });
-  function initApp(){
-    console.log("app geladen")
-  }
   window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
   ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
 </script>
