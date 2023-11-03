@@ -5,20 +5,19 @@ document.addEventListener("DOMContentLoaded", function (){
 
     console.log("pos: X:=" + x +" Y="+ y)
   });
-
-  document.getElementById("linkleiste").addEventListener("click", function (){
+  document.getElementById("linkleiste").addEventListener("click", function (event){
     if (event.target.id === "lageplanBtn"){
-      window.location.href="../index.html";
+      window.location.href="./index.html";
     } else if (event.target.id === "kalenderBtn"){
       window.location.href="./html_unterseiten/Calendar.html";
     } else if (event.target.id === "testBtn"){
-      window.location.href="./html_unterseiten/geb_206.html";
+      window.location.href="";
     } else if (event.target.id === "impressumBtn"){
-      window.location.href="./html_unterseiten/geb_205.html";
+      window.location.href="";
     } else{
       console.log("fehler")
     }
-  });
+});
 
   document.getElementById("gebBtn").addEventListener("click", function(event){
     if (event.target.id === "210btn"){
