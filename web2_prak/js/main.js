@@ -52,10 +52,10 @@ document.addEventListener("DOMContentLoaded", function (){
   });
 
 
-      console.log("HELLOOOOOOO!")
-      let loading = document.getElementById("loading-info");
-      loading.remove();
-      initApp();
+  console.log("HELLOOOOOOO!")
+  let loading = document.getElementById("loading-info");
+  loading.remove();
+  initApp();
   function initApp(){
     console.log("app geladen")
   }

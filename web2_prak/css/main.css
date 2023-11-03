@@ -127,6 +127,7 @@ a{
 }
 .list-group li {
   background-color: #00336A;
+  margin-top: 5%;
   color: white;
   text-align: center;
   padding: 9%;
