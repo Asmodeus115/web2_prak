@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>205</title>
+  <title>Name</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,41 +22,37 @@
 </head>
 
 <body>
-<h1 id="loading-info">bitte warten</h1>
 <div class="grid-layout">
   <div class="logobox">
     <img id="logo" src="../logo.png" alt="">
   </div>
   <div class="btn-group" role="group">
-    <button class="btn" type="button" >Lageplan</button>
-    <button class="btn" type="button">test</button>
-    <button class="btn" type="button">test</button>
-    <button class="btn" type="button">Impressum</button>
+    <button class="btn" type="button" id="lageplanBtn">Lageplan</button>
+    <button class="btn" type="button" id="kalenderBtn">Kalender</button>
+    <button class="btn" type="button" id="testBtn">test</button>
+    <button class="btn" type="button" id="impressumBtn">Impressum</button>
   </div>
-  <div class=stockwerkPlan">
-    <img src="../img/205_EG.svg">
+  <!-- Eine Navigationsleiste (links) mit Links zu den Etagen -->
+  <ul class="list-group" id="etageBtn205">
+    <li class="list-group-item btn" id="eg-205">EG</li>
+    <li class="list-group-item btn" id="og-205">1.OG</li>
+  </ul>
+  <!-- Ein div-Element, das das Bild anzeigt -->
+  <div id="bildContainer">
+    <img id="standardbild" alt="test" src="../img/205_EG.jpg">
   </div>
 </div>
+
 
 <script src="../js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="../js/plugins.js"></script>
 <script src="../js/main.js"></script>
-</body>
-
+<script src="../js/Geb_210_replacing_img.js"></script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
-  document.addEventListener("DOMContentLoaded",
-    () => {
-      console.log("HELLOOOOOOO!")
-      let loading = document.getElementById("loading-info");
-      loading.remove();
-      initApp();
-    });
-  function initApp(){
-    console.log("app geladen")
-  }
   window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
   ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
 </script>
+</body>
 
 </html>

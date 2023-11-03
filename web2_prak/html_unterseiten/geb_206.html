@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>206</title>
+  <title>Name</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,6 @@
   <meta property="og:image" content="">
 
   <link rel="manifest" href="../site.webmanifest">
-  <link rel="apple-touch-icon" href="../icon.png">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/normalize.css">
@@ -23,38 +22,39 @@
 </head>
 
 <body>
-<h1 id="loading-info">bitte warten</h1>
 <div class="grid-layout">
   <div class="logobox">
     <img id="logo" src="../logo.png" alt="">
   </div>
   <div class="btn-group" role="group">
-    <button class="btn" type="button" >Lageplan</button>
+    <button class="btn" type="button">Lageplan</button>
     <button class="btn" type="button">test</button>
     <button class="btn" type="button">test</button>
     <button class="btn" type="button">Impressum</button>
   </div>
+  <!-- Eine Navigationsleiste (links) mit Links zu den Etagen -->
+  <ul class="list-group" id="etageBtn206">
+    <li class="list-group-item btn" id="eg-206">EG</li>
+    <li class="list-group-item btn" id="og-206">1.OG</li>
+    <li class="list-group-item btn" id="og2-206">2.OG</li>
+    <li class="list-group-item btn" id="og3-206">3.OG</li>
+  </ul>
+  <!-- Ein div-Element, das das Bild anzeigt -->
+  <div id="bildContainer">
+    <img id="standardbild" alt="test" src="../img/206_EG.jpg">
+  </div>
 </div>
+
 
 <script src="../js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="../js/plugins.js"></script>
 <script src="../js/main.js"></script>
-</body>
-
+<script src="../js/Geb_210_replacing_img.js"></script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
-  document.addEventListener("DOMContentLoaded",
-    () => {
-      console.log("HELLOOOOOOO!")
-      let loading = document.getElementById("loading-info");
-      loading.remove();
-      initApp();
-    });
-  function initApp(){
-    console.log("app geladen")
-  }
   window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
   ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
 </script>
+</body>
 
 </html>
