@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function (){
   });
   document.getElementById("linkleiste").addEventListener("click", function (event){
     if (event.target.id === "lageplanBtn"){
-      window.location.href="./index.html";
+      window.location.href="index.html";
     } else if (event.target.id === "kalenderBtn"){
-      window.location.href="./html_unterseiten/Calendar.html";
+      window.location.href="Calendar.html";
     } else if (event.target.id === "testBtn"){
       window.location.href="";
     } else if (event.target.id === "impressumBtn"){
@@ -21,15 +21,15 @@ document.addEventListener("DOMContentLoaded", function (){
 
   document.getElementById("gebBtn").addEventListener("click", function(event){
     if (event.target.id === "210btn"){
-      window.location.href="./html_unterseiten/geb_210.html";
+      window.location.href="geb_210.html";
     } else if (event.target.id === "207btn"){
-      window.location.href="./html_unterseiten/geb_207.html";
+      window.location.href="geb_207.html";
     } else if (event.target.id === "206btn"){
-      window.location.href="./html_unterseiten/geb_206.html";
+      window.location.href="geb_206.html";
     } else if (event.target.id === "205btn"){
-      window.location.href="./html_unterseiten/geb_205.html";
+      window.location.href="geb_205.html";
     } else if (event.target.id === "201btn"){
-      window.location.href="./html_unterseiten/geb_201.html";
+      window.location.href="geb_201.html";
     } else{
       console.log("fehler")
     }
@@ -37,15 +37,15 @@ document.addEventListener("DOMContentLoaded", function (){
 
   document.getElementById("dots").addEventListener("click", function(event){
     if (event.target.id === "dot210"){
-      window.location.href="./html_unterseiten/geb_210.html";
+      window.location.href="./html/geb_210.html";
     } else if (event.target.id === "dot207"){
-      window.location.href="./html_unterseiten/geb_207.html";
+      window.location.href="./html/geb_207.html";
     } else if (event.target.id === "dot206"){
-      window.location.href="./html_unterseiten/geb_206.html";
+      window.location.href="./html/geb_206.html";
     } else if (event.target.id === "dot205"){
-      window.location.href="./html_unterseiten/geb_205.html";
+      window.location.href="./html/geb_205.html";
     } else if (event.target.id === "dot201"){
-      window.location.href="./html_unterseiten/geb_201.html";
+      window.location.href="./html/geb_201.html";
     } else{
       console.log("fehler")
     }
