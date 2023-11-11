@@ -38,7 +38,7 @@ a{
 
 .btn-group button {
   border-width: 2px;
-  background-color: #00336A;
+  background-color: #333;
   color: white;
   text-align: center;
   width: 25%;
@@ -126,7 +126,7 @@ a{
   width: 100%;
 }
 .list-group li {
-  background-color: #00336A;
+  background-color: #333;
   margin-top: 5%;
   color: white;
   text-align: center;
