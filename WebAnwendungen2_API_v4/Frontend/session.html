@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebAnwendungen 2 Frontend Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/sessionHandling.js"></script>
+  </head>
+  <body>
+
+    <h1>Session Handling - Datei 1</h1>
+    
+    Session Handling kann in Browsern mithilfe von JavaScript und dem localStorage Mechanismus erreicht werden.<br>
+    Wenn Sie eine Session-Variable hinzufügen/erstellen ist diese existent, so lange wie Sie die Browserinstanz offen haben, also bis alle Browser-Fenster geschlossen werden.<br>
+    Dies ist insbesondere hilfreich, wenn Sie Informationen über längere Zeit "behalten" möchten und nicht mit URL Parametern arbeiten wollen oder können.<br><br>
+
+    Weitere Infos:<br>
+    <a href="https://developer.mozilla.org/de/docs/Web/API/Window/localStorage">https://developer.mozilla.org/de/docs/Web/API/Window/localStorage</a>
+
+    <p>
+      Bitte wählen Sie einen Namen aus und klicken Sie auf "merken". Der Name wird in der Session abgelegt, sie werden zu Seite 2 geleitet und der Name wird angezeigt.
+    </p>
+
+    <select id="namen">
+      <option>Tina</option>
+      <option>Wolfgang</option>
+      <option>Simone</option>
+      <option>Michael</option>
+    </select>
+
+    <button id="senden">merken</button>
+
+    <script>
+
+      $('#senden').click(function() {
+
+        var selectedName = $('#namen').val();
+
+        console.log("Setting selected name to session: " + selectedName);
+        setSessionItem("vorname", selectedName);
+
+        console.log("Jumping to page 2");
+        location.href = 'session2.html';
+
+      });
+
+    </script>
+
+  </body>
+</html>

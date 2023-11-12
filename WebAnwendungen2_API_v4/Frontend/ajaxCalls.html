@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WebAnwendungen 2 Frontend Demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+    <body>
+
+        <h1>Beispiele zu AJAX Calls</h1>
+
+		<table>
+		<tr><td>
+				<h3>AJAX Calls</h3>
+				http://localhost:8000/api/neu<br>
+				<button id="geterror">Fehlerhafter aufruf</button><br><br>
+				
+				http://localhost:8000/api/land/gib/44<br>
+				<button id="getcountry">Lade Land mit id 44</button><br><br>
+
+				http://localhost:8000/api/mehrwertsteuer/alle<br>
+				<button id="gettaxes">Lade alle Mehrwertsteuer Einträge</button><br><br>
+				
+				http://localhost:8000/api/mehrwertsteuer<br>
+				beim senden wird ein JSON Objekt an den Service übergeben<br>
+				<button id="addtax">Füge einen neuen Mehrwertsteuereintrag hinzu</button><br><br>
+			</td>
+			<td>
+				<h3>Ergebnis</h3>
+				<div id="output"></div>
+			</td>
+		</tr>
+		</table>
+
+        <p>
+            <b>WICHTIG: Bitte lassen Sie sich auch die Browser-Konsole anzeigen</b>
+        </p>
+        
+        <script>
+        
+        $('#geterror').click(function() {
+            console.log('button geterror clicked');
+
+            $.ajax({
+                url: 'http://localhost:8000/api/neu',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                dataType: 'json'
+            }).done(function (response) {
+                console.log(response);
+                $('#output').html(response);
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                $('#output').html('Ein Fehler ist aufgetreten');
+            });
+        });
+
+        $('#getcountry').click(function() {
+            console.log('button getcountry clicked');
+
+            $.ajax({
+                url: 'http://localhost:8000/api/land/gib/44',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                dataType: 'json'
+            }).done(function (response) {
+                console.log(response);
+                $('#output').html(JSON.stringify(response));
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                $('#output').html('Ein Fehler ist aufgetreten');
+            });
+        });
+
+        $('#gettaxes').click(function() {
+            console.log('button gettaxes clicked');
+			
+			$.ajax({
+                url: 'http://localhost:8000/api/mehrwertsteuer/alle',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+				dataType: 'json'
+            }).done(function (response) {
+                console.log(response);
+                $('#output').html(JSON.stringify(response));
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                $('#output').html('Ein Fehler ist aufgetreten');
+            });
+        });
+
+		$('#addtax').click(function() {
+            console.log('button addtax clicked');
+			
+			var obj = { 'bezeichnung': 'Heute Steuer', 'steuersatz': 99.9 };
+			
+			$.ajax({
+                url: 'http://localhost:8000/api/mehrwertsteuer',
+                method: 'post',
+				contentType: 'application/json; charset=utf-8',
+                cache: false,
+				data: JSON.stringify(obj)
+            }).done(function (response) {
+                console.log(response);
+                $('#output').html(JSON.stringify(response));
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                $('#output').html('Ein Fehler ist aufgetreten');
+            });
+        });
+        
+        </script>
+    </body>
+</html>
