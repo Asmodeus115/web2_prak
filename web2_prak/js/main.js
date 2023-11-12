@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function (){
     } else if (event.target.id === "impressumBtn"){
       window.location.href="Impressum.html";
     } else if (event.target.id === "buchungenBtn"){
+      window.location.href="Calendar.html";
+    } else if (event.target.id === "ueberunsBtn"){
       window.location.href="";
     } else if (event.target.id === "210btn"){
       window.location.href="geb_210.html";
