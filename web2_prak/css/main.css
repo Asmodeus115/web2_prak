@@ -58,16 +58,23 @@ a{
 .lageplanbox{
   max-width: 100%;
   width: 65%;
-  height: 100%;
-  margin-left: 10%;
-  background: url("../img/campusplan_raeume_albstadt.jpg") center center / 90% 100% no-repeat;
+}
+#lageplan{
+  position: relative;
+  margin-left: 20%;
+  width: 80%;
+}
+
+#201svg:hover{
+  cursor: pointer;
 }
 
 .dots{
   height: 3%;
   width: 2%;
   border-radius: 100%;
-  background-color: red;
+  color: red;
+  position: relative;
 }
 
 .dots:hover{
@@ -75,30 +82,25 @@ a{
 }
 
 #dot210 {
-  position: absolute;
   left: 39%;
   top: 40%;
 }
 
 #dot207{
-  position: absolute;
   left: 1160px;
   top: 430px;
 }
 
 #dot206{
-  position: absolute;
   left: 1230px;
   top: 490px;
 }
 
 #dot205{
-  position: absolute;
   left: 990px;
   top: 406px;
 }
 #dot201{
-  position: absolute;
   left: 1150px;
   top: 630px;
 }

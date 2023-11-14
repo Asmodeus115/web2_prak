@@ -1,15 +1,10 @@
 document.addEventListener("DOMContentLoaded", function (){
-  document.addEventListener("click", function(event){
-    const x = event.clientX;
-    const y = event.clientY;
-
-    console.log("pos: X:=" + x +" Y="+ y)
-  });
-
   document.getElementById("logo").addEventListener("click", function (){
     window.location.href="index.html"
-  })
+  });
 
+
+  /*linkbuttons*/
   document.getElementById("linkleiste").addEventListener("click", function (event){
     if (event.target.id === "lageplanBtn"){
       window.location.href="index.html";
@@ -35,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function (){
       console.log("fehler")
     }
 });
-
+/*sidebarButtons*/
   document.getElementById("gebBtn").addEventListener("click", function(event){
     if (event.target.id === "210btn"){
       window.location.href="geb_210.html";
@@ -51,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function (){
       console.log("fehler")
     }
   });
-
+/*
   document.getElementById("dots").addEventListener("click", function(event){
     if (event.target.id === "dot210"){
       window.location.href="./html/geb_210.html";
@@ -67,41 +62,42 @@ document.addEventListener("DOMContentLoaded", function (){
       console.log("fehler")
     }
   });
-
-
-  console.log("HELLOOOOOOO!")
-  let loading = document.getElementById("loading-info");
-  loading.remove();
-  initApp();
-  function initApp(){
-    console.log("app geladen")
-  }
+*/
 
 });
 
+/* lageplan svg manipulation*/
+let svgObject = document.getElementById("lageplan");
+let svgDoc = svgObject.contentDocument;
+let geb201 = svgDoc.getElementById("201svg");
+let geb205 = svgDoc.getElementById("205svg");
+let geb210 = svgDoc.getElementById("210svg");
+let geb206 = svgDoc.getElementById("206svg");
 
+window.addEventListener("load", function (){
+  geb201.addEventListener("click", function ev201 (event){
 
+    window.location.href="geb_201.html"
+  })
+});
+window.addEventListener("load", function (){
+  geb206.addEventListener("click", function ev206 (event){
 
+    window.location.href="geb_206.html"
 
-const kalenderTabId = document.getElementsByClassName(""); // classennamen des elemtns eintrage
-const kalenderTabClass = document.getElementById(""); //Id des elements eintrage
-const loadingInfoId = document.getElementById("loading-info");
+  });
+});
 
-// funktion zur farbänderung
-function farbeAendern(){
- //meinElement.style.color = 'rot'
-}
-//Eventlistener
-//meinElement.addEventListener('', farbeAendern); //hier -> '' ,muss man noch eintragen was passiert, z.B. 'click' oder so
+window.addEventListener("load", function (){
+  geb210.addEventListener("click", function ev210(event){
 
-/*
-function domLoad(){
-  console.log("HELLOOOOOOO!")
-  let loading = document.getElementById("loading-info");
-  loading.remove();
-  initApp();
-}
-*/
-function initApp(){
-  console.log("app geladen")
-}
+    window.location.href="geb_210.html"
+
+  });
+});
+window.addEventListener("load", function (){
+  geb205.addEventListener("click", function ev205 (event){
+    window.location.href="geb_205.html";
+
+  });
+});

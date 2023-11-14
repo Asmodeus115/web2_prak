@@ -22,7 +22,6 @@
 </head>
 
 <body>
-  <h1 id="loading-info">bitte warten</h1>
   <div class="grid-layout">
     <div class="logobox">
       <img id="logo" src="../logo.png" alt="">
@@ -40,7 +39,8 @@
       <li class="list-group-item btn" id="201btn">201</li>
     </ul>
     <div class="lageplanbox">
-      <div class="dots" id="dots">
+      <object type="image/svg+xml" data="../img/campusplan_raeume_albstadt.svg" id="lageplan"></object>
+      <div id="dots">
         <div class="dots" id="dot210"></div>
         <div class="dots" id="dot206"></div>
         <div class="dots" id="dot205"></div>
@@ -56,7 +56,6 @@
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
-
   window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
   ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
 </script>
