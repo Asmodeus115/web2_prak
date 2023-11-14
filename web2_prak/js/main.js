@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", function (){
       window.location.href="Datenschutz.html";
     } else if (event.target.id === "impressumBtn"){
       window.location.href="Impressum.html";
+    } else if (event.target.id === "buchungenBtn"){
+      window.location.href="Calendar.html";
+    } else if (event.target.id === "ueberunsBtn"){
+      window.location.href="";
+    } else if (event.target.id === "210btn"){
+      window.location.href="geb_210.html";
+    } else if (event.target.id === "206btn"){
+      window.location.href="geb_206.html";
+    } else if (event.target.id === "205btn"){
+      window.location.href="geb_205.html";
+    } else if (event.target.id === "201btn"){
+      window.location.href="geb_201.html";
     } else{
       console.log("fehler")
     }

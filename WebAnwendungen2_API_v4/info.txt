@@ -1,0 +1,112 @@
+WebAnwendungen 2 Backend und Frontend Demo
+mit integriertem FileUpload
+Version 4.0.0, 21.02.2023
+Sommersemester 2023, HS Albstadt-Sigmaringen, INF
+
+Verzeichnisstruktur
+-------------------
+
+--> \Anleitung
+		Die Anleitung zu dieser Implementierung und weitere Informationen
+
+--> \Backend
+		Die Hauptdatei des Servers sowie Hilfsbibliotheken
+	--> \dao
+			Die Klassen, welche zum Zugriff auf die Datenbanktabellen verwendet werden
+	--> \db
+			Die SQLite Datenbankdatei und sql Dateien
+	--> \node_modules
+			Die Node.js Bibliotheken, aktualisieren mit dem Befehl "npm update"
+  --> \public
+			alle statischen Dateien wie Bilder oder PDFs welche zugreifbar sein sollen
+	--> \services
+			Die Klassen, welche die einzelnen Services umsetzen
+	
+--> \Frontend
+		Demo Dateien eines möglichen Frontends, welche das Backend verwenden und Ihnen verschiedene Möglichkeiten aufweisen
+		
+		
+Benötigte Pakete in Node.js
+---------------------------
+
+express - der Webserver selbst
+body-parser - Middleware zum Parsen von Requests
+express-fileupload - Middleware für Dateiuploads
+better-sqlite3 - Library für die SQLITE Datenbankanbindung
+cors - Middleware für CORS Requests
+morgan - Middleware zum loggen von HTTP Requests
+lodash - Middleware für Hilfsfunktionen
+nodemon - Erkennt das automatische starten der Serversoftware
+md5 - Hashing Funktionen
+luxon - Immutable data wrapper Middleware
+
+
+Wichtige Angaben in Server.js und den Services
+----------------------------------------------
+
+server.js, Zeile 35
+    hiermit wird festgelegt, dass der Server auch Dateiuploads verarbeiten kann und wie groß die maximal aufladbare Dateigröße ist
+
+in den Services kann dann über das "request" Objekt auf die Daten der Dateiuploads zugegriffen werden
+sollte z.B. im HTML Formular das Datei - Feld mit "picture" bezeichnet worden sein, steht dieses in node.js als
+    request.files.picture
+zur Verfügung
+
+
+Zur Verfügungstellung von Dateien wie PDFs und Bildern
+------------------------------------------------------
+
+server.js, Zeile 34
+    hiermit wird festgelegt, dass der Ordner "public" Dateien beinhaltet, welche aufgeladen oder hinterlegt wurden.
+    angenommen Sie hinterlegen ein Bild unter /public/bilder/abc.jpg dann lautet der Aufruf vom Client aus:
+    http://localhost:8000/bilder/abc.jpg
+
+
+Aufbau eines Datei - JSON Objektes, welches unter request.files.HTML_FELD_NAME abgerufen werden kann
+----------------------------------------------------------------------------------------------------
+
+{
+  HTML_FELD_NAME: {
+    name: 'info.txt',                   // Dateiname mit Dateiendung
+    data: <Buffer 68 74 74 70 73...>,   // Hexdaten / der Inhalt der Datei selbst
+    size: 59,                           // Dateigröße in byte
+    encoding: '7bit',                   // encoding der Datei
+    tempFilePath: '',                   // temporärer Dateipfad
+    truncated: false,                   // wurde Datei nur teilweise hochgeladen
+    mimetype: 'text/plain',             // typ der Datei
+    md5: '3cf22e21f62230adf603a7033db4cfd0',    // md5 Checksumme der Datei
+    mv: [Function: mv]                  // Funktion zum bewegen der Datei
+  }
+}
+
+der Service "dateiuploadeinzeln" zeigt, wie man einfach mit Dateiuploads arbeiten kann
+der Service "dateiuploadmehrere" kann auch mehrere Dateiuploads verarbeiten und benutzt noch eineige Hilfsfunktionen aus der Datei fileHelper.js
+
+
+Server in betrieb nehmen
+------------------------
+
+Öffnen Sie eine Node.js Kommandozeile
+Navigieren Sie in das Verzeichnis "WebAnw2Backend"
+führen Sie den befehl "npm start" aus
+
+
+		
+Wichtig:
+--------
+
+Während der Entwicklungszeit kommt es oft vor, dass Sie das Backend wegen Änderungen öfters starten müssen.
+Um hier eine Erleichterung zu haben wurde das Paket "nodemon" mit ins Projekt integriert. 
+Dieses erkennt "automatisch", wenn sich Änderungen im Code ergeben und startet den Server neu.
+Aufruf über die node.js Konsole: npm run dev
+
+Sollte die Automatik bei Änderungen versagen, können Sie den Server auch über rs und Enter in der Konsole neu starten 
+oder die Serverinstanc abbrechen und manuell neu starten.
+
+Wenn Sie mit der Entwicklung fertig sind könnnen Sie den Server im Produktiv-Modus starten mit dem Befehl:
+npm start
+	
+Dann können Sie die Dateien im Ordner WebAnw2FrontendDemo mit einem Browser ausführen
+Denken Sie daran beim Browser die Konsole sichtbar zu haben
+	
+	

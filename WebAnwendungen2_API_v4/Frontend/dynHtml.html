@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WebAnwendungen 2 Frontend Demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+    <body>
+
+        <h1>Beispiel für dynamisches HTML 1 - Code zusammenfügen</h1>
+
+        <p>
+            Achten Sie darauf, dass das Backend auf ihrem Rechner läuft und benutzbar ist!
+            <br><br>
+            Bei diesem Beispiel werden alle Mehrwertsteuer - Einträge geladen, HTML Code und die Daten in einer Hilfsvariable zusammen gefügt und ausgegeben.
+            <br><br>
+            Diese Variante nenne ich <i>Oldschool</i>. Eine weitere Möglichkeit gibt es bei jQuery, welche <a href="dynHtmlObj.html">objektorient</a> ist. Sehen Sie hierzu die andere Datei.
+            <br><br>
+            Der AJAX Aufruf und das Zusammensetzen und Anzeigen wird am Ende des Seitenaufbaus ausgeführt, ohne weiter Interaktion durch den User.
+        </p>
+
+        <br>
+        <hr>
+        <br><br>
+
+        <!-- Ziel für den dynamisch erzeigten inhalt -->
+        <div id="dyntarget"></div>
+
+        <script>      
+        
+        $(document).ready(function() {
+            console.log('Document ready, loading data from Service');
+
+            $.ajax({
+                url: 'http://localhost:8000/api/mehrwertsteuer/alle',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+				dataType: 'json'
+            }).done(function (response) {
+                console.log('Data loaded successfully');
+                console.log(response);
+
+                /* die Idee bei diesem Prinzip ist, dass HTML Code als Text angesehen wird. 
+                    Diesen können wir häppchen-weise in einer Variable zusammen setzen 
+                    und dann auch ausgeben 
+                    Hinweis: Damit man Quotes/doppelte Anführungsstriche NICHT escapen muss, 
+                    kann man bei jQuery einfache Anführungszeichen verwenden    
+                */
+                    
+                // hilfsvariable anlegen
+                var content = '';
+
+                // neuen code zusammensetzen
+                content += 'Folgende Daten wurden geladen:<br><br>';
+                content += '<table style="width:80%;border:1px solid black">';
+                content += '<tr><th>ID</th><th>Bezeichnung</th><th>Steuersatz</th></tr>';
+
+                for (i = 0; i < response.length; i++) {
+                    var obj = response[i];
+
+                    content += '<tr>';
+                    content += '<td>' + obj.id + '</td>';
+                    content += '<td>' + obj.bezeichnung + '</td>';
+                    content += '<td>' + obj.steuerSatz.toFixed(2) + ' %</td>';
+                    content += '</tr>';
+                }
+
+                content += '</table>';
+
+                // zusammengesetzen Code im Dokument ausgeben
+                $('#dyntarget').html(content);
+                
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Error occured');
+                console.log('Response Code: ' + jqXHR.status + ' - Message: ' + jqXHR.responseText);
+                alert(jqXHR.responseText);
+            });
+        });
+        
+        </script>
+    </body>
+</html>
