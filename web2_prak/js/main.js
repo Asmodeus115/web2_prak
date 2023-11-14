@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function (){
 
     console.log("pos: X:=" + x +" Y="+ y)
   });
+
+  document.getElementById("logo").addEventListener("click", function (){
+    window.location.href="index.html"
+  })
+
   document.getElementById("linkleiste").addEventListener("click", function (event){
     if (event.target.id === "lageplanBtn"){
       window.location.href="index.html";

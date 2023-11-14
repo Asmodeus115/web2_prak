@@ -17,6 +17,9 @@ html {
   line-height: 1.4;
 }
 
+#logo:hover{
+  cursor: pointer;
+}
 a{
   text-decoration: none;
   color: #dddddd;
