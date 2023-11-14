@@ -141,9 +141,6 @@ a{
 }
 
 @media (max-width: 1900px) {
-  .dots{
-    display: none;
-  }
 }
 
 @media (max-width: 960px){
