@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WebAnwendungen 2 Frontend Demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+    <body>
+
+        <h1>Galerie</h1>
+
+        <p>Hier können Sie die aufgeladenen Bilder anzeigen lassen und selbst Bilder aufladen</p>
+
+        <section id="pics"></section>
+
+        <section id="output"></section>
+
+        <p>
+            Bilder aufladen:<br>
+            <form id="uploadForm" enctype="multipart/form-data" method="post">
+                <input type="file" id="dateien" name="dateien" multiple>
+                <br><br>
+                <input type="submit" value="aufladen">
+            </form>   
+        </p>
+        
+		<script>
+        
+
+        // DB verbindung
+        $(document).ready(function() {
+            loadAndDisplayAllPictures();
+        });
+
+        function loadAndDisplayAllPictures() {
+            console.log('loading all recs from api');
+
+            $.ajax({
+                url: 'http://localhost:8000/api/galerie/alle',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                dataType: 'json'
+            }).done(function (response) {
+                console.log(response);
+                renderPictures(response);                
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                $('#output').html('Ein Fehler ist aufgetreten');
+                $('#pics').text('Keine Bilder vorhanden');
+            });
+        }
+
+
+        // 
+        function renderPictures(arr) {
+            var node = $('#pics');
+
+            node.empty();
+            
+            if (arr.length == 0) {
+                node.text('Keine Bilder vorhanden');
+                return;
+            }
+
+            node.append($('<p>').text('Anzahl Bilder: ' + arr.length));
+
+            var table = $('<table>');
+                var thead = $('<thead>')
+                                .append($('<tr>')
+                                    .append($('<th>').text('Bild'))
+                                    .append($('<th>').text('Id'))
+                                    .append($('<th>').text('Name'))
+                                    .append($('<th>').text('Größe'))
+                                    .append($('<th>').text('Typ'))
+                                    .append($('<th>').text('Erstellt am'))
+                                );
+
+                table.append(thead);
+
+                var tbody = $('<tbody>');
+
+                    $(arr).each(function(idx, item) {
+
+                        var tr = $('<tr>');
+
+                        tr.append($('<td>').html('<img src="http://localhost:8000/' + item.bildpfad + '" style="width:40%">'));
+                        tr.append($('<td>').text(item.id));
+                        tr.append($('<td>').text(item.name));
+                        tr.append($('<td>').text(item.dateigroesse));
+                        tr.append($('<td>').text(item.mimeType));
+                        //tr.append($('<td>').text(item.erstellzeitpunkt));
+                        tr.append($('<td>').text(item.localName));
+                        tbody.append(tr);
+
+                    });
+
+                table.append(tbody);
+
+            node.append(table);
+        }
+
+        $('#uploadForm').submit(function(event) {
+            console.log("form submit called");
+
+            // disable default event
+            event.preventDefault();
+
+            // only do something if some files selected
+            if ($('#dateien')[0].files.length == 0) {
+                alert('Sie haben keine Dateien ausgewählt');
+                return;
+            }
+            
+            // convert data of form to object
+            var formData = new FormData(this);
+
+            // send form with ajax
+            $.ajax({
+                url: 'http://localhost:8000/api/galerie/aufladen',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'json'
+            })
+            .done(function(response) {
+                console.log('response received, uploaded files cnt=' + response.length);
+                console.log($('#output').text(response.length + ' Datei(en) aufgeladen'));
+                if (response.length > 0)
+                    loadAndDisplayAllPictures();
+            })
+            .fail(function(xhr) {
+                console.log('error received');
+                alert('Es ist ein Fehler beim Aufladen aufgetreten');
+            });
+        });
+        
+        </script>
+    </body>
+</html>
