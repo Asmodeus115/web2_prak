@@ -40,34 +40,27 @@
             <div data-name="Sonntag" data-dayIndex="6" class="day"></div>
         </section>
 
-        <form id="bookModal">
+        <form id="bookModal" enctype="multipart/form-data" method="post">
             <h2 id="modalTitle">Raumbuchung</h2>
             <label for="name" class="descriptor">Vor- und Nachname:</label>
-            <div>
-                <input type="name" required id="bookName" name="name" class="shortInput">
-            </div>
+            <input type="name" required id="bookName" name="name" class="shortInput">
+   
             <label for="matrikel" class="descriptor">Matrikel-Nr.:</label>
-            <div>
-                <input type="text" required id="bookMatrikel" name="matrikel" class="shortInput">
-            </div>
+            <input type="text" required id="bookMatrikel" name="matrikel" class="shortInput">
+
             <label for="date" class="descriptor">Datum</label>
-            <div>
-                <input type="date" required id="bookDate" name="date" class="shortInput">
-            </div>
-            <label for="time" class="descriptor">Zeit</label>
-            <div>
-                <input type="time" required id="bookStart" name="time" class="shortInput">
+            <input type="date" required id="bookDate" name="date" class="shortInput"><br>
+
+            <label for="time" class="descriptor">Zeit</label><br>
+            <input type="time" required id="bookStart" name="time" class="shortInput">
                 —
-                <input type="time" required id="bookEnd" name="time" class="shortInput">
-            </div>
-            <label for="description" class="descriptor">Anmerkung:</label>
-            <div>
-                <textarea name="description" id="bookDescription"></textarea>
-            </div>
-            <div id="bookControls">
+            <input type="time" required id="bookEnd" name="time" class="shortInput"><br>
+
+            <div id="bookControls"><br>
                 <input type="button" id="cancelButton" value="abbrechen" class="button">
                 <input type="submit" id="submitBotton" value="buchen" class="button">
             </div>
+            
             <div id="errors"></div>
         </form>
 
@@ -83,20 +76,39 @@
 
     <script>
 
-        // DB verbindung
+        /* DB verbindung
         $(document).ready(function () {
             getloadAndDisplayAllbookings();
-        });
+        });*/
+/*
+        function getloadAndDisplayAllbookings() {
+            console.log('loading all recs from api');
+
+            $.ajax({
+                url: 'http://localhost:8000/api/buchung/alle',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                dataType: 'json'
+            }).done(function (response) {
+                console.log(response);
+                renderPictures(response);                
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                $('#errors').html('Ein Fehler ist aufgetreten');
+                $('#pics').text('Keine Buchungen vorhanden');
+            });
+        }
 
 
-        function getInfos(arr) {
-           
 
-            /*
+        function getInfos(arr) { 
+
+          
             if (arr.length == 0) {
                 node.text('Keine Bilder vorhanden');
                 return;
-            }*/
+            }
 
             const matrikel_Nr = document.getElementById("bookMatrikel");
             const datum = document.getElementById("bookDate");
@@ -106,9 +118,9 @@
 
         }
 
-        //-------------------
+        /*-------------------
 
-        function loadAndDisplayAllbookings() {
+        function postData() {
             console.log('loading all recs from api');
 
             $.ajax({
@@ -124,25 +136,24 @@
 
             }).fail(function (jqXHR, statusText, error) {
                 console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
-                $('#output').html('Ein Fehler ist aufgetreten');
-                $('#pics').text('Keine Bilder vorhanden');
+                //$('#output').html('Ein Fehler ist aufgetreten');
+                //$('#pics').text('Keine Bilder vorhanden');
             });
         }
 
-
-
+        */
 
         //-------------------------------------------------------------------
 
-        $('#uploadForm').submit(function (event) {
+        $('#bookModal').submit(function (event) {
             console.log("form submit called");
 
             // disable default event
             event.preventDefault();
 
             // only do something if some files selected
-            if ($('#dateien')[0].files.length == 0) {
-                alert('Sie haben keine Dateien ausgewählt');
+            if ($('#bookMatrikel').length == 0) {
+                alert('Sie haben keine MAtrikelnummer eingegeben');
                 return;
             }
 
@@ -151,7 +162,7 @@
 
             // send form with ajax
             $.ajax({
-                url: 'http://localhost:8000/api/galerie/aufladen',
+                url: 'http://localhost:8000/api/buchung/aufladen',
                 type: 'POST',
                 data: formData,
                 contentType: false,
@@ -162,8 +173,7 @@
                 .done(function (response) {
                     console.log('response received, uploaded files cnt=' + response.length);
                     console.log($('#output').text(response.length + ' Datei(en) aufgeladen'));
-                    if (response.length > 0)
-                        loadAndDisplayAllPictures();
+
                 })
                 .fail(function (xhr) {
                     console.log('error received');
