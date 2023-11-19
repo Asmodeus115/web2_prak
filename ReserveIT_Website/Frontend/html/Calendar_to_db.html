@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buchungsplan</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> <!-- Mit font-awsome kann man sehr einfach items einfügen-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- Mit font-awsome kann man sehr einfach items einfügen-->
     <link rel="stylesheet" href="../css/CalendarStyle.css">
 </head>
+
 <body>
     <main>
         <header class="header">
@@ -59,7 +62,7 @@
             </div>
             <label for="description" class="descriptor">Anmerkung:</label>
             <div>
-                <textarea name="description" id="bookDescription" ></textarea>
+                <textarea name="description" id="bookDescription"></textarea>
             </div>
             <div id="bookControls">
                 <input type="button" id="cancelButton" value="abbrechen" class="button">
@@ -77,5 +80,101 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/CalendarMain.js" type="module"></script> <!-- Um import und export benutzen zu können-->
 
+
+    <script>
+
+        // DB verbindung
+        $(document).ready(function () {
+            getloadAndDisplayAllbookings();
+        });
+
+
+        function getInfos(arr) {
+           
+
+            /*
+            if (arr.length == 0) {
+                node.text('Keine Bilder vorhanden');
+                return;
+            }*/
+
+            const matrikel_Nr = document.getElementById("bookMatrikel");
+            const datum = document.getElementById("bookDate");
+            const startzeit = document.getElementById("bookStart");
+            const endzeit = document.getElementById("bookEnd");
+
+
+        }
+
+        //-------------------
+
+        function loadAndDisplayAllbookings() {
+            console.log('loading all recs from api');
+
+            $.ajax({
+                url: 'http://localhost:8000/api/buchung/alle',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                dataType: 'json'
+            }).done(function (response) {
+                console.log(response);
+                getInfos(response);
+
+
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                $('#output').html('Ein Fehler ist aufgetreten');
+                $('#pics').text('Keine Bilder vorhanden');
+            });
+        }
+
+
+
+
+        //-------------------------------------------------------------------
+
+        $('#uploadForm').submit(function (event) {
+            console.log("form submit called");
+
+            // disable default event
+            event.preventDefault();
+
+            // only do something if some files selected
+            if ($('#dateien')[0].files.length == 0) {
+                alert('Sie haben keine Dateien ausgewählt');
+                return;
+            }
+
+            // convert data of form to object
+            var formData = new FormData(this);
+
+            // send form with ajax
+            $.ajax({
+                url: 'http://localhost:8000/api/galerie/aufladen',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'json'
+            })
+                .done(function (response) {
+                    console.log('response received, uploaded files cnt=' + response.length);
+                    console.log($('#output').text(response.length + ' Datei(en) aufgeladen'));
+                    if (response.length > 0)
+                        loadAndDisplayAllPictures();
+                })
+                .fail(function (xhr) {
+                    console.log('error received');
+                    alert('Es ist ein Fehler beim Aufladen aufgetreten');
+                });
+        });
+
+
+
+
+    </script>
 </body>
+
 </html>
