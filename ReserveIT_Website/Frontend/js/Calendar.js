@@ -20,6 +20,8 @@ export class Calendar {
         this.calculateCurrentWeek(); /* Funktion um die Woche zu berechnen */
         this.showWeek();
         this.setupControls();
+       
+        
     }
 
     setupTimes() {
@@ -94,6 +96,18 @@ export class Calendar {
         this.mode = MODE.VIEW;
     }
 
+    addNewEvent() {
+        if (this.mode != MODE.VIEW) return;
+        this.mode = MODE.CREATE;
+        const event = new Event({
+            start: "12:00",
+            end: "13:00",
+            date: dateString(this.weekStart),
+            description: "",
+        });
+        this.openModal(event);
+    }
+
     hoverOver(hour) {
        $(`.time[data-hour=${hour}]`).addClass("currentTime");
     }
@@ -105,7 +119,7 @@ export class Calendar {
     calculateCurrentWeek() {
         const now = new Date(); // damit kriegt man das aktuelle Datum
         this.weekStart = addDays(now, -getDayIndex(now)); // Damit kriegt man den Wochenstart -> aktulles datum wird mit sovielen Tagen abgezogen wie der aktuelle ist erg. = 0 => Montag
-        this.weekEnd = addDays(this.weekStart, 6);
+        this.weekEnd = addDays(this.weekStart, 5);
     }
 
     showWeek() { // Funktion zeigt aktuelle Woche an
@@ -137,6 +151,7 @@ export class Calendar {
         $("#nextWeekBtn").click(() => this.changeWeek(1)); // wechselt vorwaerts
         $("#prevWeekBtn").click(() => this.changeWeek(-1)); // wechselt rueckwaerts
         $("#cancelButton").click(() => this.closeModal());
+        $("#addButton").click(() => this.addNewEvent());
     }
 
     changeWeek(number) {
@@ -155,4 +170,5 @@ export class Calendar {
     hideCurrentDay() {
         $(".day").removeClass("currentDay");
     }
+    
 }
