@@ -32,6 +32,14 @@ input, textarea{
     border: none;
 }
 
+.calendararea {
+    width: 85%;
+    margin: 20px 0 0 70px;
+    padding: 0px 20px 20px 20px;
+    border: 2px solid var(--grid-color);
+    border-radius: 20px;
+}
+
 /* header */
 
 .header{
@@ -44,8 +52,9 @@ input, textarea{
 }
 
 .header h1 {
-    color: var(--color-blue);
-    font-weight: 400;
+    color: var(--font-color);
+    font-size: 60px;
+    margin: 0;
 }
 
 .header i {
@@ -65,27 +74,26 @@ input, textarea{
 .weekControls {
     position: absolute;
     left: 20px;
-    font-size: 22px;
+    font-size: 30px;
 
 }
 
 .generalControls {
     position: absolute;
-    right: 20px;
+    right: 90px;
 }
 
 .generalControls i {
-    line-height: 25px;
+    line-height: 45px;
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border: 3px solid var(--time-color);
     border-radius: 50%;
-
 }
 
 .generalControls .fa-plus {
-    font-size: 20px;
+    font-size: 40px;
 }
 
 
@@ -95,7 +103,8 @@ input, textarea{
     display: flex;
     width: 100%;
     transition: opacity 200ms ease-in; /*Zeit für verschwommener Hintergrund: wird nicht plötzlich verschwommen, sondern etwas langsamer*/
-    border-bottom: 1px solid var(--grid-color);
+    border: 1px solid var(--grid-color);
+    border-radius: 6px;
 }
 
 #calendar.opaque { /* Klasse für verschommenen Hintergrund bei Terminbuchung*/
@@ -127,17 +136,13 @@ input, textarea{
     overflow: hidden;
 }
 
-.day .columnHeader {
-    border-top: 1px solid var(--grid-color);
-}
-
 .dayDisplay {
     font-size: 15px;
     color: var(--time-color);
 }
 
 .day.currentDay {
-    background-color: var(--colo-lightblue);
+    background-color: var(--colo-lightgrey);
 
 }
 
@@ -168,19 +173,20 @@ input, textarea{
 
 /* Buchungsfenster*/
 
-#bookModal {
+#bookModal, #cancelModal {
    display: none;
    position: absolute;
    background-color: white;
-   border-radius: 10px;
+   border-radius: 20px;
    box-shadow: 0px 0px 20px var(--shadow-color);
    left: 50%;
    top: 50%;
    transform: translate(-50%, -50%);
    z-index: 10; /* sorgt dafuer, dass es ueber allem anderen ist*/
-   padding: 20px;
-   width: 450px;
+   padding: 30px;
+   width: 20%;
    min-width: 250px;
+   height: 63%;
 }
 
 #errors {
@@ -206,7 +212,7 @@ input, textarea{
     border-bottom: 1px solid var(--font-color);
 }
 
-#bookName, #bookMatrikel {
+#bookName, #bookEmail, #bookMatrikel, #bookVerifizierung {
     width: 95%;
 }
 
@@ -221,9 +227,8 @@ input, textarea{
 #bookDescription {
     border: 1px solid var(--grid-color);
     width: 95%;
-    height: 170px;
-    resize: vertical;
-    min-height: 40px;
+    height: 100px;
+    resize: none;
     padding: 4px;
 }
 
@@ -232,13 +237,33 @@ input, textarea{
 }
 
 .button {
+    position: absolute;
+    bottom: 10px;
     padding: 10px 20px;
-    background-color: var(--color-blue);
+    background-color: var(--font-color);
     color: white;
     cursor: pointer;
-    margin-right: 12px;
+    border-radius: 10px;
+    width: 120px;
+}
+
+#submitButton, #stornoButton {
+    right: 50px;
 }
 
 .button:hover, .button:focus {
-    opacity: 0.8;
+    opacity: 0.9;
 }
+
+
+/* Stornofenster */
+
+#cancelEventinfo {
+    border: 1px solid var(--grid-color);
+    width: 95%;
+    height: 250px;
+    resize: none;
+    padding: 4px;
+}
+
+ 
