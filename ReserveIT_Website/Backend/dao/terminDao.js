@@ -1,5 +1,5 @@
 const helper = require('../helper.js');
-const FirmaDao = require('./firmaDao.js');
+const FirmaDao = require('./b_calendarDoa.js');
 
 class TerminDao {
 

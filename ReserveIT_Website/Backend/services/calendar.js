@@ -1,7 +1,7 @@
 const helper = require('../helper.js');
 const fileHelper = require('../fileHelper.js');
 const path = require('path');
-const GalerieDao = require('../dao/galerieDao.js');
+const GalerieDao = require('../dao/calendarDao.js');
 const express = require('express');
 var serviceRouter = express.Router();
 
@@ -24,7 +24,7 @@ serviceRouter.get('/galerie/gib/:id', function(request, response) {
 */
 
 
-serviceRouter.get('/Buchung/alle', function(request, response) {
+serviceRouter.get('/buchung/alle', function(request, response) {
     console.log('Service Galerie: Client requested all records');
 
     const galerieDao = new GalerieDao(request.app.locals.dbConnection);
