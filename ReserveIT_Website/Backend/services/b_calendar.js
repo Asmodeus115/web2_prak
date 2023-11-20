@@ -16,7 +16,6 @@ console.log('- Service Calendar');
 
 
 
-
 serviceRouter.post('/buchung/aufladen', async(request, response) => {
     console.log('Service Buchung: upload einer Buchung');
     const calendarDoa = new calendarDoa(request.app.locals.dbConnection);

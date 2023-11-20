@@ -7,6 +7,7 @@ var serviceRouter = express.Router();
 
 console.log('- Service Galerie');
 
+/*
 serviceRouter.get('/galerie/gib/:id', function(request, response) {
     console.log('Service Galerie: Client requested one record, id=' + request.params.id);
 
@@ -20,8 +21,10 @@ serviceRouter.get('/galerie/gib/:id', function(request, response) {
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
     }
 });
+*/
 
-serviceRouter.get('/galerie/alle', function(request, response) {
+
+serviceRouter.get('/Buchung/alle', function(request, response) {
     console.log('Service Galerie: Client requested all records');
 
     const galerieDao = new GalerieDao(request.app.locals.dbConnection);
@@ -35,6 +38,7 @@ serviceRouter.get('/galerie/alle', function(request, response) {
     }
 });
 
+/*
 serviceRouter.get('/galerie/existiert/:id', function(request, response) {
     console.log('Service Galerie: Client requested check, if record exists, id=' + request.params.id);
 
@@ -49,9 +53,12 @@ serviceRouter.get('/galerie/existiert/:id', function(request, response) {
     }
 });
 
+*/
+
 serviceRouter.post('/galerie', function(request, response) {
     console.log('Service Galerie: Client requested creation of new record');
 
+    /*
     var errorMsgs=[];
     if (helper.isUndefined(request.body.name)) 
         errorMsgs.push('name fehlt');
@@ -76,11 +83,12 @@ serviceRouter.post('/galerie', function(request, response) {
         response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
         return;
     }
+    */
 
     const galerieDao = new GalerieDao(request.app.locals.dbConnection);
     try {
-        var obj = galerieDao.create(request.body.name, request.body.dateigroesse, request.body.mimeType, request.body.bildpfad, request.body.erstellzeitpunkt);
-        console.log('Service Galerie: Record inserted');
+        var obj = galerieDao.create(request.body.RaumID, request.body.BenutzerID, request.body.Startzeit, request.body.Endzeit, request.body.BuchungsCode);
+        console.log('Service Buchung: Record inserted');
         response.status(200).json(obj);
     } catch (ex) {
         console.error('Service Galerie: Error creating new record. Exception occured: ' + ex.message);
@@ -88,6 +96,7 @@ serviceRouter.post('/galerie', function(request, response) {
     }    
 });
 
+/*
 serviceRouter.put('/galerie', function(request, response) {
     console.log('Service Galerie: Client requested update of existing record');
 
@@ -213,5 +222,6 @@ serviceRouter.post('/galerie/aufladen', async(request, response) => {
     }
     
 });
+*/
 
 module.exports = serviceRouter;

@@ -1,6 +1,7 @@
 const helper = require('../helper.js');
 const TerminDao = require('../dao/terminDao.js');
 const express = require('express');
+const GalerieDao = require('../dao/galerieDao.js');
 var serviceRouter = express.Router();
 
 console.log('- Service Termin');
@@ -22,7 +23,7 @@ serviceRouter.get('/termin/gib/:id', function(request, response) {
 serviceRouter.get('/termin/alle', function(request, response) {
     console.log('Service Termin: Client requested all records');
 
-    const terminDao = new TerminDao(request.app.locals.dbConnection);
+    const terminDao = new GalerieDao(request.app.locals.dbConnection);
     try {
         var arr = terminDao.loadAll();
         console.log('Service Termin: Records loaded, count=' + arr.length);

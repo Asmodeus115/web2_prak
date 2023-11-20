@@ -11,20 +11,21 @@ class GalerieDao {
     }
 
     loadById(id) {
-        var sql = 'SELECT * FROM Galerie WHERE id=?';
+        var sql = 'SELECT * FROM Buchung WHERE id=?';
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 
         if (helper.isUndefined(result)) 
             throw new Error('No Record found by id=' + id);
 
-        result.erstellzeitpunkt = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result.erstellzeitpunkt));
+        result.Endzeit = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result.Endzeit));
+        result.Startzeit = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result.Startzeit));
 
         return result;
     }
 
     loadAll() {
-        var sql = 'SELECT * FROM Galerie';
+        var sql = 'SELECT * FROM Buchung';
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 
@@ -32,14 +33,15 @@ class GalerieDao {
             return [];
 
         for (var i = 0; i < result.length; i++) {
-            result[i].erstellzeitpunkt = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result[i].erstellzeitpunkt));
+            result[i].Startzeit = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result[i].Startzeit));
+            result[i].Endzeit = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result[i].Endzeit));
         }
         
         return result;
     }
 
     exists(id) {
-        var sql = 'SELECT COUNT(id) AS cnt FROM Galerie WHERE id=?';
+        var sql = 'SELECT COUNT(id) AS cnt FROM Buchung WHERE id=?';
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 
@@ -49,11 +51,11 @@ class GalerieDao {
         return false;
     }
 
-    create(name = '', dateigroesse = 0, mimeType = '', bildpfad = '', erstellzeitpunkt = null) {
+    create( RaumID=null , BenutzerID=null , Startzeit=null, Endzeit=null, BuchungsCode='' ) {
         
-        var sql = 'INSERT INTO Galerie (name,dateigroesse,mimeType,bildpfad,erstellzeitpunkt) VALUES (?,?,?,?,?)';
+        var sql = 'INSERT INTO Buchung (BuchungID,RaumID,BenutzerID,Startzeit,Endzeit,BuchungsCode) VALUES (?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [name, dateigroesse, mimeType, bildpfad, helper.formatToSQLDateTime(erstellzeitpunkt)];
+        var params = [RaumID, BenutzerID, helper.formatToSQLDateTime(Startzeit), helper.formatToSQLDateTime(Endzeit), BuchungsCode];
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -62,10 +64,10 @@ class GalerieDao {
         return this.loadById(result.lastInsertRowid);
     }
 
-    update(id, name = '', dateigroesse = 0, mimeType = '', bildpfad = '', erstellzeitpunkt = null) {
-        var sql = 'UPDATE Galerie SET name=?,dateigroesse=?,mimeType=?,bildpfad=?,erstellzeitpunkt=? WHERE id=?';
+    update(BuchungID, RaumID , BenutzerID , Startzeit = null, Endzeit = null, BuchungsCode = '') {
+        var sql = 'UPDATE Buchung SET  RaumID=? , BenutzerID=?, Startzeit = ?, Endzeit =?, BuchungsCode = ? WHERE BuchungID=?';
         var statement = this._conn.prepare(sql);
-        var params = [name, dateigroesse, mimeType, bildpfad, helper.formatToSQLDateTime(erstellzeitpunkt), id];
+        var params = [RaumID , BenutzerID ,helper.formatToSQLDateTime(Startzeit), helper.formatToSQLDateTime(Endzeit), BuchungsCode, BuchungID];
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -76,7 +78,7 @@ class GalerieDao {
 
     delete(id) {
         try {
-            var sql = 'DELETE FROM Galerie WHERE id=?';
+            var sql = 'DELETE FROM Buchung WHERE id=?';
             var statement = this._conn.prepare(sql);
             var result = statement.run(id);
 
