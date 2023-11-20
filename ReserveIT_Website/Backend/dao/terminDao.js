@@ -14,14 +14,14 @@ class TerminDao {
     loadById(id) {
         const firmaDao = new FirmaDao(this._conn);
 
-        var sql = 'SELECT * FROM Termin WHERE id=?';
-        var statement = this._conn.prepare(sql);
-        var result = statement.get(id);
+        const sql = 'SELECT * FROM Termin WHERE id=?';
+        const statement = this._conn.prepare(sql);
+        const result = statement.get(id);
 
         if (helper.isUndefined(result)) 
             throw new Error('No Record found by id=' + id);
 
-        var dt = helper.parseSQLDateTimeString(result.zeitpunkt);
+        const dt = helper.parseSQLDateTimeString(result.zeitpunkt);
         result.zeitpunkt = helper.formatToGermanDateTime(dt);
         result.millisekunden = { 'von': helper.formatToMilliseconds(dt), 'bis': helper.formatToMilliseconds(helper.modifyDateTime(dt, 0, 0, 0, 0, result.dauer, 0)), 'dauer': (result.dauer * 60 * 1000) };
 
@@ -38,9 +38,9 @@ class TerminDao {
     loadAll() {
         const firmaDao = new FirmaDao(this._conn);
 
-        var sql = 'SELECT * FROM Termin';
-        var statement = this._conn.prepare(sql);
-        var result = statement.all();
+        const sql = 'SELECT * FROM Termin';
+        const statement = this._conn.prepare(sql);
+        const result = statement.all();
 
         if (helper.isArrayEmpty(result)) 
             return [];
