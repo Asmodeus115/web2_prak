@@ -19,7 +19,7 @@ try {
     console.log('Connect database...');
     const Database = require('better-sqlite3');
     const dbOptions = { verbose: console.log };
-    const dbFile = './db/webanw2.sqlite';
+    const dbFile = './db/ReserveIT_db_v2.sqlite';
     const dbConnection = new Database(dbFile, dbOptions);
 
     // create server
