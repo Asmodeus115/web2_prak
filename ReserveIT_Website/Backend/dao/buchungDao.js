@@ -1,6 +1,6 @@
 const helper = require('../helper.js');
 
-class GalerieDao {
+class BuchungDao {
 
     constructor(dbConnection) {
         this._conn = dbConnection;
@@ -18,8 +18,12 @@ class GalerieDao {
         if (helper.isUndefined(result)) 
             throw new Error('No Record found by id=' + id);
 
-        result.Endzeit = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result.Endzeit));
-        result.Startzeit = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result.Startzeit));
+
+        var startzeit = helper.parseSQLDateTimeString(result.Startzeit);
+        result.Startzeit = helper.formatToGermanDateTime(startzeit);
+
+        var endzeit = helper.parseSQLDateTimeString(result.Endzeit);
+        result.Endzeit = helper.formatToGermanDateTime(endzeit);
 
         return result;
     }
@@ -33,10 +37,14 @@ class GalerieDao {
             return [];
 
         for (var i = 0; i < result.length; i++) {
-            result[i].Startzeit = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result[i].Startzeit));
-            result[i].Endzeit = helper.formatToGermanDateTime(helper.parseSQLDateTimeString(result[i].Endzeit));
+            var startzeit = helper.parseSQLDateTimeString(result[i].Startzeit);
+            result[i].Startzeit = helper.formatToGermanDateTime(startzeit);
+
+            var endzeit = helper.parseSQLDateTimeString(result[i].Endzeit);
+            result[i].Endzeit = helper.formatToGermanDateTime(endzeit);
         }
         
+            
         return result;
     }
 
@@ -51,23 +59,22 @@ class GalerieDao {
         return false;
     }
 
-    create( RaumID=null , BenutzerID=null , Startzeit=null, Endzeit=null, BuchungsCode='' ) {
-        
-        var sql = 'INSERT INTO Buchung (BuchungID,RaumID,BenutzerID,Startzeit,Endzeit,BuchungsCode) VALUES (?,?,?,?,?)';
+    create(RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode) {
+        var sql = 'INSERT INTO Buchung (RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode) VALUES (?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [RaumID, BenutzerID, helper.formatToSQLDateTime(Startzeit), helper.formatToSQLDateTime(Endzeit), BuchungsCode];
+        var params = [RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode];
         var result = statement.run(params);
 
         if (result.changes != 1) 
             throw new Error('Could not insert new Record. Data: ' + params);
 
-        return this.loadById(result.lastInsertRowid);
+        return this.loadById(result.lastInsertRowPersonID);
     }
 
-    update(BuchungID, RaumID , BenutzerID , Startzeit = null, Endzeit = null, BuchungsCode = '') {
-        var sql = 'UPDATE Buchung SET  RaumID=? , BenutzerID=?, Startzeit = ?, Endzeit =?, BuchungsCode = ? WHERE BuchungID=?';
+    update(id,RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode) {
+        var sql = 'UPDATE Buchung SET RaumID=?, BenutzerID=?, Startzeit=?, Endzeit=?, BuchungCode=? WHERE id=?';
         var statement = this._conn.prepare(sql);
-        var params = [RaumID , BenutzerID ,helper.formatToSQLDateTime(Startzeit), helper.formatToSQLDateTime(Endzeit), BuchungsCode, BuchungID];
+        var params = [RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, id];
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -83,17 +90,29 @@ class GalerieDao {
             var result = statement.run(id);
 
             if (result.changes != 1) 
-                throw new Error('Could not delete Record by id=' + id);
+                throw new Error('Could not delete Record by PersonID=' + id);
 
             return true;
         } catch (ex) {
-            throw new Error('Could not delete Record by id=' + id + '. Reason: ' + ex.message);
+            throw new Error('Could not delete Record by PersonID=' + id + '. Reason: ' + ex.message);
         }
     }
 
     toString() {
-        console.log('GalerieDao [_conn=' + this._conn + ']');
+        console.log('MenschDao [_conn=' + this._conn + ']');
     }
+
+
 }
 
-module.exports = GalerieDao;
+module.exports = BuchungDao;
+
+
+
+
+
+
+
+
+
+
