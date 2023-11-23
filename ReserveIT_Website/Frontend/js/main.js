@@ -21,7 +21,7 @@ if(window.location.pathname === "/web2_prak/ReserveIT_Website/Frontend/html/inde
 
   /*sidebarButtons index.html*/
 
-}else{
+}
   /*linkleiste gebaeude*/
   const links206 = document.querySelectorAll(".btn206");
   const links201 = document.querySelectorAll(".btn201");
@@ -56,9 +56,7 @@ if(window.location.pathname === "/web2_prak/ReserveIT_Website/Frontend/html/inde
         window.location.href="geb_210.html";
       });
     });
-  }
   /*sidebarButtons gebaeude*/
-
 
 }
   const logos = document.querySelectorAll(".logo");
