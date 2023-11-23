@@ -19,7 +19,7 @@ try {
     console.log('Connect database...');
     const Database = require('better-sqlite3');
     const dbOptions = { verbose: console.log };
-    const dbFile = './db/webanw2.sqlite';
+    const dbFile = './db/ReserveIT_db_v2.sqlite';
     const dbConnection = new Database(dbFile, dbOptions);
 
     // create server
@@ -60,13 +60,16 @@ try {
     const TOPLEVELPATH = '/api';
     console.log('Binding enpoints, top level Path at ' + TOPLEVELPATH);
     
-    var serviceRouter = require('./services/calendar.js');
+    var serviceRouter = require('./services/buchung.js');
     app.use(TOPLEVELPATH, serviceRouter);
 /*
     serviceRouter = require('./services/adresse.js');
     app.use(TOPLEVELPATH, serviceRouter);
-*/
 
+    serviceRouter = require('./services/person.js');
+    app.use(TOPLEVELPATH, serviceRouter);
+*/
+    
     // send default error message if no matching endpoint found
     app.use(function (request, response) {
         console.log('Error occured, 404, resource not found');
