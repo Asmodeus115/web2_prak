@@ -1,103 +1,75 @@
-document.addEventListener("DOMContentLoaded", function (){
-  document.getElementById("logo").addEventListener("click", function (){
-    window.location.href="index.html"
-  });
 
-
-  /*linkbuttons*/
-  document.getElementById("linkleiste").addEventListener("click", function (event){
-    if (event.target.id === "lageplanBtn"){
-      window.location.href="index.html";
-    } else if (event.target.id === "kalenderBtn"){
-      window.location.href="Calendar.html";
-    } else if (event.target.id === "datenschutzBtn"){
-      window.location.href="Datenschutz.html";
-    } else if (event.target.id === "impressumBtn"){
-      window.location.href="Impressum.html";
-    } else if (event.target.id === "buchungenBtn"){
-      window.location.href="Calendar.html";
-    } else if (event.target.id === "ueberunsBtn"){
-      window.location.href="";
-    } else if (event.target.id === "210btn"){
-      window.location.href="geb_210.html";
-    } else if (event.target.id === "206btn"){
-      window.location.href="geb_206.html";
-    } else if (event.target.id === "205btn"){
-      window.location.href="geb_205.html";
-    } else if (event.target.id === "201btn"){
-      window.location.href="geb_201.html";
-    } else{
-      console.log("fehler")
-    }
-});
-/*sidebarButtons*/
-  document.getElementById("gebBtn").addEventListener("click", function(event){
-    if (event.target.id === "210btn"){
-      window.location.href="geb_210.html";
-    } else if (event.target.id === "207btn"){
-      window.location.href="geb_207.html";
-    } else if (event.target.id === "206btn"){
-      window.location.href="geb_206.html";
-    } else if (event.target.id === "205btn"){
-      window.location.href="geb_205.html";
-    } else if (event.target.id === "201btn"){
-      window.location.href="geb_201.html";
-    } else{
-      console.log("fehler")
+/*linkleiste index.html*/
+if(window.location.pathname === "/web2_prak/ReserveIT_Website/Frontend/html/index.html"){
+  document.getElementById("linkleisteMain").addEventListener("click", function (event){
+    if (event.target.id === "lageplanBtn") {
+      window.location.href = "index.html";
+    } else if (event.target.id === "kalenderBtn") {
+      window.location.href = "Calendar.html";
+    } else if (event.target.id === "datenschutzBtn") {
+      window.location.href = "Datenschutz.html";
+    } else if (event.target.id === "impressumBtn") {
+      window.location.href = "Impressum.html";
+    } else if (event.target.id === "buchungenBtn") {
+      window.location.href = "Calendar.html";
+    } else if (event.target.id === "ueberunsBtn") {
+      window.location.href = "";
+    } else {
+      console.log("fehler linkleiste")
     }
   });
-/*
-  document.getElementById("dots").addEventListener("click", function(event){
-    if (event.target.id === "dot210"){
-      window.location.href="./html/geb_210.html";
-    } else if (event.target.id === "dot207"){
-      window.location.href="./html/geb_207.html";
-    } else if (event.target.id === "dot206"){
-      window.location.href="./html/geb_206.html";
-    } else if (event.target.id === "dot205"){
-      window.location.href="./html/geb_205.html";
-    } else if (event.target.id === "dot201"){
-      window.location.href="./html/geb_201.html";
-    } else{
-      console.log("fehler")
-    }
-  });
-*/
 
-});
+  /*sidebarButtons index.html*/
 
-/* lageplan svg manipulation*/
-let svgObject = document.getElementById("lageplan");
-let svgDoc = svgObject.contentDocument;
-let geb201 = svgDoc.getElementById("201svg");
-let geb205 = svgDoc.getElementById("205svg");
-let geb210 = svgDoc.getElementById("210svg");
-let geb206 = svgDoc.getElementById("206svg");
+}else{
+  /*linkleiste gebaeude*/
+  const links206 = document.querySelectorAll(".btn206");
+  const links201 = document.querySelectorAll(".btn201");
+  const links210 = document.querySelectorAll(".btn210");
+  const links205 = document.querySelectorAll(".btn205");
 
-window.addEventListener("load", function (){
-  geb201.addEventListener("click", function ev201 (event){
+  if (links201.length>0){
+    links201.forEach(link =>{
+      link.addEventListener("click",() =>{
+        window.location.href="geb_201.html";
+      });
+    });
+  }
+  if (links206.length>0){
+    links206.forEach(link =>{
+      link.addEventListener("click",() =>{
+        window.location.href="geb_206.html";
+      });
+    });
+  }
+  if (links205.length>0){
+    links205.forEach(link =>{
+      link.addEventListener("click",() =>{
+        window.location.href="geb_205.html";
+        console.log("oha1")
+      });
+    });
+  }
+  if (links210.length>0){
+    links210.forEach(link =>{
+      link.addEventListener("click",() =>{
+        window.location.href="geb_210.html";
+      });
+    });
+  }
+  /*sidebarButtons gebaeude*/
 
-    window.location.href="geb_201.html"
-  })
-});
-window.addEventListener("load", function (){
-  geb206.addEventListener("click", function ev206 (event){
 
-    window.location.href="geb_206.html"
+}
+  const logos = document.querySelectorAll(".logo");
 
-  });
-});
+  if (logos.length>0){
+    logos.forEach(logo =>{
+      logo.addEventListener('click', () =>{
+        window.location.href="index.html";
+      });
+    });
+  }else {
+    console.log("fehler logo")
+  }
 
-window.addEventListener("load", function (){
-  geb210.addEventListener("click", function ev210(event){
-
-    window.location.href="geb_210.html"
-
-  });
-});
-window.addEventListener("load", function (){
-  geb205.addEventListener("click", function ev205 (event){
-    window.location.href="geb_205.html";
-
-  });
-});

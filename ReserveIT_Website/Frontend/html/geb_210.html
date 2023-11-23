@@ -19,17 +19,18 @@
     <link rel="stylesheet" href="../css/main.css" type="text/css">
 
     <meta name="theme-color" content="#fafafa">
+
 </head>
 
 <body>
     <div class="grid-layout">
       <div class="logobox">
-        <img id="logo" src="../logo.png" alt="">
+        <img class="logo" src="../logo.png" alt="">
       </div>
       <div class="btn-group" role="group" id="linkleiste">
-        <button class="list-group-item btn" type="button" id="206btn">206</button>
-        <button class="list-group-item btn" type="button" id="205btn">205</button>
-        <button class="list-group-item btn" type="button" id="201btn">201</button>
+        <button class="list-group-item btn btn205" type="button">210</button>
+        <button class="list-group-item btn btn206" type="button">206</button>
+        <button class="list-group-item btn btn201" type="button">205</button>
       </div>
       <!-- Eine Navigationsleiste (links) mit Links zu den Etagen -->
         <ul class="list-group" id="etageBtn210">
@@ -37,22 +38,11 @@
           <li class="list-group-item btn" id="og-210">1.OG</li>
           <li class="list-group-item btn" id="og2-210">2.OG</li>
         </ul>
-      <!-- Ein div-Element, das das Bild anzeigt -->
-      <div id="bildContainer">
-        <img id="standardbild" alt="test" src="../img/210_EG.jpg">
-      </div>
+        <object class="svg" type="image/svg+xml" data="../img/210_eg.svg" id="standardbild"></object>
     </div>
-
-
-    <script src="../js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="../js/plugins.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/Geb_210_replacing_img.js"></script>
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
+    <script src="../js/main.js" async></script>
+    <script src="../js/Geb_210_replacing_img.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 
 </html>
