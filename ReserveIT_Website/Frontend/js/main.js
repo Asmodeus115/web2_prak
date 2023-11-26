@@ -13,8 +13,12 @@ if(window.location.pathname === "/web2_prak/ReserveIT_Website/Frontend/html/inde
     } else if (event.target.id === "buchungenBtn") {
       window.location.href = "Calendar.html";
     } else if (event.target.id === "ueberunsBtn") {
-      window.location.href = "";
-    } else {
+      window.location.href = "ueberuns.html";
+    } else if (event.target.id === "kontaktBtn") {
+      window.location.href = "kontakt.html";
+    } else if (event.target.id === "anfahrtBtn") {
+      window.location.href = "https://maps.app.goo.gl/uSkcTxGHvDX1AJY8A";
+    }else {
       console.log("fehler linkleiste")
     }
   });
