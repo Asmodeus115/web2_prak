@@ -1,6 +1,6 @@
 
 /*linkleiste index.html*/
-if(window.location.pathname === "/web2_prak/ReserveIT_Website/Frontend/html/index.html"){
+if(window.location.pathname.includes("index.html")){
   document.getElementById("linkleisteMain").addEventListener("click", function (event){
     if (event.target.id === "lageplanBtn") {
       window.location.href = "index.html";
