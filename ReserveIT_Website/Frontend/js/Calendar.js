@@ -1,4 +1,4 @@
-import { getDayIndex, addDays, dateString} from "./CalendarHelper.js";
+import { getDayIndex, addDays, dateString } from "./CalendarHelper.js";
 
 const MODE = {
     VIEW: 1,
@@ -7,7 +7,7 @@ const MODE = {
 }
 
 export class Calendar {
-    constructor(){
+    constructor() {
         this.mode = MODE.VIEW;
         this.weekStart = null;
         this.weekEnd = null;
@@ -20,8 +20,8 @@ export class Calendar {
         this.calculateCurrentWeek(); /* Funktion um die Woche zu berechnen */
         this.showWeek();
         this.setupControls();
-       
-        
+
+
     }
 
     setupTimes() {
@@ -84,8 +84,11 @@ export class Calendar {
         $("#bookModal").fadeIn(200);
         $("#bookName").focus();
         $("#calendar").addClass("opaque");
+        $("#bookStart").val(event.start);
+
         $("#bookModal").submit((e) => {
             e.preventDefault();
+
         })
     }
 
@@ -109,10 +112,10 @@ export class Calendar {
     }
 
     hoverOver(hour) {
-       $(`.time[data-hour=${hour}]`).addClass("currentTime");
+        $(`.time[data-hour=${hour}]`).addClass("currentTime");
     }
 
-    hoverOut(){
+    hoverOut() {
         $(".time").removeClass("currentTime");
     }
 
@@ -130,7 +133,7 @@ export class Calendar {
         };
         $("#weekStartDisplay").text(this.weekStart.toLocaleDateString(undefined, options)); //toLocalDateString(ort, datumsformat)
         $("#weekEndDisplay").text(this.weekEnd.toLocaleDateString(undefined, options));
-        for (let dayIndex=0; dayIndex < 7; dayIndex++) {    // Datum wird in den einzelnen spalten unter jedem Wochentag geschrieben
+        for (let dayIndex = 0; dayIndex < 7; dayIndex++) {    // Datum wird in den einzelnen spalten unter jedem Wochentag geschrieben
             const date = addDays(this.weekStart, dayIndex);
             const display = date.toLocaleDateString(undefined, {
                 month: "2-digit",
@@ -170,5 +173,5 @@ export class Calendar {
     hideCurrentDay() {
         $(".day").removeClass("currentDay");
     }
-    
+
 }
