@@ -1,7 +1,7 @@
 
 let bild = document.getElementById("standardbild");
 
-if(window.location.pathname === "/web2_prak/ReserveIT_Website/Frontend/html/geb_210.html"){
+if(window.location.href.indexOf('../geb210.html')){
   document.getElementById("etageBtn210").addEventListener("click", function (event) {
     console.log("hä");
     if (event.target.id === "eg-210") {
