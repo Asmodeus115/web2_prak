@@ -1,7 +1,7 @@
 
 let bild = document.getElementById("standardbild");
 
-if(window.location.href.indexOf('../geb210.html')){
+if(window.location.pathname.includes("geb_210.html")){
   document.getElementById("etageBtn210").addEventListener("click", function (event) {
     console.log("hä");
     if (event.target.id === "eg-210") {
@@ -16,7 +16,7 @@ if(window.location.href.indexOf('../geb210.html')){
   });
 }
 
-if(window.location.href.indexOf('../geb201.html')){
+if(window.location.pathname.includes("geb_201.html")){
   document.getElementById("etageBtn201").addEventListener("click", function (event) {
     console.log("hä");
     if (event.target.id === "eg-201") {
@@ -29,7 +29,7 @@ if(window.location.href.indexOf('../geb201.html')){
     }
   });
 }
-if(window.location.href.indexOf('../geb205.html')){
+if(window.location.pathname.includes("geb_205.html")){
   document.getElementById("etageBtn205").addEventListener("click", function (event) {
     if (event.target.id === "eg-205") {
       bild.data = '../img/205_eg.svg';
@@ -40,7 +40,7 @@ if(window.location.href.indexOf('../geb205.html')){
     }
   });
 }
-if(window.location.href.indexOf('../geb206.html')){
+if(window.location.pathname.includes("geb_206.html")){
   document.getElementById("etageBtn206").addEventListener("click", function (event) {
     if (event.target.id === "eg-206") {
       bild.data = '../img/206_eg.svg';
