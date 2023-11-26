@@ -2,7 +2,7 @@
 :root {
     --grid-color: #cecece; /* Farbe Fuer die Rahmen*/
     --time-color: #777; /* Farbe fuer die Zeiten*/
-    --slot-hover-color: #b3e3ae3e;
+    --slot-hover-color: rgba(80, 78, 78, 0.043);
     --shadow-color: rgba(0,0,0,0.3); /* Schatten fuer das Fenster was sich oeffnet*/
     --font-color: #222;
     --color-red: rgb(190, 35, 15);
@@ -33,16 +33,17 @@ input, textarea{
 }
 
 .calendararea {
-    width: 85%;
-    margin: 20px 0 0 70px;
+    width: 70%;
+    margin: 0 0 5% 20%;
     padding: 0px 20px 20px 20px;
     border: 2px solid var(--grid-color);
     border-radius: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* header */
 
-.header{
+.calendarheader{
     text-align: center;
     padding: 20px 10px;
     position: relative;
@@ -51,20 +52,20 @@ input, textarea{
     justify-content: center;
 }
 
-.header h1 {
+.calendarheader h1 {
     color: var(--font-color);
-    font-size: 60px;
+    font-size: 40px;
     margin: 0;
 }
 
-.header i {
+.calendarheader i {
     cursor: pointer;
     margin: 0px 5px;
     color: var(--time-color);
     transition: all 80ms linear;
 }
 
-.header i:hover {
+.calendarheader i:hover {
     color: var(--font-color);
     border-color: var(--font-color);
 }
@@ -74,7 +75,7 @@ input, textarea{
 .weekControls {
     position: absolute;
     left: 20px;
-    font-size: 30px;
+    font-size: 22px;
 
 }
 
@@ -168,7 +169,7 @@ input, textarea{
 
 .slot:hover {
     cursor: pointer;
-    background-color: var(--slot-hover-color);
+    background-color: rgba(80, 78, 78, 0.043);
 }
 
 /* Buchungsfenster*/
@@ -228,7 +229,7 @@ input, textarea{
     border: 1px solid var(--grid-color);
     width: 95%;
     height: 100px;
-    resize: none;
+    resize: inherit;
     padding: 4px;
 }
 
@@ -265,5 +266,8 @@ input, textarea{
     resize: none;
     padding: 4px;
 }
+
+
+
 
  
