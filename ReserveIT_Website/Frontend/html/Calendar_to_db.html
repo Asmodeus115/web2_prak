@@ -177,7 +177,22 @@
         $(document).ready(function () {
             getloadAndDisplayAllbookings();
         });*/
+
         /*
+
+
+        $("#bookDate").val(event.date);
+        $("#bookStart").val(event.start);
+        $("#bookEnd").val(event.end);
+        $("#bookDescription").val(event.description);
+        $("#bookModal").fadeIn(200);
+        $("#bookName").focus();
+        $("#calendar").addClass("opaque");
+        $("#bookModal").submit((e) => {
+            e.preventDefault();
+        })
+
+        
                 function getloadAndDisplayAllbookings() {
                     console.log('loading all recs from api');
         
