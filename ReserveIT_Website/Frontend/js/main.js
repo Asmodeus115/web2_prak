@@ -22,9 +22,6 @@ if(window.location.pathname === "/web2_prak/ReserveIT_Website/Frontend/html/inde
       console.log("fehler linkleiste")
     }
   });
-
-  /*sidebarButtons index.html*/
-
 }
   /*linkleiste gebaeude*/
   const links206 = document.querySelectorAll(".btn206");
