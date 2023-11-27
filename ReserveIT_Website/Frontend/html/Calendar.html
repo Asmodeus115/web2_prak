@@ -179,6 +179,18 @@
 
   <script>
 
+    function generateRandomString() {
+      var length = 8;
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var result = '';
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+
+    console.log(generateRandomString());
+
 
     $('#bookModal').submit(function (event) {
       console.log("form submit called");
@@ -188,6 +200,7 @@
       var datum = $('#bookDate').val();
       var start = $('#bookStart').val();
       var end = $('#bookEnd').val();
+      var buchungCode = generateRandomString();
 
       var startDate = datum + " " + start + ":00:00"
       var endDate = datum + " " + end + ":00:00"
@@ -200,29 +213,29 @@
 
       // convert data of form to object
       var meinObjekt = {
-        RaumID: 205,
-        BenutzerID: 102030,
+        RaumID: 1,
+        BenutzerID: 12345,
         Startzeit: startDate,
         Endzeit: endDate,
-        BuchungCode: 'abdc'
+        BuchungCode: buchungCode
       };
 
-      /* Erstellen Sie ein neues FormData-Objekt
+      // Erstellen Sie ein neues FormData-Objekt
       var formData = new FormData();
-  
+
       // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
       for (var schluessel in meinObjekt) {
-          formData.append(schluessel, meinObjekt[schluessel]);
+        formData.append(schluessel, meinObjekt[schluessel]);
       }
-      */
 
-      console.log(meinObjekt);
+
+      console.log(formData);
 
       // send form with ajax
       $.ajax({
         url: 'http://localhost:8000/api/buchung/aufladen',
         type: 'POST',
-        data: meinObjekt,
+        data: formData,
         contentType: false,
         cache: false,
         processData: false,
@@ -238,7 +251,7 @@
 
     });
 
-  
+
 
   </script>
 </body>

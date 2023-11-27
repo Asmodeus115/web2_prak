@@ -64,11 +64,11 @@ class BuchungDao {
         var statement = this._conn.prepare(sql);
         var params = [RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode];
         var result = statement.run(params);
-
+        
         if (result.changes != 1) 
             throw new Error('Could not insert new Record. Data: ' + params);
 
-        return this.loadById(result.lastInsertRowPersonID);
+        return this.loadById(result.lastInsertRowid);
     }
 
     update(id,RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode) {

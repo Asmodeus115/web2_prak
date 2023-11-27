@@ -41,6 +41,7 @@ CREATE TABLE Benutzer (
     Benutzername TEXT  NOT NULL,
     BenutzerrolleID INTEGER,
     PersonID INTEGER  NOT NULL,
+    passwort TEXT  NOT NULL,
     CONSTRAINT fk_Benutzer1 FOREIGN KEY (BenutzerrolleID) REFERENCES Benutzerrolle(id)  ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_Benutzer2 FOREIGN KEY (PersonID) REFERENCES Person(id)  ON DELETE CASCADE ON UPDATE CASCADE
 );
