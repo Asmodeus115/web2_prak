@@ -1,4 +1,5 @@
 
+
 /*linkleiste index.html*/
 if(window.location.pathname.includes("index.html")){
   document.getElementById("linkleisteMain").addEventListener("click", function (event){
