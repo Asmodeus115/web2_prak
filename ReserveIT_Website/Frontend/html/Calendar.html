@@ -200,6 +200,7 @@
       var datum = $('#bookDate').val();
       var start = $('#bookStart').val();
       var end = $('#bookEnd').val();
+      var matNr = $('#bookMatrikel').val();
       var buchungCode = generateRandomString();
 
       var startDate = datum + " " + start + ":00:00"
@@ -214,7 +215,7 @@
       // convert data of form to object
       var meinObjekt = {
         RaumID: 1,
-        BenutzerID: 12345,
+        BenutzerID: matNr,
         Startzeit: startDate,
         Endzeit: endDate,
         BuchungCode: buchungCode
