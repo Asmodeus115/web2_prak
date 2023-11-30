@@ -112,21 +112,21 @@
                 $(document).ready(function () {
                     // disable default event
                     //event.preventDefault();
-        
+
                     loadAndDisplayAllBuchungen();
                 });
-        
+
                 function zeigeBuchungen(arr) {
-        
+
                     $('#titel').html('<h1>Mein Buchungen</h1>');
                     var tmp;
-        
+
                     if (arr.length == 0) {
                         tmp.text('Keine Buchung vorhanden');
                         return;
                     }
-        
-                    
+
+
                     tmp +='<tr>';
                         tmp +=   '<th>ID</th>';
                         tmp +=   '<th>RaumID</th>';
@@ -135,15 +135,15 @@
                         tmp +=  '<th>Endzeit</th>';
                         tmp +=  '<th>BuchungCode</th>';
                         tmp += '</tr>';
-        
+
                     console.log("log test");
                     //$('#schriebOrt').html('<h1>Überschrift</h1>');
                     //$('#schriebOrt').append('<h1>Überschrift</h1>');
                     //$('#schriebOrt').text('<h1>Überschrift</h1>');
                     //fgdfh
                     //dfdfg
-        
-        
+
+
                     arr.forEach(obj => {
                         tmp += '<tr>';
                         tmp += '<td>' + obj.id + '</td>';
@@ -155,15 +155,15 @@
                         //tmp += '<td>' + (obj.alter >= 18 ? 'erwachsen' : 'Kind') + '</td>';
                         tmp += '</tr>';
                     });
-        
+
                     $('#tabelle').html(tmp);
-        
+
                 }
-        
-        
+
+
                 function loadAndDisplayAllBuchungen() {
                     console.log('loading all recs from api');
-        
+
                     $.ajax({
                         url: 'http://localhost:8000/api/buchung/laden',
                         method: 'get',
@@ -180,8 +180,8 @@
                         $('#pics').text('Keine Bilder vorhanden');
                     });
                 }
-        
-        
+
+
         */
     </script>
 

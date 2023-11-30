@@ -12,7 +12,7 @@
   <meta property="og:image" content="">
   <meta name="theme-color" content="#fafafa">
   <link rel="stylesheet" href="../css/main.css" type="text/css">
-  <script defer src="../js/main.js"></script>
+  <script src="../js/main.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 
@@ -33,22 +33,22 @@
       <div class="logobox">
         <img id="logo" src="../img/logo.png" alt="nop" onclick="loadSVG('http://localhost:3000/img/campusplan_raeume_albstadt.svg')">
       </div>
-      <nav class="btn-group linkleiste linkleisteMain">
-        <button class="btn lageplanBtn" type="button" onclick="loadSVG('http://localhost:3000/img/campusplan_raeume_albstadt.svg')">Lageplan</button>
-        <button class="btn ueberunsBtn" type="button" onclick="loadSVG('http://localhost:3000/img/205_eg.svg')">Über uns</button>
-        <button class="btn buchungenBtn" type="button">Meine Buchungen</button>
-        <button class="btn impressumBtn" type="button">Impressum</button>
+      <nav class="btn-group linkleiste">
+        <button class="btn lageplanBtn" type="button"  onclick="loadSVG('http://localhost:3000/img/campusplan_raeume_albstadt.svg')">Lageplan</button>
+        <button class="btn ueberunsBtn" type="button"  onclick="loadSVG('http://localhost:3000/img/205_eg.svg')">Über uns</button>
+        <button class="btn buchungenBtn" type="button" onclick="">Meine Buchungen</button>
+        <button class="btn impressumBtn" type="button" onclick="">Impressum</button>
       </nav>
 
     </div>
   </header>
   <div class="grid-layout">
     <nav>
-      <ul class="list-group gebBtn etageBtn">
-        <li class="list-group-item btn btn210">210</li>
-        <li class="list-group-item btn btn206">206</li>
-        <li class="list-group-item btn btn205">205</li>
-        <li class="list-group-item btn btn201">201</li>
+      <ul class="list-group" id="gebBtn">
+        <li class="list-group-item btn btn210" onclick="swapButtonsGeb('210')">210</li>
+        <li class="list-group-item btn btn206" onclick="swapButtonsGeb('206')">206</li>
+        <li class="list-group-item btn btn205" onclick="swapButtonsGeb('205')">205</li>
+        <li class="list-group-item btn btn201" onclick="swapButtonsGeb('201')">201</li>
       </ul>
     </nav>
     <main id="content">
@@ -56,6 +56,14 @@
         <circle r="50" cx="50" cy="50" stroke="green" stroke-width="4" fill="yellow"></circle>
       </svg>
     </main>
+    <nav>
+      <div class="btn-group linkleiste list-group">
+        <button class="btn" type="button">EG</button>
+        <button class="btn" type="button">OG1</button>
+        <button class="btn" type="button" onclick="">OG2</button>
+        <button class="btn" type="button" onclick="">OG3</button>
+      </div>
+    </nav>
   </div>
 
   <footer class="footer">

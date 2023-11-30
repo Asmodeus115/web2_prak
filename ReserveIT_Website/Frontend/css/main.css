@@ -30,21 +30,15 @@ a{
   border-radius: 10px;
 }
 
-.lageplanbox img{
-  height: 80%;
-}
-
 .btn-group{
-  align-items: center;
   height: 30%;
-  width: 90%;
+  width: 100%;
 }
 
 .btn-group button {
   background-color: #333;
   color: white;
-  text-align: center;
-  width: 25%;
+  width: 24%;
   height: 100%;
   text-decoration: none;
   font-size: 120%;
@@ -59,7 +53,7 @@ a{
 
 #content{
   max-width: 100%;
-  width: 80%;
+  width: 100%;
   margin-bottom: 2%;
   height: 100%;
 }
@@ -70,10 +64,10 @@ a{
 }
 
 #lageplan{
-  margin-left: 17%;
+  margin-left: 8%;
   position: relative;
-  width: 60%;
-  height: 120%;
+  width: 70%;
+  height: 50%;
   border: none;
 }
 
@@ -85,7 +79,7 @@ a{
 
 .grid-layout {
   display: grid;
-  grid-template-columns: 18% auto ;
+  grid-template-columns: 20% auto ;
   align-items: center;
 }
 
@@ -93,13 +87,11 @@ a{
 
 .list-group{
   font-family: "Open Sans", sans-serif;
-  height: 100%;
-  width: 100%;
+  width: 80%;
 }
 
 .list-group ul{
   height: 100%;
-  width: 100%;
 }
 .list-group li {
   background-color: #333;
@@ -146,11 +138,11 @@ a{
   margin-top: 4%;
   background-color: rgba(41, 40, 40, 0.815);
   height: 170px;
-  
+
   right: 0;
   left: 0;
   bottom: 0;
-  
+
 }
 
 .footer-container {
@@ -160,7 +152,7 @@ a{
 
 #footerFirma, #footerAboutUs, #footerImpressum {
   margin: 30px 50px 30px 30px;
-  
+
 }
 
 #footerAboutUs, #footerImpressum {
@@ -175,14 +167,14 @@ a{
 .fa {
   padding: 10px;
   font-size: 30px;
-  width: 40;
+  width: 40px;
   text-align: center;
   text-decoration: none;
   margin: 40px 5px;
   border-radius: 50%;
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 }
 
 .fa:hover {
