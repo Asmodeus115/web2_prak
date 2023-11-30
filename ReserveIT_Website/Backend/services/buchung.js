@@ -22,12 +22,13 @@ serviceRouter.get('/buchung/gib/:id', function(request, response) {
     }
 });
 
-serviceRouter.get('/buchung/laden', function(request, response) {
+serviceRouter.post('/buchung/laden', function(request, response) {
     console.log('Service Buchung: Client requested all records');
+    console.log(request.body.BenutzerID);
 
     const buchungDao = new BuchungDao(request.app.locals.dbConnection);
     try {
-        var arr = buchungDao.loadAll();
+        var arr = buchungDao.loadById(request.body.BenutzerID);
         console.log('Service Buchung: Records loaded, count=' + arr.length);
         response.status(200).json(arr);
     } catch (ex) {

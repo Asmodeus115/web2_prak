@@ -1,6 +1,4 @@
 
-
-/*
 // Add a submit event listener to the form
 $('#signInBtn').submit(function (event) {
 
@@ -15,7 +13,7 @@ $('#signInBtn').submit(function (event) {
     event.preventDefault();
 
     // Get the values of matrikelnr and password
-    
+
     const password = document.getElementById('login__password').value;
 
     // convert data of form to object
@@ -62,7 +60,7 @@ $('#signInBtn').submit(function (event) {
     });
 
 });
-*/
+
 //----------------------------------------------------------------------------------------//
 
 $('#meineBuchungenBtn').click(function (event) {
@@ -87,7 +85,7 @@ $('#meineBuchungenBtn').click(function (event) {
 
 
         tmp += '<tr>';
-        tmp += '<th>ID</th>';
+        tmp += '<th>Nr</th>';
         tmp += '<th>RaumID</th>';
         tmp += '<th>BenutzerID</th>';
         tmp += '<th>Startzeit</th>';
@@ -96,10 +94,10 @@ $('#meineBuchungenBtn').click(function (event) {
         tmp += '</tr>';
 
         console.log("log test");
-
+        var i = 1;
         arr.forEach(obj => {
             tmp += '<tr>';
-            tmp += '<td>' + obj.id + '</td>';
+            tmp += '<td>' + i + '</td>';
             tmp += '<td>' + obj.RaumID + '</td>';
             tmp += '<td>' + obj.BenutzerID + '</td>';
             tmp += '<td>' + obj.Startzeit + '</td>';
@@ -107,6 +105,7 @@ $('#meineBuchungenBtn').click(function (event) {
             tmp += '<td>' + obj.BuchungCode + '</td>';
             //tmp += '<td>' + (obj.alter >= 18 ? 'erwachsen' : 'Kind') + '</td>';
             tmp += '</tr>';
+            i++;
         });
 
         $('#tabelle').html(tmp);
@@ -116,7 +115,10 @@ $('#meineBuchungenBtn').click(function (event) {
 
 
     console.log('loading all recs from api');
-    meinObjekt = { BenutzerID: 12345 };
+    // convert data of form to object
+    var meinObjekt = {
+        BenutzerID: 12345
+    };
 
     // Erstellen Sie ein neues FormData-Objekt
     var formData = new FormData();
@@ -126,22 +128,27 @@ $('#meineBuchungenBtn').click(function (event) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
 
+    console.log(formData);
+
+    // send form with ajax
     $.ajax({
         url: 'http://localhost:8000/api/buchung/laden',
-        method: 'post',
+        type: 'POST',
         data: formData,
-        contentType: 'application/json; charset=utf-8',
+        contentType: false,
         cache: false,
+        processData: false,
         dataType: 'json'
     }).done(function (response) {
-        console.log("Done")
+        console.log('response received');
         console.log(response);
         zeigeBuchungen(response);
-    }).fail(function (jqXHR, statusText, error) {
-        console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
-        $('#output').html('Ein Fehler ist aufgetreten');
-        $('#pics').text('Keine Bilder vorhanden');
+
+    }).fail(function (xhr) {
+        console.log('error received');
+        
     });
+
 
 });
 

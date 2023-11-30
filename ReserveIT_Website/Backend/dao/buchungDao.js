@@ -11,20 +11,23 @@ class BuchungDao {
     }
 
     loadById(id) {
-        var sql = 'SELECT * FROM Buchung WHERE id=?';
+
+        var sql = 'SELECT * FROM Buchung WHERE BenutzerID=?';
         var statement = this._conn.prepare(sql);
-        var result = statement.get(id);
+        var result = statement.all(id);
+
+        console.log(result);
 
         if (helper.isUndefined(result)) 
             throw new Error('No Record found by id=' + id);
 
-
+/*
         var startzeit = helper.parseSQLDateTimeString(result.Startzeit);
         result.Startzeit = helper.formatToGermanDateTime(startzeit);
 
         var endzeit = helper.parseSQLDateTimeString(result.Endzeit);
         result.Endzeit = helper.formatToGermanDateTime(endzeit);
-
+*/
         return result;
     }
 
