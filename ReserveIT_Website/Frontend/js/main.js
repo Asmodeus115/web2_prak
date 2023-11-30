@@ -16,7 +16,9 @@ if(window.location.pathname.includes("index.html")){
     } else if (event.target.id === "ueberunsBtn") {
       window.location.href = "ueberuns.html";
     } else if (event.target.id === "kontaktBtn") {
-      window.location.href = "kontakt.html";
+      window.location.href = "kontakt.html"; 
+    } else if (event.target.id === "meineBuchungenBtn") {
+      window.location.href = "#";
     } else if (event.target.id === "anfahrtBtn") {
       window.location.href = "https://maps.app.goo.gl/uSkcTxGHvDX1AJY8A";
     }else {

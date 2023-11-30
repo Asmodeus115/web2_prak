@@ -36,7 +36,8 @@
       <div class="btn-group linkleiste" id="linkleisteMain" role="group">
         <button class="btn" type="button" id="lageplanBtn">Lageplan</button>
         <button class="btn" type="button" id="ueberunsBtn">Über uns</button>
-        <button class="btn" type="button" id="buchungenBtn">Meine Buchungen</button>
+        <button class="btn" type="button" id="buchungenBtn">Kalender</button>
+        <button class="btn" type="button" id="meineBuchungenBtn">Meine Buchungen</button>
         <button class="btn" type="button" id="impressumBtn" href="html_unterseiten/Impressum.html">Impressum</button>
       </div>
     </div>
@@ -48,9 +49,18 @@
       <li class="list-group-item btn btn205">205</li>
       <li class="list-group-item btn btn201">201</li>
     </ul>  
-    <div class="lageplanbox">
+    <div id="anzeigeFeld" class="lageplanbox" >
       <object class="svg" type="image/svg+xml" data="../img/campusplan_raeume_albstadt.svg" id="lageplan"></object>
+      
+      <object data="" type="">
+        <div id="titel"></div>
+        <table id="tabelle"></table>
+      </object>
+      
     </div>
+
+    
+
   </div>
   
   <footer class="footer">
@@ -85,5 +95,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../js/index.js" async></script>
   <script src="../js/main.js"></script>
+  <script src="../js/connections.js"></script>
 </body>
 </html>
