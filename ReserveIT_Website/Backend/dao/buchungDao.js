@@ -33,9 +33,10 @@ class BuchungDao {
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 
+
         if (helper.isArrayEmpty(result)) 
             return [];
-
+/*
         for (var i = 0; i < result.length; i++) {
             var startzeit = helper.parseSQLDateTimeString(result[i].Startzeit);
             result[i].Startzeit = helper.formatToGermanDateTime(startzeit);
@@ -43,8 +44,7 @@ class BuchungDao {
             var endzeit = helper.parseSQLDateTimeString(result[i].Endzeit);
             result[i].Endzeit = helper.formatToGermanDateTime(endzeit);
         }
-        
-            
+*/
         return result;
     }
 

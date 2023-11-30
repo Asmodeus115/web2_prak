@@ -22,7 +22,7 @@ serviceRouter.get('/buchung/gib/:id', function(request, response) {
     }
 });
 
-serviceRouter.get('/buchung/alle', function(request, response) {
+serviceRouter.get('/buchung/laden', function(request, response) {
     console.log('Service Buchung: Client requested all records');
 
     const buchungDao = new BuchungDao(request.app.locals.dbConnection);
