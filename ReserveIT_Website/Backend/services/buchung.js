@@ -53,7 +53,7 @@ serviceRouter.get('/buchung/existiert/:id', function(request, response) {
 });
 
 
-serviceRouter.post('/buchung/aufladen', function(request, response) {
+serviceRouter.post('/buchung/erstellen', function(request, response) {
     console.log('Service Buchung: Einen neuen Termin in der Datenbank erstellen');
     
     var errorMsgs=[];

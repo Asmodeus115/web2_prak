@@ -62,6 +62,9 @@ try {
     
     var serviceRouter = require('./services/buchung.js');
     app.use(TOPLEVELPATH, serviceRouter);
+
+    var serviceRouter = require('./services/benutzer.js');
+    app.use(TOPLEVELPATH, serviceRouter);
 /*
     serviceRouter = require('./services/adresse.js');
     app.use(TOPLEVELPATH, serviceRouter);
