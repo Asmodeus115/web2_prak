@@ -5,7 +5,7 @@ var serviceRouter = express.Router();
 
 console.log('- Service Benutzer');
 
-serviceRouter.get('/benutzer/gib/:id', function(request, response) {
+serviceRouter.get('/benutzer/gib/:id', function (request, response) {
     console.log('Service Benutzer: Client requested one record, id=' + request.params.id);
 
     const benutzerDao = new BenutzerDao(request.app.locals.dbConnection);
@@ -20,37 +20,36 @@ serviceRouter.get('/benutzer/gib/:id', function(request, response) {
 });
 
 
-serviceRouter.post('/benutzer/existiert', function(request, response) {
+serviceRouter.post('/benutzer/existiert', function (request, response) {
     console.log('Service Benutzer: Client requested check, if record exists, id=' + request.params.id);
 
     const benutzerDao = new BenutzerDao(request.app.locals.dbConnection);
     try {
-        var exists = benutzerDao.exists(request.params.id);
-        console.log('Service Benutzer: Check if record exists by id=' + request.params.id + ', exists=' + exists);
-        //response.status(200).json({ 'id': request.params.id, 'existiert': exists });
+        var obj = benutzerDao.exists(request.body.id, request.body.passwort);
 
-        if (exists) {
-            response.status(200).json({ 'id': request.params.id, 'existiert': exists });
-            console.log("Benutzer exists");
+        if (obj === true) {
+            response.status(200).json(obj);
         } else {
-            console.log("Benutzer nicht existiert");
-            //response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
+            console.error('Service Buchung: Error creating new record. Exception occured: ' + ex.message);
+            response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
         }
-        
+        console.log('Service Benutzer --> ' + obj);
+
     } catch (ex) {
-        console.error('Service Benutzer: Error checking if record exists. Exception occured: ' + ex.message);
+        console.error('Service Buchung: Error creating new record. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
     }
 });
 
 
-serviceRouter.get('/benutzer/zugang', function(request, response) {
+
+serviceRouter.get('/benutzer/zugang', function (request, response) {
     console.log('Service Benutzer: Client requested check, if user has access');
 
-    var errorMsgs=[];
-    if (helper.isUndefined(request.body.benutzername)) 
+    var errorMsgs = [];
+    if (helper.isUndefined(request.body.benutzername))
         errorMsgs.push('benutzername fehlt');
-    if (helper.isUndefined(request.body.passwort)) 
+    if (helper.isUndefined(request.body.passwort))
         errorMsgs.push('passwort fehlt');
 
     if (errorMsgs.length > 0) {

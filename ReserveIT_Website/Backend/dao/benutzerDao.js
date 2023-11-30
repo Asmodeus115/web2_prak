@@ -33,14 +33,11 @@ class BenutzerDao {
         return result;
     }
 
-    exists(id) {
-        var sql = 'SELECT COUNT(id) AS cnt FROM Benutzer WHERE id=?';
+    exists(id, passwort) {
+        var sql = 'SELECT COUNT(id) AS cnt FROM Benutzer WHERE id=? AND passwort=?';
         var statement = this._conn.prepare(sql);
-        //var params = [id];
-        //var result = statement.run(params);
-        var result = statement.get(id);
-
-        console.log(id);
+        var params = [id, passwort];
+        var result = statement.get(params);
 
 
         if (result.cnt == 1) 

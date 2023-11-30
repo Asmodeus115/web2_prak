@@ -12,17 +12,49 @@ document.addEventListener('DOMContentLoaded', function () {
         const matrikelnr = document.getElementById('login__matrikelnr').value;
         const password = document.getElementById('login__password').value;
 
-        // Simulate a login request (replace this with your actual login logic)
-        const success = Math.random() > 0.5; // Simulate success 50% of the time
 
-        if (success) {
-            // Redirect to index.html on successful login
-            alert('successful login');
-            window.location.href = 'index.html';
-            alert('successful login');
-        } else {
-            // Display an alert for invalid credentials (replace this with your actual error handling)
-            alert('Invalid login credentials');
+        // convert data of form to object
+        var meinObjekt = {
+            id: matrikelnr,
+            passwort: password,
+        };
+
+        // Erstellen Sie ein neues FormData-Objekt
+        var formData = new FormData();
+
+        // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+        for (var schluessel in meinObjekt) {
+            formData.append(schluessel, meinObjekt[schluessel]);
         }
+
+        console.log(formData);
+
+        // send form with ajax
+        $.ajax({
+            url: 'http://localhost:8000/api/benutzer/existiert',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: 'json'
+        }).done(function (response) {
+            console.log('response received -->' + response);
+
+            if (response) {
+                window.location.href = 'index.html';
+            } else {
+                $('#fehler').html('Fehler beim Anmelden');
+                $('#login__matrikelnr').val('');
+                $('#login__password').val('');
+            }
+
+        }).fail(function (xhr) {
+            console.log('error received');
+            $('#login__matrikelnr').val('');
+            $('#login__password').val('');
+            $('#fehler').html('Fehler beim Anmelden');
+        });
+
     });
 });
