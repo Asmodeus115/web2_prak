@@ -29,7 +29,7 @@
 
 <body>
   <header class="header">
-    <div class="grid-layout">
+    <div class="grid-oben">
       <div class="logobox">
         <img id="logo" src="../img/logo.png" alt="nop" onclick="loadSVG('http://localhost:3000/img/campusplan_raeume_albstadt.svg')">
       </div>
@@ -42,28 +42,18 @@
 
     </div>
   </header>
-  <div class="grid-layout">
-    <nav>
+  <div class="grid-unten">
       <ul class="list-group" id="gebBtn">
         <li class="list-group-item btn btn210" onclick="swapButtonsGeb('210')">210</li>
         <li class="list-group-item btn btn206" onclick="swapButtonsGeb('206')">206</li>
         <li class="list-group-item btn btn205" onclick="swapButtonsGeb('205')">205</li>
         <li class="list-group-item btn btn201" onclick="swapButtonsGeb('201')">201</li>
       </ul>
-    </nav>
     <main id="content">
       <svg id="lageplan" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
         <circle r="50" cx="50" cy="50" stroke="green" stroke-width="4" fill="yellow"></circle>
       </svg>
     </main>
-    <nav>
-      <div class="btn-group linkleiste list-group">
-        <button class="btn" type="button">EG</button>
-        <button class="btn" type="button">OG1</button>
-        <button class="btn" type="button" onclick="">OG2</button>
-        <button class="btn" type="button" onclick="">OG3</button>
-      </div>
-    </nav>
   </div>
 
   <footer class="footer">

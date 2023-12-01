@@ -12,19 +12,20 @@ function loadSVG(url){
 
 function swapButtonsGeb(gebNr){
     loadSVG('http://localhost:3000/img/'+gebNr+"_"+1+".svg");
-    etagenAdder(gebNr);
-  }
+    removeOldButtons();
+}
 
-  function etagenWechsel(etagenNr){
-
-  }
-
+function removeOldButtons(){
+    const etagen = document.getElementById("gebBtn");
+    const btns = etagen.querySelectorAll('li');
+    btns.forEach(function (btns){
+        etagen.removeChild(btns);
+    });
+}
 function etagenAdder(gebNr){
     const etagen = document.getElementById("gebBtn");
     let i = 1;
-    const btn = etagen.querySelectorAll('.btn');
-    btn.forEach( function (btn) {
-        btn.setAttribute('id',gebNr+"_"+i);
+    etagen.forEach( function (btn) {
         switch (i){
             case 1:{
                 btn.textContent = gebNr+" "+"EG";
@@ -47,7 +48,7 @@ function etagenAdder(gebNr){
                 break;
             }
         }
-        i++;
+
     });
 }
 
