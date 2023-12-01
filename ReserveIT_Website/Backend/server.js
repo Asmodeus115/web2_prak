@@ -65,6 +65,9 @@ try {
 
     serviceRouter = require('./services/benutzer.js');
     app.use(TOPLEVELPATH, serviceRouter);
+
+    serviceRouter = require('./services/etage.js');
+    app.use(TOPLEVELPATH, serviceRouter);
 /*
     serviceRouter = require('./services/adresse.js');
     app.use(TOPLEVELPATH, serviceRouter);

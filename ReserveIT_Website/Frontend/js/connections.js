@@ -237,3 +237,184 @@ $('#bookModal').submit(function (event) {
 
 
 
+
+
+
+$('#lagerplan').click(function (event) {
+
+    console.log("zeige Gebäude ");
+
+    // disable default event
+    //event.preventDefault();
+
+    function zeigeBuchungen(arr) {
+        var tmp;
+
+        if (arr.length == 0) {
+            tmp.text('Keine Gebäude vorhanden');
+            return;
+        }
+
+        tmp += '<ul class="list-group" id="gebBtn">';
+
+        console.log("log test");
+        var i = 1;
+        arr.forEach(obj => {
+            tmp += '<li id="GebBtn'+ obj.Name + '" class="list-group-item btn btn'+ obj.Name +'" onclick="swapButtonsGeb(\''+ obj.Name + '\')">' + obj.Name + '</li>';
+            console.log( '<li id="GebBtn'+ obj.Name + '" class="list-group-item btn btn'+ obj.Name +'"onclick="swapButtonsGeb(\''+ obj.Name + '\')">' + obj.Name + '</li>');
+        });
+
+        tmp+='</ul>';
+
+        $('#GebaeudeListe').html(tmp);
+
+    }
+
+
+
+    console.log('loading all recs from api');
+    // convert data of form to object
+
+
+    // send form with ajax
+    $.ajax({
+        url: 'http://localhost:8000/api/etage/ladenGeb',
+        type: 'get',
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType: 'json'
+    }).done(function (response) {
+        console.log('response received');
+        console.log(response);
+        zeigeBuchungen(response);
+        ladeGrundriss();
+
+    }).fail(function (xhr) {
+        console.log('error received');
+    });
+
+
+
+    function ladeGrundriss(){
+
+        $(document).ready(function () {
+            // IDs der <li>-Elemente im #gebBtn-Element abrufen
+            var liIds = $('#gebBtn li').map(function() {
+                return this.id;
+            }).get();
+        
+            // Jetzt kannst du auf die IDs zugreifen oder sie ausgeben
+            console.log(liIds);
+        
+            // Beispiel: Iteration über die IDs
+            liIds.forEach(function(id) {
+                console.log("ID: " + id);
+            });
+        });
+
+
+
+    };
+
+
+});
+
+
+
+
+
+
+
+
+$('#GebBtn210').click(function (event) {
+
+    console.log("zeige Lagepaln ");
+
+    // disable default event
+    event.preventDefault();
+    //$('#lageplan').hide();
+
+/*
+    function zeigeBuchungen(arr) {
+
+        $('#titel').html('<h1>Mein Buchungen</h1>');
+        var tmp;
+
+        if (arr.length == 0) {
+            tmp.text('Keine Buchung vorhanden');
+            return;
+        }
+
+
+        tmp += '<tr>';
+        tmp += '<th>Nr</th>';
+        tmp += '<th>RaumID</th>';
+        tmp += '<th>BenutzerID</th>';
+        tmp += '<th>Startzeit</th>';
+        tmp += '<th>Endzeit</th>';
+        tmp += '<th>BuchungCode</th>';
+        tmp += '</tr>';
+
+        console.log("log test");
+        var i = 1;
+        arr.forEach(obj => {
+            tmp += '<tr>';
+            tmp += '<td>' + i + '</td>';
+            tmp += '<td>' + obj.RaumID + '</td>';
+            tmp += '<td>' + obj.BenutzerID + '</td>';
+            tmp += '<td>' + obj.Startzeit + '</td>';
+            tmp += '<td>' + obj.Endzeit + '</td>';
+            tmp += '<td>' + obj.BuchungCode + '</td>';
+            //tmp += '<td>' + (obj.alter >= 18 ? 'erwachsen' : 'Kind') + '</td>';
+            tmp += '</tr>';
+            i++;
+        });
+
+        $('#tabelle').html(tmp);
+
+    }
+
+*/
+
+    console.log('loading all recs from api');
+    // convert data of form to object
+    var meinObjekt = {
+        id:2
+    };
+
+    // Erstellen Sie ein neues FormData-Objekt
+    var formData = new FormData();
+
+    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+    for (var schluessel in meinObjekt) {
+        formData.append(schluessel, meinObjekt[schluessel]);
+    }
+
+    console.log(formData);
+
+    // send form with ajax
+    $.ajax({
+        url: 'http://localhost:8000/api/etage/laden',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType: 'json'
+    }).done(function (response) {
+        console.log('response received');
+        console.log(response);
+        //zeigeBuchungen(response);
+
+    }).fail(function (xhr) {
+        console.log('error received');
+    });
+});
+
+
+
+
+
+
+

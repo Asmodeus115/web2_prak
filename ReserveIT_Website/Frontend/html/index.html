@@ -34,21 +34,23 @@
         <img id="logo" src="../img/logo.png" alt="nop" onclick="loadSVG('http://localhost:3000/img/campusplan_raeume_albstadt.svg')">
       </div>
       <nav class="btn-group linkleiste">
-        <button class="btn lageplanBtn" type="button"  onclick="loadSVG('http://localhost:3000/img/campusplan_raeume_albstadt.svg')">Lageplan</button>
+        <button id="lagerplan" class="btn lageplanBtn" type="button"  onclick="loadSVG('http://localhost:3000/img/campusplan_raeume_albstadt.svg')">Lageplan</button>
         <button class="btn ueberunsBtn" type="button"  onclick="loadSVG('http://localhost:3000/img/205_eg.svg')">Über uns</button>
-        <button class="btn buchungenBtn" type="button" onclick="">Meine Buchungen</button>
+        <button id="" class="btn buchungenBtn" type="button" onclick="">Meine Buchungen</button>
         <button class="btn impressumBtn" type="button" onclick="">Impressum</button>
       </nav>
 
     </div>
   </header>
-  <div class="grid-unten">
+  <div id="GebaeudeListe" class="grid-unten">
+    <!--
       <ul class="list-group" id="gebBtn">
         <li class="list-group-item btn btn210" onclick="swapButtonsGeb('210')">210</li>
         <li class="list-group-item btn btn206" onclick="swapButtonsGeb('206')">206</li>
         <li class="list-group-item btn btn205" onclick="swapButtonsGeb('205')">205</li>
         <li class="list-group-item btn btn201" onclick="swapButtonsGeb('201')">201</li>
       </ul>
+      -->
     <main id="content">
       <svg id="lageplan" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
         <circle r="50" cx="50" cy="50" stroke="green" stroke-width="4" fill="yellow"></circle>
