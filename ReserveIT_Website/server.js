@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 
 app.use(express.static('Frontend'));
+app.use(express.static('Backend'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
