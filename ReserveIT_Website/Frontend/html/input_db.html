@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buchungsplan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- Mit font-awsome kann man sehr einfach items einfügen-->
+    <link rel="stylesheet" href="../css/CalendarStyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Test</h1>
+
+
+    <form id="bookModal">
+
+        <h2 id="modalTitle">Raumbuchung</h2>
+
+        <h4>201-015</h4>
+
+        <label for="name" class="descriptor">Vor- und Nachname:</label>
+        <div>
+            <input type="name" required id="bookName" name="name" class="shortInput">
+        </div>
+
+        <label for="email" class="descriptor">E-Mail:</label>
+        <div>
+            <input type="email" required id="bookEmail" name="email" class="shortInput">
+        </div>
+
+        <label for="matrikel" class="descriptor">Matrikel-Nr.:</label>
+        <div>
+            <input type="text" required id="bookMatrikel" name="matrikel" pattern="[0-9]{5}" placeholder="12345"
+                class="shortInput">
+        </div>
+
+        <label for="date" class="descriptor">Datum</label>
+        <div>
+            <input type="date" required id="bookDate" name="date" class="shortInput">
+        </div>
+
+        <label for="time" class="descriptor">Zeit</label>
+        <div>
+            <input type="time" required id="bookStart" name="time" class="shortInput">
+            —
+            <input type="time" required id="bookEnd" name="time" class="shortInput">
+        </div>
+
+        <label for="description" class="descriptor">Anmerkung:</label>
+        <div>
+            <textarea name="description" id="bookDescription" maxlength="500"></textarea>
+        </div>
+
+        <div id="bookControls">
+            <input type="button" id="cancelButton" value="abbrechen" class="button">
+            <input type="submit" id="submitButton" value="buchen" class="button">
+        </div>
+
+        <div id="errors"></div>
+    </form>
+
+
+</body>
+
+</html>
