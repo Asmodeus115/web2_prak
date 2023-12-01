@@ -11,20 +11,23 @@ class BuchungDao {
     }
 
     loadById(id) {
-        var sql = 'SELECT * FROM Buchung WHERE id=?';
+
+        var sql = 'SELECT * FROM Buchung WHERE BenutzerID=?';
         var statement = this._conn.prepare(sql);
-        var result = statement.get(id);
+        var result = statement.all(id);
+
+        console.log(result);
 
         if (helper.isUndefined(result)) 
             throw new Error('No Record found by id=' + id);
 
-
+/*
         var startzeit = helper.parseSQLDateTimeString(result.Startzeit);
         result.Startzeit = helper.formatToGermanDateTime(startzeit);
 
         var endzeit = helper.parseSQLDateTimeString(result.Endzeit);
         result.Endzeit = helper.formatToGermanDateTime(endzeit);
-
+*/
         return result;
     }
 
@@ -33,9 +36,10 @@ class BuchungDao {
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 
+
         if (helper.isArrayEmpty(result)) 
             return [];
-
+/*
         for (var i = 0; i < result.length; i++) {
             var startzeit = helper.parseSQLDateTimeString(result[i].Startzeit);
             result[i].Startzeit = helper.formatToGermanDateTime(startzeit);
@@ -43,8 +47,7 @@ class BuchungDao {
             var endzeit = helper.parseSQLDateTimeString(result[i].Endzeit);
             result[i].Endzeit = helper.formatToGermanDateTime(endzeit);
         }
-        
-            
+*/
         return result;
     }
 
@@ -64,11 +67,11 @@ class BuchungDao {
         var statement = this._conn.prepare(sql);
         var params = [RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode];
         var result = statement.run(params);
-
+        
         if (result.changes != 1) 
             throw new Error('Could not insert new Record. Data: ' + params);
 
-        return this.loadById(result.lastInsertRowPersonID);
+        return this.loadById(result.lastInsertRowid);
     }
 
     update(id,RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode) {

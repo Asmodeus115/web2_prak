@@ -13,13 +13,14 @@
 
 html {
   color: #222;
-  font-size: 1em;
   line-height: 1.4;
 }
 
 #logo:hover{
   cursor: pointer;
+  opacity: 0.9;
 }
+
 a{
   text-decoration: none;
   color: #dddddd;
@@ -29,106 +30,76 @@ a{
   border-radius: 10px;
 }
 
-.lageplanbox img{
-  height: 80%;
-}
 
 .btn-group{
-  align-items: center;
   height: 30%;
-  width: 90%;
+  width: 100%;
 }
 
+.linkleiste{
+  align-items: center;
+}
 .btn-group button {
-  border-width: 2px;
   background-color: #333;
   color: white;
-  text-align: center;
-  width: 25%;
+  width: 24%;
   height: 100%;
   text-decoration: none;
   font-size: 120%;
 }
 
 .btn-group button:hover{
-  border-color: #333333;
-  border-width: 2px;
+  opacity: 0.9;
+  background-color: #333;
+  color: white;
+
 }
 
-.lageplanbox{
+#content{
   max-width: 100%;
-  width: 65%;
+  width: 100%;
+  margin-bottom: 2%;
+  height: 100%;
 }
+
+.bildContainer{
+  width: 500px;
+  background-color: #777777;
+}
+
 #lageplan{
   position: relative;
-  margin-left: 20%;
-  width: 80%;
-}
-
-#201svg:hover{
-  cursor: pointer;
-}
-
-.dots{
-  height: 3%;
-  width: 2%;
-  border-radius: 100%;
-  color: red;
-  position: relative;
-}
-
-.dots:hover{
-  cursor: pointer;
-}
-
-#dot210 {
-  left: 39%;
-  top: 40%;
-}
-
-#dot207{
-  left: 1160px;
-  top: 430px;
-}
-
-#dot206{
-  left: 1230px;
-  top: 490px;
-}
-
-#dot205{
-  left: 990px;
-  top: 406px;
-}
-#dot201{
-  left: 1150px;
-  top: 630px;
+  width: 70%;
+  height: 50%;
+  border: none;
 }
 
 #logo{
-  padding-left: 10%;
   height: 100%;
   width: 90%;
 }
 
 
-.grid-layout {
+.grid-oben{
   display: grid;
-  grid-template-columns: 18% auto ;
+  grid-template-columns: 20% 60% ;
   align-items: center;
+}
+
+.grid-unten{
+  display: grid;
+  grid-template-columns: 18% 100% ;
 }
 
 /* sidebar items-----------------------------------*/
 
 .list-group{
   font-family: "Open Sans", sans-serif;
-  height: 100%;
-  width: 100%;
+  width: 80%;
 }
 
 .list-group ul{
   height: 100%;
-  width: 100%;
 }
 .list-group li {
   background-color: #333;
@@ -143,7 +114,9 @@ a{
   }
 
 .list-group li:hover {
-  background-color: white;
+  opacity: 0.9;
+  background-color: #333;
+  color: white;
 }
 
 .list-group li:first-child {
@@ -155,6 +128,8 @@ a{
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
+
+/*@media devices*/
 @media (max-width: 1900px) {
 }
 
@@ -165,3 +140,160 @@ a{
 @media (max-width: 960px) {
 
 }
+
+/*footer*/
+.footer {
+  margin-top: 4%;
+  background-color: rgba(41, 40, 40, 0.815);
+  height: 170px;
+
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+}
+
+#footerFirma, #footerAboutUs, #footerImpressum {
+  margin: 30px 50px 30px 30px;
+
+}
+
+#footerAboutUs, #footerImpressum {
+  font-size: 18px;
+}
+
+#footerSocialmedia {
+  margin-left: 40px;
+}
+
+
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  margin: 40px 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa:hover {
+    opacity: 0.9;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  padding: 10px 12px 10px 12px;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+/*Textbereich*/
+.textarea {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0 20% 5% 25%;
+  max-width: 900px;
+  font-size: 20px;
+}
+
+#textarea-h1{
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 2;
+  color: #666;
+  margin: 0;
+  font-size: 50px;
+}
+
+/* Kontaktformular */
+
+#kontaktformular {
+  margin: 0 0 50px 0;
+}
+
+.shortInputKontaktformular{
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  width: 30%;
+}
+
+#kontaktnachricht{
+  resize: both;
+  min-width: 30%;
+  min-height: 100px;
+  max-width: 60%;
+  max-height: 300px;
+  outline: none;
+  margin-top: 20px;
+}
+
+
+
+
+#submitButtonKontaktformular{
+  background-color: #333;
+  border-radius: 10px;
+  width: 120px;
+  height: 30px;
+  color: white;
+  border: none;
+}
+
+#submitButtonKontaktformular:hover{
+  opacity: 0.9;
+}
+
+
+/*Datenschutz*/
+.index-link{
+  color: rgba(0, 0, 0, 0.648);
+}
+
+.index-link:hover {
+  opacity: 0.9;
+}
+
+.header{
+  background-color: rgba(28, 28, 28, 0.082);
+  margin-bottom: 2%;
+}
+
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+

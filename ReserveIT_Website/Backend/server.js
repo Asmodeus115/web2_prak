@@ -59,8 +59,11 @@ try {
     // binding endpoints
     const TOPLEVELPATH = '/api';
     console.log('Binding enpoints, top level Path at ' + TOPLEVELPATH);
-    
-    var serviceRouter = require('./services/buchung.js');
+
+    const serviceRouter = require('./services/buchung.js');
+    app.use(TOPLEVELPATH, serviceRouter);
+
+    var serviceRouter = require('./services/benutzer.js');
     app.use(TOPLEVELPATH, serviceRouter);
 /*
     serviceRouter = require('./services/adresse.js');
@@ -80,7 +83,7 @@ try {
     // starting the Web Server
     console.log('\nBinding Port and starting Webserver...');
 
-    var webServer = app.listen(HTTP_PORT, () => {
+    const webServer = app.listen(HTTP_PORT, () => {
         console.log('Listening at localhost, port ' + HTTP_PORT);
         console.log('\nUsage: http://localhost:' + HTTP_PORT + TOPLEVELPATH + "/SERVICENAME/SERVICEMETHOD/....");
         console.log('\nVersion 4.0, 21.02.2023\nSommersemester 2023, HS Albstadt-Sigmaringen, INF');

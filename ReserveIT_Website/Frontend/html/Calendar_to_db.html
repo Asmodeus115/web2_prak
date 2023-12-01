@@ -31,7 +31,7 @@
     <div class="grid-layout">
 
         <div class="logobox">
-            <img id="logo" src="../logo.png" alt="">
+            <img id="logo" src="../img/logo.png" alt="">
         </div>
 
         <div class="btn-group" role="group" id="linkleiste">
@@ -177,10 +177,25 @@
         $(document).ready(function () {
             getloadAndDisplayAllbookings();
         });*/
+
         /*
+
+
+        $("#bookDate").val(event.date);
+        $("#bookStart").val(event.start);
+        $("#bookEnd").val(event.end);
+        $("#bookDescription").val(event.description);
+        $("#bookModal").fadeIn(200);
+        $("#bookName").focus();
+        $("#calendar").addClass("opaque");
+        $("#bookModal").submit((e) => {
+            e.preventDefault();
+        })
+
+
                 function getloadAndDisplayAllbookings() {
                     console.log('loading all recs from api');
-        
+
                     $.ajax({
                         url: 'http://localhost:8000/api/buchung/alle',
                         method: 'get',
@@ -189,37 +204,37 @@
                         dataType: 'json'
                     }).done(function (response) {
                         console.log(response);
-                        renderPictures(response);                
+                        renderPictures(response);
                     }).fail(function (jqXHR, statusText, error) {
                         console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
                         $('#errors').html('Ein Fehler ist aufgetreten');
                         $('#pics').text('Keine Buchungen vorhanden');
                     });
                 }
-        
-        
-        
-                function getInfos(arr) { 
-        
-                  
+
+
+
+                function getInfos(arr) {
+
+
                     if (arr.length == 0) {
                         node.text('Keine Bilder vorhanden');
                         return;
                     }
-        
+
                     const matrikel_Nr = document.getElementById("bookMatrikel");
                     const datum = document.getElementById("bookDate");
                     const startzeit = document.getElementById("bookStart");
                     const endzeit = document.getElementById("bookEnd");
-        
-        
+
+
                 }
-        
+
                 /*-------------------
-        
+
                 function postData() {
                     console.log('loading all recs from api');
-        
+
                     $.ajax({
                         url: 'http://localhost:8000/api/buchung/alle',
                         method: 'get',
@@ -229,15 +244,15 @@
                     }).done(function (response) {
                         console.log(response);
                         getInfos(response);
-        
-        
+
+
                     }).fail(function (jqXHR, statusText, error) {
                         console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
                         //$('#output').html('Ein Fehler ist aufgetreten');
                         //$('#pics').text('Keine Bilder vorhanden');
                     });
                 }
-        
+
                 */
 
         //-------------------------------------------------------------------
@@ -287,9 +302,9 @@
 
 
     <script>
-        
+
         $('#submitButton').click(function () {
-           
+
             var node = $('#datum');
             console.log(node);
         });
