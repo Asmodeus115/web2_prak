@@ -4,8 +4,8 @@
 // Add a submit event listener to the form
 $('#signInBtn').submit(function (event) {
 
-    var matrikelNr =  document.getElementById('login__matrikelnr').value;
-    console.log("LogIn Vorgang startet.");
+  const matrikelNr = document.getElementById('login__matrikelnr').value;
+  console.log("LogIn Vorgang startet.");
     // Get the login form by ID
     // const loginForm = document.querySelector('.form');
 
@@ -17,16 +17,16 @@ $('#signInBtn').submit(function (event) {
     const password = document.getElementById('login__password').value;
 
     // convert data of form to object
-    var meinObjekt = {
-        id: matrikelNr,
-        passwort: password,
-    };
+  const meinObjekt = {
+    id: matrikelNr,
+    passwort: password,
+  };
 
-    // Erstellen Sie ein neues FormData-Objekt
-    var formData = new FormData();
+  // Erstellen Sie ein neues FormData-Objekt
+  const formData = new FormData();
 
-    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
-    for (var schluessel in meinObjekt) {
+  // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+    for (const schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
 
@@ -65,9 +65,9 @@ $('#signInBtn').submit(function (event) {
 
 $('#meineBuchungenBtn').click(function (event) {
 
-    var matrikelNr = 12345;
+  const matrikelNr = 12345;
 
-    console.log("zeige meine Buchungen " + matrikelNr);
+  console.log("zeige meine Buchungen " + matrikelNr);
 
     // disable default event
     event.preventDefault();
@@ -77,9 +77,9 @@ $('#meineBuchungenBtn').click(function (event) {
     function zeigeBuchungen(arr) {
 
         $('#titel').html('<h1>Mein Buchungen</h1>');
-        var tmp;
+      let tmp;
 
-        if (arr.length == 0) {
+      if (arr.length === 0) {
             tmp.text('Keine Buchung vorhanden');
             return;
         }
@@ -117,15 +117,15 @@ $('#meineBuchungenBtn').click(function (event) {
 
     console.log('loading all recs from api');
     // convert data of form to object
-    var meinObjekt = {
-        BenutzerID: 12345
-    };
+  const meinObjekt = {
+    BenutzerID: 12345
+  };
 
-    // Erstellen Sie ein neues FormData-Objekt
-    var formData = new FormData();
+  // Erstellen Sie ein neues FormData-Objekt
+  const formData = new FormData();
 
-    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
-    for (var schluessel in meinObjekt) {
+  // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+    for (const schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
 
@@ -175,7 +175,7 @@ $('#bookModal').submit(function (event) {
         return result;
     }
 
-    
+
     var datum = $('#bookDate').val();
     var start = $('#bookStart').val();
     var end = $('#bookEnd').val();
@@ -303,10 +303,10 @@ $('#lagerplan').click(function (event) {
             var liIds = $('#gebBtn li').map(function() {
                 return this.id;
             }).get();
-        
+
             // Jetzt kannst du auf die IDs zugreifen oder sie ausgeben
             console.log(liIds);
-        
+
             // Beispiel: Iteration über die IDs
             liIds.forEach(function(id) {
                 console.log("ID: " + id);
