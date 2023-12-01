@@ -22,6 +22,8 @@ function removeOldButtons(){
         etagen.removeChild(btns);
     });
 }
+
+
 function etagenAdder(gebNr){
     const etagen = document.getElementById("gebBtn");
     let i = 1;
