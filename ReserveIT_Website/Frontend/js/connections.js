@@ -1,13 +1,13 @@
 
+
+
 // Add a submit event listener to the form
 $('#signInBtn').submit(function (event) {
 
-    window.user = window.user || {};
-
-    window.user.matrikelNr = document.getElementById('login__matrikelnr').value;
+    var matrikelNr =  document.getElementById('login__matrikelnr').value;
     console.log("LogIn Vorgang startet.");
     // Get the login form by ID
-    const loginForm = document.querySelector('.form');
+    // const loginForm = document.querySelector('.form');
 
     // Prevent the default form submission behavior
     event.preventDefault();
@@ -18,7 +18,7 @@ $('#signInBtn').submit(function (event) {
 
     // convert data of form to object
     var meinObjekt = {
-        id: user.matrikelNr,
+        id: matrikelNr,
         passwort: password,
     };
 
@@ -66,6 +66,7 @@ $('#signInBtn').submit(function (event) {
 $('#meineBuchungenBtn').click(function (event) {
 
     var matrikelNr = 12345;
+
     console.log("zeige meine Buchungen " + matrikelNr);
 
     // disable default event
@@ -146,12 +147,92 @@ $('#meineBuchungenBtn').click(function (event) {
 
     }).fail(function (xhr) {
         console.log('error received');
-        
+
     });
 
 
 });
 
+
+//--------------------------------------------------------------------------------------//
+
+
+
+
+
+$('#bookModal').submit(function (event) {
+    console.log("form submit called");
+    // disable default event
+    event.preventDefault();
+
+    function generateRandomString() {
+        var length = 8;
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var result = '';
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    }
+
+    
+    var datum = $('#bookDate').val();
+    var start = $('#bookStart').val();
+    var end = $('#bookEnd').val();
+    var matNr = $('#bookMatrikel').val();
+    var buchungCode = generateRandomString();
+
+    var startDate = datum + " " + start + ":00"
+    var endDate = datum + " " + end + ":00"
+    //var matNr = event.matNr;
+    console.log(startDate + "\n" + endDate);
+
+    /*
+    var dt = helper.formatToGermanDate(startDate);
+    console.log(dt);
+    */
+    //alert(datum);
+
+
+
+    // convert data of form to object
+    var meinObjekt = {
+        RaumID: 1,
+        BenutzerID: matNr,
+        Startzeit: startDate,
+        Endzeit: endDate,
+        BuchungCode: buchungCode
+    };
+
+    // Erstellen Sie ein neues FormData-Objekt
+    var formData = new FormData();
+
+    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+    for (var schluessel in meinObjekt) {
+        formData.append(schluessel, meinObjekt[schluessel]);
+    }
+
+    console.log(formData);
+
+    // send form with ajax
+    $.ajax({
+        url: 'http://localhost:8000/api/buchung/erstellen',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType: 'json'
+    }).done(function (response) {
+        console.log('response received, uploaded files cnt=' + response.length);
+        console.log($('#output').text(response.length + ' Datei(en) aufgeladen'));
+
+    }).fail(function (xhr) {
+        console.log('error received');
+        alert('Es ist ein Fehler beim Aufladen aufgetreten');
+    });
+
+});
 
 
 
