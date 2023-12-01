@@ -1,6 +1,5 @@
 
 
-
 // Add a submit event listener to the form
 $('#signInBtn').submit(function (event) {
 
@@ -157,9 +156,6 @@ $('#meineBuchungenBtn').click(function (event) {
 //--------------------------------------------------------------------------------------//
 
 
-
-
-
 $('#bookModal').submit(function (event) {
     console.log("form submit called");
     // disable default event
@@ -241,12 +237,9 @@ $('#bookModal').submit(function (event) {
 
 
 $('#lagerplan').click(function (event) {
-
     console.log("zeige Gebäude ");
-
     // disable default event
     event.preventDefault();
-
     function zeigeBuchungen(arr) {
         var tmp;
 
@@ -272,9 +265,86 @@ $('#lagerplan').click(function (event) {
     }
 
 
+    function ladeGrundrisse(arr) {
+        let ids = arr;
+        var liIds = $('#gebBtn li').map(function () {
+            return this.id;
+        }).get();
 
-    console.log('loading all recs from api');
-    // convert data of form to object
+        for (let index = 0; index < liIds.length; index++) {
+            const ElementID = liIds[index];
+
+
+            $('#' + ElementID).click(function (event) {
+                console.log("ID: " + ids[index].id);
+                console.log('loading all recs from api');
+                // convert data of form to object
+                var meinObjekt = {
+                    id: ids[index].id
+                };
+
+                // Erstellen Sie ein neues FormData-Objekt
+                var formData = new FormData();
+
+                // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+                for (var schluessel in meinObjekt) {
+                    formData.append(schluessel, meinObjekt[schluessel]);
+                }
+
+                console.log(formData);
+
+                // send form with ajax
+                $.ajax({
+                    url: 'http://localhost:8000/api/etage/laden',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType: 'json'
+                }).done(function (response) {
+                    var arr = response;
+                    console.log('response from Etage received');
+                    console.log(response);
+
+                    var tmp;
+
+                    if (arr.length == 0) {
+                        tmp.text('Keine Etagen vorhanden');
+                        return;
+                    }
+
+                    tmp += '<div></div>'
+                    tmp += '<ul class="list-group" id="gebBtn">';
+
+                    console.log("log test");
+                    var i = 1;
+                    arr.forEach(obj => {
+                        //{ id: 6, Bezeichnung: "EG", Grundriss: "..\\img\\206_eg.svg", … }
+                        tmp += '<li id="RaumBtn' + obj.id + '" class="list-group-item btn btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
+                       // console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
+                    });
+                    tmp += '</ul>';
+                    $('#tabelle').html(tmp);
+
+                    console.log("../img/" + arr[0].Grundriss)
+                    
+                    $('#svgContainer').load("../img/" + arr[0].Grundriss);
+
+                    $('#RaumBtn' + arr[0].id).click(function (event) {
+                        $('#lageplan').load("../img/" + arr[index].Grundriss);
+                        console.log("Btn 1");
+                    });
+
+
+
+                }).fail(function (xhr) {
+                    console.log('error received');
+                });
+            });
+
+        }
+    }
 
 
     // send form with ajax
@@ -289,121 +359,123 @@ $('#lagerplan').click(function (event) {
         console.log('response received');
         console.log(response);
         zeigeBuchungen(response);
-        ladeGrundriss(response);
+        ladeGrundrisse(response);
 
     }).fail(function (xhr) {
+        console.log('error from Gebaeude received');
     });
 
 
 
-    function ladeGrundriss(response) {
 
-        $(document).ready(function () {
-            // IDs der <li>-Elemente im #gebBtn-Element abrufen
-            var liIds = $('#gebBtn li').map(function () {
-                return this.id;
-            }).get();
-
-            // Jetzt kannst du auf die IDs zugreifen oder sie ausgeben
-            console.log(liIds);
-
-            // Beispiel: Iteration über die IDs
-            liIds.forEach(function (id) {
-                console.log("ID: " + id);
-
-
-                $('#'+id).click(function (event) {
-
-                    console.log(response);
-
-                    // disable default event
-                    event.preventDefault();
-                    //$('#lageplan').hide();
-
-                    /*
-                        function zeigeBuchungen(arr) {
-                    
-                            $('#titel').html('<h1>Mein Buchungen</h1>');
-                            var tmp;
-                    
-                            if (arr.length == 0) {
-                                tmp.text('Keine Buchung vorhanden');
-                                return;
-                            }
-                    
-                    
-                            tmp += '<tr>';
-                            tmp += '<th>Nr</th>';
-                            tmp += '<th>RaumID</th>';
-                            tmp += '<th>BenutzerID</th>';
-                            tmp += '<th>Startzeit</th>';
-                            tmp += '<th>Endzeit</th>';
-                            tmp += '<th>BuchungCode</th>';
-                            tmp += '</tr>';
-                    
-                            console.log("log test");
-                            var i = 1;
-                            arr.forEach(obj => {
-                                tmp += '<tr>';
-                                tmp += '<td>' + i + '</td>';
-                                tmp += '<td>' + obj.RaumID + '</td>';
-                                tmp += '<td>' + obj.BenutzerID + '</td>';
-                                tmp += '<td>' + obj.Startzeit + '</td>';
-                                tmp += '<td>' + obj.Endzeit + '</td>';
-                                tmp += '<td>' + obj.BuchungCode + '</td>';
-                                //tmp += '<td>' + (obj.alter >= 18 ? 'erwachsen' : 'Kind') + '</td>';
-                                tmp += '</tr>';
-                                i++;
-                            });
-                    
-                            $('#tabelle').html(tmp);
-                    
-                        }
-                    
-                    */
-
-                    console.log('loading all recs from api');
-                    // convert data of form to object
-                    var meinObjekt = {
-                        id: 210
-                    };
-
-                    // Erstellen Sie ein neues FormData-Objekt
-                    var formData = new FormData();
-
-                    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
-                    for (var schluessel in meinObjekt) {
-                        formData.append(schluessel, meinObjekt[schluessel]);
-                    }
-
-                    console.log(formData);
-
-                    // send form with ajax
-                    $.ajax({
-                        url: 'http://localhost:8000/api/etage/laden',
-                        type: 'POST',
-                        data: formData,
-                        contentType: false,
-                        cache: false,
-                        processData: false,
-                        dataType: 'json'
-                    }).done(function (response) {
-                        console.log('response from Etage received');
-                        console.log(response);
-                        //zeigeBuchungen(response);
-
-                    }).fail(function (xhr) {
-                        console.log('error received');
-                    });
-                });
-            });
-        });
-    };
 });
 
 
 
 
+function ladeGrundriss(response) {
+
+    $(document).ready(function () {
+        // IDs der <li>-Elemente im #gebBtn-Element abrufen
+        var liIds = $('#gebBtn li').map(function () {
+            return this.id;
+        }).get();
+
+        // Jetzt kannst du auf die IDs zugreifen oder sie ausgeben
+        console.log(liIds);
+
+        // Beispiel: Iteration über die IDs
+        liIds.forEach(function (id) {
+            console.log("ID: " + id);
+
+
+            $('#' + id).click(function (event) {
+
+                console.log(response);
+
+                // disable default event
+                event.preventDefault();
+                //$('#lageplan').hide();
+
+                /*
+                    function zeigeBuchungen(arr) {
+                
+                        $('#titel').html('<h1>Mein Buchungen</h1>');
+                        var tmp;
+                
+                        if (arr.length == 0) {
+                            tmp.text('Keine Buchung vorhanden');
+                            return;
+                        }
+                
+                
+                        tmp += '<tr>';
+                        tmp += '<th>Nr</th>';
+                        tmp += '<th>RaumID</th>';
+                        tmp += '<th>BenutzerID</th>';
+                        tmp += '<th>Startzeit</th>';
+                        tmp += '<th>Endzeit</th>';
+                        tmp += '<th>BuchungCode</th>';
+                        tmp += '</tr>';
+                
+                        console.log("log test");
+                        var i = 1;
+                        arr.forEach(obj => {
+                            tmp += '<tr>';
+                            tmp += '<td>' + i + '</td>';
+                            tmp += '<td>' + obj.RaumID + '</td>';
+                            tmp += '<td>' + obj.BenutzerID + '</td>';
+                            tmp += '<td>' + obj.Startzeit + '</td>';
+                            tmp += '<td>' + obj.Endzeit + '</td>';
+                            tmp += '<td>' + obj.BuchungCode + '</td>';
+                            //tmp += '<td>' + (obj.alter >= 18 ? 'erwachsen' : 'Kind') + '</td>';
+                            tmp += '</tr>';
+                            i++;
+                        });
+                
+                        $('#tabelle').html(tmp);
+                
+                    }
+                
+                */
+
+                console.log('loading all recs from api');
+                // convert data of form to object
+                var meinObjekt = {
+                    id: 210
+                };
+
+                // Erstellen Sie ein neues FormData-Objekt
+                var formData = new FormData();
+
+                // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+                for (var schluessel in meinObjekt) {
+                    formData.append(schluessel, meinObjekt[schluessel]);
+                }
+
+                console.log(formData);
+
+                // send form with ajax
+                $.ajax({
+                    url: 'http://localhost:8000/api/etage/laden',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType: 'json'
+                }).done(function (response) {
+                    console.log('response from Etage received');
+                    console.log(response);
+                    //zeigeBuchungen(response);
+
+                }).fail(function (xhr) {
+                    console.log('error received');
+                });
+            });
+        });
+    });
+};
 
 
 
