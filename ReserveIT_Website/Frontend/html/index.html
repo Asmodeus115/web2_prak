@@ -36,10 +36,11 @@
       <nav class="btn-group linkleiste">
         <button id="lagerplan" class="btn lageplanBtn" type="button"  onclick="loadSVG('http://localhost:3000/img/campusplan_raeume_albstadt.svg')">Lageplan</button>
         <button class="btn ueberunsBtn" type="button"  onclick="loadSVG('http://localhost:3000/img/205_eg.svg')">Über uns</button>
-        <button id="" class="btn buchungenBtn" type="button" onclick="">Meine Buchungen</button>
+        <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button" onclick="">Meine Buchungen</button>
         <button class="btn impressumBtn" type="button" onclick="">Impressum</button>
       </nav>
 
+      
     </div>
   </header>
   <div id="GebaeudeListe" class="grid-unten">
@@ -52,6 +53,7 @@
       </ul>
       -->
     <main id="content">
+      <table id="tabelle"></table>
       <svg id="lageplan" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
         <circle r="50" cx="50" cy="50" stroke="green" stroke-width="4" fill="yellow"></circle>
       </svg>
