@@ -38,111 +38,8 @@
     </div>
   </div>
 
-
-  <main class="calendararea">
-    <div class="calendarheader">
-      <div class="weekControls">
-        <i id="prevWeekBtn" class="fas fa-angle-double-left"></i> <!-- icon (doppelte links Pfeile)-->
-        <span class="weekDisplay"> <!-- zwischen den doppelten Pfeilen-->
-          <span id="weekStartDisplay"></span> <!--erster Tag der Woche-->
-          — <!-- Gedankenstrich zwischen erster und letzter Wochentag-->
-          <span id="weekEndDisplay"></span>
-        </span>
-        <i id="nextWeekBtn" class="fas fa-angle-double-right"></i>
-      </div>
-      <h1><u>Buchungsplan</u></h1>
-      <div class="generalControls"> <!-- allgemeine kontrollelemente (neues event oder alle events löschen)-->
-        <i id="addButton" class="fas fa-plus"></i> <!-- plus Button-->
-      </div>
-    </div>
-
-    <section id="calendar">
-      <div class="dayTime"></div> <!-- Spalte mit den Uhrzeiten-->
-      <div data-name="Montag" data-dayIndex="0" class="day"></div>
-      <div data-name="Dienstag" data-dayIndex="1" class="day"></div>
-      <div data-name="Mittwoch" data-dayIndex="2" class="day"></div>
-      <div data-name="Donnerstag" data-dayIndex="3" class="day"></div>
-      <div data-name="Freitag" data-dayIndex="4" class="day"></div>
-      <div data-name="Samstag" data-dayIndex="5" class="day"></div>
-    </section>
-
-    <form id="bookModal">
-
-      <h2 id="modalTitle">Raumbuchung</h2>
-
-      <h4>201-015</h4>
-
-      <label for="name" class="descriptor">Vor- und Nachname:</label>
-      <div>
-        <input type="name" required id="bookName" name="name" class="shortInput">
-      </div>
-
-      <label for="email" class="descriptor">E-Mail:</label>
-      <div>
-        <input type="email" required id="bookEmail" name="email" class="shortInput">
-      </div>
-
-      <label for="matrikel" class="descriptor">Matrikel-Nr.:</label>
-      <div>
-        <input type="text" required id="bookMatrikel" name="matrikel" pattern="[0-9]{5}" placeholder="12345"
-          class="shortInput">
-      </div>
-
-      <label for="date" class="descriptor">Datum</label>
-      <div>
-        <input type="date" required id="bookDate" name="date" class="shortInput">
-      </div>
-
-      <label for="time" class="descriptor">Zeit</label>
-      <div>
-        <input type="time" required id="bookStart" name="time" class="shortInput">
-        —
-        <input type="time" required id="bookEnd" name="time" class="shortInput">
-      </div>
-
-      <label for="description" class="descriptor">Anmerkung:</label>
-      <div>
-        <textarea name="description" id="bookDescription" maxlength="500"></textarea>
-      </div>
-
-      <div id="bookControls">
-        <input type="button" id="cancelButton" value="abbrechen" class="button">
-        <input type="submit" id="submitButton" value="buchen" class="button">
-      </div>
-
-      <div id="errors"></div>
-    </form>
-
-
-    <form id="cancelModal">
-
-      <h2 id="cancelModalTitle">Buchungsverwaltung</h2>
-
-      <label for="eventinfo" class="descriptor">Termin:</label>
-      <div>
-        <textarea name="eventinfo" id="cancelEventinfo"></textarea>
-      </div>
-
-      <label for="matrikel" class="descriptor">Matrikel-Nr.:</label>
-      <div>
-        <input type="text" required id="bookMatrikel" name="matrikel" pattern="[0-9]{5}" placeholder="12345"
-          class="shortInput">
-      </div>
-
-      <label for="verifizierung" class="descriptor">Verifizierungscode</label>
-      <div>
-        <input type="password" required id="bookVerifizierung" name="verifizierung" placeholder="siehe Bestätigungsmail"
-          class="shortInput">
-      </div>
-
-      <div>
-        <input type="button" id="cancelButtonStorno" value="abbrechen" class="button">
-        <input type="submit" id="stornoButton" value="stornieren" class="button">
-      </div>
-    </form>
-
-  </main>
-
+  <main id="mainCalendar"></main>
+  
   <footer class="footer">
     <div class="footer-container">
       <div id="footerFirma">
@@ -172,7 +69,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="../js/CalendarMain.js" type="module"></script> <!-- Um import und export benutzen zu können-->
+  <script src="../js/Calendar.js"></script>
   <script src="../js/main.js"></script>
 
 
