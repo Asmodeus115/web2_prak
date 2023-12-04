@@ -12,7 +12,7 @@ function loadSVG(url){
 
 function swapButtonsGeb(gebNr){
     loadSVG('http://localhost:3000/img/'+gebNr+"_"+1+".svg");
-    removeOldButtons();
+    etagenAdder(gebNr);
 }
 
 function removeOldButtons(){
