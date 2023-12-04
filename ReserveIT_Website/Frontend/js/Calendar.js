@@ -1,177 +1,259 @@
-import { getDayIndex, addDays, dateString } from "./CalendarHelper.js";
-
-const MODE = {
-    VIEW: 1,
-    UPDATE: 2,
-    CREATE: 3,
-}
-
-export class Calendar {
+class WeeklyCalendar {
     constructor() {
-        this.mode = MODE.VIEW;
-        this.weekStart = null;
-        this.weekEnd = null;
-        this.weekOffset = 0; // aktueller Wochentag wird hervorgehoben
+      this.main = document.getElementById('mainCalendar');
+      this.calendarArea = null;
+      this.navigation = null;
+      this.buchungsfenster = null;
+      this.cancelButton = null;
+      this.submitButton = null;
+      this.currentDateElement = null;
+      this.prevWeekBtn = null;
+      this.nextWeekBtn = null;
+      this.currentDate = new Date();
+      this.times = ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'];
+      this.startOfWeek = null;
+      this.endOfWeek = null;
+      this.cellDate = null;
+      this.eventDate = null;
+      this.eventStartTime = null;
+      this.eventEndTime = null;
+  
+      this.createCalendar();
+      this.updateCurrentDate();
+      this.createBookingWindowElements();
+  
+      this.addEventListeners();
+  
+      
     }
-
-    setup() {
-        this.setupTimes();
-        this.setupDays();
-        this.calculateCurrentWeek(); /* Funktion um die Woche zu berechnen */
-        this.showWeek();
-        this.setupControls();
-
-
-    }
-
-    setupTimes() {
-        const header = $("<div></div>").addClass("columnHeader");
-        const slots = $("<div></div>").addClass("slots");
-        for (let hour = 7; hour < 19; hour++) {
-            $("<div></div>")
-                .attr("data-hour", hour)
-                .addClass("time")
-                .text(`${hour}:00 - ${hour + 1}:00`)
-                .appendTo(slots);
-        }
-        $(".dayTime").append(header).append(slots);
-    }
-
-    setupDays() {
-        const cal = this;
-        $(".day").each(function () {
-            const dayIndex = parseInt($(this).attr("data-dayIndex"));
-            const name = $(this).attr("data-name");
-            const header = $("<div></div>").addClass("columnHeader").text(name);
-            $("<div></div>").addClass("dayDisplay").appendTo(header);
-            const slots = $("<div></div>").addClass("slots");
-            $("<div></div>").addClass("dayDisplay").appendTo(header);
-            for (let hour = 7; hour < 19; hour++) {
-                $("<div></div>")
-                    .attr("data-hour", hour)
-                    .appendTo(slots)
-                    .addClass("slot")
-                    .click(() => cal.clickSlot(hour, dayIndex))
-                    .hover(
-                        () => cal.hoverOver(hour),
-                        () => cal.hoverOut()
-                    );
-            }
-            $(this).append(header).append(slots);
+  
+    createCalendar() {
+      
+      this.calendarArea = document.createElement('div');
+      this.calendarArea.classList.add('calendararea');
+  
+      this.navigation = document.createElement('div');
+      this.navigation.id = 'navigation';
+  
+      this.prevWeekBtn = document.createElement('i');
+      this.prevWeekBtn.id = 'prevWeekBtn';
+      this.prevWeekBtn.classList.add('fas', 'fa-angle-double-left');
+      this.navigation.appendChild(this.prevWeekBtn);
+  
+      this.currentDateElement = document.createElement('span');
+      this.currentDateElement.id = 'currentDate';
+      this.currentDateElement.classList.add('weekDisplay');
+      this.navigation.appendChild(this.currentDateElement);
+  
+      this.nextWeekBtn = document.createElement('i');
+      this.nextWeekBtn.id = 'nextWeekBtn';
+      this.nextWeekBtn.classList.add('fas', 'fa-angle-double-right');
+      this.navigation.appendChild(this.nextWeekBtn);
+  
+      this.calendarArea.appendChild(this.navigation);
+  
+      this.table = document.createElement('table');
+      this.table.id = 'calendar'
+      const thead = document.createElement('thead');
+      thead.innerHTML = '<tr><th id="columnTime">Time</th>' +
+                        '<th class="columnDays">Mo</th><th class="columnDays">Di</th><th class="columnDays">Mi</th>' +
+                        '<th class="columnDays">Do</th><th class="columnDays">Fr</th><th class="columnDays">Sa</th></tr>';
+      this.table.appendChild(thead);
+  
+      const tbody = document.createElement('tbody');
+      this.times.forEach(time => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td class="time-cell">${time}</td>` +
+                        '<td class="day-cell"></td><td class="day-cell"></td><td class="day-cell"></td>' +
+                        '<td class="day-cell"></td><td class="day-cell"></td><td class="day-cell"></td>';
+  
+        row.querySelectorAll('.day-cell').forEach((cell, index) => {
+          cell.addEventListener('click', () => this.cellClick(index, time));
         });
+  
+        tbody.appendChild(row);
+        this.table.appendChild(tbody);
+        this.calendarArea.appendChild(this.table);
+      });
+  
+      //document.body.appendChild(this.calendarArea);
+      this.main.appendChild(this.calendarArea);
+      //this.bodyCalendar.appendBild(bookWinow)
     }
-    clickSlot(hour, dayIndex) {
-        if (this.mode !== MODE.VIEW) {
-            return;
-        }
-        this.mode = MODE.CREATE;
-        const start = hour.toString().padStart(2, "0") + ":00"; // damit z.B. Uhrzeit 5 zu 05 wird
-        const end = hour < 23 ? (hour + 1).toString().padStart(2, "0") + ":00" : "23:59"; // 24 Uhr gibt es nicht, daher sagen wir 23:59
-        const date = dateString(addDays(this.weekStart, dayIndex));
-        const event = {
-            start,
-            end,
-            date
-        };
-        this.openModal(event);
+  
+    createBookingWindowElements() {
+      this.bookingForm = document.createElement('form');
+      this.bookingForm.id = 'buchungsfenster';
+      this.buchungsfenster = this.bookingForm;
+  
+      const bookTitle = document.createElement('h2');
+      bookTitle.id = 'bookTitel';
+      bookTitle.textContent = 'Raumbuchung';
+      this.bookingForm.appendChild(bookTitle);
+  
+      const roomNumber = document.createElement('h4');
+      roomNumber.textContent = '201-015';
+      this.bookingForm.appendChild(roomNumber);
+  
+      const dateLabel = document.createElement('label');
+      dateLabel.for = 'date';
+      dateLabel.classList.add('bookDescriptor');
+      dateLabel.textContent = 'Datum';
+      this.bookingForm.appendChild(dateLabel);
+  
+      const dateInputDiv = document.createElement('div');
+      const dateInput = document.createElement('input');
+      dateInput.type = 'date';
+      dateInput.required = true;
+      dateInput.id = 'bookDate';
+      dateInput.name = 'date';
+      dateInput.classList.add('shortInput');
+      dateInputDiv.appendChild(dateInput);
+      this.bookingForm.appendChild(dateInputDiv);
+  
+      const timeLabel = document.createElement('label');
+      timeLabel.for = 'time';
+      timeLabel.classList.add('bookDescriptor');
+      timeLabel.textContent = 'Zeit';
+      this.bookingForm.appendChild(timeLabel);
+  
+      const timeInputDiv = document.createElement('div');
+      const startTimeInput = document.createElement('input');
+      startTimeInput.type = 'time';
+      startTimeInput.required = true;
+      startTimeInput.id = 'bookStart';
+      startTimeInput.name = 'time';
+      startTimeInput.classList.add('shortInput');
+      timeInputDiv.appendChild(startTimeInput);
+  
+      const dash = document.createTextNode(' — ');
+  
+      const endTimeInput = document.createElement('input');
+      endTimeInput.type = 'time';
+      endTimeInput.required = true;
+      endTimeInput.id = 'bookEnd';
+      endTimeInput.name = 'time';
+      endTimeInput.classList.add('shortInput');
+      timeInputDiv.appendChild(dash);
+      timeInputDiv.appendChild(endTimeInput);
+  
+      this.bookingForm.appendChild(timeInputDiv);
+  
+      const bookControlsDiv = document.createElement('div');
+      bookControlsDiv.id = 'bookControls';
+  
+      const cancelButton = document.createElement('input');
+      cancelButton.type = 'button';
+      cancelButton.id = 'cancelButton';
+      cancelButton.value = 'abbrechen';
+      cancelButton.classList.add('button');
+      bookControlsDiv.appendChild(cancelButton);
+  
+      this.cancelButton = cancelButton;
+  
+      const submitButton = document.createElement('input');
+      submitButton.type = 'submit';
+      submitButton.id = 'submitButton';
+      submitButton.value = 'buchen';
+      submitButton.classList.add('button');
+      bookControlsDiv.appendChild(submitButton);
+      this.submitButton = submitButton;
+  
+      this.bookingForm.appendChild(bookControlsDiv);
+  
+      //document.body.appendChild(this.bookingForm);
+      this.main.appendChild(this.bookingForm);
+  }
+  
+  addEventListeners() {
+    this.prevWeekBtn.addEventListener('click', () => this.navigateWeek(-1));
+    this.nextWeekBtn.addEventListener('click', () => this.navigateWeek(1));
+    this.cancelButton.addEventListener('click', () => this.closeBookingWindow());
+    this.submitButton.addEventListener('click', () => this.submitBook());
+  }
+    
+  
+    updateCurrentDate() {
+      this.startOfWeek = new Date(this.currentDate);
+      this.startOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() + (this.currentDate.getDay() === 0 ? -6 : 1));
+      this.endOfWeek = new Date(this.currentDate);
+      this.endOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() + 6);
+  
+      
+  
+      this.currentDateElement.textContent = `${this.formatDate(this.startOfWeek)} - ${this.formatDate(this.endOfWeek)}`;
+  
+      const wochentage = document.querySelectorAll('.columnDays');
+      let currentDay = this.startOfWeek;
+  
+      wochentage.forEach(day => {
+        day.innerHTML = `${day.textContent.slice(0, 2)}<br><span class="currentDay">${currentDay.getDate()}.</span>`;
+        currentDay.setDate(currentDay.getDate() + 1);
+      });
+      this.startOfWeek.setDate(this.startOfWeek.getDate()-6);
+    } 
+  
+    cellClick(cellPos, time) {
+      
+      this.cellDate = new Date(this.startOfWeek);
+      this.cellDate.setDate(this.cellDate.getDate() + cellPos);
+      document.getElementById('bookDate').value = this.formatBookDate(this.cellDate);
+      document.getElementById('bookStart').value = time;
+      const startTime = new Date(`2000-01-01 ${time}`);
+      const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
+      document.getElementById('bookEnd').value = this.formatTime(endTime);
+  
+      // für die Datenbank: 
+      this.eventDate = this.formatDate(this.cellDate);
+      this.eventStartTime = time;
+      this.eventEndTime = this.formatTime(endTime);
+      
+     
+      this.openBookingWindow();
     }
-
-    openModal(event) {
-        $("#bookDate").val(event.date);
-        $("#bookStart").val(event.start);
-        $("#bookEnd").val(event.end);
-        $("#bookDescription").val(event.description);
-        $("#bookModal").fadeIn(200);
-        $("#bookName").focus();
-        $("#calendar").addClass("opaque");
-        $("#bookStart").val(event.start);
-
-        $("#bookModal").submit((e) => {
-            e.preventDefault();
-
-        })
+  
+    openBookingWindow() {
+      this.buchungsfenster.style.display = 'block';
     }
-
-    closeModal() {
-        $("#bookModal").fadeOut(200);
-        $("#errors").text("");
-        $("#calendar").removeClass("opaque");
-        this.mode = MODE.VIEW;
+  
+    closeBookingWindow() {
+      this.buchungsfenster.style.display = 'none';
     }
-
-    addNewEvent() {
-        if (this.mode != MODE.VIEW) return;
-        this.mode = MODE.CREATE;
-        const event = new Event({
-            start: "12:00",
-            end: "13:00",
-            date: dateString(this.weekStart),
-            description: "",
-        });
-        this.openModal(event);
+  
+    
+    submitBook() {
+      alert(this.eventDate);
+      alert(this.eventStartTime);
+      alert(this.eventEndTime);
+      
     }
-
-    hoverOver(hour) {
-        $(`.time[data-hour=${hour}]`).addClass("currentTime");
+  
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+      return date.toLocaleDateString('de-DE', options);
     }
-
-    hoverOut() {
-        $(".time").removeClass("currentTime");
+  
+    formatBookDate(date) {
+      //const isoDate = date.toISOString().split('T')[0]; // Extrahiere das Datumteil aus dem ISO-String YYYY-MM-DD
+      //return isoDate;
+      const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+      return date.toLocaleDateString('de-DE', options).split('.').reverse().join('-');
+      
     }
-
-    calculateCurrentWeek() {
-        const now = new Date(); // damit kriegt man das aktuelle Datum
-        this.weekStart = addDays(now, -getDayIndex(now)); // Damit kriegt man den Wochenstart -> aktulles datum wird mit sovielen Tagen abgezogen wie der aktuelle ist erg. = 0 => Montag
-        this.weekEnd = addDays(this.weekStart, 5);
+  
+    formatTime(date) {
+      // Diese Funktion formatiert die Uhrzeit im Format 'HH:mm'
+      const options = { hour: '2-digit', minute: '2-digit' };
+      return date.toLocaleTimeString('de-DE', options);
     }
-
-    showWeek() { // Funktion zeigt aktuelle Woche an
-        const options = { // datum wird passend formartiert
-            month: "2-digit",
-            day: "2-digit",
-            year: "numeric",
-        };
-        $("#weekStartDisplay").text(this.weekStart.toLocaleDateString(undefined, options)); //toLocalDateString(ort, datumsformat)
-        $("#weekEndDisplay").text(this.weekEnd.toLocaleDateString(undefined, options));
-        for (let dayIndex = 0; dayIndex < 7; dayIndex++) {    // Datum wird in den einzelnen spalten unter jedem Wochentag geschrieben
-            const date = addDays(this.weekStart, dayIndex);
-            const display = date.toLocaleDateString(undefined, {
-                month: "2-digit",
-                day: "2-digit",
-            });
-            $(`.day[data-dayIndex=${dayIndex}] .dayDisplay`).text(display);
-
-        }
-
-        if (this.weekOffset === 0) {
-            this.showCurrentDay();
-        } else {
-            this.hideCurrentDay();
-        }
+  
+    navigateWeek(offset) {
+      this.currentDate.setDate(this.currentDate.getDate() + (offset * 7));
+      this.updateCurrentDate();
     }
-
-    setupControls() {
-        $("#nextWeekBtn").click(() => this.changeWeek(1)); // wechselt vorwaerts
-        $("#prevWeekBtn").click(() => this.changeWeek(-1)); // wechselt rueckwaerts
-        $("#cancelButton").click(() => this.closeModal());
-        $("#addButton").click(() => this.addNewEvent());
-    }
-
-    changeWeek(number) {
-        this.weekOffset += number; // jedes mal wenn die Woche verschoben wird, wird eine nummer addiert
-        this.weekStart = addDays(this.weekStart, 7 * number);
-        this.weekEnd = addDays(this.weekEnd, 7 * number);
-        this.showWeek(); //aktualisiert nach klick
-    }
-
-    showCurrentDay() {
-        const now = new Date();
-        const dayIndex = getDayIndex(now);
-        $(`.day[data-dayIndex=${dayIndex}]`).addClass("currentDay");
-    }
-
-    hideCurrentDay() {
-        $(".day").removeClass("currentDay");
-    }
-
-}
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const myCalendar = new WeeklyCalendar();
+  });
+  
