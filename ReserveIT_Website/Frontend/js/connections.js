@@ -183,13 +183,6 @@ $('#bookModal').submit(function (event) {
     //var matNr = event.matNr;
     console.log(startDate + "\n" + endDate);
 
-    /*
-    var dt = helper.formatToGermanDate(startDate);
-    console.log(dt);
-    */
-    //alert(datum);
-
-
 
     // convert data of form to object
     var meinObjekt = {
@@ -467,6 +460,8 @@ function ladeGrundriss(response) {
                 }).done(function (response) {
                     console.log('response from Etage received');
                     console.log(response);
+
+                    zeigeBuchunginca(response);
                     //zeigeBuchungen(response);
 
                 }).fail(function (xhr) {
