@@ -14,5 +14,6 @@ app.listen(PORT, () => {
 
 let html = path.join(__dirname, 'Frontend', 'html', 'index.html');
 app.get('/', (req, res) => {
+    console.log('HTML ' + html);
     res.sendFile(html)
 });

@@ -44,7 +44,7 @@ $('#signInBtn').submit(function (event) {
         console.log('response received -->' + response);
 
         if (response) {
-            window.location.href = 'index.html';
+            window.location.href = '/html/index.html';
         } else {
             $('#fehler').html('Fehler beim Anmelden');
             $('#login__matrikelnr').val('');
