@@ -37,6 +37,24 @@ serviceRouter.post('/buchung/laden', function(request, response) {
     }
 });
 
+serviceRouter.get('/buchung/alleladen', function(request, response) {
+    console.log('Service Buchung: Client requested all records');
+
+    const buchungDao = new BuchungDao(request.app.locals.dbConnection);
+    try {
+        var arr = buchungDao.loadAll();
+        console.log('Service Buchung: Records loaded, count=' + arr.length);
+        response.status(200).json(arr);
+    } catch (ex) {
+        console.error('Service Buchung: Error loading all records. Exception occured: ' + ex.message);
+        response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
+    }
+});
+
+
+
+
+
 serviceRouter.get('/buchung/existiert/:id', function(request, response) {
     console.log('Service Buchung: Client requested check, if record exists, id=' + request.params.id);
 

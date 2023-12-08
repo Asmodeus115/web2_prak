@@ -3,8 +3,8 @@
 // Add a submit event listener to the form
 $('#signInBtn').submit(function (event) {
 
-  const matrikelNr = document.getElementById('login__matrikelnr').value;
-  console.log("LogIn Vorgang startet.");
+    const matrikelNr = document.getElementById('login__matrikelnr').value;
+    console.log("LogIn Vorgang startet.");
     // Get the login form by ID
     // const loginForm = document.querySelector('.form');
 
@@ -16,15 +16,15 @@ $('#signInBtn').submit(function (event) {
     const password = document.getElementById('login__password').value;
 
     // convert data of form to object
-  const meinObjekt = {
-    id: matrikelNr,
-    passwort: password,
-  };
+    const meinObjekt = {
+        id: matrikelNr,
+        passwort: password,
+    };
 
-  // Erstellen Sie ein neues FormData-Objekt
-  const formData = new FormData();
+    // Erstellen Sie ein neues FormData-Objekt
+    const formData = new FormData();
 
-  // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
     for (const schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
@@ -44,7 +44,7 @@ $('#signInBtn').submit(function (event) {
         console.log('response received -->' + response);
 
         if (response) {
-            window.location.href = 'index.html';
+            window.location.href = '/html/index.html';
         } else {
             $('#fehler').html('Fehler beim Anmelden');
             $('#login__matrikelnr').val('');
@@ -64,9 +64,10 @@ $('#signInBtn').submit(function (event) {
 
 $('#meineBuchungenBtn').click(function (event) {
 
-  const matrikelNr = 12345;
+    const matrikelNr = 12345;
 
-  console.log("zeige meine Buchungen " + matrikelNr);
+    console.log("zeige meine Buchungen " + matrikelNr);
+    //$('sexyAnton').remove();
 
     // disable default event
     event.preventDefault();
@@ -76,9 +77,9 @@ $('#meineBuchungenBtn').click(function (event) {
     function zeigeBuchungen(arr) {
 
         $('#titel').html('<h1>Mein Buchungen</h1>');
-      let tmp;
+        let tmp;
 
-      if (arr.length === 0) {
+        if (arr.length === 0) {
             tmp.text('Keine Buchung vorhanden');
             return;
         }
@@ -116,14 +117,14 @@ $('#meineBuchungenBtn').click(function (event) {
 
     console.log('loading all recs from api');
     // convert data of form to object
-  const meinObjekt = {
-    BenutzerID: 12345
-  };
+    const meinObjekt = {
+        BenutzerID: 12345
+    };
 
-  // Erstellen Sie ein neues FormData-Objekt
-  const formData = new FormData();
+    // Erstellen Sie ein neues FormData-Objekt
+    const formData = new FormData();
 
-  // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
     for (const schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
@@ -161,6 +162,7 @@ $('#bookModal').submit(function (event) {
     // disable default event
     event.preventDefault();
 
+
     function generateRandomString() {
         var length = 8;
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -182,13 +184,6 @@ $('#bookModal').submit(function (event) {
     var endDate = datum + " " + end + ":00"
     //var matNr = event.matNr;
     console.log(startDate + "\n" + endDate);
-
-    /*
-    var dt = helper.formatToGermanDate(startDate);
-    console.log(dt);
-    */
-    //alert(datum);
-
 
 
     // convert data of form to object
@@ -220,8 +215,9 @@ $('#bookModal').submit(function (event) {
         processData: false,
         dataType: 'json'
     }).done(function (response) {
-        console.log('response received, uploaded files cnt=' + response.length);
-        console.log($('#output').text(response.length + ' Datei(en) aufgeladen'));
+        //console.log('response received, uploaded files cnt=' + response.length);
+        //console.log($('#output').text(response.length + ' Datei(en) aufgeladen'));
+        console.log('Buchung erfolgreich erstellt!');
 
     }).fail(function (xhr) {
         console.log('error received');
@@ -322,13 +318,13 @@ $('#lagerplan').click(function (event) {
                     arr.forEach(obj => {
                         //{ id: 6, Bezeichnung: "EG", Grundriss: "..\\img\\206_eg.svg", … }
                         tmp += '<li id="RaumBtn' + obj.id + '" class="list-group-item btn btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
-                       // console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
+                        // console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
                     });
                     tmp += '</ul>';
                     $('#tabelle').html(tmp);
 
                     console.log("../img/" + arr[0].Grundriss)
-                    
+
                     $('#svgContainer').load("../img/" + arr[0].Grundriss);
 
                     $('#RaumBtn' + arr[0].id).click(function (event) {
@@ -467,6 +463,8 @@ function ladeGrundriss(response) {
                 }).done(function (response) {
                     console.log('response from Etage received');
                     console.log(response);
+
+                    zeigeBuchunginca(response);
                     //zeigeBuchungen(response);
 
                 }).fail(function (xhr) {
