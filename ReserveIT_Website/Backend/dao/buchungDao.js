@@ -12,7 +12,7 @@ class BuchungDao {
 
     loadById(id) {
 
-        var sql = 'SELECT * FROM Buchung WHERE BenutzerID=?';
+        var sql = 'SELECT * FROM Buchung WHERE BenutzerID=? AND Startzeit >= date(\'now\')';
         var statement = this._conn.prepare(sql);
         var result = statement.all(id);
 
@@ -23,9 +23,31 @@ class BuchungDao {
         return result;
     }
 
+    loadAllBuchungen() {
+        var sql = 'SELECT RaumID, Startzeit, Endzeit FROM Buchung WHERE Startzeit >= date(\'now\')';
+        //var sql = 'SELECT * FROM Buchung';
+        var statement = this._conn.prepare(sql);
+        var result = statement.all();
+
+        if (helper.isArrayEmpty(result))
+            return [];
+
+        for (var i = 0; i < result.length; i++) {
+            var startzeit = helper.parseSQLDateTimeString(result[i].Startzeit);
+            result[i].Startzeit = helper.formatToGermanDateTime(startzeit);
+            console.log(result[i].Startzeit);
+
+            var endzeit = helper.parseSQLDateTimeString(result[i].Endzeit);
+            result[i].Endzeit = helper.formatToGermanDateTime(endzeit);
+            console.log(result[i].Endzeit);
+        }
+        return result;
+    }
+
 
     loadAll() {
         var sql = 'SELECT * FROM Buchung WHERE Startzeit >= date(\'now\')';
+        //var sql = 'SELECT * FROM Buchung';
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 

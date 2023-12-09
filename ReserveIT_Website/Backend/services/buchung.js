@@ -22,7 +22,9 @@ serviceRouter.get('/buchung/gib/:id', function(request, response) {
     }
 });
 
-serviceRouter.post('/buchung/laden', function(request, response) {
+
+// Service Klasse für den Button Meine Buchungen
+serviceRouter.post('/buchung/ladeMeineBuchungen', function(request, response) {
     console.log('Service Buchung: Client requested all records');
     console.log(request.body.BenutzerID);
 
@@ -37,12 +39,13 @@ serviceRouter.post('/buchung/laden', function(request, response) {
     }
 });
 
+// Service Klasse für das farbige Zeigen das Termine im Kalender
 serviceRouter.get('/buchung/alleladen', function(request, response) {
     console.log('Service Buchung: Client requested all records');
 
     const buchungDao = new BuchungDao(request.app.locals.dbConnection);
     try {
-        var arr = buchungDao.loadAll();
+        var arr = buchungDao.loadAllBuchungen();
         console.log('Service Buchung: Records loaded, count=' + arr.length);
         response.status(200).json(arr);
     } catch (ex) {
@@ -50,7 +53,6 @@ serviceRouter.get('/buchung/alleladen', function(request, response) {
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
     }
 });
-
 
 
 
