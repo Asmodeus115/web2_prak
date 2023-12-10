@@ -6,6 +6,8 @@ $(document).ready(function () {
 
     $('#submitButton').click(function (event) {
         ceateBooking();
+        zeigeFarben();
+        
     });
 });
 
@@ -32,10 +34,48 @@ function ladeAlleBuchugenByTime() {
 
 // In dieser Funktion darfst du dich austuben Habibi @SG4747
 function zeigeFarben(arr) {
-    console.log('Hier ist zeigeFarben Funktion');
+    console.log('Hier ist zeigeFarben Funktion' + arr.length);
     // Hier ist dein Spielplatz @SG4747 
+
+    arr.forEach(function (booking) {
+        // Hier wird jede Buchung in arr durchlaufen
+        var spaltenindex = 4//booking.zellenSpalte;
+        var zeilenindex = 3//booking.zellenZeile;
+
+        markiereZelle(spaltenindex, zeilenindex, 'red');
+       
+    });
 }
 
+
+// Diese Funktion setzt die Hintergrundfarbe einer Zelle in einer Tabelle
+function markiereZelle(spaltenindex, zeilenindex, farbe) {
+    var tabelle = document.getElementById('calendar');
+
+    // Überprüfe, ob die Tabelle existiert
+    if (tabelle) {
+        // Finde die Zeile in der Tabelle
+        var zeile = tabelle.getElementsByTagName('tr')[zeilenindex];
+
+        // Überprüfe, ob die Zeile existiert
+        if (zeile) {
+            // Finde die Zelle in der Zeile
+            var zelle = zeile.getElementsByTagName('td')[spaltenindex];
+
+            // Überprüfe, ob die Zelle existiert
+            if (zelle) {
+                // Setze die Hintergrundfarbe der Zelle
+                zelle.style.backgroundColor = farbe;
+            } else {
+                console.error('Zelle existiert nicht');
+            }
+        } else {
+            console.error('Zeile existiert nicht');
+        }
+    } else {
+        console.error('Tabelle existiert nicht');
+    }
+}
 
 
 
@@ -59,6 +99,9 @@ function ceateBooking() {
         return result;
     }
 
+    var zellenSpalte = window.cellPos;
+    var zellenZeile = window.time;
+
     var datum = $('#bookDate').val();
     var start = $('#bookStart').val();
     var end = $('#bookEnd').val();
@@ -66,11 +109,11 @@ function ceateBooking() {
     var matNr = 12345;
     var buchungCode = generateRandomString();
 
-    var startDate = datum + " " + start + ":00"
+    var startDate = datum + " " + start + ":00" 
     var endDate = datum + " " + end + ":00"
     //var matNr = event.matNr;
     console.log(startDate + "\n" + endDate);
-
+    
 
     // convert data of form to object
     var meinObjekt = {

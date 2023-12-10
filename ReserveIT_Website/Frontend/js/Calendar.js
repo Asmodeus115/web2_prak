@@ -18,6 +18,8 @@ class WeeklyCalendar {
     this.eventDate = null;
     this.eventStartTime = null;
     this.eventEndTime = null;
+    window.cellPos = null;
+    window.time = null;
 
     this.createCalendar();
     this.updateCurrentDate();
@@ -194,6 +196,7 @@ class WeeklyCalendar {
     this.startOfWeek.setDate(this.startOfWeek.getDate() - 6);
   }
 
+
   cellClick(cellPos, time) {
 
     this.cellDate = new Date(this.startOfWeek);
@@ -203,8 +206,10 @@ class WeeklyCalendar {
     const startTime = new Date(`2000-01-01 ${time}`);
     const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
     document.getElementById('bookEnd').value = this.formatTime(endTime);
-
+   
     // für die Datenbank: 
+    window.cellPos = cellPos;
+    window.time = time;
     this.eventDate = this.formatDate(this.cellDate);
     this.eventStartTime = time;
     this.eventEndTime = this.formatTime(endTime);
