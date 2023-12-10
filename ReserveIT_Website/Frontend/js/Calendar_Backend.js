@@ -41,6 +41,7 @@ function zeigeFarben(arr) {
         // Hier wird jede Buchung in arr durchlaufen
         var spaltenindex = 4//booking.zellenSpalte;
         var zeilenindex = 3//booking.zellenZeile;
+        // test
 
         markiereZelle(spaltenindex, zeilenindex, 'red');
        
