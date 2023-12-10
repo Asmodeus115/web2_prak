@@ -1,4 +1,5 @@
 
+
 class WeeklyCalendar {
   constructor() {
     this.main = document.getElementById('mainCalendar');
@@ -20,6 +21,8 @@ class WeeklyCalendar {
     this.eventEndTime = null;
     window.cellPos = null;
     window.time = null;
+    window.startDatum = null;
+    window.endeDatum = null;
 
     this.createCalendar();
     this.updateCurrentDate();
@@ -180,12 +183,15 @@ class WeeklyCalendar {
     this.startOfWeek = new Date(this.currentDate);
     this.startOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() + (this.currentDate.getDay() === 0 ? -6 : 1));
     this.endOfWeek = new Date(this.currentDate);
-    this.endOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() + 6);
+    this.endOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() -1 );
 
 
 
     this.currentDateElement.textContent = `${this.formatDate(this.startOfWeek)} - ${this.formatDate(this.endOfWeek)}`;
-
+    window.startDatum = `${this.formatDate(this.startOfWeek)}`;
+    window.endeDatum = `${this.formatDate(this.endOfWeek)}`;
+    
+    
     const wochentage = document.querySelectorAll('.columnDays');
     let currentDay = this.startOfWeek;
 
@@ -234,7 +240,14 @@ class WeeklyCalendar {
 
   formatDate(date) {
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-    return date.toLocaleDateString('de-DE', options);
+
+    // Extrahiere Tag, Monat und Jahr
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Monate sind nullbasiert
+    const year = date.getFullYear();
+
+    // Gib das formatierte Datum zurück
+    return `${day}.${month}.${year}`;
   }
 
   formatBookDate(date) {
