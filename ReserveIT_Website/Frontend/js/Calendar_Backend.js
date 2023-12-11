@@ -1,13 +1,16 @@
-
 $(document).ready(function () {
     console.log("form submit called");
 
     ladeAlleBuchugenByTime();
-
+    
     $('#submitButton').click(function (event) {
         ceateBooking();
-        zeigeFarben();
         
+    });
+
+    $('#prevWeekBtn, #nextWeekBtn').click(function (event) {
+        entferneFarben();
+        ladeAlleBuchugenByTime();
     });
 });
 
@@ -34,17 +37,25 @@ function ladeAlleBuchugenByTime() {
 
 // In dieser Funktion darfst du dich austuben Habibi @SG4747
 function zeigeFarben(arr) {
-    console.log('Hier ist zeigeFarben Funktion' + arr.length);
+    
+    console.log('Hier ist zeigeFarben Funktion');
     // Hier ist dein Spielplatz @SG4747 
+    const endOfWeek = createDateFromDateString(window.endeDatum);
+    const startOfWeek = createDateFromDateString(window.startDatum);
+    //alert(startOfWeek);
+    
 
     arr.forEach(function (booking) {
         // Hier wird jede Buchung in arr durchlaufen
+        
+        const bookDate = createDateFromDateString(booking.Startzeit);
         var spaltenindex = 4//booking.zellenSpalte;
         var zeilenindex = 3//booking.zellenZeile;
-        // test
-
-        markiereZelle(spaltenindex, zeilenindex, 'red');
-       
+        
+        if (startOfWeek <= bookDate && endOfWeek >= bookDate ) {
+            console.log("ist in er Woche");
+            markiereZelle(spaltenindex, zeilenindex, 'red');
+        }
     });
 }
 
@@ -110,8 +121,8 @@ function ceateBooking() {
     var matNr = 12345;
     var buchungCode = generateRandomString();
 
-    var startDate = datum + " " + start + ":00" 
-    var endDate = datum + " " + end + ":00"
+    var startDate = datum + " " + start + ":00";
+    var endDate = datum + " " + end + ":00";
     //var matNr = event.matNr;
     console.log(startDate + "\n" + endDate);
     
@@ -148,6 +159,32 @@ function ceateBooking() {
     }).fail(function (xhr) {
         console.log('Fehler beim Erstellen des Termins');
     }); 
+}
+
+
+function createDateFromDateString(dateString) {
+    const parts = dateString.split('.');
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Monate in JavaScript sind nullbasiert
+    const year = parseInt(parts[2], 10);
+    return new Date(year, month, day);
+}
+
+
+
+
+function entferneFarben() {
+    // Iteriere über alle Zellen und entferne die Hintergrundfarbe
+    var tabelle = document.getElementById('calendar');
+    if (tabelle) {
+        var zeilen = tabelle.getElementsByTagName('tr');
+        for (var i = 0; i < zeilen.length; i++) {
+            var zellen = zeilen[i].getElementsByTagName('td');
+            for (var j = 0; j < zellen.length; j++) {
+                zellen[j].style.backgroundColor = '';
+            }
+        }
+    }
 }
 
 
