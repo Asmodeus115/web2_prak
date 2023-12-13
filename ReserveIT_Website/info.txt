@@ -44,7 +44,7 @@ luxon - Immutable data wrapper Middleware
 Wichtige Angaben in Server.js und den Services
 ----------------------------------------------
 
-server.js, Zeile 35
+frontend_server.js, Zeile 35
     hiermit wird festgelegt, dass der Server auch Dateiuploads verarbeiten kann und wie groß die maximal aufladbare Dateigröße ist
 
 in den Services kann dann über das "request" Objekt auf die Daten der Dateiuploads zugegriffen werden
@@ -56,7 +56,7 @@ zur Verfügung
 Zur Verfügungstellung von Dateien wie PDFs und Bildern
 ------------------------------------------------------
 
-server.js, Zeile 34
+frontend_server.js, Zeile 34
     hiermit wird festgelegt, dass der Ordner "public" Dateien beinhaltet, welche aufgeladen oder hinterlegt wurden.
     angenommen Sie hinterlegen ein Bild unter /public/bilder/abc.jpg dann lautet der Aufruf vom Client aus:
     http://localhost:8000/bilder/abc.jpg
