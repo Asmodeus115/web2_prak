@@ -49,8 +49,8 @@ function zeigeFarben(arr) {
         // Hier wird jede Buchung in arr durchlaufen
         
         const bookDate = createDateFromDateString(booking.Startzeit);
-        var spaltenindex = 4//booking.zellenSpalte;
-        var zeilenindex = 3//booking.zellenZeile;
+        var spaltenindex = booking.ZellenSpalte;
+        var zeilenindex = booking.ZellenZeile;
         
         if (startOfWeek <= bookDate && endOfWeek >= bookDate ) {
             console.log("ist in er Woche");
