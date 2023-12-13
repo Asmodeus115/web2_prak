@@ -42,7 +42,6 @@ function zeigeFarben(arr) {
     // Hier ist dein Spielplatz @SG4747 
     const endOfWeek = createDateFromDateString(window.endeDatum);
     const startOfWeek = createDateFromDateString(window.startDatum);
-    //alert(startOfWeek);
     
 
     arr.forEach(function (booking) {
@@ -52,7 +51,6 @@ function zeigeFarben(arr) {
         var spaltenindex = booking.ZellenSpalte;
         var zeilenindex = booking.ZellenZeile;
         
-        alert(booking.ZellenZeile)
         
         if (startOfWeek <= bookDate && endOfWeek >= bookDate ) {
             console.log("ist in er Woche");
