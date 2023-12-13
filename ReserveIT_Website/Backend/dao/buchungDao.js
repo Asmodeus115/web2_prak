@@ -24,7 +24,7 @@ class BuchungDao {
     }
 
     loadAllBuchungen() {
-        var sql = 'SELECT RaumID, Startzeit, Endzeit FROM Buchung WHERE Startzeit >= date(\'now\')';
+        var sql = 'SELECT RaumID, Startzeit, Endzeit, ZellenSpalte, ZellenZeile FROM Buchung WHERE Startzeit >= date(\'now\')';
         //var sql = 'SELECT * FROM Buchung';
         var statement = this._conn.prepare(sql);
         var result = statement.all();
