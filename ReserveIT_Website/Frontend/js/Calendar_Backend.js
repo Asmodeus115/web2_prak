@@ -52,6 +52,8 @@ function zeigeFarben(arr) {
         var spaltenindex = booking.ZellenSpalte;
         var zeilenindex = booking.ZellenZeile;
         
+        alert(booking.ZellenZeile)
+        
         if (startOfWeek <= bookDate && endOfWeek >= bookDate ) {
             console.log("ist in er Woche");
             markiereZelle(spaltenindex, zeilenindex, 'red');
@@ -113,7 +115,7 @@ function ceateBooking() {
 
     var zellenSpalte = window.cellPos;
     var zellenZeile = window.time;
-
+    
     var datum = $('#bookDate').val();
     var start = $('#bookStart').val();
     var end = $('#bookEnd').val();

@@ -215,7 +215,9 @@ class WeeklyCalendar {
    
     // für die Datenbank: 
     window.cellPos = cellPos;
-    window.time = time;
+    var timeArray = time.split(":")
+    var hours = parseInt(timeArray[0], 10);
+    window.time = hours;
     this.eventDate = this.formatDate(this.cellDate);
     this.eventStartTime = time;
     this.eventEndTime = this.formatTime(endTime);
