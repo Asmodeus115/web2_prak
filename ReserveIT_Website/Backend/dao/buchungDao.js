@@ -12,7 +12,7 @@ class BuchungDao {
 
     loadById(id) {
 
-        var sql = 'SELECT * FROM Buchung WHERE BenutzerID=?';
+        var sql = 'SELECT * FROM Buchung WHERE BenutzerID=? AND Startzeit >= date(\'now\')';
         var statement = this._conn.prepare(sql);
         var result = statement.all(id);
 
@@ -23,9 +23,31 @@ class BuchungDao {
         return result;
     }
 
+    loadAllBuchungen() {
+        var sql = 'SELECT RaumID, Startzeit, Endzeit, ZellenSpalte, ZellenZeile FROM Buchung WHERE Startzeit >= date(\'now\')';
+        //var sql = 'SELECT * FROM Buchung';
+        var statement = this._conn.prepare(sql);
+        var result = statement.all();
+
+        if (helper.isArrayEmpty(result))
+            return [];
+
+        for (var i = 0; i < result.length; i++) {
+            var startzeit = helper.parseSQLDateTimeString(result[i].Startzeit);
+            result[i].Startzeit = helper.formatToGermanDateTime(startzeit);
+            console.log(result[i].Startzeit);
+
+            var endzeit = helper.parseSQLDateTimeString(result[i].Endzeit);
+            result[i].Endzeit = helper.formatToGermanDateTime(endzeit);
+            console.log(result[i].Endzeit);
+        }
+        return result;
+    }
+
 
     loadAll() {
         var sql = 'SELECT * FROM Buchung WHERE Startzeit >= date(\'now\')';
+        //var sql = 'SELECT * FROM Buchung';
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 
@@ -56,10 +78,10 @@ class BuchungDao {
         return false;
     }
 
-    create(RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode) {
-        var sql = 'INSERT INTO Buchung (RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode) VALUES (?,?,?,?,?)';
+    create(RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte, ZellenZeile) {
+        var sql = 'INSERT INTO Buchung (RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte, ZellenZeile ) VALUES (?,?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode];
+        var params = [RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte, ZellenZeile];
         var result = statement.run(params);
 
         if (result.changes != 1)

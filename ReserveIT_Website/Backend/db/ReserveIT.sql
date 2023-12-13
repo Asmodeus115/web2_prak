@@ -74,6 +74,8 @@ CREATE TABLE Buchung (
     Startzeit TEXT  NOT NULL,
     Endzeit TEXT  NOT NULL,
     BuchungCode TEXT  NOT NULL,
+    ZellenSpalte TEXT  NOT NULL,
+    ZellenZeile TEXT  NOT NULL,
     CONSTRAINT fk_Buchung1 FOREIGN KEY (RaumID) REFERENCES Raum(id)  ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_Buchung2 FOREIGN KEY (BenutzerID) REFERENCES Benutzer(id)  ON DELETE CASCADE ON UPDATE CASCADE
 );
