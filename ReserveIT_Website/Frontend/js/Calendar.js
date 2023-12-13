@@ -190,8 +190,8 @@ class WeeklyCalendar {
     this.currentDateElement.textContent = `${this.formatDate(this.startOfWeek)} - ${this.formatDate(this.endOfWeek)}`;
     window.startDatum = `${this.formatDate(this.startOfWeek)}`;
     window.endeDatum = `${this.formatDate(this.endOfWeek)}`;
-    
-    
+
+
     const wochentage = document.querySelectorAll('.columnDays');
     let currentDay = this.startOfWeek;
 
@@ -212,8 +212,8 @@ class WeeklyCalendar {
     const startTime = new Date(`2000-01-01 ${time}`);
     const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
     document.getElementById('bookEnd').value = this.formatTime(endTime);
-   
-    // für die Datenbank: 
+
+    // für die Datenbank:
     window.cellPos = cellPos;
     var timeArray = time.split(":")
     var hours = parseInt(timeArray[0], 10);
@@ -234,7 +234,7 @@ class WeeklyCalendar {
     this.buchungsfenster.style.display = 'none';
   }
 
-  
+
 
   submitBook() {
     console.log("click on submitt button");

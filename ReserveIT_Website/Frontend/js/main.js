@@ -10,9 +10,13 @@ function loadSVG(url){
         })
 }
 
+function calenderElement(){
+
+}
+
 function swapButtonsGeb(gebNr){
     loadSVG('http://localhost:3000/img/'+gebNr+"_"+1+".svg");
-    removeOldButtons();
+    etagenAdder(gebNr);
 }
 
 function removeOldButtons(){
