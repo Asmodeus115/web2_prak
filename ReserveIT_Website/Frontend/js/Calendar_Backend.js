@@ -42,7 +42,6 @@ function zeigeFarben(arr) {
     // Hier ist dein Spielplatz @SG4747 
     const endOfWeek = createDateFromDateString(window.endeDatum);
     const startOfWeek = createDateFromDateString(window.startDatum);
-    //alert(startOfWeek);
     
 
     arr.forEach(function (booking) {
@@ -51,6 +50,7 @@ function zeigeFarben(arr) {
         const bookDate = createDateFromDateString(booking.Startzeit);
         var spaltenindex = booking.ZellenSpalte;
         var zeilenindex = booking.ZellenZeile;
+        
         
         if (startOfWeek <= bookDate && endOfWeek >= bookDate ) {
             console.log("ist in er Woche");
@@ -113,7 +113,7 @@ function ceateBooking() {
 
     var zellenSpalte = window.cellPos;
     var zellenZeile = window.time;
-
+    
     var datum = $('#bookDate').val();
     var start = $('#bookStart').val();
     var end = $('#bookEnd').val();
