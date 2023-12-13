@@ -214,10 +214,10 @@ class WeeklyCalendar {
     document.getElementById('bookEnd').value = this.formatTime(endTime);
 
     // für die Datenbank:
-    window.cellPos = cellPos;
+    window.cellPos = parseInt(cellPos,10)+1;
     var timeArray = time.split(":")
     var hours = parseInt(timeArray[0], 10);
-    window.time = hours;
+    window.time = hours - 6;
     this.eventDate = this.formatDate(this.cellDate);
     this.eventStartTime = time;
     this.eventEndTime = this.formatTime(endTime);
