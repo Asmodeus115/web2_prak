@@ -133,7 +133,9 @@ function ceateBooking() {
         BenutzerID: matNr,
         Startzeit: startDate,
         Endzeit: endDate,
-        BuchungCode: buchungCode
+        BuchungCode: buchungCode,
+        ZellenSpalte: zellenSpalte,
+        ZellenZeile: zellenZeile
     };
 
     // Erstellen Sie ein neues FormData-Objekt
