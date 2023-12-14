@@ -42,20 +42,34 @@ function zeigeFarben(arr) {
     // Hier ist dein Spielplatz @SG4747 
     const endOfWeek = createDateFromDateString(window.endeDatum);
     const startOfWeek = createDateFromDateString(window.startDatum);
-    
+
 
     arr.forEach(function (booking) {
         // Hier wird jede Buchung in arr durchlaufen
         
         const bookDate = createDateFromDateString(booking.Startzeit);
         var spaltenindex = booking.ZellenSpalte;
-        var zeilenindex = booking.ZellenZeile;
+        var buchungsbeginn = timeStringToInt(booking.Startzeit) - 6; // gebuchte uhrzeit - 6 ergibt den zeilenindex
+        var buchungsende = timeStringToInt(booking.Endzeit) - 6;
+       
         
         
         if (startOfWeek <= bookDate && endOfWeek >= bookDate ) {
-            console.log("ist in er Woche");
-            markiereZelle(spaltenindex, zeilenindex, 'red');
+
+            if (buchungsbeginn >= 1 && buchungsbeginn <= 12) { // fruehstens ab 07:00 uhr,spätestens 18:00 Uhr
+                markiereZelle(spaltenindex, buchungsbeginn, 'red');
+
+                if (buchungsende >= 2 && buchungsende <= 13) { // fruehstens ab 08:00 Uhr, spätestens 19:00 Uhr
+                    for (let i = buchungsende; i >= buchungsbeginn; i-- ){
+                        markiereZelle(spaltenindex, i, 'red');
+                    }
+                }
+            }
+            else{
+                alert("Fehler: Gebuchte Zeit ist außerhalb der Öffnungszeiten! \n\n\Die Öffnungszeiten sind von Mo. - Sa.: 07:00 - 19:00 Uhr.")
+            }
         }
+        
     });
 }
 
@@ -146,6 +160,8 @@ function ceateBooking() {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
 
+    
+
     // send form with ajax
     $.ajax({
         url: 'http://localhost:8000/api/buchung/erstellen',
@@ -170,6 +186,12 @@ function createDateFromDateString(dateString) {
     const month = parseInt(parts[1], 10) - 1; // Monate in JavaScript sind nullbasiert
     const year = parseInt(parts[2], 10);
     return new Date(year, month, day);
+}
+
+function timeStringToInt(timeInString) {
+    const timeString = timeInString.split(' ')[1];
+    const timeInt = parseInt(timeString, 10);
+    return timeInt;
 }
 
 
