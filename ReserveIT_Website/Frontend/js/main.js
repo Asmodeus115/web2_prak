@@ -1,23 +1,24 @@
 
-$(document).ready(function (event) {
-  // disable default event
-  event.preventDefault();
+function loadLogo(){
+  removeChild("grid-unten");
+  const gridHolder = document.createElement("div");
+  const svg = document.createElement("object");
+  const svgHolder = document.createElement("div")
+  svgHolder.id = "svgHolder"
+  svg.id = "lageplan";
+  svg.data = "../img/campusplan_raeume_albstadt.svg";
+  gridHolder.className = "list-group"
+  gridHolder.id = "sidebar"
+  console.log("hä");
 
-  // send form with ajax
-  $.ajax({
-    url: 'http://localhost:8000/api/etage/ladenGeb',
-    type: 'get',
-    contentType: false,
-    cache: false,
-    processData: false,
-    dataType: 'json'
-  }).done(function (response) {
-    console.log('response received');
-    console.log(response);
-    zeigeGebaeude(response);
-    ladeGrundrisse(response);
+  document.getElementById("grid-unten").appendChild(gridHolder);
+  document.getElementById("grid-unten").appendChild(svgHolder)
+  document.getElementById("svgHolder").appendChild(svg);
+}
 
-  }).fail(function (xhr) {
-    console.log('Fehler bekommen beim Laden des lageplans aus der DB!');
-  });
-});
+function removeChild(parent){
+  parent = document.getElementById(parent);
+  while (parent.firstChild){
+    parent.removeChild(parent.firstChild);
+  }
+}
