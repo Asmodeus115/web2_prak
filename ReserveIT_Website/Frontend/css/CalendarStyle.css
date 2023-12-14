@@ -34,9 +34,9 @@ input{
     border: 2px solid var(--grid-color);
     border-radius: 20px;
     margin: 2%;
-
+    
    
-    position: absolute;
+position: absolute;
     left: 50%;
     top: 40%;
     transform: translate(-50%, -50%);
@@ -100,14 +100,13 @@ input{
     border-radius: 20px;
     box-shadow: 0px 0px 20px var(--shadow-color);
     left: 50%;
-    top: 40%;
+    Top: 90%;
     transform: translate(-50%, -50%);
     z-index: 10; /* sorgt dafuer, dass es ueber allem anderen ist*/
     padding: 1%;
     width: fit-content;
     min-width: 12.5%;
     height: fit-content;
-    
 }
 
 .bookDescriptor {
