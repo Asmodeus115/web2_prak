@@ -5,38 +5,54 @@ INSERT INTO Adresse (id, Strasse, Hausnummer, PLZ, ort) VALUES (2, 'Johannesstr.
 INSERT INTO Adresse (id, Strasse, Hausnummer, PLZ, ort) VALUES (3, 'Untere Vorstadt', '85', '72458', 'Albstadt');
 INSERT INTO Adresse (id, Strasse, Hausnummer, PLZ, ort) VALUES (4, 'Poststrasse', '6', '72458', 'Albstadt');
 
+
 -- Gebaude
-INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (1, '201', 2);
-INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (2, '205',4 );
-INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (3, '206', 3);
-INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (4, '207', 3);
-INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (5, '210', 1);
+INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (210, 'Gartenstrasse', 1);
+INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (201, 'Johannesstr', 2);
+INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (206, 'Untere Vorstadt', 3);
+INSERT INTO Gebaeude (id, Name, AdresseID) VALUES (205, 'Haux Gebäude',4 );
+
 
 -- Etage
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (1, 'EG','..\img\201_eg.svg', 1);
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2, '1-OG','..\img\201_og.svg', 1);
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (3, '2-OG','..\img\201_og2.svg', 1);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2011, 'EG','..\img\201_1.svg', 201);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2012, '1-OG','..\img\201_2.svg', 201);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2013, '2-OG','..\img\201_3.svg', 201);
 
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (4, 'EG', '..\img\205_eg.svg',2 );
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (5, '1-OG', '..\img\205_og.svg',2 );
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2051, 'EG', '..\img\205_1.svg', 205 );
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2052, '1-OG', '..\img\205_2.svg', 205 );
 
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (6, 'EG', '..\img\206_eg.svg' ,  3);
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (7, '1-OG', '..\img\206_og.svg' ,  3);
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (8, '2-OG', '..\img\206_og2.svg' ,  3);
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (9, '3-OG', '..\img\206_eg3.svg' ,  3);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2061, 'EG', '..\img\206_1.svg' ,  206);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2062, '1-OG', '..\img\206_2.svg' ,  206);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2063, '2-OG', '..\img\206_3.svg' ,  206);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2064, '3-OG', '..\img\206_4.svg' ,  206);
 
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (10, 'EG', '..\img\210_eg.svg' ,5);
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (11, '1-OG', '..\img\210_og.svg' ,5);
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (12, '2-OG', '..\img\campusplan_raeume_albstadt.svg' ,5);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2101, 'EG', '..\img\210_1.svg' ,210);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2102, '1-OG', '..\img\210_2.svg' ,210);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2103, '2-OG', '..\img\201_3.svg' ,210);
 
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (13, 'Campus_Albstadt', '..\img\210_og1.svg' ,2);
+--INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (1, 'Campus_Albstadt', '..\img\campusplan_raeume_albstadt.svg', 2);
+
 
 -- Raum
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (1, '016', 1);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (2, '017',4 );
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (3, '112', 3);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (4, '113', 3);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (5, '116', 2);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210102, '210-002', 2101);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210102, '210-102', 2102);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210112, '210-112', 2102);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210202, '210-202', 2103);
+
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210002, '205-002', 2051);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (205102, '205-017', 2051);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (205112, '205-112', 2052);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (205135, '205-135', 2052);
+
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (206002, '206-002', 2061);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (206102, '206-102', 2062);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (206202, '206-202', 2063);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (206312, '206-312', 2064);
+
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (201002, '201-002', 2101);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (201102, '201-102', 2102);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (201212, '201-212', 2103);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (201302, '201-302', 2104);
 
 --- Person
 

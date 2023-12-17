@@ -126,7 +126,7 @@ function ceateBooking() {
     }
 
     var zellenSpalte = window.cellPos;
-    var zellenZeile = window.time;
+ 
     
     var datum = $('#bookDate').val();
     var start = $('#bookStart').val();
@@ -142,13 +142,12 @@ function ceateBooking() {
     
     // convert data of form to object
     var meinObjekt = {
-        RaumID: 1,
+        RaumID: 210112,
         BenutzerID: matNr,
         Startzeit: startDate,
         Endzeit: endDate,
         BuchungCode: buchungCode,
         ZellenSpalte: zellenSpalte,
-        ZellenZeile: zellenZeile
     };
 
     // Erstellen Sie ein neues FormData-Objekt
