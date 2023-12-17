@@ -4,5 +4,4 @@
 node_modules
 dist
 .cache
-db
-dbAlt
+\ReserveIT_Website\Backend\db\ReserveIT_db_v2.sqlite
