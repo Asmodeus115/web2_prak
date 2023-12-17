@@ -30,12 +30,11 @@ input{
 
 .calendararea {
     width: 50%;
-    padding: 1%;
+    padding: 1% 2.7% 1% 1%;
     border: 2px solid var(--grid-color);
     border-radius: 20px;
     margin: 5% 0 5% 25%;
     position: relative;
-   
     
 }
 
@@ -54,6 +53,7 @@ input{
 #calendar {
     border-collapse: collapse;
     margin: 2%;
+    
 }
 
 
@@ -139,4 +139,8 @@ input{
 .button:hover, .button:focus {
     opacity: 0.9;
 }
+
+
+
+
 
