@@ -105,7 +105,8 @@ $('#meineBuchungenBtn').click(function (event) {
 
     // convert data of form to object
     const meinObjekt = {
-        BenutzerID: sessionStorage.getItem('MatrikelNr')
+        //BenutzerID: sessionStorage.getItem('MatrikelNr')
+        BenutzerID: 12345
     };
 
     // Erstellen ein neues FormData-Objekt
