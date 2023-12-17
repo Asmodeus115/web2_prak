@@ -77,15 +77,15 @@ serviceRouter.get('/etage/existiert/:id', function(request, response) {
 
 serviceRouter.post('/etage/erstellen', function(request, response) {
     console.log('Service Etage: Einen neuen Termin in der Datenbank erstellen');
-    
+
     var errorMsgs=[];
-    if (helper.isUndefined(request.body.RaumID)) 
+    if (helper.isUndefined(request.body.RaumID))
         errorMsgs.push('RaumID fehlt');
-    if (helper.isUndefined(request.body.BenutzerID)) 
+    if (helper.isUndefined(request.body.BenutzerID))
         errorMsgs.push('BenutzerID fehlt');
-    if (helper.isUndefined(request.body.Startzeit)) 
+    if (helper.isUndefined(request.body.Startzeit))
         errorMsgs.push('Startzeit fehlt');
-    if (helper.isUndefined(request.body.Endzeit)) 
+    if (helper.isUndefined(request.body.Endzeit))
         errorMsgs.push('Endzeit fehlt');
 
 
@@ -103,20 +103,20 @@ serviceRouter.post('/etage/erstellen', function(request, response) {
     } catch (ex) {
         console.error('Service Etage: Error creating new record. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
-    }    
+    }
 });
 
 serviceRouter.put('/etage', function(request, response) {
     console.log('Service Etage: Client requested update of existing record');
 
     var errorMsgs=[];
-    if (helper.isUndefined(request.body.RaumID)) 
+    if (helper.isUndefined(request.body.RaumID))
         errorMsgs.push('RaumID fehlt');
-    if (helper.isUndefined(request.body.BenutzerID)) 
+    if (helper.isUndefined(request.body.BenutzerID))
         errorMsgs.push('BenutzerID fehlt');
-    if (helper.isUndefined(request.body.Startzeit)) 
+    if (helper.isUndefined(request.body.Startzeit))
         errorMsgs.push('Startzeit fehlt');
-    if (helper.isUndefined(request.body.Endzeit)) 
+    if (helper.isUndefined(request.body.Endzeit))
         errorMsgs.push('Endzeit fehlt');
 
     if (errorMsgs.length > 0) {
@@ -133,7 +133,7 @@ serviceRouter.put('/etage', function(request, response) {
     } catch (ex) {
         console.error('Service Etage: Error updating record by id. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
-    }    
+    }
 });
 
 serviceRouter.delete('/etage/:id', function(request, response) {
@@ -150,6 +150,5 @@ serviceRouter.delete('/etage/:id', function(request, response) {
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
     }
 });
-
 
 module.exports = serviceRouter;

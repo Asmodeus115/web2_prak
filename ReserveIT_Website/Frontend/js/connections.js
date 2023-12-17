@@ -57,8 +57,8 @@ $('#signInBtn').submit(function (event) {
 
 
 //--------------------------------------------------------//
-// Dies Funktion wird aktiviert, wenn der Button 
-// Meine Buchungen geklick wird. Es werden alle 
+// Dies Funktion wird aktiviert, wenn der Button
+// Meine Buchungen geklick wird. Es werden alle
 // Buchungen aufgelistet, die der User hat.
 $('#meineBuchungenBtn').click(function (event) {
 
@@ -152,7 +152,7 @@ $('#meineBuchungenBtn').click(function (event) {
 
 
 //--------------------------------------------------------//
-// Diese Funktion soll die .svg Dateien der Grundrisse aus 
+// Diese Funktion soll die .svg Dateien der Grundrisse aus
 // der Datenbank holen und anzeigen.
 function zeigeGebaeude(arr) {
     var tmp;
@@ -267,7 +267,7 @@ function ladeGrundrisse(arr) {
 }
 
 
-$('#lagerplan').click(function (event) {
+$('#lageplan').click(function (event) {
     // main leeren
     $('#content').empty();
 
