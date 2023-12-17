@@ -180,11 +180,11 @@ class WeeklyCalendar {
     const dateInput = document.getElementById('bookDate');
     dateInput.addEventListener('change', () => this.validateDate());
 
-    // const startTimeInput = document.getElementById('bookStart');
-    // dateInput.addEventListener('change', () => this.validateDate());
+    const startTimeInput = document.getElementById('bookStart');
+    startTimeInput.addEventListener('change', () => this.validateDate());
 
-    // const endTimeInput = document.getElementById('bookEnd');
-    // dateInput.addEventListener('change', () => this.validateDate());
+    const endTimeInput = document.getElementById('bookEnd');
+    endTimeInput.addEventListener('change', () => this.validateDate());
   }
 
 
@@ -288,17 +288,45 @@ class WeeklyCalendar {
     const eingabeDatum = new Date(document.getElementById('bookDate').value);
     const heute = new Date();
 
-    const eingabeStartzeit = document.getElementById('bookStart').value
-    const eingabeEndzeit = document.getElementById('bookEnd').value
+    const eingabeStartzeit = document.getElementById('bookStart').value;
+    const eingabeEndzeit = document.getElementById('bookEnd').value;
   
+    // Überprüfe, ob das eingegebene Datum ein Sonntag ist
+    if (eingabeDatum.getDay() === 0) {
+      alert('Sonntags sind die Gebäude geschlossen.\nBitte wählen Sie ein gültiges Datum.');
+      document.getElementById('submitButton').disabled = true; // Deaktiviere den Submit-Button
+      document.getElementById('submitButton').style.backgroundColor = 'grey';
+      document.getElementById('bookDate').style.borderBottomColor = 'red';
+      
+    }
+    
     // Überprüfe, ob das eingegebene Datum in der Vergangenheit liegt
-    if (eingabeDatum < heute) {
+    else if (eingabeDatum < heute) {
       alert('Das Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
       document.getElementById('submitButton').disabled = true; // Deaktiviere den Submit-Button
       document.getElementById('submitButton').style.backgroundColor = 'grey';
+      document.getElementById('bookDate').style.borderBottomColor = 'red';
+    }
+    
+    // Überprüfe, ob die Startzeit vor 07:00 Uhr liegt oder nach 18 Uhr
+    else if (eingabeStartzeit < '07:00' || eingabeStartzeit > '18:00') {
+      alert('Die Startzeit liegt außerhalb der Öffnungszeiten.\nDie früheste Startzeit liegt bei 07:00 Uhr und die späteste bei 18:00 Uhr.');
+      document.getElementById('submitButton').disabled = true; // Deaktiviere den Submit-Button
+      document.getElementById('submitButton').style.backgroundColor = 'grey';
+      document.getElementById('bookStart').style.borderBottomColor = 'red';
+    }
+    // Überprüfe, ob die Endzeit vor 08:00 Uhr liegt oder nach 19 Uhr
+    else if (eingabeEndzeit < '08:00' || eingabeEndzeit > '19:00') {
+      alert('Die Endzeit liegt außerhalb der Öffnungszeiten.\nDie früheste Startzeit liegt bei 07:00 Uhr und die späteste bei 18:00 Uhr.');
+      document.getElementById('submitButton').disabled = true; // Deaktiviere den Submit-Button
+      document.getElementById('submitButton').style.backgroundColor = 'grey';
+      document.getElementById('bookEnd').style.borderBottomColor = 'red';
     } else {
       document.getElementById('submitButton').disabled = false; // Aktiviere den Submit-Button
       document.getElementById('submitButton').style.backgroundColor = 'var(--font-color)';
+      document.getElementById('bookDate').style.borderBottomColor = 'var(--grid-color)';
+      document.getElementById('bookStart').style.borderBottomColor = 'var(--grid-color)';
+      document.getElementById('bookEnd').style.borderBottomColor = 'var(--grid-color)';
     }
   }
 }
