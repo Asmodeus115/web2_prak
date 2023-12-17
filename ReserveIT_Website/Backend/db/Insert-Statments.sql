@@ -74,7 +74,7 @@ INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (2, 'Professor' );
 INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (3, 'Mitarbeiter');
 INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (4, 'Sonstiges');
 
-
+INSERT INTO Lageplan(id, pfad) VALUES (1, '../img/campusplan_raeume_albstadt.svg');
 
 
 
