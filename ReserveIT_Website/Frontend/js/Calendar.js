@@ -30,7 +30,6 @@ class WeeklyCalendar {
 
     this.addEventListeners();
 
-
   }
 
   createCalendar() {
@@ -176,6 +175,16 @@ class WeeklyCalendar {
     this.nextWeekBtn.addEventListener('click', () => this.navigateWeek(1));
     this.cancelButton.addEventListener('click', () => this.closeBookingWindow());
     this.submitButton.addEventListener('click', () => this.submitBook());
+
+    // Ueberpruefung des Datums und der Uhrzeiten:
+    const dateInput = document.getElementById('bookDate');
+    dateInput.addEventListener('change', () => this.validateDate());
+
+    // const startTimeInput = document.getElementById('bookStart');
+    // dateInput.addEventListener('change', () => this.validateDate());
+
+    // const endTimeInput = document.getElementById('bookEnd');
+    // dateInput.addEventListener('change', () => this.validateDate());
   }
 
 
@@ -204,7 +213,6 @@ class WeeklyCalendar {
 
 
   cellClick(cellPos, time) {
-
     this.cellDate = new Date(this.startOfWeek);
     this.cellDate.setDate(this.cellDate.getDate() + cellPos);
     document.getElementById('bookDate').value = this.formatBookDate(this.cellDate);
@@ -212,6 +220,11 @@ class WeeklyCalendar {
     const startTime = new Date(`2000-01-01 ${time}`);
     const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
     document.getElementById('bookEnd').value = this.formatTime(endTime);
+
+    if (this.cellDate < new Date()) {
+      alert('Das ausgewählte Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
+      return; // Verlasse die Methode, wenn das Datum ungültig ist
+    }
 
     // für die Datenbank:
     window.cellPos = parseInt(cellPos, 10) + 1;
@@ -269,6 +282,24 @@ class WeeklyCalendar {
   navigateWeek(offset) {
     this.currentDate.setDate(this.currentDate.getDate() + (offset * 7));
     this.updateCurrentDate();
+  }
+
+  validateDate() {
+    const eingabeDatum = new Date(document.getElementById('bookDate').value);
+    const heute = new Date();
+
+    const eingabeStartzeit = document.getElementById('bookStart').value
+    const eingabeEndzeit = document.getElementById('bookEnd').value
+  
+    // Überprüfe, ob das eingegebene Datum in der Vergangenheit liegt
+    if (eingabeDatum < heute) {
+      alert('Das Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
+      document.getElementById('submitButton').disabled = true; // Deaktiviere den Submit-Button
+      document.getElementById('submitButton').style.backgroundColor = 'grey';
+    } else {
+      document.getElementById('submitButton').disabled = false; // Aktiviere den Submit-Button
+      document.getElementById('submitButton').style.backgroundColor = 'var(--font-color)';
+    }
   }
 }
 
