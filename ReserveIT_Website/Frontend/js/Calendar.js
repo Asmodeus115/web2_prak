@@ -183,7 +183,7 @@ class WeeklyCalendar {
     this.startOfWeek = new Date(this.currentDate);
     this.startOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() + (this.currentDate.getDay() === 0 ? -6 : 1));
     this.endOfWeek = new Date(this.currentDate);
-    this.endOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() +6 );
+    this.endOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() - 1);
 
 
 

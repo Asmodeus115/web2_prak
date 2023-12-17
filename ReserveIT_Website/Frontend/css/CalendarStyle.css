@@ -33,13 +33,9 @@ input{
     padding: 1%;
     border: 2px solid var(--grid-color);
     border-radius: 20px;
-    margin: 2%;
-    
+    margin: 5% 0 5% 25%;
+    position: relative;
    
-position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%);
     
 }
 
