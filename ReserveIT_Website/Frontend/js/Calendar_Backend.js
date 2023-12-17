@@ -138,9 +138,8 @@ function ceateBooking() {
     var startDate = datum + " " + start + ":00";
     var endDate = datum + " " + end + ":00";
     //var matNr = event.matNr;
-    console.log(startDate + "\n" + endDate);
-    
 
+    
     // convert data of form to object
     var meinObjekt = {
         RaumID: 1,
@@ -155,12 +154,12 @@ function ceateBooking() {
     // Erstellen Sie ein neues FormData-Objekt
     var formData = new FormData();
 
+    console.log(formData);
+
     // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
     for (var schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
-
-    
 
     // send form with ajax
     $.ajax({
@@ -193,8 +192,6 @@ function timeStringToInt(timeInString) {
     const timeInt = parseInt(timeString, 10);
     return timeInt;
 }
-
-
 
 
 function entferneFarben() {

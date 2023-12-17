@@ -61,22 +61,14 @@ $('#signInBtn').submit(function (event) {
 // Meine Buchungen geklick wird. Es werden alle
 // Buchungen aufgelistet, die der User hat.
 $('#meineBuchungenBtn').click(function (event) {
-
-    $('#content').next().remove();
-    $('#content').empty();
-
-    const matrikelNr = 12345;
-
-    console.log("zeige meine Buchungen " + matrikelNr);
-    //$('sexyAnton').remove();
+    $('#grid-unten').empty();
 
     // disable default event
     event.preventDefault();
     $('#lageplan').hide();
 
-
     function zeigeBuchungen(arr) {
-        $('#content').empty();
+        $('#grid-unten').empty();
 
         let tmp;
 
@@ -94,7 +86,6 @@ $('#meineBuchungenBtn').click(function (event) {
         tmp += '<th>BuchungCode</th>';
         tmp += '</tr>';
 
-        console.log("log test");
         var i = 1;
         arr.forEach(obj => {
             tmp += '<tr>';
@@ -109,25 +100,21 @@ $('#meineBuchungenBtn').click(function (event) {
             i++;
         });
         tmp += '</table>';
-        $('#content').append(tmp);
-        //$('#content').html(tmp);
+        $('#grid-unten').append(tmp);
     }
 
-    console.log('loading all recs from api');
     // convert data of form to object
     const meinObjekt = {
-        BenutzerID: 12345
+        BenutzerID: sessionStorage.getItem('MatrikelNr')
     };
 
-    // Erstellen Sie ein neues FormData-Objekt
+    // Erstellen ein neues FormData-Objekt
     const formData = new FormData();
 
     // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
     for (const schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
-
-    console.log(formData);
 
     // send form with ajax
     $.ajax({
@@ -142,13 +129,10 @@ $('#meineBuchungenBtn').click(function (event) {
         console.log('response received');
         console.log(response);
         zeigeBuchungen(response);
-
     }).fail(function (xhr) {
         console.log('error received');
     });
 });
-
-
 
 
 //--------------------------------------------------------//
@@ -172,17 +156,17 @@ function zeigeGebaeude(arr) {
         console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
     });
     tmp += '</ul>';
-    $('#content').html(tmp);
+    $('#grid-unten').html(tmp);
 
     // Bild von Campus Lagepaln anzeigen
-    var svgElement = $('<img style="height: 50%;width: 50%;"  src="../img/campusplan_raeume_albstadt.svg" alt="campusAlb"/>');
-    svgElement.insertAfter('#content');
+    var svgElement = $('<img style="height: 80%;width: 90%;"  src="../img/campusplan_raeume_albstadt.svg" alt="campusAlb"/>');
+    $('#grid-unten').append(svgElement);
+
 }
 
 
 
 function ladeGrundrisse(arr) {
-
     let ids = arr;
     var liIds = $('#gebBtn li').map(function () {
         return this.id;
@@ -190,7 +174,6 @@ function ladeGrundrisse(arr) {
 
     for (let index = 0; index < liIds.length; index++) {
         const ElementID = liIds[index];
-
 
         $('#' + ElementID).click(function (event) {
             console.log("ID: " + ids[index].id);
@@ -208,8 +191,6 @@ function ladeGrundrisse(arr) {
                 formData.append(schluessel, meinObjekt[schluessel]);
             }
 
-            console.log(formData);
-
             // send form with ajax
             $.ajax({
                 url: 'http://localhost:8000/api/etage/laden',
@@ -220,8 +201,8 @@ function ladeGrundrisse(arr) {
                 processData: false,
                 dataType: 'json'
             }).done(function (response) {
-                $('#content').next().remove();
-                $('#content').empty();
+                $('#grid-unten').next().remove();
+                $('#grid-unten').empty();
 
                 var arr = response;
                 console.log('response from Etage received');
@@ -245,7 +226,7 @@ function ladeGrundrisse(arr) {
                     // console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
                 });
                 tmp += '</ul>';
-                $('#content').html(tmp);
+                $('#grid-unten').html(tmp);
 
                 console.log("../img/" + arr[0].Grundriss)
 
@@ -256,25 +237,20 @@ function ladeGrundrisse(arr) {
                     console.log("Btn 1");
                 });
 
-
-
             }).fail(function (xhr) {
                 console.log('error received');
             });
         });
-
     }
 }
 
 
-$('#lageplan').click(function (event) {
+$('#lageplanBtn').click(function (event) {
     // main leeren
-    $('#content').empty();
+    $('#grid-unten').empty();
 
-    console.log("zeige Gebäude ");
     // disable default event
     event.preventDefault();
-
 
     // send form with ajax
     $.ajax({

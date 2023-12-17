@@ -1,8 +1,3 @@
-
-// module.js
-const matrikelnr = document.getElementById('login__matrikelnr').value;
-export {matrikelnr};
-
 // Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -17,10 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Get the values of matrikelnr and password
         const matrikelnr = document.getElementById('login__matrikelnr').value;
         const password = document.getElementById('login__password').value;
-
-        // module.js
-        
-
 
         // convert data of form to object
         var meinObjekt = {
@@ -51,7 +42,14 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('response received -->' + response);
 
             if (response) {
-                window.location.href = 'index.html';
+                // Daten speichern
+                sessionStorage.setItem('MatrikelNr', matrikelnr);
+                // Daten abrufen
+                var MatrikelNr = sessionStorage.getItem('MatrikelNr');
+                console.log(MatrikelNr);
+
+                window.location.href = '../html/index.html';
+
             } else {
                 $('#fehler').html('Fehler beim Anmelden');
                 $('#login__matrikelnr').val('');
