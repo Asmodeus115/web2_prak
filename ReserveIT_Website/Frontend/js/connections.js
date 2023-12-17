@@ -55,11 +55,14 @@ $('#signInBtn').submit(function (event) {
 
 });
 
+// 205-135
+// Gebäude-Etag+Raumnummer
 
 //--------------------------------------------------------//
 // Dies Funktion wird aktiviert, wenn der Button
 // Meine Buchungen geklick wird. Es werden alle
 // Buchungen aufgelistet, die der User hat.
+
 $('#meineBuchungenBtn').click(function (event) {
     $('#grid-unten').empty();
 
@@ -271,9 +274,5 @@ $('#lageplanBtn').click(function (event) {
         console.log('Fehler bekommen beim Laden der Geäude aus der DB!');
     });
 });
-
-
-
-
 
 

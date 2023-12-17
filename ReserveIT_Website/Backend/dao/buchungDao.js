@@ -24,7 +24,7 @@ class BuchungDao {
     }
 
     loadAllBuchungen() {
-        var sql = 'SELECT RaumID, Startzeit, Endzeit, ZellenSpalte, ZellenZeile FROM Buchung WHERE Startzeit >= date(\'now\')';
+        var sql = 'SELECT RaumID, Startzeit, Endzeit, ZellenSpalte FROM Buchung WHERE Startzeit >= date(\'now\')';
         //var sql = 'SELECT * FROM Buchung';
         var statement = this._conn.prepare(sql);
         var result = statement.all();
@@ -78,10 +78,10 @@ class BuchungDao {
         return false;
     }
 
-    create(RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte, ZellenZeile) {
-        var sql = 'INSERT INTO Buchung (RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte, ZellenZeile ) VALUES (?,?,?,?,?,?,?)';
+    create(RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte) {
+        var sql = 'INSERT INTO Buchung (RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte ) VALUES (?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte, ZellenZeile];
+        var params = [RaumID, BenutzerID, Startzeit, Endzeit, BuchungCode, ZellenSpalte];
         var result = statement.run(params);
 
         if (result.changes != 1)

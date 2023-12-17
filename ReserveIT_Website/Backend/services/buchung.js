@@ -88,8 +88,6 @@ serviceRouter.post('/buchung/erstellen', function(request, response) {
         errorMsgs.push('Endzeit fehlt');
     if (helper.isUndefined(request.body.ZellenSpalte)) 
         errorMsgs.push('ZellenSpalte fehlt');
-    if (helper.isUndefined(request.body.ZellenZeile)) 
-        errorMsgs.push('ZellenZeile fehlt');
 
 
     if (errorMsgs.length > 0) {
@@ -100,7 +98,7 @@ serviceRouter.post('/buchung/erstellen', function(request, response) {
 
     const buchungDao = new BuchungDao(request.app.locals.dbConnection);
     try {
-        var obj = buchungDao.create(request.body.RaumID, request.body.BenutzerID, request.body.Startzeit, request.body.Endzeit, request.body.BuchungCode, request.body.ZellenSpalte, request.body.ZellenZeile);
+        var obj = buchungDao.create(request.body.RaumID, request.body.BenutzerID, request.body.Startzeit, request.body.Endzeit, request.body.BuchungCode, request.body.ZellenSpalte);
         console.log('Service Buchung: Record inserted');
         response.status(200).json(obj);
     } catch (ex) {
