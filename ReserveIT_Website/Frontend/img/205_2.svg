@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW Standard 2021 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933mm" height="203.2mm" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 27093.32 20320"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933mm" height="203.2mm" version="1.1"
+     shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality"
+     fill-rule="evenodd" clip-rule="evenodd"
+     viewBox="0 0 27093.32 20320"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+>
  <defs>
   <font id="FontID0" horiz-adv-x="722" font-variant="normal" fill-rule="nonzero" font-style="normal" font-weight="700">
-	<font-face 
+	<font-face
 		font-family="Arial">
 		<font-face-src>
 			<font-face-name name="Arial Fett"/>
@@ -42,17 +44,17 @@ viewBox="0 0 27093.32 20320"
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="-0.02" width="27093.33" height="20320"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10940.5" y="3479.27" width="1561.05" height="2513.54"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12492.37" y="3474.59" width="2831.04" height="1613.96"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10464.26" y="5992.81" width="2037.3" height="2434.17"/>
-  <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13061.38,5093.23 15332.6,5093.23 15332.6,7217.48 14882.81,7209.9 14886.75,7395.1 13061.38,7395.1 "/>
+  <rect id="205_136" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10940.5" y="3479.27" width="1561.05" height="2513.54"/>
+  <rect id="205_135" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12492.37" y="3474.59" width="2831.04" height="1613.96"/>
+  <rect id="205_137" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10464.26" y="5992.81" width="2037.3" height="2434.17"/>
+  <polygon id="205_142" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13061.38,5093.23 15332.6,5093.23 15332.6,7217.48 14882.81,7209.9 14886.75,7395.1 13061.38,7395.1 "/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13061.38,7400.42 13055.97,5093.23 12485.68,5093.23 12501.56,5994.89 12501.56,8434.68 12149.35,8434.68 12131.14,9575.02 11654.89,9583.27 11654.89,10223.43 12501.56,10238.01 12501.56,9018.1 13057.18,9018.1 13057.18,9150.7 14565.31,9150.7 14561.13,10821.43 15254.49,10821.43 15253.22,13367.3 13110.1,13367.3 13110.1,15276.7 6786.56,15276.7 6766.72,11736.76 6283.85,11723.09 6310.31,15727.52 13136.56,15701 13136.56,16549.69 14300.72,16549.63 14300.72,15623.65 14803.43,15623.65 14803.43,14799.35 14168.43,14799.35 14168.43,14348.52 14062.6,14348.52 14062.6,14003.76 15068.01,14003.76 15068.01,13818.12 20015.72,13844.65 19989.26,15197.13 20809.47,15197.13 20809.47,13791.6 21206.35,13791.6 21206.35,13367.3 15835.31,13367.3 15835.31,10184.96 15332.6,10192.97 15332.6,7209.79 14882.81,7214.79 14886.75,7400.42 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10955.36" y="8426.98" width="1175.78" height="1137.71"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10955.35" y="9564.69" width="699.53" height="899.58"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10955.35" y="10464.27" width="699.53" height="343.96"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11654.89" y="10211.61" width="396.87" height="596.62"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12051.76" y="10211.61" width="449.8" height="596.62"/>
-  <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="12501.56,9009.06 13057.24,9009.06 13057.18,9141.35 14561.13,9141.42 14561.13,10808.23 12501.56,10808.23 "/>
+  <polygon id="205_141" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="12501.56,9009.06 13057.24,9009.06 13057.18,9141.35 14561.13,9141.42 14561.13,10808.23 12501.56,10808.23 "/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15835.31,10929.21 18614.15,10929.21 18614.15,12961.24 17634.47,12977.81 17640.61,13348.23 15835.31,13348.23 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17634.47" y="12977.81" width="980.77" height="370.42"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="18614.15" y="12522.49" width="1044.93" height="825.74"/>

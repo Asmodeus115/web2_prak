@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW Standard 2021 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933" height="203.2" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 27093.32 20320"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933" height="203.2" version="1.1"
+     shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality"
+     fill-rule="evenodd" clip-rule="evenodd"
+     viewBox="0 0 27093.32 20320"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+>
  <defs>
   <font id="FontID0" horiz-adv-x="722" font-variant="normal" fill-rule="nonzero" font-style="normal" font-weight="700">
 	<font-face
@@ -60,11 +62,12 @@ viewBox="0 0 27093.32 20320"
    <glyph unicode="ü" horiz-adv-x="610" d="M414.992 0l0 77.6693c-18.9921,-27.6535 -43.811,-49.6693 -74.6457,-66.1732 -30.8346,-16.315 -63.3386,-24.5039 -97.5118,-24.5039 -34.9921,0 -66.3307,7.68504 -94.0157,23.0236 -27.811,15.3071 -47.811,36.9764 -60.1575,64.6614 -12.5039,27.811 -18.6457,66.1417 -18.6457,115.15l0 329.165 136.976 0 0 -238.992c0,-73.1654 2.51969,-117.827 7.68504,-134.331 4.97638,-16.5039 14.1417,-29.6693 27.6535,-39.1811 13.3228,-9.66929 30.3307,-14.4882 50.9921,-14.4882 23.4961,0 44.5039,6.48819 63.1811,19.3386 18.6772,12.8189 31.3386,28.8189 38.1732,48 6.83465,19.1496 10.3307,65.8268 10.3307,140.315l0 219.339 137.008 0 0 -518.992 -127.024 0zm-267.496 586.016l0 117.984 118.016 0 0 -117.984 -118.016 0zm210.52 0l0 117.984 117.984 0 0 -117.984 -117.984 0z"/>
   </font>
  </defs>
+
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11840.09" y="1944.69" width="2619.37" height="3466.04"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14459.47" y="1944.69" width="2645.84" height="2883.96"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17105.31" y="3645.49" width="1719.79" height="3617.31"/>
+   <rect id="201_007" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11840.09" y="1944.69" width="2619.37" height="3466.04"/>
+   <rect id="201_006" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14459.47" y="1944.69" width="2645.84" height="2883.96"/>
+   <rect id="201_005" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17105.31" y="3645.49" width="1719.79" height="3617.31"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14459.47" y="5386.71" width="396.88" height="897.14"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14856.34" y="5386.71" width="1349.37" height="897.14"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11840.1" y="5410.73" width="2619.37" height="1852.08"/>
@@ -78,17 +81,17 @@ viewBox="0 0 27093.32 20320"
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12452.49" y="10516.74" width="1152.53" height="555.62"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12452.49" y="11072.8" width="1153.14" height="579.81"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11840.09" y="10517.18" width="612.39" height="1134.99"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="10517.18" width="3333.75" height="1137.71"/>
+  <rect id="201_022" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="10517.18" width="3333.75" height="1137.71"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="7633.22,10517.19 8508.59,10517.19 8506.35,11664.24 13609.86,11651.14 13612.81,12289.9 7633.22,12289.9 "/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6707.18" y="10515.87" width="926.04" height="1774.02"/>
+  <rect id="201_021" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6707.18" y="10515.87" width="926.04" height="1774.02"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="4987.4" y="12289.9" width="1719.79" height="1799.16"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6707.18" y="12289.9" width="3518.96" height="1799.16"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10226.14" y="12289.9" width="3386.67" height="1799.16"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13612.81" y="12289.9" width="4259.79" height="1799.16"/>
+  <rect id="201_018" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10226.14" y="12289.9" width="3386.67" height="1799.16"/>
+  <rect id="201_017" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13612.81" y="12289.9" width="4259.79" height="1799.16"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17872.6" y="12289.9" width="952.5" height="1799.16"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="18814.06" y="11443.24" width="751.87" height="847.4"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="18816.08" y="8744.48" width="1728.81" height="3546.15"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17025.94" y="8744.48" width="1799.08" height="2698.75"/>
+  <rect id="201_014" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17025.94" y="8744.48" width="1799.08" height="2698.75"/>
   <text x="17210.88" y="5357.77"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">005</text>
   <text x="17210.88" y="5712.47"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
   <text x="15028.07" y="3290.28"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">006</text>

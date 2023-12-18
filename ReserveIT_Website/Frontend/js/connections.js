@@ -1,6 +1,7 @@
 // Diese Funktionen ist für den Anmelde-Vorgang
 // Sie prüft, ob der User schon existiert. Falls ja,
 // wird der User an die index.html weitergeleitet.
+
 $('#signInBtn').submit(function (event) {
 
     const matrikelNr = document.getElementById('login__matrikelnr').value;
@@ -156,16 +157,15 @@ function zeigeGebaeude(arr) {
     console.log("log test");
     var i = 1;
     arr.forEach(obj => {
-        tmp += '<li id="GebBtn' + obj.Name + '" class="list-group-item btn btn' + obj.Name + '" onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>';
-        console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
+        tmp += '<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '" onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>';
+        console.log('<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
     });
     tmp += '</ul>';
     $('#grid-unten').html(tmp);
 
     // Bild von Campus Lagepaln anzeigen
-    var svgElement = $('<img style="height: 80%;width: 90%;"  src="../img/campusplan_raeume_albstadt.svg" alt="campusAlb"/>');
-    $('#grid-unten').append(svgElement);
-
+    loadLageplan();
+    svgHover();
 }
 
 
@@ -220,21 +220,21 @@ function ladeGrundrisse(arr) {
                 }
 
                 tmp += '<div></div>'
-                tmp += '<ul class="list-group" id="gebBtn">';
+                tmp += '<ul class="list-group">';
 
                 console.log("log test");
                 var i = 1;
                 arr.forEach(obj => {
-                    //{ id: 6, Bezeichnung: "EG", Grundriss: "..\\img\\206_eg.svg", … }
-                    tmp += '<li id="RaumBtn' + obj.id + '" class="list-group-item btn btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
-                    // console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
+                    //{id: 6, Bezeichnung: "EG", Grundriss: "..\\img\\206_eg.svg", …}
+                    tmp += '<li id="RaumBtn' + obj.id + '" class="list-group btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
+                    // console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
                 });
                 tmp += '</ul>';
                 $('#grid-unten').html(tmp);
 
                 console.log("../img/" + arr[0].Grundriss)
 
-                $('#svgContainer').load("../img/" + arr[0].Grundriss);
+                $('#svgHolder').load("../img/" + arr[0].Grundriss);
 
                 $('#RaumBtn' + arr[0].id).click(function (event) {
                     $('#lageplan').load("../img/" + arr[index].Grundriss);
