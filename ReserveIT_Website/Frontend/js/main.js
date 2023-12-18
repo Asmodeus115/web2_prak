@@ -14,6 +14,8 @@ function loadLageplan(){
   document.getElementById("grid-unten").appendChild(gridHolder);
   document.getElementById("grid-unten").appendChild(svgHolder)
   document.getElementById("svgHolder").appendChild(svg);
+
+  svgHover();
 }
 
 function removeChild(parent){

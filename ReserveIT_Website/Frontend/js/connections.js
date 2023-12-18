@@ -165,7 +165,6 @@ function zeigeGebaeude(arr) {
 
     // Bild von Campus Lagepaln anzeigen
     loadLageplan();
-    svgHover();
 }
 
 
