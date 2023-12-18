@@ -13,12 +13,15 @@
   <meta name="theme-color" content="#fafafa">
 
   <link rel="stylesheet" href="../css/main.css" type="text/css">
+  <link rel="stylesheet" href="../css/CalendarStyle.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="../img/logo.png" type="image/x-icon">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <link rel="icon" href="../img/logo.png" type="image/x-icon">
   <script src="../js/main.js" defer></script>
+  <script src="../js/Calendar.js"></script>
+  <script src="../js/Calendar_Backend.js"></script>
 
 </head>
 
@@ -30,10 +33,10 @@
       </div>
       <nav class="btn-group linkleiste">
         <button id="lageplanBtn" class="btn lageplanBtn" type="button"  onclick="">Lageplan</button>
-        <button class="btn ueberunsBtn" type="button"  onclick="">Über uns</button>
+        <button class="btn ueberunsBtn" type="button"  onclick="loadUeberUns()">Über uns</button>
         <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button" onclick="">Meine Buchungen</button>
-        <button id="sexyAnton" class="btn buchungenBtn" type="button" onclick="">ich bin geil</button>
-        <button class="btn impressumBtn" type="button" onclick="">Impressum</button>
+        <button id="sexyAnton" class="btn buchungenBtn" type="button" onclick="loadCalendar()">ich bin geil</button>
+        <button class="btn impressumBtn" type="button" onclick="loadImpressum()">Impressum</button>
       </nav>
     </div>
   </header>
@@ -41,7 +44,7 @@
   <main id="grid-unten">
       <div></div>
       <div>
-        <object></object>
+        <div></div>
       </div>
   </main>
 

@@ -1,4 +1,4 @@
-// Diese Funktionen ist für den Anmelde-Vorgang
+// Diese Funktionen sind für den Anmelde-Vorgang
 // Sie prüft, ob der User schon existiert. Falls ja,
 // wird der User an die index.html weitergeleitet.
 
