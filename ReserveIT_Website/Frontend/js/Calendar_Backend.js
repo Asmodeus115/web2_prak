@@ -46,7 +46,6 @@ function zeigeFarben(arr) {
 
     arr.forEach(function (booking) {
         // Hier wird jede Buchung in arr durchlaufen
-        
         const bookDate = createDateFromDateString(booking.Startzeit);
         var spaltenindex = booking.ZellenSpalte;
         var buchungsbeginn = timeStringToInt(booking.Startzeit) - 6; // gebuchte uhrzeit - 6 ergibt den zeilenindex

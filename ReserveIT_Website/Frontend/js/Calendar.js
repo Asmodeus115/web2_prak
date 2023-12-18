@@ -180,20 +180,23 @@ class WeeklyCalendar {
     const dateInput = document.getElementById('bookDate');
     dateInput.addEventListener('change', () => this.validateDate());
 
+    // Ueberpruefung der Startzeit nach dem Verlassen des Eingabefelds
     const startTimeInput = document.getElementById('bookStart');
-    startTimeInput.addEventListener('change', () => this.validateDate());
+    startTimeInput.addEventListener('blur', () => this.validateDate());
 
+    // Ueberpruefung der Endzeit nach dem Verlassen des Eingabefelds
     const endTimeInput = document.getElementById('bookEnd');
-    endTimeInput.addEventListener('change', () => this.validateDate());
+    endTimeInput.addEventListener('blur', () => this.validateDate());
+
   }
 
 
   updateCurrentDate() {
     this.startOfWeek = new Date(this.currentDate);
     this.startOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() + (this.currentDate.getDay() === 0 ? -6 : 1));
-    this.endOfWeek = new Date(this.currentDate);
-    this.endOfWeek.setDate(this.currentDate.getDate() - this.currentDate.getDay() - 1);
 
+    this.endOfWeek = new Date(this.startOfWeek);
+    this.endOfWeek.setDate(this.startOfWeek.getDate() + 5);
 
 
     this.currentDateElement.textContent = `${this.formatDate(this.startOfWeek)} - ${this.formatDate(this.endOfWeek)}`;
@@ -250,7 +253,12 @@ class WeeklyCalendar {
 
 
   submitBook() {
-    console.log("click on submitt button");
+  //   const confirmation = window.confirm('Buchung erfolgreich!\n\nMöchten Sie zur Übersicht Ihrer Buchungen wechseln?');
+
+  //   // Weiterleitung zur anderen HTML-Seite, wenn der Benutzer "OK" auswählt
+  //   if (confirmation) {
+  //     window.location.href = './Impressum.html';
+  //   }
   }
 
   formatDate(date) {
