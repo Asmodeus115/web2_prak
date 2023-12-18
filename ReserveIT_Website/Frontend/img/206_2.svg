@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW Standard 2021 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933mm" height="203.2mm" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 27093.32 20320"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933mm" height="203.2mm" version="1.1"
+     shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality"
+     fill-rule="evenodd" clip-rule="evenodd"
+     viewBox="0 0 27093.32 20320"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+>
  <defs>
   <font id="FontID0" horiz-adv-x="722" font-variant="normal" fill-rule="nonzero" font-style="normal" font-weight="700">
-	<font-face 
+	<font-face
 		font-family="Arial">
 		<font-face-src>
 			<font-face-name name="Arial Fett"/>
@@ -27,18 +29,18 @@ viewBox="0 0 27093.32 20320"
  </defs>
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="1521.35" width="740.83" height="1322.91"/>
+  <rect id="206_116" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="1521.35" width="740.83" height="1322.91"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10966.97" y="1521.36" width="3704.17" height="2566.45"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="4140.72" width="740.83" height="529.17"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="4669.89" width="740.83" height="740.83"/>
+  <rect id="206_112" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="4140.72" width="740.83" height="529.17"/>
+  <rect id="206_111" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="4669.89" width="740.83" height="740.83"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13506.97" y="4087.81" width="1164.17" height="793.75"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13506.97" y="4881.56" width="1164.17" height="767.29"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="5410.73" width="740.83" height="687.92"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="6098.65" width="740.83" height="740.83"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="6839.48" width="740.83" height="740.83"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="7580.31" width="740.83" height="714.38"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="8294.69" width="740.83" height="529.16"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="8823.85" width="740.83" height="1031.88"/>
+  <rect id="206_110" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="5410.73" width="740.83" height="687.92"/>
+  <rect id="206_109" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="6098.65" width="740.83" height="740.83"/>
+  <rect id="206_108" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="6839.48" width="740.83" height="740.83"/>
+  <rect id="206_107" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="7580.31" width="740.83" height="714.38"/>
+  <rect id="206_106" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="8294.69" width="740.83" height="529.16"/>
+  <rect id="206_105" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="8823.85" width="740.83" height="1031.88"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9644.06" y="10279.06" width="978.95" height="1799.17"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10966.97" y="4802.19" width="2196.04" height="4021.66"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10966.97" y="8823.85" width="2196.04" height="1058.34"/>

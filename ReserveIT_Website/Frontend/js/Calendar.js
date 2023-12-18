@@ -298,16 +298,16 @@ class WeeklyCalendar {
 
     const eingabeStartzeit = document.getElementById('bookStart').value;
     const eingabeEndzeit = document.getElementById('bookEnd').value;
-  
+
     // Überprüfe, ob das eingegebene Datum ein Sonntag ist
     if (eingabeDatum.getDay() === 0) {
       alert('Sonntags sind die Gebäude geschlossen.\nBitte wählen Sie ein gültiges Datum.');
       document.getElementById('submitButton').disabled = true; // Deaktiviere den Submit-Button
       document.getElementById('submitButton').style.backgroundColor = 'grey';
       document.getElementById('bookDate').style.borderBottomColor = 'red';
-      
+
     }
-    
+
     // Überprüfe, ob das eingegebene Datum in der Vergangenheit liegt
     else if (eingabeDatum < heute) {
       alert('Das Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
@@ -315,7 +315,7 @@ class WeeklyCalendar {
       document.getElementById('submitButton').style.backgroundColor = 'grey';
       document.getElementById('bookDate').style.borderBottomColor = 'red';
     }
-    
+
     // Überprüfe, ob die Startzeit vor 07:00 Uhr liegt oder nach 18 Uhr
     else if (eingabeStartzeit < '07:00' || eingabeStartzeit > '18:00') {
       alert('Die Startzeit liegt außerhalb der Öffnungszeiten.\nDie früheste Startzeit liegt bei 07:00 Uhr und die späteste bei 18:00 Uhr.');
@@ -338,7 +338,3 @@ class WeeklyCalendar {
     }
   }
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-  const myCalendar = new WeeklyCalendar();
-});

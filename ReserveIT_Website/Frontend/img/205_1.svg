@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW Standard 2021 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933mm" height="203.2mm" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 27093.32 20320"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933mm" height="203.2mm" version="1.1"
+     shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality"
+     fill-rule="evenodd" clip-rule="evenodd"
+     viewBox="0 0 27093.32 20320"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+>
  <defs>
   <font id="FontID0" horiz-adv-x="722" font-variant="normal" fill-rule="nonzero" font-style="normal" font-weight="700">
-	<font-face 
+	<font-face
 		font-family="Arial">
 		<font-face-src>
 			<font-face-name name="Arial Fett"/>
@@ -47,11 +49,11 @@ viewBox="0 0 27093.32 20320"
  </defs>
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="2659.06" width="3386.66" height="5132.92"/>
-  <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="11892.27,2664.74 16761.35,2659.06 16761.35,9207.65 11896.39,9212.97 11893.01,7791.98 11893.01,7791.98 "/>
+  <rect id="205_017" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="2659.06" width="3386.66" height="5132.92"/>
+  <polygon id="205_018" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="11892.27,2664.74 16761.35,2659.06 16761.35,9207.65 11896.39,9212.97 11893.01,7791.98 11893.01,7791.98 "/>
   <polyline fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="16761.35,7791.98 16761.35,10566.01 16171.41,11573.86 14909.26,11577.19 13057.18,11577.19 13053.39,13295.31 11640.44,13295.31 11654.89,11308.74 8506.35,11308.08 8506.35,7791.98 11893.01,7791.98 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="11308.41" width="3148.54" height="1986.9"/>
-  <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13057.18,11577.19 16152.81,11577.19 15359.06,12910.66 15151.17,13295.31 13057.18,13295.31 "/>
+  <polygon id="205_019" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13057.18,11577.19 16152.81,11577.19 15359.06,12910.66 15151.17,13295.31 13057.18,13295.31 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.34" y="13295.31" width="1640.41" height="2407.71"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10146.75" y="13295.31" width="1508.13" height="2407.71"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11654.89" y="13295.31" width="1931.46" height="740.84"/>

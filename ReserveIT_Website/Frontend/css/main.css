@@ -55,9 +55,14 @@ a{
   color: white;
 
 }
+/*calendar zeugs----------------------------------------*/
+#calenderHolder{
+  background-color: pink;
+}
 
+/*--------------------------------------------*/
+/*svg zeugs-----------------------------------*/
 #svgHolder{
-  align-items: center;
   width: 50%;
   height: 100%;
 }
@@ -68,6 +73,14 @@ a{
   height: 100%;
   width: auto;
 }
+
+svg .gebSVG:hover{
+  opacity: 0.9;
+  background-color: #333;
+  color: white;
+}
+
+/*---------------------------------------------*/
 
 #logo{
   height: 100%;

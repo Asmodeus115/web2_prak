@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW Standard 2021 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933mm" height="203.2mm" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 27093.32 20320"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="270.933mm" height="203.2mm" version="1.1"
+     shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality"
+     fill-rule="evenodd" clip-rule="evenodd"
+     viewBox="0 0 27093.32 20320"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+>
  <defs>
   <font id="FontID0" horiz-adv-x="722" font-variant="normal" fill-rule="nonzero" font-style="normal" font-weight="700">
-	<font-face 
+	<font-face
 		font-family="Arial">
 		<font-face-src>
 			<font-face-name name="Arial Fett"/>
@@ -24,15 +26,15 @@ viewBox="0 0 27093.32 20320"
  </defs>
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="1918.23" width="1164.17" height="1243.54"/>
+  <rect id="206_311" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="1918.23" width="1164.17" height="1243.54"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9617.6" y="1891.76" width="3201.46" height="4894.79"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9617.6" y="6786.56" width="3201.46" height="370.42"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="9617.6,7156.98 12819.06,7156.98 12819.06,10358.44 9617.6,10226.15 "/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="4352.4" width="1164.17" height="529.16"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="4881.56" width="1164.17" height="476.25"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="5357.81" width="1164.17" height="2698.75"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="8056.56" width="1164.17" height="1693.34"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8083.01" y="10093.84" width="1005.42" height="2063.75"/>
+  <rect id="206_306" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="4352.4" width="1164.17" height="529.16"/>
+  <rect id="206_305" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="4881.56" width="1164.17" height="476.25"/>
+  <rect id="206_304" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="5357.81" width="1164.17" height="2698.75"/>
+  <rect id="206_303" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8109.47" y="8056.56" width="1164.17" height="1693.34"/>
+  <rect id="206_301" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8083.01" y="10093.84" width="1005.42" height="2063.75"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="9617.6,10226.15 10566.86,10265.37 13824.47,15755.94 12342.81,16549.69 12263.43,16285.1 12051.76,15994.06 11681.35,15676.56 11231.56,15491.35 10728.85,15464.9 9829.26,11866.56 9591.14,11866.56 "/>
   <ellipse fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" cx="11046.35" cy="16850.16" rx="1322.92" ry="1366.4"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="9273.64,1918.23 9617.6,1918.23 9617.6,3161.77 9591.14,12157.6 9088.43,12157.6 9088.43,10093.85 8108.33,10093.85 8109.47,9749.9 9273.64,9749.9 9273.64,4352.4 8109.47,4352.4 8109.47,3161.77 9273.64,3161.77 "/>
