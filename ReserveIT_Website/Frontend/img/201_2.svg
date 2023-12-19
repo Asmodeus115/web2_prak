@@ -56,22 +56,22 @@
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11787.17" y="2606.15" width="1190.63" height="2487.08"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12977.81" y="2606.15" width="1322.91" height="2487.08"/>
-  <rect id="201_116" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14300.72" y="2606.15" width="4815.42" height="2487.08"/>
+  <rect id="201_116" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14300.72" y="2606.15" width="4815.42" height="2487.08"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8374.06" y="5093.22" width="2883.95" height="1137.71"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="11258.01,5093.23 16649.94,5093.23 16649.94,7383.32 15474.29,7388.22 15491.35,9829.27 16649.94,9820.39 16649.94,11760.73 11856.24,11760.73 11866.56,11099.27 14221.35,11099.27 14221.35,7209.9 11787.18,7203.17 11787.18,6230.94 11258.01,6230.94 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11787.17" y="7203.17" width="2434.17" height="2618.16"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12580.93" y="9821.33" width="1640.42" height="1277.94"/>
-  <rect id="201_112" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10596.56" y="9821.33" width="1984.37" height="1277.94"/>
-  <rect id="201_113" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9405.93" y="9821.33" width="1190.63" height="1277.94"/>
+  <rect id="201_112" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10596.56" y="9821.33" width="1984.37" height="1277.94"/>
+  <rect id="201_113" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9405.93" y="9821.33" width="1190.63" height="1277.94"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="11856.24,11754.47 8135.93,11754.47 8135.93,9821.33 9404.2,9821.33 9405.93,11099.27 11866.56,11099.27 "/>
-  <rect id="201_102" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="4444.99" y="9821.32" width="3690.94" height="4930.75"/>
-  <rect id="201_103" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8135.93" y="11760.72" width="3730.63" height="2989.79"/>
+  <rect id="201_102" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="4444.99" y="9821.32" width="3690.94" height="4930.75"/>
+  <rect id="201_103" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8135.93" y="11760.72" width="3730.63" height="2989.79"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11866.56" y="11760.73" width="1164.16" height="2989.79"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13030.72" y="11760.73" width="3624.79" height="2989.79"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="16655.51" y="12263.44" width="1640.42" height="2487.08"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="18295.92" y="12263.44" width="820.21" height="2487.08"/>
-  <rect id="201_109" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="16649.94" y="9820.39" width="4900.36" height="2443.05"/>
-  <polygon id="201_114" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="19116.14,5093.23 16658.65,5093.23 16649.94,7383.32 15474.29,7388.22 15491.35,9829.27 19116.14,9829.27 "/>
+  <rect id="201_109" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="16649.94" y="9820.39" width="4900.36" height="2443.05"/>
+  <polygon id="201_114" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="19116.14,5093.23 16658.65,5093.23 16649.94,7383.32 15474.29,7388.22 15491.35,9829.27 19116.14,9829.27 "/>
   <text x="16363.84" y="3784.57"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">116</text>
   <text x="16363.84" y="4139.27"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Pool</text>
   <text x="17567.81" y="7202.44"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">114</text>

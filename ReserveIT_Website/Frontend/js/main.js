@@ -2,9 +2,9 @@ loadLageplan();
 function loadLageplan(){
   removeChild("grid-unten");
   const gridHolder = document.createElement("div");
-  const svgHolders = document.createElement("div");
+  const svgHolder = document.createElement("div");
   const svg = document.createElement("object");
-  svgHolders.id = "svgHolder"
+  svgHolder.id = "svgHolder"
   svg.id = "lageplan";
   svg.data = "../img/campus.svg";
   svg.type = "image/svg+xml"
@@ -12,10 +12,10 @@ function loadLageplan(){
   gridHolder.id = "sidebar"
 
   document.getElementById("grid-unten").appendChild(gridHolder);
-  document.getElementById("grid-unten").appendChild(svgHolders)
+  document.getElementById("grid-unten").appendChild(svgHolder)
   document.getElementById("svgHolder").appendChild(svg);
 
-  svgHover();
+  svgHover("lageplan", "gebSVG");
 }
 
 function removeChild(parent){
@@ -25,16 +25,17 @@ function removeChild(parent){
   }
 }
 
-function svgHover(){
-  let svgObject = document.getElementById("lageplan");
+function svgHover(id, klassenname){
+  let svgObject = document.getElementById(id);
   svgObject.addEventListener("load", function (){
     let svgDocument = svgObject.contentDocument;
-    let targetElement = svgDocument.getElementsByClassName("gebSVG")
+    let targetElement = svgDocument.getElementsByClassName(klassenname)
 
     Array.from(targetElement).forEach(function (element){
       element.addEventListener("mouseover", function (){
         this.style.opacity = "0.9";
-        this.style.cursor="pointer"
+        this.style.cursor="pointer";
+
       });
       element.addEventListener("mouseout", function (){
         this.style.opacity = "1";
@@ -71,6 +72,23 @@ function loadImpressum(){
   impressumHolder.textContent = "hello"
 }
 
+function loadGebSVG(id){
+  removeChild("grid-unten");
+  const gridHolder = document.createElement("div");
+  const svgHolders = document.createElement("div");
+  const svg = document.createElement("object");
+  svgHolders.id = "svgHolder"
+  svg.id = "geb"+id;
+  svg.data = "../img/"+id;
+  svg.type = "image/svg+xml"
+  gridHolder.className = "list-group"
+  gridHolder.id = "sidebar"
+
+  document.getElementById("grid-unten").appendChild(gridHolder);
+  document.getElementById("grid-unten").appendChild(svgHolders)
+  document.getElementById("svgHolder").appendChild(svg);
+}
+
 function loadUeberUns(){
   removeChild("grid-unten");
   const gridHolder = document.createElement("div");
@@ -84,3 +102,4 @@ function loadUeberUns(){
 
   ueberUnsHolder.textContent = "hello"
 }
+

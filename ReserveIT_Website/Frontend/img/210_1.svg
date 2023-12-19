@@ -74,8 +74,8 @@
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8174.18" y="8085.59" width="1849.68" height="1981.8"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10023.85" y="8085.59" width="1109.81" height="1981.8"/>
    <polyline fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="12586.99,5548.89 12586.99,10067.4 11133.67,10067.4 11133.67,5548.89 "/>
-   <rect id="210_003" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12586.99" y="5548.88" width="4677.06" height="4518.51"/>
-   <rect id="210_002" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17264.06" y="5548.88" width="6024.69" height="4518.51"/>
+   <rect id="210_003" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12586.99" y="5548.88" width="4677.06" height="4518.51"/>
+   <rect id="210_002" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17264.06" y="5548.88" width="6024.69" height="4518.51"/>
   </g>
   <text x="4453.26" y="3311.37"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">012-Lager</text>
   <text x="6782.54" y="3231.64"  fill="black" font-weight="bold" font-size="282.22px" font-family="Arial">009 </text>

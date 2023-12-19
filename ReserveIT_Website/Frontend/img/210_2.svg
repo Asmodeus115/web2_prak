@@ -72,8 +72,8 @@
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10667.31" y="3259.9" width="1545.67" height="2680"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12212.99" y="3259.9" width="3235.96" height="2680"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13930.31" y="4908.02" width="1518.64" height="1031.88"/>
-  <rect id="210_101" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="15448.94" y="3259.9" width="4328.65" height="2680"/>
-  <rect id="210_102" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="19777.6" y="3259.89" width="4577.29" height="6357.7"/>
+  <rect id="210_101" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="15448.94" y="3259.9" width="4328.65" height="2680"/>
+  <rect id="210_102" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="19777.6" y="3259.89" width="4577.29" height="6357.7"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3135.3" y="6892.4" width="3227.92" height="2725.2"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6363.22" y="6892.4" width="1508.13" height="2725.2"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="7871.34" y="6892.4" width="1428.75" height="2725.2"/>
@@ -81,7 +81,7 @@
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10808.22" y="6892.4" width="1402.29" height="2725.2"/>
   <polyline fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13877.39,6892.4 13877.39,9617.6 12210.51,9617.6 12210.51,6892.4 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13882.35" y="6892.4" width="1613.96" height="2725.2"/>
-  <rect id="210_103" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="15491.35" y="6892.4" width="4286.25" height="2725.2"/>
+  <rect id="210_103" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="15491.35" y="6892.4" width="4286.25" height="2725.2"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3135.3" y="9617.6" width="21195.13" height="1889.36"/>
   <text x="5017.13" y="4534.78"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">114</text>
   <text x="5017.13" y="4889.48"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Henrich</text>
