@@ -4,11 +4,12 @@ const fileHelper = require('../fileHelper.js');
 const path = require('path');
 const BuchungDao = require('../dao/buchungDao.js');
 const express = require('express');
+
 var serviceRouter = express.Router();
 
 console.log('- Service Buchung');
 
-serviceRouter.get('/buchung/gib/:id', function(request, response) {
+serviceRouter.get('/buchung/gib/:id', function (request, response) {
     console.log('Service Buchung: Client requested one record, id=' + request.params.id);
 
     const buchungDao = new BuchungDao(request.app.locals.dbConnection);
@@ -24,7 +25,7 @@ serviceRouter.get('/buchung/gib/:id', function(request, response) {
 
 
 // Service Klasse für den Button Meine Buchungen
-serviceRouter.post('/buchung/ladeMeineBuchungen', function(request, response) {
+serviceRouter.post('/buchung/ladeMeineBuchungen', function (request, response) {
     console.log('Service Buchung: Client requested all records');
     console.log(request.body.BenutzerID);
 
@@ -40,7 +41,7 @@ serviceRouter.post('/buchung/ladeMeineBuchungen', function(request, response) {
 });
 
 // Service Klasse für das farbige Zeigen das Termine im Kalender
-serviceRouter.get('/buchung/alleladen', function(request, response) {
+serviceRouter.get('/buchung/alleladen', function (request, response) {
     console.log('Service Buchung: Client requested all records');
 
     const buchungDao = new BuchungDao(request.app.locals.dbConnection);
@@ -57,7 +58,7 @@ serviceRouter.get('/buchung/alleladen', function(request, response) {
 
 
 
-serviceRouter.get('/buchung/existiert/:id', function(request, response) {
+serviceRouter.get('/buchung/existiert/:id', function (request, response) {
     console.log('Service Buchung: Client requested check, if record exists, id=' + request.params.id);
 
     console.log('go');
@@ -66,7 +67,7 @@ serviceRouter.get('/buchung/existiert/:id', function(request, response) {
     try {
         var exists = buchungDao.exists(request.params.id);
         console.log('Service Buchung: Check if record exists by id=' + request.params.id + ', exists=' + exists);
-        response.status(200).json({'id': request.params.id, 'existiert': exists});
+        response.status(200).json({ 'id': request.params.id, 'existiert': exists });
     } catch (ex) {
         console.error('Service Buchung: Error checking if record exists. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
@@ -74,19 +75,19 @@ serviceRouter.get('/buchung/existiert/:id', function(request, response) {
 });
 
 
-serviceRouter.post('/buchung/erstellen', function(request, response) {
+serviceRouter.post('/buchung/erstellen', function (request, response) {
     console.log('Service Buchung: Einen neuen Termin in der Datenbank erstellen');
-    
-    var errorMsgs=[];
-    if (helper.isUndefined(request.body.RaumID)) 
+
+    var errorMsgs = [];
+    if (helper.isUndefined(request.body.RaumID))
         errorMsgs.push('RaumID fehlt');
-    if (helper.isUndefined(request.body.BenutzerID)) 
+    if (helper.isUndefined(request.body.BenutzerID))
         errorMsgs.push('BenutzerID fehlt');
-    if (helper.isUndefined(request.body.Startzeit)) 
+    if (helper.isUndefined(request.body.Startzeit))
         errorMsgs.push('Startzeit fehlt');
-    if (helper.isUndefined(request.body.Endzeit)) 
+    if (helper.isUndefined(request.body.Endzeit))
         errorMsgs.push('Endzeit fehlt');
-    if (helper.isUndefined(request.body.ZellenSpalte)) 
+    if (helper.isUndefined(request.body.ZellenSpalte))
         errorMsgs.push('ZellenSpalte fehlt');
 
 
@@ -104,20 +105,20 @@ serviceRouter.post('/buchung/erstellen', function(request, response) {
     } catch (ex) {
         console.error('Service Buchung: Error creating new record. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
-    }    
+    }
 });
 
-serviceRouter.put('/buchung', function(request, response) {
+serviceRouter.put('/buchung', function (request, response) {
     console.log('Service Buchung: Client requested update of existing record');
 
-    var errorMsgs=[];
-    if (helper.isUndefined(request.body.RaumID)) 
+    var errorMsgs = [];
+    if (helper.isUndefined(request.body.RaumID))
         errorMsgs.push('RaumID fehlt');
-    if (helper.isUndefined(request.body.BenutzerID)) 
+    if (helper.isUndefined(request.body.BenutzerID))
         errorMsgs.push('BenutzerID fehlt');
-    if (helper.isUndefined(request.body.Startzeit)) 
+    if (helper.isUndefined(request.body.Startzeit))
         errorMsgs.push('Startzeit fehlt');
-    if (helper.isUndefined(request.body.Endzeit)) 
+    if (helper.isUndefined(request.body.Endzeit))
         errorMsgs.push('Endzeit fehlt');
 
     if (errorMsgs.length > 0) {
@@ -134,20 +135,21 @@ serviceRouter.put('/buchung', function(request, response) {
     } catch (ex) {
         console.error('Service Buchung: Error updating record by id. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
-    }    
+    }
 });
 
-serviceRouter.delete('/buchung/:id', function(request, response) {
+
+serviceRouter.delete('/buchung/:id', function (request, response) {
     console.log('Service Buchung: Client requested deletion of record, id=' + request.params.id);
 
     const buchungDao = new BuchungDao(request.app.locals.dbConnection);
     try {
-        var obj = buchungDao.loadById(request.params.id);
-        buchungDao.delete(request.params.id);
-        console.log('Service Buchung: Deletion of record successfull, id=' + request.params.id);
+        var obj = buchungDao.delete(request.params.id);
+        //buchungDao.delete(request.params.id);
+        console.log('Service Etage: Deletion of record successfull, id=' + request.params.id);
         response.status(200).json({ 'gelöscht': true, 'eintrag': obj });
     } catch (ex) {
-        console.error('Service Buchung: Error deleting record. Exception occured: ' + ex.message);
+        console.error('Service Etage: Error deleting record. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
     }
 });

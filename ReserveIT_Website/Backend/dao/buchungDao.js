@@ -103,7 +103,9 @@ class BuchungDao {
     }
 
     delete(id) {
+
         try {
+            console.log(id);
             var sql = 'DELETE FROM Buchung WHERE id=?';
             var statement = this._conn.prepare(sql);
             var result = statement.run(id);
@@ -115,6 +117,7 @@ class BuchungDao {
         } catch (ex) {
             throw new Error('Could not delete Record by PersonID=' + id + '. Reason: ' + ex.message);
         }
+
     }
 
     toString() {
