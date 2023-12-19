@@ -150,7 +150,6 @@ $('#meineBuchungenBtn').click(function (event) {
 // der Datenbank holen und anzeigen.
 function zeigeGebaeude(arr) {
     loadLageplan();
-
     var tmp;
 
     if (arr.length == 0) {
@@ -173,7 +172,7 @@ function zeigeGebaeude(arr) {
 
 
 function ladeGrundrisse(arr) {
-                // gebBtn210
+    // gebBtn210
     var liIds = $('#gebBtn li').map(function () {
         return this.id;
     }).get();
@@ -202,60 +201,7 @@ function ladeGrundrisse(arr) {
                 processData: false,
                 dataType: 'json'
             }).done(function (response) {
-                $('#grid-unten').empty();
-                
-                var response = response;
-                var tmp;
-
-                if (response.length == 0) {
-                    tmp = 'Keine Etagen vorhanden';
-                    return;
-                }
-
-                tmp += '<div></div>'
-                tmp += '<ul class="list-group">';
-
-
-                response.forEach(obj => {
-                    //{id: 6, Bezeichnung: "EG", Grundriss: "..\\img\\206_eg.svg", …}
-                    tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
-                    // console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
-                });
-
-                tmp += '</ul>';
-
-                $('#grid-unten').append(tmp);
-
-                console.log("../img/" + response[0].Grundriss)
-
-                const svg = document.createElement("object");
-                svg.id = "svgHolder";
-                svg.data = "../img/" + response[0].Grundriss;
-                svg.type = "image/svg+xml"
-                svg.className = "list-group"
-                document.getElementById("grid-unten").appendChild(svg);
-
-
-                $('#svgHolder').load("../img/" + response[0].Grundriss);
-
-                for (let index = 0; index < response.length; index++) {
-                    const element = response[index];
-                        // #EtageBtn2101
-                    $('#EtageBtn' + response[index].id).click(function (event) {
-
-                        const svg = document.getElementById("svgHolder");
-                        svg.data = "../img/" + response[index].Grundriss;
-                        document.getElementById("grid-unten").appendChild(svg);
-
-
-                    });
-                    
-                    
-                }
-
-                svgHover("svgHolder","roomSVG");
-                
-
+                zeigeEtage(response);
             }).fail(function (xhr) {
                 console.log('error received');
             });
@@ -269,18 +215,65 @@ function HoverGebNew() {
     svgObject.addEventListener("load", function () {
         let svgDocument = svgObject.contentDocument;
         let targetElement = svgDocument.getElementsByClassName("gebSVG")
-
+ 
         Array.from(targetElement).forEach(function (element) {
             element.addEventListener('click', function () {
                 alert(svgObject);
-
+ 
             });
-
+ 
         });
     });
 }
 */
 
+
+function zeigeEtage(response) {
+
+    $('#grid-unten').empty();
+    var tmp;
+
+    if (response.length == 0) {
+        tmp = 'Keine Etagen vorhanden';
+        return;
+    }
+
+    tmp += '<div></div>'
+    tmp += '<ul class="list-group">';
+
+
+    response.forEach(obj => {
+        tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
+    });
+
+    tmp += '</ul>';
+    $('#grid-unten').append(tmp);
+
+
+    const svg = document.createElement("object");
+    svg.id = "svgHolder";
+    svg.data = "../img/" + response[0].Grundriss;
+    svg.type = "image/svg+xml"
+    svg.className = "list-group"
+    svg.style.width = '100%'
+    svg.style.height = '100%'
+    document.getElementById("grid-unten").appendChild(svg);
+
+
+    for (let index = 0; index < response.length; index++) {
+        const element = response[index];
+        // #EtageBtn2101
+        $('#EtageBtn' + response[index].id).click(function (event) {
+
+            const svg = document.getElementById("svgHolder");
+            svg.data = "../img/" + response[index].Grundriss;
+            document.getElementById("grid-unten").appendChild(svg);
+
+        });
+
+    }
+
+}
 
 $('#lageplanBtn').click(function (event) {
     // main leeren

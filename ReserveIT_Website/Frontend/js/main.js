@@ -1,4 +1,5 @@
 loadLageplan();
+
 function loadLageplan(){
   removeChild("grid-unten");
   const gridHolder = document.createElement("div");
