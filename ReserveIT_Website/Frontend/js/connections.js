@@ -1,3 +1,7 @@
+$(document).ready(function () {
+
+});
+
 // Diese Funktionen sind für den Anmelde-Vorgang
 // Sie prüft, ob der User schon existiert. Falls ja,
 // wird der User an die index.html weitergeleitet.
@@ -58,6 +62,7 @@ $('#signInBtn').submit(function (event) {
 
 // 205-135
 // Gebäude-Etag+Raumnummer
+
 
 //--------------------------------------------------------//
 // Dies Funktion wird aktiviert, wenn der Button
@@ -144,6 +149,8 @@ $('#meineBuchungenBtn').click(function (event) {
 // Diese Funktion soll die .svg Dateien der Grundrisse aus
 // der Datenbank holen und anzeigen.
 function zeigeGebaeude(arr) {
+    loadLageplan();
+
     var tmp;
 
     if (arr.length == 0) {
@@ -151,26 +158,22 @@ function zeigeGebaeude(arr) {
         return;
     }
 
-    tmp += '<div></div>'
-    tmp += '<ul class="list-group" id="gebBtn">';
+    tmp = '<ul class="list-group" id="gebBtn">';
 
     console.log("log test");
     var i = 1;
     arr.forEach(obj => {
-        tmp += '<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '" onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>';
+        tmp += '<li id="GebBtn' + obj.id + '" class="list-group btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.id + '</li>';
         console.log('<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
     });
     tmp += '</ul>';
-    $('#grid-unten').html(tmp);
+    $('#sidebar').append(tmp);
 
-    // Bild von Campus Lagepaln anzeigen
-    loadLageplan();
 }
 
 
-
 function ladeGrundrisse(arr) {
-    let ids = arr;
+                // gebBtn210
     var liIds = $('#gebBtn li').map(function () {
         return this.id;
     }).get();
@@ -179,22 +182,17 @@ function ladeGrundrisse(arr) {
         const ElementID = liIds[index];
 
         $('#' + ElementID).click(function (event) {
-            console.log("ID: " + ids[index].id);
-            console.log('loading all recs from api');
-            // convert data of form to object
+            console.log("ID: " + arr[index].id);
             var meinObjekt = {
-                id: ids[index].id
+                id: arr[index].id
             };
 
-            // Erstellen Sie ein neues FormData-Objekt
             var formData = new FormData();
-
-            // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
             for (var schluessel in meinObjekt) {
                 formData.append(schluessel, meinObjekt[schluessel]);
             }
 
-            // send form with ajax
+
             $.ajax({
                 url: 'http://localhost:8000/api/etage/laden',
                 type: 'POST',
@@ -204,41 +202,59 @@ function ladeGrundrisse(arr) {
                 processData: false,
                 dataType: 'json'
             }).done(function (response) {
-                $('#grid-unten').next().remove();
                 $('#grid-unten').empty();
-
-                var arr = response;
-                console.log('response from Etage received');
-                console.log(response);
-
+                
+                var response = response;
                 var tmp;
 
-                if (arr.length == 0) {
-                    tmp.text('Keine Etagen vorhanden');
+                if (response.length == 0) {
+                    tmp = 'Keine Etagen vorhanden';
                     return;
                 }
 
                 tmp += '<div></div>'
                 tmp += '<ul class="list-group">';
 
-                console.log("log test");
-                var i = 1;
-                arr.forEach(obj => {
+
+                response.forEach(obj => {
                     //{id: 6, Bezeichnung: "EG", Grundriss: "..\\img\\206_eg.svg", …}
-                    tmp += '<li id="RaumBtn' + obj.id + '" class="list-group btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
+                    tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
                     // console.log('<li id="GebBtn' + obj.Name + '" class="list-group-item btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
                 });
+
                 tmp += '</ul>';
-                $('#grid-unten').html(tmp);
 
-                console.log("../img/" + arr[0].Grundriss)
+                $('#grid-unten').append(tmp);
 
-                $('#svgHolder').load("../img/" + arr[0].Grundriss);
+                console.log("../img/" + response[0].Grundriss)
 
-                $('#RaumBtn' + arr[0].id).click(function (event) {
-                    $('#lageplan').load("../img/" + arr[index].Grundriss);
-                    console.log("Btn 1");
-                });
+                const svg = document.createElement("object");
+                svg.id = "svgHolder";
+                svg.data = "../img/" + response[0].Grundriss;
+                svg.type = "image/svg+xml"
+                svg.className = "list-group"
+                document.getElementById("grid-unten").appendChild(svg);
+
+
+                $('#svgHolder').load("../img/" + response[0].Grundriss);
+
+                for (let index = 0; index < response.length; index++) {
+                    const element = response[index];
+                        // #EtageBtn2101
+                    $('#EtageBtn' + response[index].id).click(function (event) {
+
+                        const svg = document.getElementById("svgHolder");
+                        svg.data = "../img/" + response[index].Grundriss;
+                        document.getElementById("grid-unten").appendChild(svg);
+
+
+                    });
+                    
+                    
+                }
+
+                svgHover("svgHolder","roomSVG");
+                
 
             }).fail(function (xhr) {
                 console.log('error received');
@@ -247,10 +263,29 @@ function ladeGrundrisse(arr) {
     }
 }
 
+/*
+function HoverGebNew() {
+    let svgObject = document.getElementById("lageplan");
+    svgObject.addEventListener("load", function () {
+        let svgDocument = svgObject.contentDocument;
+        let targetElement = svgDocument.getElementsByClassName("gebSVG")
+
+        Array.from(targetElement).forEach(function (element) {
+            element.addEventListener('click', function () {
+                alert(svgObject);
+
+            });
+
+        });
+    });
+}
+*/
+
 
 $('#lageplanBtn').click(function (event) {
     // main leeren
     $('#grid-unten').empty();
+    console.log("test");
 
     // disable default event
     event.preventDefault();
@@ -267,6 +302,7 @@ $('#lageplanBtn').click(function (event) {
         console.log('response received');
         console.log(response);
         zeigeGebaeude(response);
+
         ladeGrundrisse(response);
 
     }).fail(function (xhr) {
