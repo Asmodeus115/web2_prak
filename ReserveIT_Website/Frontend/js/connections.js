@@ -182,7 +182,7 @@ $('#meineBuchungenBtn').click(function (event) {
 // Diese Funktion soll die .svg Dateien der Grundrisse aus
 // der Datenbank holen und anzeigen.
 function zeigeGebaeude(arr) {
-    loadLageplan();
+    loadLageplan()
     let tmp;
 
     if (arr.length === 0) {
@@ -286,13 +286,12 @@ function zeigeEtage(response) {
   svgHover("etageSVG", "roomSVG")
 }
 
-$('#lageplanBtn').click(function (event) {
+function loadButtons(){
     // main leeren
     $('#grid-unten').empty();
     console.log("test");
 
     // disable default event
-    event.preventDefault();
 
     // send form with ajax
     $.ajax({
@@ -312,7 +311,7 @@ $('#lageplanBtn').click(function (event) {
     }).fail(function (xhr) {
         console.log('Fehler bekommen beim Laden der Geäude aus der DB!');
     });
-});
+}
 
 
 function storniereBuchung(id) {
