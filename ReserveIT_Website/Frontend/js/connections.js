@@ -242,25 +242,6 @@ function ladeGrundrisse(arr) {
     }
 }
 
-/*
-function HoverGebNew() {
-    let svgObject = document.getElementById("lageplan");
-    svgObject.addEventListener("load", function () {
-        let svgDocument = svgObject.contentDocument;
-        let targetElement = svgDocument.getElementsByClassName("gebSVG")
-
-        Array.from(targetElement).forEach(function (element) {
-            element.addEventListener('click', function () {
-                alert(svgObject);
-
-            });
-
-        });
-    });
-}
-*/
-
-
 function zeigeEtage(response) {
 
     $('#grid-unten').empty();

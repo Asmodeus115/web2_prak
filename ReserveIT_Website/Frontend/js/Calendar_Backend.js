@@ -63,7 +63,7 @@ function zeigeFarben(arr) {
 
                 if (buchungsende >= 2 && buchungsende <= 13) { // fruehstens ab 08:00 Uhr, spätestens 19:00 Uhr
                     for (let i = buchungsende; i >= buchungsbeginn; i-- ){
-                        markiereZelle(spaltenindex, i, 'red');
+                        markiereZelle(spaltenindex, i, 'red');    
                     }
                 }
             }
