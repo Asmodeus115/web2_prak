@@ -68,7 +68,7 @@ $('#signInBtn').submit(function (event) {
 // Buchungen aufgelistet, die der User hat.
 
 $('#meineBuchungenBtn').click(function (event) {
-    
+
     $('#grid-unten').empty();
 
     // disable default event
@@ -78,9 +78,9 @@ $('#meineBuchungenBtn').click(function (event) {
     function zeigeBuchungen(arr) {
         $('#grid-unten').empty();
 
-      var tmp="1";
+        var tmp = "1";
 
-      if (arr.length === 0) {
+        if (arr.length === 0) {
             tmp.text('Keine Buchung vorhanden');
             return;
         }
@@ -246,7 +246,7 @@ function ladeGrundrisse(arr) {
 function zeigeEtage(response) {
 
     $('#grid-unten').empty();
-    var tmp="1";
+    var tmp = "1";
 
     if (response.length == 0) {
         tmp = 'Keine Etagen vorhanden';
@@ -268,7 +268,7 @@ function zeigeEtage(response) {
     const svg = document.createElement("object");
     const svgHolder = document.createElement("div");
 
-    svgHolder.id ="svgHolder"
+    svgHolder.id = "svgHolder"
     svg.id = "etageSVG";
     svg.data = "../img/" + response[0].Grundriss;
     svg.type = "image/svg+xml"
@@ -280,14 +280,14 @@ function zeigeEtage(response) {
         const element = response[index];
         // #EtageBtn2101
         $('#EtageBtn' + response[index].id).click(function (event) {
-          svg.data = "../img/" + response[index].Grundriss;
+            svg.data = "../img/" + response[index].Grundriss;
         });
 
     }
-  svgHover("etageSVG", "roomSVG")
+    svgHover("etageSVG", "roomSVG")
 }
 
-function loadButtons(){
+function loadButtons() {
     // main leeren
     $('#grid-unten').empty();
     console.log("test");
@@ -336,7 +336,7 @@ function storniereBuchung(id) {
 
     // send form with ajax
     $.ajax({
-        url: 'http://localhost:8000/api/buchung/'+id,
+        url: 'http://localhost:8000/api/buchung/' + id,
         type: 'delete',
         data: formData,
         contentType: false,
@@ -353,15 +353,14 @@ function storniereBuchung(id) {
 
 }
 
+$(document).ready(function () {
+    $('.impressumBtn').click(function () {
+        $('#grid-unten').empty();
 
-$('#ImpressumBtn').click(function (event) {
-    
-    $('#grid-unten').empty();
+        // disable default event
+        event.preventDefault();
 
-    // disable default event
-    event.preventDefault();
-
-    var meinString = `
+        var meinString = `
     <p>
     <div class="textarea">
     <h1 id="textarea-h1">Impressum</h1>
@@ -392,7 +391,8 @@ $('#ImpressumBtn').click(function (event) {
   </div>
 `;
 
-      
-      $('#grid-unten').append(meinString);
 
+        $('#grid-unten').append(meinString);
+
+    });
 });
