@@ -353,16 +353,16 @@ function storniereBuchung(id) {
 
 }
 
-$(document).ready(function () {
-    $('.impressumBtn').click(function () {
-        $('#grid-unten').empty();
 
-        // disable default event
-        event.preventDefault();
+$('.impressumBtn').click(function () {
+    $('#grid-unten').empty();
 
-        var meinString = `
-    <p>
-    <div class="textarea">
+    // disable default event
+    event.preventDefault();
+
+    var meinString = `
+    
+    <div>
     <h1 id="textarea-h1">Impressum</h1>
     <p><strong>Border Collie</strong></p>
     <p>Reserve It GmbH<br>
@@ -392,7 +392,44 @@ $(document).ready(function () {
 `;
 
 
-        $('#grid-unten').append(meinString);
+    $('#grid-unten').append('<div></div>');
+    $('#grid-unten').append(meinString);
 
-    });
+
 });
+
+
+
+
+$('.aboutBtn').click(function () {
+    $('#grid-unten').empty();
+
+    // disable default event
+    event.preventDefault();
+
+    var meinString = `
+        <h1 id="textarea-h1">Unsere Gründergeschichte</h1>
+        <div>
+          <p>
+            Ein kalter Herbstabend in der kleinen Hochschulstadt, wo die Blätter in den Farben des Sonnenuntergangs leuchteten, bildete den perfekten Hintergrund für den Beginn unserer gemeinsamen Reise. Vier Studenten, jeder mit seiner einzigartigen Perspektive und Expertise, kamen zusammen und legten den Grundstein für das, was bald zu einem aufregenden Unterfangen werden sollte.<br><br>
+            Unsere Geschichte begann in einem kleinen Seminarraum, in dem wir uns im Rahmen eines gemeinsamen Projekts für unser Studium der IT-Security und Wirtschaftsinformatik zusammenfanden. Zwischen Codezeilen und Datenbanken entdeckten wir eine gemeinsame Leidenschaft für innovative Lösungen und die Verbindung von Technologie und Geschäft. <br><br>
+            Eines Tages, als wir gemeinsam über die Herausforderungen im Hochschulalltag sprachen, stolperten wir über ein scheinbar einfaches, aber sehr reales Problem: Die Reservierung von Räumen an der Hochschule war ein zeitraubender und oft verwirrender Prozess. Dies war der Moment, in dem die Saat für unsere Geschäftsidee gelegt wurde. <br><br>
+            Wir begannen, unsere Fähigkeiten und Kenntnisse zu kombinieren. Die beiden IT-Security-Studenten brachten ihr tiefes Verständnis für Datenschutz und Sicherheit ein, während die Wirtschaftsinformatik-Studenten ihre Fähigkeiten in den Bereichen Geschäftsanalyse und Management einsetzten. Gemeinsam wagten wir uns in die Welt der Startup-Unternehmen. <br><br>
+            In den nächsten Monaten arbeiteten wir unermüdlich an unserer Idee, verfeinerten das Konzept, erstellten Prototypen und präsentierten unser Projekt in verschiedenen Hochschulkursen. Das Feedback war positiv, aber wir waren uns bewusst, dass der Weg von einer Idee zu einem erfolgreichen Unternehmen steinig sein würde. <br><br>
+            Die nächste Etappe unserer Reise führte uns zu branchenrelevanten Veranstaltungen und Networking-Events, wo wir unser Projekt vorstellten und wertvolle Einblicke von Branchenexperten erhielten. Jeder von uns trug dazu bei, das Unternehmen voranzutreiben, sei es durch die Verbesserung der Benutzeroberfläche, das Hinzufügen von Sicherheitsfunktionen oder das Entwickeln einer nachhaltigen Geschäftsstrategie. <br><br>
+            Unsere harte Arbeit zahlte sich aus, als wir schließlich die Finanzierung für unser Startup sicherten. Mit einem gemischten Gefühl von Aufregung und Nervosität starteten wir unsere Plattform zur Raumreservierung. Die ersten Monate waren von intensiver Kundenbetreuung, ständiger Verbesserung der Plattform und dem Anpassen an die Dynamik des Marktes geprägt. <br><br>
+            Mit der Zeit gewannen wir das Vertrauen unserer Nutzer und erweiterten unsere Dienstleistungen. Das einfache Projekt aus dem Studium entwickelte sich zu einem vielversprechenden Unternehmen, das die Art und Weise, wie Menschen Räume buchen, revolutionierte. <br><br>
+            Die Reise war nicht ohne Herausforderungen, aber unsere gemeinsame Entschlossenheit, gepaart mit der einzigartigen Mischung unserer Fähigkeiten, trieb uns voran. Heute blicken wir stolz auf das, was wir erreicht haben, aber unsere Geschichte ist noch nicht zu Ende. Mit jedem Tag lernen wir dazu, wachsen weiter und setzen unsere Leidenschaft dafür ein, die Raumbuchung so einfach wie möglich zu gestalten. <br><br>
+            Unsere Gründergeschichte ist eine Ode an die Zusammenarbeit, den Glauben an Innovation und die Kraft einer Idee, die in einem kleinen Seminarraum an der Hochschule entstand und zu einem erfolgreichen Unternehmen heranwuchs.
+          </p>
+      </div>
+`;
+
+
+    $('#grid-unten').append(meinString);
+
+
+});
+
+
+
