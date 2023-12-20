@@ -352,3 +352,47 @@ function storniereBuchung(id) {
     });
 
 }
+
+
+$('#ImpressumBtn').click(function (event) {
+    
+    $('#grid-unten').empty();
+
+    // disable default event
+    event.preventDefault();
+
+    var meinString = `
+    <p>
+    <div class="textarea">
+    <h1 id="textarea-h1">Impressum</h1>
+    <p><strong>Border Collie</strong></p>
+    <p>Reserve It GmbH<br>
+    Musterstr. 33<br>
+    72458 Albstadt-Ebingen</p>
+
+    <p><strong>Kontakt:</strong></p>
+    <p>Telefon: +49 (0)123 456 789<br>E-Mail: <a href="mailto:reserveit.email@example.com" style="color: rgba(0, 0, 0, 0.648); ">reserve-itt@example.com</a></p>
+
+    <p><strong>Vertretungsberechtigte Person:</strong></p>
+    <p>Shetland Sheepdog</p>
+
+    <p><strong>Registrierung:</strong></p>
+    <p>Handelsregister Albstadt<br>
+    Registernummer: 54321<br>
+    Umsatzsteuer-Identifikationsnummer: USt-IdNr.485481248</p>
+
+    <p><strong>Haftungsausschluss:</strong></p>
+    <p>Die bereitgestellten Informationen wurden sorgfältig geprüft und werden regelmäßig aktualisiert. Wir übernehmen jedoch keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte. Haftungsansprüche gegen uns, die sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.</p>
+
+    <p><strong>Urheberrecht:</strong></p>
+    <p>Die durch uns erstellten Inhalte und Werke auf dieser Webseite unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen unserer schriftlichen Zustimmung. Soweit die Inhalte auf dieser Seite nicht von uns erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+
+    <p><strong>Datenschutz:</strong></p>
+    <p>Unsere Datenschutzerklärung finden Sie <a href="Datenschutz.html">hier</a>.</p>
+  </div>
+`;
+
+      
+      $('#grid-unten').append(meinString);
+
+});
