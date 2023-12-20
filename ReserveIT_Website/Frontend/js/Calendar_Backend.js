@@ -1,18 +1,21 @@
-$(document).ready(function () {
+
+function calenderStart(){
+  $(document).ready(function () {
     console.log("form submit called");
 
     ladeAlleBuchugenByTime();
-    
+
     $('#submitButton').click(function (event) {
-        ceateBooking();
-        
+      ceateBooking();
+
     });
 
     $('#prevWeekBtn, #nextWeekBtn').click(function (event) {
-        entferneFarben();
-        ladeAlleBuchugenByTime();
+      entferneFarben();
+      ladeAlleBuchugenByTime();
     });
-});
+  });
+}
 
 function ladeAlleBuchugenByTime() {
     // send form with ajax
@@ -37,9 +40,9 @@ function ladeAlleBuchugenByTime() {
 
 // In dieser Funktion darfst du dich austuben Habibi @SG4747
 function zeigeFarben(arr) {
-    
+
     console.log('Hier ist zeigeFarben Funktion');
-    // Hier ist dein Spielplatz @SG4747 
+    // Hier ist dein Spielplatz @SG4747
     const endOfWeek = createDateFromDateString(window.endeDatum);
     const startOfWeek = createDateFromDateString(window.startDatum);
 
@@ -50,9 +53,9 @@ function zeigeFarben(arr) {
         var spaltenindex = booking.ZellenSpalte;
         var buchungsbeginn = timeStringToInt(booking.Startzeit) - 6; // gebuchte uhrzeit - 6 ergibt den zeilenindex
         var buchungsende = timeStringToInt(booking.Endzeit) - 6;
-       
-        
-        
+
+
+
         if (startOfWeek <= bookDate && endOfWeek >= bookDate ) {
 
             if (buchungsbeginn >= 1 && buchungsbeginn <= 12) { // fruehstens ab 07:00 uhr,spätestens 18:00 Uhr
@@ -68,7 +71,7 @@ function zeigeFarben(arr) {
                 alert("Fehler: Gebuchte Zeit ist außerhalb der Öffnungszeiten! \n\n\Die Öffnungszeiten sind von Mo. - Sa.: 07:00 - 19:00 Uhr.")
             }
         }
-        
+
     });
 }
 
@@ -105,8 +108,8 @@ function markiereZelle(spaltenindex, zeilenindex, farbe) {
 
 
 //--------------------------------------------------------//
-// Dies Funktion wird aktiviert, wenn auf den Buchungsbutton 
-// im Kalender geklickt wird. 
+// Dies Funktion wird aktiviert, wenn auf den Buchungsbutton
+// im Kalender geklickt wird.
 // Es wird einen Eintrag (Buchung) in der Datenbank erstellt.
 function ceateBooking() {
     console.log("Erstellung einer Buchung startet!");
@@ -125,8 +128,8 @@ function ceateBooking() {
     }
 
     var zellenSpalte = window.cellPos;
- 
-    
+
+
     var datum = $('#bookDate').val();
     var start = $('#bookStart').val();
     var end = $('#bookEnd').val();
@@ -138,7 +141,7 @@ function ceateBooking() {
     var endDate = datum + " " + end + ":00";
     //var matNr = event.matNr;
 
-    
+
     // convert data of form to object
     var meinObjekt = {
         RaumID: 210112,
@@ -173,7 +176,7 @@ function ceateBooking() {
 
     }).fail(function (xhr) {
         console.log('Fehler beim Erstellen des Termins');
-    }); 
+    });
 }
 
 
