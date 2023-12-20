@@ -36,10 +36,11 @@ function svgHover(id, klassenname){
       element.addEventListener("mouseover", function (){
         this.style.opacity = "0.9";
         this.style.cursor="pointer";
-
+        this.style.fill="#1E1F22"
       });
       element.addEventListener("mouseout", function (){
         this.style.opacity = "1";
+        this.style.fill="";
       });
     });
   });
@@ -70,24 +71,7 @@ function loadImpressum(){
   document.getElementById("grid-unten").appendChild(gridHolder);
   document.getElementById("grid-unten").appendChild(impressumHolder);
 
-  impressumHolder.textContent = "hello"
-}
-
-function loadGebSVG(id){
-  removeChild("grid-unten");
-  const gridHolder = document.createElement("div");
-  const svgHolders = document.createElement("div");
-  const svg = document.createElement("object");
-  svgHolders.id = "svgHolder"
-  svg.id = "geb"+id;
-  svg.data = "../img/"+id;
-  svg.type = "image/svg+xml"
-  gridHolder.className = "list-group"
-  gridHolder.id = "sidebar"
-
-  document.getElementById("grid-unten").appendChild(gridHolder);
-  document.getElementById("grid-unten").appendChild(svgHolders)
-  document.getElementById("svgHolder").appendChild(svg);
+  impressumHolder.textContent = "hello1"
 }
 
 function loadUeberUns(){
