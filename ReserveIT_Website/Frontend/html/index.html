@@ -24,6 +24,7 @@
   <script src="../js/Calendar.js"></script>
   <script src="../js/Calendar_Backend.js"></script>
   <script src="../js/connections.js"></script>
+  
 
 </head>
 
@@ -31,12 +32,12 @@
   <header class="header">
     <div id="grid-oben">
       <div class="logobox">
-        <img id="logo" src="../img/logo.png" alt="nop" onclick="loadLageplan()">
+        <img id="logo" src="../img/logo.png" alt="nop" onclick="runMain()">
       </div>
       <nav class="btn-group linkleiste">
-        <button id="lageplanBtn" class="btn lageplanBtn" type="button"  onclick="">Lageplan</button>
+        <button id="lageplanBtn" class="btn lageplanBtn" type="button"  onclick="runMain()">Lageplan</button>
         <button class="btn ueberunsBtn" type="button"  onclick="loadUeberUns()">Über uns</button>
-        <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button" onclick="">Meine Buchungen</button>
+        <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button">Meine Buchungen</button>
         <button id="sexyAnton" class="btn buchungenBtn" type="button" onclick="loadCalendar(), calenderStart()">ich bin geil</button>
         <button class="btn impressumBtn" type="button" onclick="loadImpressum()">Impressum</button>
       </nav>
@@ -76,10 +77,8 @@
         <a href="https://twitter.com/" class="fa fa-twitter"></a>
       </div>
 
-
-      
-
-  </div>
+</div>
   </footer>
+  <script src="../js/connections.js"></script>
 </body>
 </html>

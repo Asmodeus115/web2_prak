@@ -68,6 +68,7 @@ $('#signInBtn').submit(function (event) {
 // Buchungen aufgelistet, die der User hat.
 
 $('#meineBuchungenBtn').click(function (event) {
+    
     $('#grid-unten').empty();
 
     // disable default event
