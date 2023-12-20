@@ -72,7 +72,7 @@ $('#meineBuchungenBtn').click(function (event) {
 
     // disable default event
     event.preventDefault();
-    $('#lageplan').hide();
+
 
     function zeigeBuchungen(arr) {
         $('#grid-unten').empty();
@@ -91,6 +91,7 @@ $('#meineBuchungenBtn').click(function (event) {
         tmp += '<th>Startzeit</th>';
         tmp += '<th>Endzeit</th>';
         tmp += '<th>BuchungCode</th>';
+        tmp += '<th>Stornieren</th>';
         tmp += '</tr>';
 
         var i = 1;
@@ -102,7 +103,7 @@ $('#meineBuchungenBtn').click(function (event) {
             tmp += '<td>' + obj.Startzeit + '</td>';
             tmp += '<td>' + obj.Endzeit + '</td>';
             tmp += '<td>' + obj.BuchungCode + '</td>';
-            //tmp += '<td>' + (obj.alter >= 18 ? 'erwachsen' : 'Kind') + '</td>';
+            tmp += '<td><input class="storinerenBtn" type="checkbox" id=' + obj.id + '> Stornieren </td>';
             tmp += '</tr>';
             i++;
         });
@@ -137,6 +138,40 @@ $('#meineBuchungenBtn').click(function (event) {
         console.log('response received');
         console.log(response);
         zeigeBuchungen(response);
+
+        var SlotsToCancle = [];
+        var showBtn = 0;
+
+        var checkbox = document.getElementsByClassName('storinerenBtn');
+        $('#grid-unten').append('<button  id="conformStorno" type="submit" value="Stornierung bestätigen">Absenden</button>');
+
+        for (var i = 0; i < checkbox.length; i++) {
+            $('#' + checkbox[i].id).on('change', function () {
+                var id = $(this).attr('id');
+
+                if ($(this).prop('checked')) {
+                    SlotsToCancle.push(id);
+
+                } else {
+                    SlotsToCancle = SlotsToCancle.filter(function (item) {
+                        return item !== id;
+                    });
+                    console.log(SlotsToCancle);
+
+                }
+
+            });
+
+            console.log(SlotsToCancle);
+        }
+
+        $('#conformStorno').click(function () {
+            if (SlotsToCancle.length > 0) {
+                storniereBuchung(SlotsToCancle[0]);
+            } else {
+
+            }
+        });
     }).fail(function (xhr) {
         console.log('error received');
     });
@@ -165,7 +200,6 @@ function zeigeGebaeude(arr) {
     });
     tmp += '</ul>';
     $('#sidebar').append(tmp);
-    console.log("zeige");
 
 }
 
@@ -206,7 +240,6 @@ function ladeGrundrisse(arr) {
             });
         });
     }
-    console.log("lade");
 }
 
 /*
@@ -301,3 +334,40 @@ $('#lageplanBtn').click(function (event) {
 });
 
 
+function storniereBuchung(id) {
+
+    console.log("ID: ", id);
+
+    // convert data of form to object
+    const meinObjekt = {
+        id: id
+    };
+
+    // Erstellen Sie ein neues FormData-Objekt
+    const formData = new FormData();
+
+    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+    for (const schluessel in meinObjekt) {
+        formData.append(schluessel, meinObjekt[schluessel]);
+    }
+
+    console.log(formData);
+
+    // send form with ajax
+    $.ajax({
+        url: 'http://localhost:8000/api/buchung/'+id,
+        type: 'delete',
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType: 'json'
+    }).done(function (response) {
+        console.log('Stornierung = ' + response);
+
+    }).fail(function (xhr) {
+        console.log('error received');
+
+    });
+
+}
