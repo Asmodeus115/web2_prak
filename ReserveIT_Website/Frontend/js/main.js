@@ -30,20 +30,25 @@ function removeChild(parent){
 }
 
 function svgHover(id, klassenname){
+  console.log("funktion gestartet")
   let svgObject = document.getElementById(id);
   svgObject.addEventListener("load", function (){
+    console.log("let")
     let svgDocument = svgObject.contentDocument;
     let targetElement = svgDocument.getElementsByClassName(klassenname)
 
     Array.from(targetElement).forEach(function (element){
+      console.log("funktion addelement")
       element.addEventListener("mouseover", function (){
         this.style.opacity = "0.9";
         this.style.cursor="pointer";
         this.style.fill="#1E1F22"
+        console.log("mouseover");
       });
       element.addEventListener("mouseout", function (){
         this.style.opacity = "1";
         this.style.fill="";
+        console.log("mouseout");
       });
     });
   });
