@@ -29,6 +29,7 @@ function ladeAlleBuchugenByTime() {
         console.log('Alle Buchung erfolgreich aus der DB geholt!');
         console.log(response);
         zeigeFarben(response);
+        checkBackgroundColor();
 
     }).fail(function (xhr) {
         console.log('Es ist ein Fehler beim Holen aufgetreten\n' + xhr);
@@ -40,7 +41,6 @@ function ladeAlleBuchugenByTime() {
 
 // In dieser Funktion darfst du dich austuben Habibi @SG4747
 function zeigeFarben(arr) {
-
     console.log('Hier ist zeigeFarben Funktion');
     // Hier ist dein Spielplatz @SG4747
     const endOfWeek = createDateFromDateString(window.endeDatum);
@@ -79,7 +79,6 @@ function zeigeFarben(arr) {
 // Diese Funktion setzt die Hintergrundfarbe einer Zelle in einer Tabelle
 function markiereZelle(spaltenindex, zeilenindex, farbe) {
     var tabelle = document.getElementById('calendar');
-
     // Überprüfe, ob die Tabelle existiert
     if (tabelle) {
         // Finde die Zeile in der Tabelle
@@ -206,6 +205,35 @@ function entferneFarben() {
                 zellen[j].style.backgroundColor = '';
             }
         }
+    }
+}
+
+function checkBackgroundColor() {
+    var tabelle = document.getElementById('calendar');
+    var buchungsfesnter = document.getElementById('buchungsfenster');
+
+    // Überprüfe, ob die Tabelle existiert
+    if (tabelle) {
+        var zeilen = tabelle.getElementsByTagName('tr');
+
+        // Iteriere durch jede Zeile
+        for (var i = 0; i < zeilen.length; i++) {
+            var zellen = zeilen[i].getElementsByTagName('td');
+
+            // Iteriere durch jede Zelle in der aktuellen Zeile
+            for (var j = 0; j < zellen.length; j++) {
+                var zelle = zellen[j];
+
+                // Überprüfe die Hintergrundfarbe der Zelle
+                if (zelle.style.backgroundColor === 'red') {
+                    zelle.addEventListener('click', function() {
+                        buchungsfesnter.style.display = 'none';
+                    });
+                }
+            }
+        }
+    } else {
+        console.error('Tabelle existiert nicht');
     }
 }
 
