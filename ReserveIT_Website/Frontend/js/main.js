@@ -1,4 +1,9 @@
 runMain();
+
+function calendar(){
+  loadCalendar();
+  calenderStart();
+}
 function runMain(){
   loadButtons();
   loadLageplan();
@@ -32,6 +37,7 @@ function removeChild(parent){
 function svgHover(id, klassenname){
   console.log("funktion gestartet")
   let svgObject = document.getElementById(id);
+
   svgObject.addEventListener("load", function (){
     console.log("let")
     let svgDocument = svgObject.contentDocument;
@@ -69,6 +75,7 @@ function loadCalendar(){
   const myCalendar = new WeeklyCalendar();
 }
 
+/*
 function loadImpressum(){
   removeChild("grid-unten");
   const gridHolder = document.createElement("div");
@@ -81,7 +88,7 @@ function loadImpressum(){
 
   impressumHolder.textContent = "hello1"
 }
-
+*/
 function loadUeberUns(){
   removeChild("grid-unten");
   const gridHolder = document.createElement("div");
