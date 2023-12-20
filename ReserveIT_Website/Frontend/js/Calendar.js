@@ -224,7 +224,10 @@ class WeeklyCalendar {
     const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
     document.getElementById('bookEnd').value = this.formatTime(endTime);
 
-    if (this.cellDate < new Date()) {
+   const gecklicktesDatum = `${this.formatDate(this.cellDate)}` + " " + time;
+   const datumHeute = `${this.formatDate(new Date())}` + " " + new Date().getHours() + ":" + new Date().getMinutes();
+    
+    if (gecklicktesDatum < datumHeute) {
       alert('Das ausgewählte Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
       return; // Verlasse die Methode, wenn das Datum ungültig ist
     }

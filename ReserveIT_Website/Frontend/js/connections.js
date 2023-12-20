@@ -1,8 +1,4 @@
-$(document).ready(function () {
 
-
-
-});
 
 // Diese Funktionen sind für den Anmelde-Vorgang
 // Sie prüft, ob der User schon existiert. Falls ja,
@@ -81,9 +77,9 @@ $('#meineBuchungenBtn').click(function (event) {
     function zeigeBuchungen(arr) {
         $('#grid-unten').empty();
 
-        let tmp;
+      var tmp="1";
 
-        if (arr.length === 0) {
+      if (arr.length === 0) {
             tmp.text('Keine Buchung vorhanden');
             return;
         }
@@ -113,10 +109,7 @@ $('#meineBuchungenBtn').click(function (event) {
         });
         tmp += '</table>';
         $('#grid-unten').append(tmp);
-
-
     }
-
 
     // convert data of form to object
     const meinObjekt = {
@@ -185,16 +178,14 @@ $('#meineBuchungenBtn').click(function (event) {
 });
 
 
-
-
 //--------------------------------------------------------//
 // Diese Funktion soll die .svg Dateien der Grundrisse aus
 // der Datenbank holen und anzeigen.
 function zeigeGebaeude(arr) {
     loadLageplan();
-    var tmp;
+    let tmp;
 
-    if (arr.length == 0) {
+    if (arr.length === 0) {
         tmp.text('Keine Gebäude vorhanden');
         return;
     }
@@ -204,8 +195,8 @@ function zeigeGebaeude(arr) {
     console.log("log test");
     var i = 1;
     arr.forEach(obj => {
-        tmp += '<li id="GebBtn' + obj.id + '" class="list-group btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.id + '</li>';
-        console.log('<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '"onclick="swapButtonsGeb(\'' + obj.Name + '\')">' + obj.Name + '</li>');
+        tmp += '<li id="GebBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.id + '</li>';
+        console.log('<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '">' + obj.Name + '</li>');
     });
     tmp += '</ul>';
     $('#sidebar').append(tmp);
@@ -251,12 +242,10 @@ function ladeGrundrisse(arr) {
     }
 }
 
-
-
 function zeigeEtage(response) {
 
     $('#grid-unten').empty();
-    var tmp;
+    var tmp="1";
 
     if (response.length == 0) {
         tmp = 'Keine Etagen vorhanden';
@@ -268,7 +257,7 @@ function zeigeEtage(response) {
 
 
     response.forEach(obj => {
-        tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '" onclick="swapButtonsGeb(\'' + obj.id + '\')">' + obj.Bezeichnung + '</li>';
+        tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
     });
 
     tmp += '</ul>';
@@ -276,28 +265,25 @@ function zeigeEtage(response) {
 
 
     const svg = document.createElement("object");
-    svg.id = "svgHolder";
+    const svgHolder = document.createElement("div");
+
+    svgHolder.id ="svgHolder"
+    svg.id = "etageSVG";
     svg.data = "../img/" + response[0].Grundriss;
     svg.type = "image/svg+xml"
-    svg.className = "list-group"
-    svg.style.width = '100%'
-    svg.style.height = '100%'
-    document.getElementById("grid-unten").appendChild(svg);
 
+    document.getElementById("grid-unten").appendChild(svgHolder);
+    document.getElementById("svgHolder").appendChild(svg);
 
     for (let index = 0; index < response.length; index++) {
         const element = response[index];
         // #EtageBtn2101
         $('#EtageBtn' + response[index].id).click(function (event) {
-
-            const svg = document.getElementById("svgHolder");
-            svg.data = "../img/" + response[index].Grundriss;
-            document.getElementById("grid-unten").appendChild(svg);
-
+          svg.data = "../img/" + response[index].Grundriss;
         });
 
     }
-
+  svgHover("etageSVG", "roomSVG")
 }
 
 $('#lageplanBtn').click(function (event) {
