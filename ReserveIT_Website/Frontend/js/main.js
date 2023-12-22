@@ -41,7 +41,7 @@ function loadLageplan(){
   document.getElementById("grid-unten").appendChild(svgHolder)
   document.getElementById("svgHolder").appendChild(svg);
   svgHover("lageplan", ".gebSVG");
-  clickHouse("lageplan", "test");
+  clickHouse("lageplan", ".gebSVG","test");
 }
 
 function removeChild(parent){
