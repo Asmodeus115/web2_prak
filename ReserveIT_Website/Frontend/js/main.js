@@ -9,11 +9,11 @@ function runMain(){
   loadLageplan();
 }
 
-function clickHouse(id, test){
+function clickHouse(id, klassenname, test){
   let svgObject = document.getElementById(id);
   svgObject.addEventListener("load", function loadHover(){
     let svgDocument = svgObject.contentDocument;
-    let clickable = svgDocument.querySelectorAll(".gebSVG");
+    let clickable = svgDocument.querySelectorAll(klassenname);
 
     clickable.forEach(function (element){
       element.addEventListener("click", function(){

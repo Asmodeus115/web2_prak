@@ -283,6 +283,7 @@ function zeigeEtage(response) {
 
     }
     svgHover("etageSVG", ".roomSVG")
+    clickHouse("etageSVG", ".roomSVG")
 }
 
 function loadButtons() {
