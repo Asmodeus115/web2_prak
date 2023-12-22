@@ -28,44 +28,44 @@
  </defs>
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect id="206_211" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="1971.15" width="1243.54" height="1270"/>
-  <rect id="206_206" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="4458.23" width="1243.54" height="1243.54"/>
-  <rect id="206_205" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="5701.77" width="1243.54" height="1587.5"/>
-  <rect id="206_204" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="7289.27" width="1243.54" height="1534.58"/>
-  <rect id="206_203" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="8823.84" width="1243.54" height="1243.55"/>
-  <rect id="206_201" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.59" y="10411.34" width="1058.33" height="2169.59"/>
+  <rect id="206_211" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="1971.15" width="1243.54" height="1270"/>
+  <rect id="206_206" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="4458.23" width="1243.54" height="1243.54"/>
+  <rect id="206_205" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="5701.77" width="1243.54" height="1587.5"/>
+  <rect id="206_204" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="7289.27" width="1243.54" height="1534.58"/>
+  <rect id="206_203" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.6" y="8823.84" width="1243.54" height="1243.55"/>
+  <rect id="206_201" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8982.59" y="10411.34" width="1058.33" height="2169.59"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="10596.56,1971.15 13903.85,1971.15 13903.85,7024.69 10596.56,6946.53 "/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="10596.56,7262.81 13930.31,7358.71 13930.31,10675.94 10596.56,10570.1 "/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="10596.56,10587.1 11622.1,10586.37 11628.43,10728.85 14962.18,16232.19 13437.4,17101.05 13169.37,16546.52 12766.14,16152.81 12207.18,16024.51 11789.65,16057.96 10834.68,12236.98 10596.56,12230.11 "/>
   <ellipse fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" cx="12103.69" cy="17449.27" rx="1374.84" ry="1428.75"/>
-  <rect id="206_232" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14168.42" y="1971.14" width="1508.13" height="1428.75"/>
-  <rect id="206_231" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14168.42" y="3399.9" width="1508.13" height="1481.66"/>
-  <rect id="206_230" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14168.42" y="4881.56" width="1508.13" height="1455.21"/>
-  <rect id="206_229" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14922.5" y="6336.77" width="754.06" height="714.38"/>
-  <polygon id="206_226" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="14194.89,7368.65 14935.72,7368.65 14935.72,8109.48 14302.82,8109.48 "/>
-  <polyline id="206_225" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15676.56,8109.48 14935.72,8109.48 14935.72,7368.65 15676.56,7368.65 "/>
-  <polyline id="206_224" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15676.56,9220.73 14485.93,9220.73 14302.82,8109.48 15676.56,8109.48 "/>
-  <polyline fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15676.56,9749.9 14573.68,9749.9 14474.95,9220.73 15676.56,9220.73 "/>
-  <polyline id="206_222" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15676.56,10279.06 14645.21,10279.06 14561.02,9749.9 15676.56,9749.9 "/>
-  <polyline id="206_221" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="16031.98,10675.94 16019.67,11353.39 14873.12,11506.87 14647.15,10279.06 15699.84,10279.06 "/>
+  <rect id="206_232" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14168.42" y="1971.14" width="1508.13" height="1428.75"/>
+  <rect id="206_231" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14168.42" y="3399.9" width="1508.13" height="1481.66"/>
+  <rect id="206_230" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14168.42" y="4881.56" width="1508.13" height="1455.21"/>
+  <rect id="206_229" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14922.5" y="6336.77" width="754.06" height="714.38"/>
+  <polygon id="206_226" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="14194.89,7368.65 14935.72,7368.65 14935.72,8109.48 14302.82,8109.48 "/>
+  <polyline id="206_225" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15676.56,8109.48 14935.72,8109.48 14935.72,7368.65 15676.56,7368.65 "/>
+  <polyline id="206_224" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15676.56,9220.73 14485.93,9220.73 14302.82,8109.48 15676.56,8109.48 "/>
+  <polyline id="206_223" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15676.56,9749.9 14573.68,9749.9 14474.95,9220.73 15676.56,9220.73 "/>
+  <polyline id="206_222" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="15676.56,10279.06 14645.21,10279.06 14561.02,9749.9 15676.56,9749.9 "/>
+  <polyline id="206_221" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="16031.98,10675.94 16019.67,11353.39 14873.12,11506.87 14647.15,10279.06 15699.84,10279.06 "/>
   <polyline fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="14922.5,7039.9 15676.56,7051.15 15676.56,1971.15 16046.97,1971.15 16046.97,7051.15 16038.98,10675.94 15703.01,10675.94 15676.56,7368.65 13930.31,7358.71 13930.31,7262.81 13933.15,7025.13 14168.43,7028.64 "/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="10226.14,1971.15 10596.56,1971.15 10596.56,3242.86 10570.1,12580.94 10040.93,12580.94 10040.93,10411.35 8982.6,10411.35 8982.6,10067.4 10226.14,10067.4 10226.14,4458.23 8982.6,4458.23 8982.6,3241.15 10226.14,3242.86 "/>
   <polyline fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="14168.43,7028.64 14168.43,6336.77 14922.5,6336.77 14922.5,7039.9 "/>
-  <text x="9320.99" y="2712.12"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">211</text>
-  <text x="9341.02" y="5192.85"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">206</text>
-  <text x="9326.77" y="6606.83"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">205</text>
-  <text x="9328.96" y="8176.39"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">204</text>
-  <text x="9308.71" y="9578.45"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">203</text>
-  <text x="9249.25" y="11590.51"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">201</text>
-  <text x="14651.66" y="5722.6"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">230</text>
-  <text x="14628.42" y="2820.04"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">232		</text>
-  <text x="14639.18" y="4290.86"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">231</text>
-  <text x="15007.66" y="6806.17"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">229</text>
-  <text x="14987.98" y="7864.51"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">225</text>
-  <text x="14285.93" y="7886.14"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">226</text>
-  <text x="14712.74" y="8806.76"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">224</text>
-  <text x="14790.56" y="9605.78"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">223</text>
-  <text x="14861.93" y="10132.98"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">222</text>
-  <text x="15045.27" y="10978.36"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">221</text>
+  <text x="9320.99" y="2712.12"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">211</text>
+  <text x="9341.02" y="5192.85"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">206</text>
+  <text x="9326.77" y="6606.83"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">205</text>
+  <text x="9328.96" y="8176.39"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">204</text>
+  <text x="9308.71" y="9578.45"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">203</text>
+  <text x="9249.25" y="11590.51"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">201</text>
+  <text x="14651.66" y="5722.6"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">230</text>
+  <text x="14628.42" y="2820.04"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">232		</text>
+  <text x="14639.18" y="4290.86"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">231</text>
+  <text x="15007.66" y="6806.17"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">229</text>
+  <text x="14987.98" y="7864.51"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">225</text>
+  <text x="14285.93" y="7886.14"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">226</text>
+  <text x="14712.74" y="8806.76"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">224</text>
+  <text x="14790.56" y="9605.78"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">223</text>
+  <text x="14861.93" y="10132.98"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">222</text>
+  <text x="15045.27" y="10978.36"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">221</text>
  </g>
 </svg>

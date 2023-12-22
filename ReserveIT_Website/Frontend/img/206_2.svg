@@ -29,19 +29,19 @@
  </defs>
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect id="206_116" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="1521.35" width="740.83" height="1322.91"/>
+  <rect id="206_116" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="1521.35" width="740.83" height="1322.91"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10966.97" y="1521.36" width="3704.17" height="2566.45"/>
-  <rect id="206_112" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="4140.72" width="740.83" height="529.17"/>
-  <rect id="206_111" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="4669.89" width="740.83" height="740.83"/>
+  <rect id="206_112" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="4140.72" width="740.83" height="529.17"/>
+  <rect id="206_111" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="4669.89" width="740.83" height="740.83"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13506.97" y="4087.81" width="1164.17" height="793.75"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13506.97" y="4881.56" width="1164.17" height="767.29"/>
-  <rect id="206_110" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="5410.73" width="740.83" height="687.92"/>
-  <rect id="206_109" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="6098.65" width="740.83" height="740.83"/>
-  <rect id="206_108" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="6839.48" width="740.83" height="740.83"/>
-  <rect id="206_107" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="7580.31" width="740.83" height="714.38"/>
-  <rect id="206_106" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="8294.69" width="740.83" height="529.16"/>
-  <rect id="206_105" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="8823.85" width="740.83" height="1031.88"/>
-  <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9644.06" y="10279.06" width="978.95" height="1799.17"/>
+  <rect id="206_110" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="5410.73" width="740.83" height="687.92"/>
+  <rect id="206_109" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="6098.65" width="740.83" height="740.83"/>
+  <rect id="206_108" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="6839.48" width="740.83" height="740.83"/>
+  <rect id="206_107" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="7580.31" width="740.83" height="714.38"/>
+  <rect id="206_106" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="8294.69" width="740.83" height="529.16"/>
+  <rect id="206_105" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9882.17" y="8823.85" width="740.83" height="1031.88"/>
+  <rect id="206_105" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9644.06" y="10279.06" width="978.95" height="1799.17"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10966.97" y="4802.19" width="2196.04" height="4021.66"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10966.97" y="8823.85" width="2196.04" height="1058.34"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13506.96" y="8823.85" width="1164.17" height="1453.93"/>
@@ -53,15 +53,15 @@
   <ellipse fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" cx="12779.37" cy="17118.54" rx="1415.52" ry="1389.06"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="10623.01,10279.06 12058.63,10279.06 13295.31,12051.77 10623.01,12063.11 "/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="11237.78,9883.27 13162.58,9883.27 13163.01,4802.32 10966.97,4802.32 10966.97,4087.81 13506.97,4087.81 13506.97,9883.27 13506.97,10277.18 11237.78,10277.18 "/>
-  <text x="9978.74" y="2285.17"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">116</text>
-  <text x="9973" y="4527.93"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">112</text>
-  <text x="9962.5" y="5162.93"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">111</text>
-  <text x="9959.96" y="5872.89"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">110</text>
-  <text x="9994.42" y="6584.72"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">109</text>
-  <text x="9983.86" y="7351.95"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">108</text>
-  <text x="9973.3" y="8060.72"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">107</text>
-  <text x="9986.56" y="8652.84"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">106</text>
-  <text x="9968.06" y="9453.8"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">105</text>
-  <text x="9850.5" y="11313.59"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">103</text>
+  <text x="9978.74" y="2285.17"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">116</text>
+  <text x="9973" y="4527.93"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">112</text>
+  <text x="9962.5" y="5162.93"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">111</text>
+  <text x="9959.96" y="5872.89"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">110</text>
+  <text x="9994.42" y="6584.72"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">109</text>
+  <text x="9983.86" y="7351.95"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">108</text>
+  <text x="9973.3" y="8060.72"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">107</text>
+  <text x="9986.56" y="8652.84"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">106</text>
+  <text x="9968.06" y="9453.8"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">105</text>
+  <text x="9850.5" y="11313.59"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">103</text>
  </g>
 </svg>

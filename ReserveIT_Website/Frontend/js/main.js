@@ -9,6 +9,7 @@ function runMain(){
   loadLageplan();
 }
 
+
 function loadLageplan(){
   removeChild("grid-unten");
   const gridHolder = document.createElement("div");
@@ -24,7 +25,17 @@ function loadLageplan(){
   document.getElementById("grid-unten").appendChild(gridHolder);
   document.getElementById("grid-unten").appendChild(svgHolder)
   document.getElementById("svgHolder").appendChild(svg);
-  svgHover("lageplan", "gebSVG");
+  svgHover("lageplan", ".gebSVG");
+}
+
+function removeEventlistenerSVG(id, klassenname){
+  let svgObject = document.getElementById(id);
+  let svgDocument = svgObject.contentDocument;
+  let hoverItem = svgDocument.querySelectorAll(klassenname);
+  hoverItem.forEach(function (element){
+    element.removeEventListener("mouseenter", "loadHover");
+    element.removeEventListener("mouseleave", "loadHover");
+  });
 }
 
 function removeChild(parent){
@@ -37,24 +48,23 @@ function removeChild(parent){
 function svgHover(id, klassenname){
   console.log("funktion gestartet")
   let svgObject = document.getElementById(id);
-
-  svgObject.addEventListener("load", function (){
-    console.log("let")
+  svgObject.addEventListener("load", function loadHover(){
+    console.log("let");
     let svgDocument = svgObject.contentDocument;
-    let targetElement = svgDocument.getElementsByClassName(klassenname)
+    let hoverItem = svgDocument.querySelectorAll(klassenname);
 
-    Array.from(targetElement).forEach(function (element){
+    hoverItem.forEach(function (element){
       console.log("funktion addelement")
-      element.addEventListener("mouseover", function (){
-        this.style.opacity = "0.9";
-        this.style.cursor="pointer";
-        this.style.fill="#1E1F22"
+      element.addEventListener("mouseenter", function (){
         console.log("mouseover");
+        element.style.opacity = "0.9";
+        element.style.fill = "#333";
+        element.style.cursor = "pointer"
       });
-      element.addEventListener("mouseout", function (){
-        this.style.opacity = "1";
-        this.style.fill="";
+      element.addEventListener("mouseleave", function(){
         console.log("mouseout");
+        element.style.opacity = "1";
+        element.style.fill="";
       });
     });
   });
@@ -102,4 +112,3 @@ function loadUeberUns(){
 
   ueberUnsHolder.textContent = "hello"
 }
-

@@ -244,7 +244,6 @@ function ladeGrundrisse(arr) {
 }
 
 function zeigeEtage(response) {
-
     $('#grid-unten').empty();
     var tmp = "1";
 
@@ -255,7 +254,6 @@ function zeigeEtage(response) {
 
     tmp += '<div></div>'
     tmp += '<ul class="list-group">';
-
 
     response.forEach(obj => {
         tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
@@ -284,7 +282,7 @@ function zeigeEtage(response) {
         });
 
     }
-    svgHover("etageSVG", "roomSVG")
+    svgHover("etageSVG", ".roomSVG")
 }
 
 function loadButtons() {
@@ -361,7 +359,7 @@ $('.impressumBtn').click(function () {
     event.preventDefault();
 
     var meinString = `
-    
+
     <div>
     <h1 id="textarea-h1">Impressum</h1>
     <p><strong>Border Collie</strong></p>

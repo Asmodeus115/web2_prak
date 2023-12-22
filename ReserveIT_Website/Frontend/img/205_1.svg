@@ -49,11 +49,11 @@
  </defs>
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect id="205_017" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="2659.06" width="3386.66" height="5132.92"/>
-  <polygon id="205_018" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="11892.27,2664.74 16761.35,2659.06 16761.35,9207.65 11896.39,9212.97 11893.01,7791.98 11893.01,7791.98 "/>
+  <rect id="205_017" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="2659.06" width="3386.66" height="5132.92"/>
+  <polygon id="205_018" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="11892.27,2664.74 16761.35,2659.06 16761.35,9207.65 11896.39,9212.97 11893.01,7791.98 11893.01,7791.98 "/>
   <polyline fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="16761.35,7791.98 16761.35,10566.01 16171.41,11573.86 14909.26,11577.19 13057.18,11577.19 13053.39,13295.31 11640.44,13295.31 11654.89,11308.74 8506.35,11308.08 8506.35,7791.98 11893.01,7791.98 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="11308.41" width="3148.54" height="1986.9"/>
-  <polygon id="205_019" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13057.18,11577.19 16152.81,11577.19 15359.06,12910.66 15151.17,13295.31 13057.18,13295.31 "/>
+  <polygon id="205_019" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13057.18,11577.19 16152.81,11577.19 15359.06,12910.66 15151.17,13295.31 13057.18,13295.31 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.34" y="13295.31" width="1640.41" height="2407.71"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10146.75" y="13295.31" width="1508.13" height="2407.71"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11654.89" y="13295.31" width="1931.46" height="740.84"/>
@@ -61,14 +61,14 @@
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="13586.35,14380.1 14509.43,14380.1 14433.01,14533.17 14115.51,15120.94 13781.87,15703.02 13586.35,15703.02 "/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12687.21" y="14036.14" width="899.14" height="1666.87"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11654.89" y="14036.14" width="1032.32" height="1666.87"/>
-  <text x="8969.08" y="5129.13"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">017</text>
-  <text x="8969.08" y="5483.83"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesungsraum</text>
-  <text x="13085.65" y="5078.19"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">018</text>
-  <text x="13085.65" y="5432.89"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesungsraum</text>
+  <text x="8969.08" y="5129.13"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">017</text>
+  <text x="8969.08" y="5483.83"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesungsraum</text>
+  <text x="13085.65" y="5078.19"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">018</text>
+  <text x="13085.65" y="5432.89"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesungsraum</text>
   <text x="9136.03" y="12236.75"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">027</text>
   <text x="9136.03" y="12591.45"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Postzentrale</text>
-  <text x="13180.83" y="12147.2"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">019</text>
-  <text x="13180.83" y="12443.18"  fill="black" font-weight="bold" font-size="252.64px" font-family="Arial">Besprechungsraum</text>
+  <text x="13180.83" y="12147.2"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">019</text>
+  <text x="13180.83" y="12443.18"  fill="white" font-weight="bold" font-size="252.64px" font-family="Arial">Besprechungsraum</text>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10146.76" y="13295.32" width="1508.13" height="1137.03"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10146.75" y="14432.34" width="754.07" height="1270.68"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10900.83" y="14432.34" width="754.06" height="1270.68"/>

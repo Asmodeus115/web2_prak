@@ -65,9 +65,9 @@
 
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-   <rect id="201_007" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11840.09" y="1944.69" width="2619.37" height="3466.04"/>
-   <rect id="201_006" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14459.47" y="1944.69" width="2645.84" height="2883.96"/>
-   <rect id="201_005" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17105.31" y="3645.49" width="1719.79" height="3617.31"/>
+   <rect id="201_007" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11840.09" y="1944.69" width="2619.37" height="3466.04"/>
+   <rect id="201_006" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14459.47" y="1944.69" width="2645.84" height="2883.96"/>
+   <rect id="201_005" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17105.31" y="3645.49" width="1719.79" height="3617.31"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14459.47" y="5386.71" width="396.88" height="897.14"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="14856.34" y="5386.71" width="1349.37" height="897.14"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11840.1" y="5410.73" width="2619.37" height="1852.08"/>
@@ -81,23 +81,23 @@
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12452.49" y="10516.74" width="1152.53" height="555.62"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12452.49" y="11072.8" width="1153.14" height="579.81"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="11840.09" y="10517.18" width="612.39" height="1134.99"/>
-  <rect id="201_022" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="10517.18" width="3333.75" height="1137.71"/>
+  <rect id="201_022" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="8506.35" y="10517.18" width="3333.75" height="1137.71"/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="7633.22,10517.19 8508.59,10517.19 8506.35,11664.24 13609.86,11651.14 13612.81,12289.9 7633.22,12289.9 "/>
-  <rect id="201_021" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6707.18" y="10515.87" width="926.04" height="1774.02"/>
+  <rect id="201_021" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6707.18" y="10515.87" width="926.04" height="1774.02"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="4987.4" y="12289.9" width="1719.79" height="1799.16"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6707.18" y="12289.9" width="3518.96" height="1799.16"/>
-  <rect id="201_018" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10226.14" y="12289.9" width="3386.67" height="1799.16"/>
-  <rect id="201_017" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13612.81" y="12289.9" width="4259.79" height="1799.16"/>
+  <rect id="201_018" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="10226.14" y="12289.9" width="3386.67" height="1799.16"/>
+  <rect id="201_017" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13612.81" y="12289.9" width="4259.79" height="1799.16"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17872.6" y="12289.9" width="952.5" height="1799.16"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="18814.06" y="11443.24" width="751.87" height="847.4"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="18816.08" y="8744.48" width="1728.81" height="3546.15"/>
-  <rect id="201_014" class="roomSVG" fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17025.94" y="8744.48" width="1799.08" height="2698.75"/>
-  <text x="17210.88" y="5357.77"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">005</text>
-  <text x="17210.88" y="5712.47"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
-  <text x="15028.07" y="3290.28"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">006</text>
-  <text x="15028.07" y="3644.98"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
-  <text x="12395.47" y="3581.32"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">007</text>
-  <text x="12395.47" y="3936.02"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
+  <rect id="201_014" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17025.94" y="8744.48" width="1799.08" height="2698.75"/>
+  <text x="17210.88" y="5357.77"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">005</text>
+  <text x="17210.88" y="5712.47"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
+  <text x="15028.07" y="3290.28"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">006</text>
+  <text x="15028.07" y="3644.98"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
+  <text x="12395.47" y="3581.32"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">007</text>
+  <text x="12395.47" y="3936.02"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
   <text x="12395.47" y="6240.38"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">008</text>
   <text x="12395.47" y="6595.08"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Sekretariat</text>
   <text x="15223.4" y="5971.62"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">WC</text>
@@ -107,28 +107,28 @@
   <text x="15616.12" y="9465.25"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">001</text>
   <text x="14516.71" y="10389.39"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">004</text>
   <text x="14516.71" y="10712.15"  fill="black" font-weight="bold" font-size="282.22px" font-family="Arial">Kopierraum</text>
-  <text x="17115.23" y="9900.49"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">014</text>
-  <text x="17115.23" y="10191.31"  fill="black" font-weight="bold" font-size="246.94px" font-family="Arial">Studentische</text>
-  <text x="17115.23" y="10467.18"  fill="black" font-weight="bold" font-size="246.94px" font-family="Arial">Arbeitsplätze</text>
+  <text x="17115.23" y="9900.49"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">014</text>
+  <text x="17115.23" y="10191.31"  fill="white" font-weight="bold" font-size="246.94px" font-family="Arial">Studentische</text>
+  <text x="17115.23" y="10467.18"  fill="white" font-weight="bold" font-size="246.94px" font-family="Arial">Arbeitsplätze</text>
   <text x="18860.19" y="10112.66"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">015</text>
   <text x="18860.19" y="10467.36"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Büro </text>
   <text x="18860.19" y="10822.06"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Mitarbeiter</text>
   <text x="18860.19" y="11176.76"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">IAF</text>
   <text x="17920.29" y="13172.96"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">016</text>
   <text x="17920.29" y="13431.85"  fill="black" font-weight="bold" font-size="211.67px" font-family="Arial">Sommer</text>
-  <text x="14988.38" y="13093.09"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">017</text>
-  <text x="14988.38" y="13447.79"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
-  <text x="11165.16" y="13093.09"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">018</text>
-  <text x="11165.16" y="13447.79"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
+  <text x="14988.38" y="13093.09"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">017</text>
+  <text x="14988.38" y="13447.79"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
+  <text x="11165.16" y="13093.09"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">018</text>
+  <text x="11165.16" y="13447.79"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Vorlesung</text>
   <text x="7712.34" y="13093.09"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">019</text>
   <text x="7712.34" y="13447.79"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Projekte</text>
   <text x="5220.2" y="13093.09"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">020</text>
   <text x="5220.2" y="13447.79"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Projekte</text>
-  <text x="6769.62" y="11275.23"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">021</text>
-  <text x="6769.62" y="11502.18"  fill="black" font-weight="bold" font-size="176.39px" font-family="Arial">Std.</text>
-  <text x="6769.62" y="11699.24"  fill="black" font-weight="bold" font-size="176.39px" font-family="Arial">Arbeitspl.</text>
-  <text x="8741.89" y="10991.72"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">022</text>
-  <text x="8741.89" y="11346.42"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Stud. Arbeitsplätze</text>
+  <text x="6769.62" y="11275.23"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">021</text>
+  <text x="6769.62" y="11502.18"  fill="white" font-weight="bold" font-size="176.39px" font-family="Arial">Std.</text>
+  <text x="6769.62" y="11699.24"  fill="white" font-weight="bold" font-size="176.39px" font-family="Arial">Arbeitspl.</text>
+  <text x="8741.89" y="10991.72"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">022</text>
+  <text x="8741.89" y="11346.42"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Stud. Arbeitsplätze</text>
   <text x="12764.07" y="10906.79"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">024</text>
   <text x="12761.19" y="11474.95"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">025</text>
   <text x="11878.43" y="11196.92"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">023</text>
