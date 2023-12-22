@@ -9,6 +9,21 @@ function runMain(){
   loadLageplan();
 }
 
+function clickHouse(id, test){
+  let svgObject = document.getElementById(id);
+  svgObject.addEventListener("load", function loadHover(){
+    let svgDocument = svgObject.contentDocument;
+    let clickable = svgDocument.querySelectorAll(".gebSVG");
+
+    clickable.forEach(function (element){
+      element.addEventListener("click", function(){
+        console.log("click");
+        console.log(element.id);
+        return element.id;
+      });
+    });
+  });
+}
 
 function loadLageplan(){
   removeChild("grid-unten");
@@ -26,16 +41,7 @@ function loadLageplan(){
   document.getElementById("grid-unten").appendChild(svgHolder)
   document.getElementById("svgHolder").appendChild(svg);
   svgHover("lageplan", ".gebSVG");
-}
-
-function removeEventlistenerSVG(id, klassenname){
-  let svgObject = document.getElementById(id);
-  let svgDocument = svgObject.contentDocument;
-  let hoverItem = svgDocument.querySelectorAll(klassenname);
-  hoverItem.forEach(function (element){
-    element.removeEventListener("mouseenter", "loadHover");
-    element.removeEventListener("mouseleave", "loadHover");
-  });
+  clickHouse("lageplan", "test");
 }
 
 function removeChild(parent){
