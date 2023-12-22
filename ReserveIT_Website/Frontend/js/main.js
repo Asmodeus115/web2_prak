@@ -84,31 +84,3 @@ function loadCalendar(){
 
   const myCalendar = new WeeklyCalendar();
 }
-
-/*
-function loadImpressum(){
-  removeChild("grid-unten");
-  const gridHolder = document.createElement("div");
-  const impressumHolder = document.createElement("div");
-
-  impressumHolder.id = "impressumHolder";
-
-  document.getElementById("grid-unten").appendChild(gridHolder);
-  document.getElementById("grid-unten").appendChild(impressumHolder);
-
-  impressumHolder.textContent = "hello1"
-}
-*/
-function loadUeberUns(){
-  removeChild("grid-unten");
-  const gridHolder = document.createElement("div");
-  const ueberUnsHolder = document.createElement("div");
-
-  ueberUnsHolder.id = "ueberUnsHolder";
-  ueberUnsHolder.textContent = "hello"
-
-  document.getElementById("grid-unten").appendChild(gridHolder);
-  document.getElementById("grid-unten").appendChild(ueberUnsHolder);
-
-  ueberUnsHolder.textContent = "hello"
-}
