@@ -1,19 +1,25 @@
-
+//const { response } = require("express");
 function calenderStart(){
   $(document).ready(function () {
     console.log("form submit called");
 
     ladeAlleBuchugenByTime();
 
-    $('#submitButton').click(function (event) {
+    $('#submitButton').click(function () {
       ceateBooking();
 
     });
 
-    $('#prevWeekBtn, #nextWeekBtn').click(function (event) {
+    $('#prevWeekBtn, #nextWeekBtn').click(function () {
       entferneFarben();
       ladeAlleBuchugenByTime();
     });
+
+    $('.day-cell').click(function() {
+        //zeigeRaumNummer();
+        console.log("")
+    });
+
   });
 }
 
@@ -30,6 +36,7 @@ function ladeAlleBuchugenByTime() {
         console.log(response);
         zeigeFarben(response);
         checkBackgroundColor();
+        zeigeRaumNummer(response);
 
     }).fail(function (xhr) {
         console.log('Es ist ein Fehler beim Holen aufgetreten\n' + xhr);
@@ -210,7 +217,7 @@ function entferneFarben() {
 
 function checkBackgroundColor() {
     var tabelle = document.getElementById('calendar');
-    var buchungsfesnter = document.getElementById('buchungsfenster');
+    var buchungsfenster = document.getElementById('buchungsfenster');
 
     // Überprüfe, ob die Tabelle existiert
     if (tabelle) {
@@ -223,18 +230,26 @@ function checkBackgroundColor() {
             // Iteriere durch jede Zelle in der aktuellen Zeile
             for (var j = 0; j < zellen.length; j++) {
                 var zelle = zellen[j];
-
                 // Überprüfe die Hintergrundfarbe der Zelle
                 if (zelle.style.backgroundColor === 'red') {
                     zelle.addEventListener('click', function() {
-                        buchungsfesnter.style.display = 'none';
+                        buchungsfenster.style.display = 'none';
                     });
                 }
+                
             }
         }
     } else {
         console.error('Tabelle existiert nicht');
     }
+}
+
+
+function zeigeRaumNummer(arr) {
+    arr.forEach(function (booking) {
+        document.getElementById('roomNumber').innerHTML = booking.RaumID;
+    });
+    
 }
 
 
