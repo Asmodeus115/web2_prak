@@ -232,9 +232,9 @@ class WeeklyCalendar {
       const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
       document.getElementById('bookEnd').value = this.formatTime(endTime);
 
-    const gecklicktesDatum = `${this.formatDate(this.cellDate)}` + " " + time;
-    const datumHeute = `${this.formatDate(new Date())}` + " " + new Date().getHours() + ":" + new Date().getMinutes();
-      
+      const gecklicktesDatum = new Date(`${this.formatBookDate(this.cellDate)} ${time}`);
+      const datumHeute = new Date(`${this.formatBookDate(new Date)} ${new Date().getHours()}:${new Date().getMinutes()}`);
+     
       if (gecklicktesDatum < datumHeute) {
         alert('Das ausgewählte Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
         return; // Verlasse die Methode, wenn das Datum ungültig ist
@@ -316,13 +316,16 @@ class WeeklyCalendar {
 
   validateDate() {
     const eingabeDatum = new Date(document.getElementById('bookDate').value);
-    const heute = new Date();
+    eingabeDatum.setHours(0, 0, 0, 0);
 
+    const heute = new Date();
+    heute.setHours(0, 0, 0, 0);
+    
     const eingabeStartzeit = document.getElementById('bookStart').value;
     const eingabeEndzeit = document.getElementById('bookEnd').value;
 
     // Überprüfe, ob das eingegebene Datum in der Vergangenheit liegt oder ein Sonntag ist
-    if (this.formatDate(eingabeDatum) < this.formatDate(heute) || eingabeDatum.getDay() === 0) {
+    if (eingabeDatum < heute || eingabeDatum.getDay() === 0) {
       document.getElementById('bookDate').style.borderBottomColor = 'red';
       document.getElementById('submitButton').disabled = true; // Deaktiviere den Submit-Button
       document.getElementById('submitButton').style.backgroundColor = 'grey';
