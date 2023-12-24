@@ -19,10 +19,12 @@ class WeeklyCalendar {
     this.eventDate = null;
     this.eventStartTime = null;
     this.eventEndTime = null;
+    this.bookingWindowIsOpen = false; 
     window.cellPos = null;
     window.time = null;
     window.startDatum = null;
     window.endeDatum = null;
+    
 
     this.createCalendar();
     this.updateCurrentDate();
@@ -217,47 +219,55 @@ class WeeklyCalendar {
 
 
   cellClick(cellPos, time) {
-    if (time == '19:00') {
-      alert("Nach 18:00 uhr können keine Buchungen mehr vorgenommen werden!");
-      return;
+    if (this.bookingWindowIsOpen == false) {
+      if (time == '19:00') {
+        alert("Nach 18:00 uhr können keine Buchungen mehr vorgenommen werden!");
+        return;
+      }
+      this.cellDate = new Date(this.startOfWeek);
+      this.cellDate.setDate(this.cellDate.getDate() + cellPos);
+      document.getElementById('bookDate').value = this.formatBookDate(this.cellDate);
+      document.getElementById('bookStart').value = time;
+      const startTime = new Date(`2000-01-01 ${time}`);
+      const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
+      document.getElementById('bookEnd').value = this.formatTime(endTime);
+
+    const gecklicktesDatum = `${this.formatDate(this.cellDate)}` + " " + time;
+    const datumHeute = `${this.formatDate(new Date())}` + " " + new Date().getHours() + ":" + new Date().getMinutes();
+      
+      if (gecklicktesDatum < datumHeute) {
+        alert('Das ausgewählte Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
+        return; // Verlasse die Methode, wenn das Datum ungültig ist
+      }
+
+      // für die Datenbank:
+      window.cellPos = parseInt(cellPos, 10) + 1;
+      var timeArray = time.split(":");
+      var hours = parseInt(timeArray[0], 10);
+      window.time = hours - 6;
+      this.eventDate = this.formatDate(this.cellDate);
+      this.eventStartTime = time;
+      this.eventEndTime = this.formatTime(endTime);
+
+
+      this.openBookingWindow();
     }
-    this.cellDate = new Date(this.startOfWeek);
-    this.cellDate.setDate(this.cellDate.getDate() + cellPos);
-    document.getElementById('bookDate').value = this.formatBookDate(this.cellDate);
-    document.getElementById('bookStart').value = time;
-    const startTime = new Date(`2000-01-01 ${time}`);
-    const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
-    document.getElementById('bookEnd').value = this.formatTime(endTime);
-
-   const gecklicktesDatum = `${this.formatDate(this.cellDate)}` + " " + time;
-   const datumHeute = `${this.formatDate(new Date())}` + " " + new Date().getHours() + ":" + new Date().getMinutes();
-    
-    if (gecklicktesDatum < datumHeute) {
-      alert('Das ausgewählte Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
-      return; // Verlasse die Methode, wenn das Datum ungültig ist
-    }
-
-    // für die Datenbank:
-    window.cellPos = parseInt(cellPos, 10) + 1;
-    var timeArray = time.split(":");
-    var hours = parseInt(timeArray[0], 10);
-    window.time = hours - 6;
-    this.eventDate = this.formatDate(this.cellDate);
-    this.eventStartTime = time;
-    this.eventEndTime = this.formatTime(endTime);
-
-
-    this.openBookingWindow();
   }
 
   openBookingWindow() {
-    this.buchungsfenster.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    if (this.bookingWindowIsOpen == false) {
+      this.buchungsfenster.style.display = 'block';
+      //document.body.style.overflow = 'hidden';
+      this.bookingWindowIsOpen = true;
+    }
   }
 
   closeBookingWindow() {
-    this.buchungsfenster.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    if (this.bookingWindowIsOpen == true) {
+      this.buchungsfenster.style.display = 'none';
+      //document.body.style.overflow = 'auto';
+      this.bookingWindowIsOpen = false;
+    }
   }
 
 
@@ -298,8 +308,10 @@ class WeeklyCalendar {
   }
 
   navigateWeek(offset) {
+    if (this.bookingWindowIsOpen == false) {
     this.currentDate.setDate(this.currentDate.getDate() + (offset * 7));
     this.updateCurrentDate();
+    }
   }
 
   validateDate() {
