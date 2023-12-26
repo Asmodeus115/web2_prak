@@ -19,6 +19,9 @@ function clickHouse(id, klassenname, test){
       element.addEventListener("click", function(){
         console.log("click");
         console.log(element.id);
+        if (element.id.length > 3) {
+          loadCalendar();
+        }
         return element.id;
       });
     });
