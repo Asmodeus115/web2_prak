@@ -31,8 +31,6 @@ function ladeAlleBuchugenByTime() {
         console.log(response);
         zeigeFarben(response);
         checkBackgroundColor();
-        // zeigeRaumNummer(response);
-        //buchungPruefen(response);
 
         $('.day-cell').click(function() {
             buchungPruefen(response);
@@ -254,14 +252,6 @@ function checkBackgroundColor() {
     }
 }
 
-
-// function zeigeRaumNummer(arr) {
-//     arr.forEach(function (booking) {
-//         document.getElementById('roomNumber').innerHTML = booking.RaumID;
-//     });
-    
-// }
-
 function buchungPruefen(arr) {
     const datumBuchungsfenster = document.getElementById('bookDate').value;
     const startzeitBuchungsfenster = parseInt(document.getElementById('bookStart').value, 10);
@@ -281,12 +271,6 @@ function buchungPruefen(arr) {
                 document.getElementById('submitButton').disabled = true;
                 document.getElementById('submitButton').style.backgroundColor = 'grey';
             }
-
-            // else if (endzeitBuchungsfenster > gebuchteStartzeit && startzeitBuchungsfenster < gebuchteEndzeit) {
-            //     alert("Der Raum ist zu dieser Zeit bereits reserviert.")
-            //     document.getElementById('submitButton').disabled = true;
-            //     document.getElementById('submitButton').style.backgroundColor = 'grey';
-            // }
 
             else if (startzeitBuchungsfenster < gebuchteStartzeit && endzeitBuchungsfenster >= gebuchteEndzeit ) {
                 alert("Dieser Termin überschneidet sich mit einem bereits gebuchten Termin.")
