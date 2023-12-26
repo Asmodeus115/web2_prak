@@ -181,7 +181,7 @@ class WeeklyCalendar {
 
     // Ueberpruefung des Datums und der Uhrzeiten:
     const dateInput = document.getElementById('bookDate');
-    dateInput.addEventListener('change', () => this.validateDate());
+    dateInput.addEventListener('blur', () => this.validateDate());
 
     // Ueberpruefung der Startzeit nach dem Verlassen des Eingabefelds
     const startTimeInput = document.getElementById('bookStart');

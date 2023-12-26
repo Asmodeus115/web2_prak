@@ -15,11 +15,6 @@ function calenderStart(){
       ladeAlleBuchugenByTime();
     });
 
-    $('.day-cell').click(function() {
-        //zeigeRaumNummer();
-        console.log("")
-    });
-
   });
 }
 
@@ -37,6 +32,22 @@ function ladeAlleBuchugenByTime() {
         zeigeFarben(response);
         checkBackgroundColor();
         zeigeRaumNummer(response);
+        //buchungPruefen(response);
+
+        $('.day-cell').click(function() {
+            buchungPruefen(response);
+        });
+        $('#bookDate').blur(function() {
+            buchungPruefen(response);
+        });
+
+        $('#bookStart').blur(function() {
+            buchungPruefen(response);
+        });
+
+        $('#bookEnd').blur(function() {
+            buchungPruefen(response);
+        });
 
     }).fail(function (xhr) {
         console.log('Es ist ein Fehler beim Holen aufgetreten\n' + xhr);
@@ -200,7 +211,6 @@ function timeStringToInt(timeInString) {
     return timeInt;
 }
 
-
 function entferneFarben() {
     // Iteriere über alle Zellen und entferne die Hintergrundfarbe
     var tabelle = document.getElementById('calendar');
@@ -248,6 +258,52 @@ function checkBackgroundColor() {
 function zeigeRaumNummer(arr) {
     arr.forEach(function (booking) {
         document.getElementById('roomNumber').innerHTML = booking.RaumID;
+    });
+    
+}
+
+function buchungPruefen(arr) {
+    const datumBuchungsfenster = document.getElementById('bookDate').value;
+    const startzeitBuchungsfenster = parseInt(document.getElementById('bookStart').value, 10);
+    const endzeitBuchungsfenster = parseInt(document.getElementById('bookEnd').value, 10);
+    
+
+    arr.forEach(function (booking) {
+        // Startzeit und Endzeit von YYYY.MM.DD HH:mm auf YYYY-MM-DD HH:mm bringen
+        const gebuchtesDatum = `${createDateFromDateString(booking.Startzeit).getFullYear()}-${createDateFromDateString(booking.Startzeit).getMonth() + 1}-${createDateFromDateString(booking.Startzeit).getDate()}`;
+        const gebuchteStartzeit = timeStringToInt(booking.Startzeit);
+        const gebuchteEndzeit = timeStringToInt(booking.Endzeit);
+        
+        
+        if (datumBuchungsfenster == gebuchtesDatum) {
+            if (startzeitBuchungsfenster == gebuchteStartzeit || startzeitBuchungsfenster >= gebuchteStartzeit && startzeitBuchungsfenster < gebuchteEndzeit) {
+                alert("Der Raum ist zu dieser Zeit bereits reserviert.")
+                document.getElementById('submitButton').disabled = true;
+                document.getElementById('submitButton').style.backgroundColor = 'grey';
+            }
+
+            // else if (endzeitBuchungsfenster > gebuchteStartzeit && startzeitBuchungsfenster < gebuchteEndzeit) {
+            //     alert("Der Raum ist zu dieser Zeit bereits reserviert.")
+            //     document.getElementById('submitButton').disabled = true;
+            //     document.getElementById('submitButton').style.backgroundColor = 'grey';
+            // }
+
+            else if (startzeitBuchungsfenster < gebuchteStartzeit && endzeitBuchungsfenster >= gebuchteEndzeit ) {
+                alert("Dieser Termin überschneidet sich mit einem bereits gebuchten Termin.")
+                document.getElementById('submitButton').disabled = true;
+                document.getElementById('submitButton').style.backgroundColor = 'grey';
+            }
+
+            else {
+                document.getElementById('submitButton').disabled = false; // Aktiviere den Submit-Button
+                document.getElementById('submitButton').style.backgroundColor = 'var(--font-color)';
+            }
+        }
+
+        else {
+            document.getElementById('submitButton').disabled = false; // Aktiviere den Submit-Button
+            document.getElementById('submitButton').style.backgroundColor = 'var(--font-color)';
+        }
     });
     
 }
