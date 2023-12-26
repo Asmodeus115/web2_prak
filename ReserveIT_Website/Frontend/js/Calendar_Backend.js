@@ -31,7 +31,7 @@ function ladeAlleBuchugenByTime() {
         console.log(response);
         zeigeFarben(response);
         checkBackgroundColor();
-        zeigeRaumNummer(response);
+        // zeigeRaumNummer(response);
         //buchungPruefen(response);
 
         $('.day-cell').click(function() {
@@ -255,12 +255,12 @@ function checkBackgroundColor() {
 }
 
 
-function zeigeRaumNummer(arr) {
-    arr.forEach(function (booking) {
-        document.getElementById('roomNumber').innerHTML = booking.RaumID;
-    });
+// function zeigeRaumNummer(arr) {
+//     arr.forEach(function (booking) {
+//         document.getElementById('roomNumber').innerHTML = booking.RaumID;
+//     });
     
-}
+// }
 
 function buchungPruefen(arr) {
     const datumBuchungsfenster = document.getElementById('bookDate').value;
