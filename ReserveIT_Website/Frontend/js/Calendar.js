@@ -2,7 +2,7 @@
 
 class WeeklyCalendar {
   constructor() {
-    this.main = document.getElementById('mainCalendar');
+    this.main = document.getElementById('grid-unten');
     this.calendarArea = null;
     this.navigation = null;
     this.buchungsfenster = null;
