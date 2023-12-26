@@ -40,13 +40,26 @@ input{
 
 /* Datum Navigation*/
 #navigation{
-    font-size: clamp(15px, 2.5vw, 30px);
     text-align: center;
+    align-items: center;
+}
+
+#currentDate {
+    margin: 0 2% 0 2%;
+    font-size: clamp(15px, 2.5vw, 40px); /* clamp(minimum, preferred, maximum); */
 }
 
 #prevWeekBtn:hover, #nextWeekBtn:hover{
     cursor: pointer;
+    opacity: 0.5;
+}
+
+#prevWeekBtn, #nextWeekBtn{
+    transition: opacity 0.3s;
+    cursor: pointer;
     opacity: 0.9;
+    user-select: none;
+    font-size: clamp(15px, 10.0vw, 50px);
 }
 
 /* Nur Tabellenkoerper */

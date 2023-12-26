@@ -44,7 +44,7 @@ class WeeklyCalendar {
 
     this.prevWeekBtn = document.createElement('i');
     this.prevWeekBtn.id = 'prevWeekBtn';
-    this.prevWeekBtn.classList.add('fas', 'fa-angle-double-left');
+    this.prevWeekBtn.innerHTML = '&#8592';
     this.navigation.appendChild(this.prevWeekBtn);
 
     this.currentDateElement = document.createElement('span');
@@ -54,7 +54,7 @@ class WeeklyCalendar {
 
     this.nextWeekBtn = document.createElement('i');
     this.nextWeekBtn.id = 'nextWeekBtn';
-    this.nextWeekBtn.classList.add('fas', 'fa-angle-double-right');
+    this.nextWeekBtn.innerHTML = '&#8594';
     this.navigation.appendChild(this.nextWeekBtn);
 
     this.calendarArea.appendChild(this.navigation);
@@ -100,7 +100,7 @@ class WeeklyCalendar {
 
     const roomNumber = document.createElement('h4');
     roomNumber.id = "roomNumber"
-    roomNumber.textContent = '201-015';
+    roomNumber.textContent = '';
     this.bookingForm.appendChild(roomNumber);
 
     const dateLabel = document.createElement('label');
