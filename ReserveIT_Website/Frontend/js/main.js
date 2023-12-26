@@ -20,8 +20,7 @@ function clickHouse(id, klassenname, test){
         console.log("click");
         console.log(element.id);
         if (element.id.length > 3) {
-          loadCalendar();
-          calenderStart();
+          calendar();
           document.getElementById('roomNumber').innerHTML = element.id;
         }
         return element.id;
