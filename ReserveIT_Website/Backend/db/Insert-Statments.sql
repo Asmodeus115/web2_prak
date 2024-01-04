@@ -39,7 +39,9 @@ INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210102, '210-102', 2102);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210112, '210-112', 2102);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210202, '210-202', 2103);
 
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (210002, '205-002', 2051);
+
+
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (205002, '205-002', 2051);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (205102, '205-017', 2051);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (205112, '205-112', 2052);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES (205135, '205-135', 2052);
