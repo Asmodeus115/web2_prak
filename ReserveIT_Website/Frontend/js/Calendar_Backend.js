@@ -1,4 +1,4 @@
-//const { response } = require("express");
+
 function calenderStart(){
   $(document).ready(function () {
     console.log("form submit called");
@@ -7,14 +7,12 @@ function calenderStart(){
 
     $('#submitButton').click(function () {
       ceateBooking();
-
     });
 
     $('#prevWeekBtn, #nextWeekBtn').click(function () {
       entferneFarben();
       ladeAlleBuchugenByTime();
     });
-
   });
 }
 
@@ -149,7 +147,7 @@ function ceateBooking() {
     var start = $('#bookStart').val();
     var end = $('#bookEnd').val();
     //var matNr = $('#bookDate').val();
-    var matNr = 12345;
+    var raumID = $('#roomNumber').html().replace(/_/g, '');
     var buchungCode = generateRandomString();
 
     var startDate = datum + " " + start + ":00";
@@ -159,8 +157,8 @@ function ceateBooking() {
 
     // convert data of form to object
     var meinObjekt = {
-        RaumID: 210112,
-        BenutzerID: matNr,
+        RaumID: raumID,
+        BenutzerID: 12345,
         Startzeit: startDate,
         Endzeit: endDate,
         BuchungCode: buchungCode,
@@ -176,6 +174,7 @@ function ceateBooking() {
     for (var schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
+
 
     // send form with ajax
     $.ajax({
@@ -251,6 +250,7 @@ function checkBackgroundColor() {
         console.error('Tabelle existiert nicht');
     }
 }
+
 
 function buchungPruefen(arr) {
     const datumBuchungsfenster = document.getElementById('bookDate').value;
