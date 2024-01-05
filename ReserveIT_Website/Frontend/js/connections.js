@@ -168,9 +168,9 @@ $('#meineBuchungenBtn').click(function (event) {
 
         $('#conformStorno').click(function () {
             if (SlotsToCancle.length > 0) {
-                storniereBuchung(SlotsToCancle[0]);
+                storniereBuchung(SlotsToCancle);
             } else {
-
+                console.log("Es wurden keine Buchungen ausgewählt, die storniert werden sollen!");
             }
         });
     }).fail(function (xhr) {
@@ -283,7 +283,7 @@ function zeigeEtage(response) {
 
     }
     svgHover("etageSVG", ".roomSVG")
-    clickHouse("etageSVG", ".roomSVG","test")
+    clickHouse("etageSVG", ".roomSVG", "test")
 }
 
 function loadButtons() {
@@ -291,7 +291,6 @@ function loadButtons() {
     $('#grid-unten').empty();
     console.log("test");
 
-    // disable default event
 
     // send form with ajax
     $.ajax({
@@ -305,7 +304,6 @@ function loadButtons() {
         console.log('response received');
         console.log(response);
         zeigeGebaeude(response);
-
         ladeGrundrisse(response);
 
     }).fail(function (xhr) {
@@ -314,41 +312,29 @@ function loadButtons() {
 }
 
 
-function storniereBuchung(id) {
+function storniereBuchung(ids) {
 
-    console.log("ID: ", id);
+    console.log("Die BuchungsIDs zum Stornieren: ", ids);
+    ids.forEach(id => {
 
-    // convert data of form to object
-    const meinObjekt = {
-        id: id
-    };
+        // send form with ajax
+        $.ajax({
+            url: 'http://localhost:8000/api/buchung/' + id,
+            type: 'delete',
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: 'json'
+        }).done(function (response) {
+            console.log('Stornierung = ' + response);
 
-    // Erstellen Sie ein neues FormData-Objekt
-    const formData = new FormData();
+        }).fail(function (xhr) {
+            console.log('error received');
 
-    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
-    for (const schluessel in meinObjekt) {
-        formData.append(schluessel, meinObjekt[schluessel]);
-    }
-
-    console.log(formData);
-
-    // send form with ajax
-    $.ajax({
-        url: 'http://localhost:8000/api/buchung/' + id,
-        type: 'delete',
-        data: formData,
-        contentType: false,
-        cache: false,
-        processData: false,
-        dataType: 'json'
-    }).done(function (response) {
-        console.log('Stornierung = ' + response);
-
-    }).fail(function (xhr) {
-        console.log('error received');
+        });
 
     });
+
 
 }
 

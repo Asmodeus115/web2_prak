@@ -117,8 +117,8 @@ INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206306 , '206-306' , 2064);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206311 , '206-311' , 2064);
 --------------------------------------------------------------------------------
 -- 210 - EG
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210002 , '210-002' , 2101);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210003 , '210-003' , 2101);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210004 , '210-004' , 2101);
 -- 210 - 1.OG
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210101 , '210-101' , 2102);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210102 , '210-102' , 2102);

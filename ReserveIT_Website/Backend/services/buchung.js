@@ -54,6 +54,21 @@ serviceRouter.get('/buchung/alleladen', function(request, response) {
     }
 });
 
+// Service Klasse für das farbige Zeigen das Termine im Kalender
+serviceRouter.post('/buchung/ladeBuchugenByRaumID', function(request, response) {
+    console.log('Service Buchung: Client requested all records of a room');
+
+    const buchungDao = new BuchungDao(request.app.locals.dbConnection);
+    try {
+        var arr = buchungDao.ladeBuchugenByRaumID(request.body.RaumID);
+        console.log('Service Buchung: Records loaded, count=' + arr.length);
+        response.status(200).json(arr);
+    } catch (ex) {
+        console.error('Service Buchung: Error loading all records. Exception occured: ' + ex.message);
+        response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
+    }
+});
+
 
 
 

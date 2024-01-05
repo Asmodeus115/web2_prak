@@ -11,7 +11,6 @@ class BuchungDao {
     }
 
     loadById(id) {
-
         var sql = 'SELECT * FROM Buchung WHERE BenutzerID=? AND Startzeit >= date(\'now\')';
         var statement = this._conn.prepare(sql);
         var result = statement.all(id);
@@ -20,6 +19,23 @@ class BuchungDao {
 
         if (helper.isUndefined(result))
             throw new Error('No Record found by id=' + id);
+
+        for (var i = 0; i < result.length; i++) {
+            var startzeit = helper.parseSQLDateTimeString(result[i].Startzeit);
+            result[i].Startzeit = helper.formatToGermanDateTime(startzeit);
+            console.log(result[i].Startzeit);
+
+            var endzeit = helper.parseSQLDateTimeString(result[i].Endzeit);
+            result[i].Endzeit = helper.formatToGermanDateTime(endzeit);
+            console.log(result[i].Endzeit);
+
+            var raumID = result[i].RaumID;
+            result[i].RaumID = `${String(raumID).slice(0, 3)}-${String(raumID).slice(3)}`;
+            console.log(result[i].RaumID);
+
+        }
+
+
         return result;
     }
 
@@ -44,6 +60,29 @@ class BuchungDao {
         return result;
     }
 
+    
+    ladeBuchugenByRaumID(RaumID) {
+        var sql = 'SELECT * FROM Buchung WHERE RaumID=? AND Startzeit >= date(\'now\')';
+        var statement = this._conn.prepare(sql);
+        var result = statement.all(RaumID);
+        
+        if (helper.isArrayEmpty(result))
+            return [];
+
+        for (var i = 0; i < result.length; i++) {
+            var startzeit = helper.parseSQLDateTimeString(result[i].Startzeit);
+            result[i].Startzeit = helper.formatToGermanDateTime(startzeit);
+            console.log(result[i].Startzeit);
+
+            var endzeit = helper.parseSQLDateTimeString(result[i].Endzeit);
+            result[i].Endzeit = helper.formatToGermanDateTime(endzeit);
+            console.log(result[i].Endzeit);
+        }
+        return result;
+    }
+
+
+    
 
     loadAll() {
         var sql = 'SELECT * FROM Buchung WHERE Startzeit >= date(\'now\')';
@@ -65,7 +104,7 @@ class BuchungDao {
         }
         return result;
     }
-    
+
 
     exists(id) {
         var sql = 'SELECT COUNT(id) AS cnt FROM Buchung WHERE id=?';

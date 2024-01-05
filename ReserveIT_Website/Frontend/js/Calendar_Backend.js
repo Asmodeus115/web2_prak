@@ -1,20 +1,86 @@
 
-function calenderStart(){
-  $(document).ready(function () {
-    console.log("form submit called");
+function calenderStart() {
+    $(document).ready(function () {
+        console.log("form submit called");
 
-    ladeAlleBuchugenByTime();
 
-    $('#submitButton').click(function () {
-      ceateBooking();
+        ladeAlleBuchugenByRaumID();
+
+        $('#submitButton').click(function () {
+            ceateBooking();
+        });
+
+        $('#prevWeekBtn, #nextWeekBtn').click(function () {
+            entferneFarben();
+            ladeAlleBuchugenByRaumID();
+        });
+
+        // Wenn auf btn aktuell Kalender geklickt wird, werden alle Buchungen
+        // des Users angezeigt.
+        $('#sexyAnton').click(function () {   
+            ladeAlleBuchugenByTime();
+            $('#prevWeekBtn, #nextWeekBtn').click(function () {
+                entferneFarben();
+                ladeAlleBuchugenByTime();
+            });
+        });
+
     });
-
-    $('#prevWeekBtn, #nextWeekBtn').click(function () {
-      entferneFarben();
-      ladeAlleBuchugenByTime();
-    });
-  });
 }
+
+function ladeAlleBuchugenByRaumID() {
+
+    var raumID = $('#roomNumber').html().replace(/_/g, '');
+
+    console.log("RaumID: ", raumID);
+    const meinObjekt = {
+        RaumID: raumID
+    };
+
+    // Erstellen ein neues FormData-Objekt
+    const formData = new FormData();
+
+    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+    for (const schluessel in meinObjekt) {
+        formData.append(schluessel, meinObjekt[schluessel]);
+    }
+
+    // send form with ajax
+    $.ajax({
+        url: 'http://localhost:8000/api/buchung/ladeBuchugenByRaumID',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType: 'json'
+    }).done(function (response) {
+        console.log('Alle Buchung erfolgreich aus der DB geholt!');
+        console.log(response);
+        zeigeFarben(response);
+        checkBackgroundColor();
+
+        $('.day-cell').click(function () {
+            buchungPruefen(response);
+        });
+        $('#bookDate').blur(function () {
+            buchungPruefen(response);
+        });
+
+        $('#bookStart').blur(function () {
+            buchungPruefen(response);
+        });
+
+        $('#bookEnd').blur(function () {
+            buchungPruefen(response);
+        });
+
+    }).fail(function (xhr) {
+        console.log('Es ist ein Fehler beim Holen aufgetreten\n' + xhr);
+
+    });
+}
+
 
 function ladeAlleBuchugenByTime() {
     // send form with ajax
@@ -30,18 +96,18 @@ function ladeAlleBuchugenByTime() {
         zeigeFarben(response);
         checkBackgroundColor();
 
-        $('.day-cell').click(function() {
+        $('.day-cell').click(function () {
             buchungPruefen(response);
         });
-        $('#bookDate').blur(function() {
-            buchungPruefen(response);
-        });
-
-        $('#bookStart').blur(function() {
+        $('#bookDate').blur(function () {
             buchungPruefen(response);
         });
 
-        $('#bookEnd').blur(function() {
+        $('#bookStart').blur(function () {
+            buchungPruefen(response);
+        });
+
+        $('#bookEnd').blur(function () {
             buchungPruefen(response);
         });
 
@@ -70,18 +136,18 @@ function zeigeFarben(arr) {
 
 
 
-        if (startOfWeek <= bookDate && endOfWeek >= bookDate ) {
+        if (startOfWeek <= bookDate && endOfWeek >= bookDate) {
 
             if (buchungsbeginn >= 1 && buchungsbeginn <= 12) { // fruehstens ab 07:00 uhr,spätestens 18:00 Uhr
                 markiereZelle(spaltenindex, buchungsbeginn, 'red');
 
                 if (buchungsende >= 2 && buchungsende <= 13) { // fruehstens ab 08:00 Uhr, spätestens 19:00 Uhr
-                    for (let i = buchungsende; i >= buchungsbeginn; i-- ){
-                        markiereZelle(spaltenindex, i, 'red');    
+                    for (let i = buchungsende; i >= buchungsbeginn; i--) {
+                        markiereZelle(spaltenindex, i, 'red');
                     }
                 }
             }
-            else{
+            else {
                 alert("Fehler: Gebuchte Zeit ist außerhalb der Öffnungszeiten! \n\n\Die Öffnungszeiten sind von Mo. - Sa.: 07:00 - 19:00 Uhr.")
             }
         }
@@ -239,11 +305,11 @@ function checkBackgroundColor() {
                 var zelle = zellen[j];
                 // Überprüfe die Hintergrundfarbe der Zelle
                 if (zelle.style.backgroundColor === 'red') {
-                    zelle.addEventListener('click', function() {
+                    zelle.addEventListener('click', function () {
                         buchungsfenster.style.display = 'none';
                     });
                 }
-                
+
             }
         }
     } else {
@@ -256,15 +322,15 @@ function buchungPruefen(arr) {
     const datumBuchungsfenster = document.getElementById('bookDate').value;
     const startzeitBuchungsfenster = parseInt(document.getElementById('bookStart').value, 10);
     const endzeitBuchungsfenster = parseInt(document.getElementById('bookEnd').value, 10);
-    
+
 
     arr.forEach(function (booking) {
         // Startzeit und Endzeit von YYYY.MM.DD HH:mm auf YYYY-MM-DD HH:mm bringen
         const gebuchtesDatum = `${createDateFromDateString(booking.Startzeit).getFullYear()}-${createDateFromDateString(booking.Startzeit).getMonth() + 1}-${createDateFromDateString(booking.Startzeit).getDate()}`;
         const gebuchteStartzeit = timeStringToInt(booking.Startzeit);
         const gebuchteEndzeit = timeStringToInt(booking.Endzeit);
-        
-        
+
+
         if (datumBuchungsfenster == gebuchtesDatum) {
             if (startzeitBuchungsfenster == gebuchteStartzeit || startzeitBuchungsfenster >= gebuchteStartzeit && startzeitBuchungsfenster < gebuchteEndzeit) {
                 alert("Der Raum ist zu dieser Zeit bereits reserviert.")
@@ -272,7 +338,7 @@ function buchungPruefen(arr) {
                 document.getElementById('submitButton').style.backgroundColor = 'grey';
             }
 
-            else if (startzeitBuchungsfenster < gebuchteStartzeit && endzeitBuchungsfenster >= gebuchteEndzeit ) {
+            else if (startzeitBuchungsfenster < gebuchteStartzeit && endzeitBuchungsfenster >= gebuchteEndzeit) {
                 alert("Dieser Termin überschneidet sich mit einem bereits gebuchten Termin.")
                 document.getElementById('submitButton').disabled = true;
                 document.getElementById('submitButton').style.backgroundColor = 'grey';
@@ -289,7 +355,7 @@ function buchungPruefen(arr) {
             document.getElementById('submitButton').style.backgroundColor = 'var(--font-color)';
         }
     });
-    
+
 }
 
 
