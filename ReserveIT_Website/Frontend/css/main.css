@@ -29,12 +29,38 @@ a{
 .btn{
   border-radius: 10px;
 }
+/*----------------------------------*/
 
+.GebOnEtage{
+  align-items: center;
+  list-style-type: none;
+  display: inline-block;
+  height: 30%;
+  width: 100%
+}
+
+.btnOnEtage{
+  background-color: #333;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 50px;
+  color: white;
+  width: 18%;
+  height: 100%;
+  text-decoration: none;
+  font-size: 1vw;
+  align-items: center;
+  text-align: center;
+}
+
+/*----------------------------------*/
 
 .btn-group{
   height: 30%;
   width: 100%;
 }
+
+
 
 .linkleiste{
   align-items: center;

@@ -201,12 +201,11 @@ function zeigeGebaeude(arr) {
     });
     tmp += '</ul>';
     $('#sidebar').append(tmp);
-
 }
 
 
 function ladeGrundrisse(arr) {
-    // gebBtn210
+    // IDs der Debäude Buttons in LiLds speichern
     var liIds = $('#gebBtn li').map(function () {
         return this.id;
     }).get();
@@ -225,7 +224,6 @@ function ladeGrundrisse(arr) {
                 formData.append(schluessel, meinObjekt[schluessel]);
             }
 
-
             $.ajax({
                 url: 'http://localhost:8000/api/etage/laden',
                 type: 'POST',
@@ -235,7 +233,8 @@ function ladeGrundrisse(arr) {
                 processData: false,
                 dataType: 'json'
             }).done(function (response) {
-                zeigeEtage(response);
+                zeigeEtage(response, arr);
+
             }).fail(function (xhr) {
                 console.log('error received');
             });
@@ -243,25 +242,41 @@ function ladeGrundrisse(arr) {
     }
 }
 
-function zeigeEtage(response) {
+function zeigeEtage(response, gebBtn) {
     $('#grid-unten').empty();
-    var tmp = "1";
+    var tmp = '';
 
     if (response.length == 0) {
         tmp = 'Keine Etagen vorhanden';
         return;
     }
 
-    tmp += '<div></div>'
+    //tmp += '<div></div>'
     tmp += '<ul class="list-group">';
 
+  
+    //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
+    tmpGebBtn = '<ul class="GebOnEtage" id="gebBtn">';
+    console.log("log test");
+    var i = 1;
+    gebBtn.forEach(obj => {
+
+        tmpGebBtn += '<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>';
+        console.log('<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>');
+    });
+    tmpGebBtn += '</ul>';
+    $('#grid-unten').append('<div></div>');
+    $('#grid-unten').append(tmpGebBtn);
+
+    ladeGrundrisse(gebBtn);
+    //-------------------------
+    
     response.forEach(obj => {
         tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
     });
 
     tmp += '</ul>';
     $('#grid-unten').append(tmp);
-
 
     const svg = document.createElement("object");
     const svgHolder = document.createElement("div");
@@ -339,6 +354,9 @@ function storniereBuchung(ids) {
 }
 
 
+
+
+
 $('.impressumBtn').click(function () {
     $('#grid-unten').empty();
 
@@ -382,9 +400,6 @@ $('.impressumBtn').click(function () {
 
 
 });
-
-
-
 
 $('.aboutBtn').click(function () {
     $('#grid-unten').empty();
