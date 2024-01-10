@@ -240,7 +240,7 @@ function createBooking() {
     for (var schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
-
+//hi
 
     // send form with ajax
     $.ajax({
