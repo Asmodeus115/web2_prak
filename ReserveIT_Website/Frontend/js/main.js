@@ -27,6 +27,13 @@ function clickHouse(id, klassenname, test){
         if (element.id.length > 3) {
           calendar();
           document.getElementById('roomNumber').innerHTML = element.id;
+
+          // Variable erstellen und Wert zuweisen
+          var RaumID = element.id;
+
+          // Speichern in sessionStorage
+          sessionStorage.setItem('meineVariable', RaumID);
+
         }
         else {
           // console.log("gebäude geklickt");

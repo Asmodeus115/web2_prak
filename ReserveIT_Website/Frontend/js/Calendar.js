@@ -178,6 +178,7 @@ class WeeklyCalendar {
     this.nextWeekBtn.addEventListener('click', () => this.navigateWeek(1));
     this.cancelButton.addEventListener('click', () => this.closeBookingWindow());
     this.submitButton.addEventListener('click', () => this.submitBook());
+    
 
     // Ueberpruefung des Datums und der Uhrzeiten:
     const dateInput = document.getElementById('bookDate');
@@ -273,12 +274,14 @@ class WeeklyCalendar {
 
 
   submitBook() {
-  //   const confirmation = window.confirm('Buchung erfolgreich!\n\nMöchten Sie zur Übersicht Ihrer Buchungen wechseln?');
+    // const confirmation = window.confirm('Buchung erfolgreich!\n\nMöchten Sie zur Übersicht Ihrer Buchungen wechseln?');
 
-  //   // Weiterleitung zur anderen HTML-Seite, wenn der Benutzer "OK" auswählt
-  //   if (confirmation) {
-  //     window.location.href = './Impressum.html';
-  //   }
+    // // Weiterleitung zur anderen HTML-Seite, wenn der Benutzer "OK" auswählt
+    // if (confirmation) {
+    //   window.location.href = './Impressum.html';
+    // }
+
+    calendar();
   }
 
   formatDate(date) {
