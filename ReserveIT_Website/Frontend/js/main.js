@@ -25,7 +25,7 @@ function clickHouse(id, klassenname, test){
           var RaumID = element.id;
 
           // Speichern in sessionStorage
-          sessionStorage.setItem('meineVariable', RaumID);
+          sessionStorage.setItem('RaumID', RaumID);
 
         }
         else {
