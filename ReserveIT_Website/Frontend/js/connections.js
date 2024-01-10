@@ -47,7 +47,9 @@ $('#signInBtn').submit(function (event) {
 
             $('#loginArea').empty();
             //$('#loginArea').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
-            ladeWebseite();
+            //ladeWebseite();
+            loginKiller();
+            runMain();
 
         } else {
             $('#fehler').html('Fehler beim Anmelden');

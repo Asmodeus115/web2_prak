@@ -1,9 +1,16 @@
-runMain();
-
 function calendar(){
   loadCalendar();
   calenderStart();
 }
+function loginKiller(){
+  document.getElementById("loginArea").classList.remove("align");
+  document.getElementById("loginArea").id = "grid-unten";
+  document.getElementById("logo").addEventListener("click", runMain);
+  document.getElementById("lageplanBtn").addEventListener("click", runMain);
+  console.log(document.getElementById("logo"));
+  console.log(document.getElementById("lageplan"));
+}
+
 function runMain(){
   loadButtons();
   loadLageplan();
