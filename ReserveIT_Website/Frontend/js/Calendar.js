@@ -281,7 +281,7 @@ class WeeklyCalendar {
     //   window.location.href = './Impressum.html';
     // }
 
-    calendar();
+    // calendar();
   }
 
   formatDate(date) {

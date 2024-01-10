@@ -7,7 +7,7 @@ function calenderStart() {
         ladeAlleBuchugenByRaumID();
 
         $('#submitButton').click(function () {
-            ceateBooking();
+            createBooking();
         });
 
         $('#prevWeekBtn, #nextWeekBtn').click(function () {
@@ -30,7 +30,7 @@ function calenderStart() {
 
 function ladeAlleBuchugenByRaumID() {
 
-    var raumID = $('#roomNumber').html().replace(/_/g, '');
+    var raumID = sessionStorage.getItem('RaumID').replace(/_/g, '');
 
     console.log("RaumID: ", raumID);
     const meinObjekt = {
@@ -190,7 +190,7 @@ function markiereZelle(spaltenindex, zeilenindex, farbe) {
 // Dies Funktion wird aktiviert, wenn auf den Buchungsbutton
 // im Kalender geklickt wird.
 // Es wird einen Eintrag (Buchung) in der Datenbank erstellt.
-function ceateBooking() {
+function createBooking() {
     console.log("Erstellung einer Buchung startet!");
 
     // disable default event
@@ -213,7 +213,7 @@ function ceateBooking() {
     var start = $('#bookStart').val();
     var end = $('#bookEnd').val();
     //var matNr = $('#bookDate').val();
-    var raumID = $('#roomNumber').html().replace(/_/g, '');
+    var raumID = sessionStorage.getItem('RaumID').replace(/_/g, '');
     var buchungCode = generateRandomString();
 
     var startDate = datum + " " + start + ":00";
@@ -253,6 +253,7 @@ function ceateBooking() {
         dataType: 'json'
     }).done(function (response) {
         console.log('Buchen erfolgreich abgeschlossen');
+        calenderStart();
 
     }).fail(function (xhr) {
         console.log('Fehler beim Erstellen des Termins');
