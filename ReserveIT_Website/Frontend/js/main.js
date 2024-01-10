@@ -17,11 +17,12 @@ function clickHouse(id, klassenname, test){
 
     clickable.forEach(function (element){
       element.addEventListener("click", function(){
-        console.log("click");
-        console.log(element.id);
         if (element.id.length > 3) {
           calendar();
           document.getElementById('roomNumber').innerHTML = element.id;
+        }
+        else {
+          // console.log("gebäude geklickt");
         }
         return element.id;
       });
@@ -66,13 +67,11 @@ function svgHover(id, klassenname){
     hoverItem.forEach(function (element){
       console.log("funktion addelement")
       element.addEventListener("mouseenter", function (){
-        console.log("mouseover");
         element.style.opacity = "0.9";
         element.style.fill = "#333";
         element.style.cursor = "pointer"
       });
       element.addEventListener("mouseleave", function(){
-        console.log("mouseout");
         element.style.opacity = "1";
         element.style.fill="";
       });
