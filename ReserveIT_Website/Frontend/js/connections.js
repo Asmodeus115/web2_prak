@@ -42,7 +42,13 @@ $('#signInBtn').submit(function (event) {
         console.log('Anmeldung = ' + response);
 
         if (response) {
-            window.location.href = '/html/index.html';
+            console.log('Anmeldung removed');
+            //$('.grid-layout').insertBefore('<h1>htest</h1>');
+
+            $('#loginArea').empty();
+            //$('#loginArea').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
+            ladeWebseite();
+
         } else {
             $('#fehler').html('Fehler beim Anmelden');
             $('#login__matrikelnr').val('');
@@ -58,8 +64,15 @@ $('#signInBtn').submit(function (event) {
 
 });
 
-// 205-135
-// Gebäude-Etag+Raumnummer
+
+function ladeWebseite() {
+
+    //$('#grid-oben').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
+    $('#loginArea').attr("id", "grid-unten");
+    $('#grid-unten').removeAttr("class");
+    console.log("Neue Funkt");
+    //$('#loginArea').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
+}
 
 
 //--------------------------------------------------------//
@@ -254,7 +267,7 @@ function zeigeEtage(response, gebBtn) {
     //tmp += '<div></div>'
     tmp += '<ul class="list-group">';
 
-  
+
     //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
     tmpGebBtn = '<ul class="GebOnEtage" id="gebBtn">';
     console.log("log test");
@@ -270,7 +283,7 @@ function zeigeEtage(response, gebBtn) {
 
     ladeGrundrisse(gebBtn);
     //-------------------------
-    
+
     response.forEach(obj => {
         tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
     });
