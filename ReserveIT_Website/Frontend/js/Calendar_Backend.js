@@ -17,7 +17,7 @@ function calenderStart() {
 
         // Wenn auf btn aktuell Kalender geklickt wird, werden alle Buchungen
         // des Users angezeigt.
-        $('#sexyAnton').click(function () {   
+        $('#sexyAnton').click(function () {
             ladeAlleBuchugenByTime();
             $('#prevWeekBtn, #nextWeekBtn').click(function () {
                 entferneFarben();
@@ -253,8 +253,8 @@ function createBooking() {
         dataType: 'json'
     }).done(function (response) {
         console.log('Buchen erfolgreich abgeschlossen');
-        calenderStart();
-
+        //calenderStart();
+        calendar();
     }).fail(function (xhr) {
         console.log('Fehler beim Erstellen des Termins');
     });
