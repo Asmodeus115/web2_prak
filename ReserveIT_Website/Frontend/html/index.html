@@ -37,12 +37,10 @@
       <div class="logobox">
         <img id="logo" src="../img/logo.png" alt="nop">
       </div>
-      <nav class="btn-group linkleiste">
-        <button id="lageplanBtn" class="btn lageplanBtn" type="button">Lageplan</button>
-        <button class="btn ueberunsBtn aboutBtn" type="button">Über uns</button>
-        <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button">Meine Buchungen</button>
-        <button id="sexyAnton" class="btn buchungenBtn" type="button" onclick="calendar()">aktuell kalender</button>
-        <button class="btn impressumBtn" type="button" >Impressum</button>
+      <nav class="btn-group" id="linkleiste">
+        <button class="btn aboutBtn" id="ueberunsBtn" type="button" onclick="aboutUs()">Über uns</button>
+        <button class="btn" id="impressumBtn" type="button" onclick="impressum()" >Impressum</button>
+        <button class="btn" id="signIn" type="button" onclick="loginBtn()">Login</button>
       </nav>
     </div>
   </header>
