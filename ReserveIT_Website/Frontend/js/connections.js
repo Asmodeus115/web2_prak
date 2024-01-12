@@ -52,7 +52,6 @@ function loginProcess(){
         signedInLinkBar();
         loginKiller();
         runMain();
-        meineBuchungen();
 
       } else {
         $('#fehler').html('Fehler beim Anmelden');
@@ -88,25 +87,25 @@ function ladeWebseite() {
 // Buchungen aufgelistet, die der User hat.
 
 function meineBuchungen() {
-  $('#meineBuchungenBtn').click(function (event) {
 
-    $('#grid-unten').empty();
+
 
     // disable default event
-    event.preventDefault();
+
 
 
     function zeigeBuchungen(arr) {
       $('#grid-unten').empty();
 
-      var tmp = "1";
+      $('#grid-unten').append('<div></div>')
+      var tmp;
 
       if (arr.length === 0) {
         tmp.text('Keine Buchung vorhanden');
         return;
       }
 
-      tmp += '<table id="tabelle"><tr>';
+      tmp = '<table id="tabelle"><tr>';
       tmp += '<th>Nr</th>';
       tmp += '<th>RaumID</th>';
       tmp += '<th>BenutzerID</th>';
@@ -165,6 +164,7 @@ function meineBuchungen() {
       var showBtn = 0;
 
       var checkbox = document.getElementsByClassName('storinerenBtn');
+      $('#grid-unten').append('<div></div>')
       $('#grid-unten').append('<button  id="conformStorno" type="submit" value="Stornierung bestätigen">Absenden</button>');
 
       for (var i = 0; i < checkbox.length; i++) {
@@ -197,7 +197,6 @@ function meineBuchungen() {
     }).fail(function (xhr) {
       console.log('error received');
     });
-  });
 }
 
 //--------------------------------------------------------//
@@ -362,7 +361,7 @@ function storniereBuchung(ids) {
             dataType: 'json'
         }).done(function (response) {
             console.log('Stornierung = ' + response);
-
+            meineBuchungen();
         }).fail(function (xhr) {
             console.log('error received');
 

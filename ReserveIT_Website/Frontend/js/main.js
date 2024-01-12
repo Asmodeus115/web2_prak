@@ -156,5 +156,5 @@ function loginBtn(){
     loginProcess();
 }
 function signedInLinkBar() {
-  document.getElementById("linkleiste").innerHTML = '<button id="lageplanBtn" class="btn lageplanBtn" type="button">Lageplan</button><button class="btn aboutBtn" id="ueberunsBtn" type="button" onclick="aboutUs()">Über uns</button> <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button" onclick="">Meine Buchungen</button><button class="btn" id="impressumBtn" type="button" onclick="impressum()">Impressum</button>';
+  document.getElementById("linkleiste").innerHTML = '<button id="lageplanBtn" class="btn lageplanBtn" type="button">Lageplan</button><button class="btn aboutBtn" id="ueberunsBtn" type="button" onclick="aboutUs()">Über uns</button> <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button" onclick="meineBuchungen()">Meine Buchungen</button><button class="btn" id="impressumBtn" type="button" onclick="impressum()">Impressum</button>';
 }

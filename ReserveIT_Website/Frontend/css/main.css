@@ -16,6 +16,12 @@ html {
   line-height: 1.4;
 }
 
+#conformStorno{
+  width: 10%;
+  height: 200%;
+  margin-left: 40%;
+}
+
 #logo:hover{
   cursor: pointer;
   opacity: 0.9;
@@ -126,6 +132,7 @@ a{
   display: grid;
   grid-template-columns: 24% 76%;
   grid-template-rows: 50% 50%;
+  grid-gap: 5%;
 }
 
 /* sidebar items-----------------------------------*/
