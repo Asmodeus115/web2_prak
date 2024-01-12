@@ -141,11 +141,11 @@ function zeigeFarben(arr) {
             if (buchungsbeginn >= 1 && buchungsbeginn <= 12) { // fruehstens ab 07:00 uhr,spätestens 18:00 Uhr
                 markiereZelle(spaltenindex, buchungsbeginn, 'red');
 
-                // if (buchungsende >= 2 && buchungsende <= 13) { // fruehstens ab 08:00 Uhr, spätestens 19:00 Uhr
-                //     for (let i = buchungsende; i >= buchungsbeginn; i--) {
-                //         markiereZelle(spaltenindex, i, 'red');
-                //     }
-                // }
+                if (buchungsende >= 2 && buchungsende <= 13) { // fruehstens ab 08:00 Uhr, spätestens 19:00 Uhr
+                    for (let i = buchungsende - 1; i >= buchungsbeginn; i--) {
+                        markiereZelle(spaltenindex, i, 'red');
+                    }
+                }
             }
             else {
                 alert("Fehler: Gebuchte Zeit ist außerhalb der Öffnungszeiten! \n\n\Die Öffnungszeiten sind von Mo. - Sa.: 07:00 - 19:00 Uhr.")
