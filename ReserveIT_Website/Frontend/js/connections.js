@@ -448,11 +448,11 @@ function impressum() {
 function aboutUs() {
   $('#grid-unten').empty();
   $('#loginArea').empty();
+
   // disable default event
   event.preventDefault();
 
   var meinString = `
-  <h1></h1>
         <div class="textarea">
         <h1 id="textarea-h1">Unsere Gründergeschichte</h1>
         
@@ -521,8 +521,11 @@ function aboutUs() {
 `;
 
 
-  $('#grid-unten').append(meinString);
-  $('#loginArea').append(meinString);
+$('#grid-unten').append('<div></div>');
+$('#grid-unten').append(meinString);
+
+$('#loginArea').append('<div></div>');
+$('#loginArea').append(meinString);
   
 
 }
