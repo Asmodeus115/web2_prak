@@ -201,6 +201,12 @@ a{
   margin-left: 2%;
 }
 
+.footer-links:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.5;
+}
+
 
 .fa {
   padding: 10px;
@@ -216,7 +222,8 @@ a{
 }
 
 .fa:hover {
-    opacity: 0.9;
+    opacity: 0.5;
+    text-decoration: none;
 }
 
 .fa-facebook {
@@ -287,6 +294,7 @@ a{
   height: 30px;
   color: white;
   border: none;
+  padding: 2px;
 }
 
 #submitButtonKontaktformular:hover{
