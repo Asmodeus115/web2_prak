@@ -88,10 +88,6 @@ a{
   cursor: pointer;
 
 }
-/*calendar zeugs----------------------------------------*/
-#calenderHolder{
-  background-color: rgb(251, 251, 251);
-}
 
 /*--------------------------------------------*/
 /*svg zeugs-----------------------------------*/
@@ -242,8 +238,8 @@ a{
 /*Textbereich*/
 .textarea {
   font-family: 'Times New Roman', Times, serif;
-  margin: 0 20% 5% 25%;
-  max-width: 900px;
+  padding-right: 40%;
+  max-width: 100%;
   font-size: 20px;
 }
 
@@ -329,5 +325,3 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-
-
