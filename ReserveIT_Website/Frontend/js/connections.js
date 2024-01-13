@@ -1,14 +1,20 @@
-loginProcess();
+
 // Diese Funktionen sind für den Anmelde-Vorgang
 // Sie prüft, ob der User schon existiert. Falls ja,
 // wird der User an die index.html weitergeleitet.
 
 
-function loginProcess(){
+function doLoginProcess() {
+
+  console.log("doLoginProcess startet!");
+
   $('#signInBtn').submit(function (event) {
 
     const matrikelNr = document.getElementById('login__matrikelnr').value;
     console.log("LogIn Vorgang startet.");
+
+    var isUserLogedin = 0;
+    sessionStorage.setItem('isUserLogedin', isUserLogedin);
 
     // Prevent the default form submission behavior
     event.preventDefault();
@@ -43,12 +49,11 @@ function loginProcess(){
       console.log('Anmeldung = ' + response);
 
       if (response) {
-        console.log('Anmeldung removed');
-        //$('.grid-layout').insertBefore('<h1>htest</h1>');
+        isUserLogedin = 1;
+        sessionStorage.setItem('matrikelNr', matrikelNr);
+        sessionStorage.setItem('isUserLogedin', isUserLogedin);
 
         $('#loginArea').empty();
-        //$('#loginArea').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
-        //ladeWebseite();
         signedInLinkBar();
         loginKiller();
         runMain();
@@ -65,19 +70,52 @@ function loginProcess(){
       $('#login__password').val('');
       $('#fehler').html('Fehler beim Anmelden');
     });
-
   });
 }
 
-
-
+/*
 function ladeWebseite() {
 
-    //$('#grid-oben').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
-    $('#loginArea').attr("id", "grid-unten");
-    $('#grid-unten').removeAttr("class");
-    console.log("Neue Funkt");
-    //$('#loginArea').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
+  //$('#grid-oben').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
+  $('#loginArea').attr("id", "grid-unten");
+  $('#grid-unten').removeAttr("class");
+  console.log("Neue Funkt");
+  //$('#loginArea').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
+}
+*/
+
+function isUserLogedin() {
+  var isUserLogedin = sessionStorage.getItem('isUserLogedin');
+  console.log("isUserLogedin Funktion: \nWert= ", isUserLogedin);
+
+  if (isUserLogedin == 1) {
+    console.log("User ist angemeldet");
+    //alert("Logedin: ", isUserLogedin);
+    $('#loginArea').empty();
+    console.log("login geleert");
+    
+    signedInLinkBar();
+    loginKiller();
+    runMain();
+
+  } else if(isUserLogedin == 0 || isUserLogedin == null ) {
+    console.log("isUserLogedin = ", isUserLogedin);
+    doLoginProcess();
+  } else{
+    alert("Was anderens:",  isUserLogedin);
+  }
+}
+
+function signedInLinkBar() {
+  document.getElementById("linkleiste").innerHTML = '<button id="lageplanBtn" class="btn lageplanBtn" type="button">Lageplan</button><button class="btn aboutBtn" id="ueberunsBtn" type="button" onclick="aboutUs()">Über uns</button> <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button" onclick="meineBuchungen()">Meine Buchungen</button><button class="btn" id="impressumBtn" type="button" onclick="impressum()">Impressum</button> <button class="btn" id="signOut()" type="button" onclick="logoutBtn()">Log out</button>';
+}
+
+function loginKiller(){
+  console.log("loginKiller startet");
+  document.getElementById("loginArea").classList.remove("align");
+  document.getElementById("loginArea").id = "grid-unten";
+  document.getElementById("logo").addEventListener("click", runMain);
+  document.getElementById("lageplanBtn").addEventListener("click", runMain);
 }
 
 
@@ -88,301 +126,286 @@ function ladeWebseite() {
 
 function meineBuchungen() {
 
+  function zeigeBuchungen(arr) {
+    $('#grid-unten').empty();
 
+    $('#grid-unten').append('<div></div>')
+    var tmp;
 
-    // disable default event
+    if (arr.length === 0) {
+      tmp.text('Keine Buchung vorhanden');
+      return;
+    }
 
+    tmp = '<table id="tabelle"><tr>';
+    tmp += '<th>Nr</th>';
+    tmp += '<th>RaumID</th>';
+    tmp += '<th>BenutzerID</th>';
+    tmp += '<th>Startzeit</th>';
+    tmp += '<th>Endzeit</th>';
+    tmp += '<th>BuchungCode</th>';
+    tmp += '<th>Stornieren</th>';
+    tmp += '</tr>';
 
-
-    function zeigeBuchungen(arr) {
-      $('#grid-unten').empty();
-
-      $('#grid-unten').append('<div></div>')
-      var tmp;
-
-      if (arr.length === 0) {
-        tmp.text('Keine Buchung vorhanden');
-        return;
-      }
-
-      tmp = '<table id="tabelle"><tr>';
-      tmp += '<th>Nr</th>';
-      tmp += '<th>RaumID</th>';
-      tmp += '<th>BenutzerID</th>';
-      tmp += '<th>Startzeit</th>';
-      tmp += '<th>Endzeit</th>';
-      tmp += '<th>BuchungCode</th>';
-      tmp += '<th>Stornieren</th>';
+    var i = 1;
+    arr.forEach(obj => {
+      tmp += '<tr>';
+      tmp += '<td>' + i + '</td>';
+      tmp += '<td>' + obj.RaumID + '</td>';
+      tmp += '<td>' + obj.BenutzerID + '</td>';
+      tmp += '<td>' + obj.Startzeit + '</td>';
+      tmp += '<td>' + obj.Endzeit + '</td>';
+      tmp += '<td>' + obj.BuchungCode + '</td>';
+      tmp += '<td><input class="storinerenBtn" type="checkbox" id=' + obj.id + '> Stornieren </td>';
       tmp += '</tr>';
+      i++;
+    });
+    tmp += '</table>';
+    $('#grid-unten').append(tmp);
+  }
 
-      var i = 1;
-      arr.forEach(obj => {
-        tmp += '<tr>';
-        tmp += '<td>' + i + '</td>';
-        tmp += '<td>' + obj.RaumID + '</td>';
-        tmp += '<td>' + obj.BenutzerID + '</td>';
-        tmp += '<td>' + obj.Startzeit + '</td>';
-        tmp += '<td>' + obj.Endzeit + '</td>';
-        tmp += '<td>' + obj.BuchungCode + '</td>';
-        tmp += '<td><input class="storinerenBtn" type="checkbox" id=' + obj.id + '> Stornieren </td>';
-        tmp += '</tr>';
-        i++;
-      });
-      tmp += '</table>';
-      $('#grid-unten').append(tmp);
-    }
+  // convert data of form to object
+  const meinObjekt = {
+    //BenutzerID: sessionStorage.getItem('MatrikelNr')
+    BenutzerID: sessionStorage.getItem('matrikelNr')
+  };
 
-    // convert data of form to object
-    const meinObjekt = {
-      //BenutzerID: sessionStorage.getItem('MatrikelNr')
-      BenutzerID: 12345
-    };
+  // Erstellen ein neues FormData-Objekt
+  const formData = new FormData();
 
-    // Erstellen ein neues FormData-Objekt
-    const formData = new FormData();
+  // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
+  for (const schluessel in meinObjekt) {
+    formData.append(schluessel, meinObjekt[schluessel]);
+  }
 
-    // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
-    for (const schluessel in meinObjekt) {
-      formData.append(schluessel, meinObjekt[schluessel]);
-    }
+  // send form with ajax
+  $.ajax({
+    url: 'http://localhost:8000/api/buchung/ladeMeineBuchungen',
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    cache: false,
+    processData: false,
+    dataType: 'json'
+  }).done(function (response) {
+    console.log('response received');
+    console.log(response);
+    zeigeBuchungen(response);
 
-    // send form with ajax
-    $.ajax({
-      url: 'http://localhost:8000/api/buchung/ladeMeineBuchungen',
-      type: 'POST',
-      data: formData,
-      contentType: false,
-      cache: false,
-      processData: false,
-      dataType: 'json'
-    }).done(function (response) {
-      console.log('response received');
-      console.log(response);
-      zeigeBuchungen(response);
+    var SlotsToCancle = [];
+    var showBtn = 0;
 
-      var SlotsToCancle = [];
-      var showBtn = 0;
+    var checkbox = document.getElementsByClassName('storinerenBtn');
+    $('#grid-unten').append('<div></div>')
+    $('#grid-unten').append('<button  id="conformStorno" type="submit" value="Stornierung bestätigen">Absenden</button>');
 
-      var checkbox = document.getElementsByClassName('storinerenBtn');
-      $('#grid-unten').append('<div></div>')
-      $('#grid-unten').append('<button  id="conformStorno" type="submit" value="Stornierung bestätigen">Absenden</button>');
+    for (var i = 0; i < checkbox.length; i++) {
+      $('#' + checkbox[i].id).on('change', function () {
+        var id = $(this).attr('id');
 
-      for (var i = 0; i < checkbox.length; i++) {
-        $('#' + checkbox[i].id).on('change', function () {
-          var id = $(this).attr('id');
+        if ($(this).prop('checked')) {
+          SlotsToCancle.push(id);
 
-          if ($(this).prop('checked')) {
-            SlotsToCancle.push(id);
-
-          } else {
-            SlotsToCancle = SlotsToCancle.filter(function (item) {
-              return item !== id;
-            });
-            console.log(SlotsToCancle);
-
-          }
-
-        });
-
-        console.log(SlotsToCancle);
-      }
-
-      $('#conformStorno').click(function () {
-        if (SlotsToCancle.length > 0) {
-          storniereBuchung(SlotsToCancle);
         } else {
-          console.log("Es wurden keine Buchungen ausgewählt, die storniert werden sollen!");
+          SlotsToCancle = SlotsToCancle.filter(function (item) {
+            return item !== id;
+          });
+          console.log(SlotsToCancle);
         }
       });
-    }).fail(function (xhr) {
-      console.log('error received');
+
+      console.log(SlotsToCancle);
+    }
+
+    $('#conformStorno').click(function () {
+      if (SlotsToCancle.length > 0) {
+        storniereBuchung(SlotsToCancle);
+      } else {
+        console.log("Es wurden keine Buchungen ausgewählt, die storniert werden sollen!");
+      }
     });
+  }).fail(function (xhr) {
+    console.log('error received');
+  });
 }
 
 //--------------------------------------------------------//
 // Diese Funktion soll die .svg Dateien der Grundrisse aus
 // der Datenbank holen und anzeigen.
-  function zeigeGebaeude(arr) {
-    loadLageplan()
-    let tmp;
+function zeigeGebaeude(arr) {
+  loadLageplan()
+  let tmp;
 
-    if (arr.length === 0) {
-      tmp.text('Keine Gebäude vorhanden');
-      return;
-    }
+  if (arr.length === 0) {
+    tmp.text('Keine Gebäude vorhanden');
+    return;
+  }
 
-    tmp = '<ul class="list-group" id="gebBtn">';
+  tmp = '<ul class="list-group" id="gebBtn">';
 
-    console.log("log test");
-    var i = 1;
-    arr.forEach(obj => {
-      tmp += '<li id="GebBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.id + '</li>';
-      console.log('<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '">' + obj.Name + '</li>');
-    });
-    tmp += '</ul>';
-    $('#sidebar').append(tmp);
+  console.log("log test");
+  var i = 1;
+  arr.forEach(obj => {
+    tmp += '<li id="GebBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.id + '</li>';
+    console.log('<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '">' + obj.Name + '</li>');
+  });
+  tmp += '</ul>';
+  $('#sidebar').append(tmp);
 }
 
 function ladeGrundrisse(arr) {
-    // IDs der Debäude Buttons in LiLds speichern
-    var liIds = $('#gebBtn li').map(function () {
-        return this.id;
-    }).get();
+  // IDs der Debäude Buttons in LiLds speichern
+  var liIds = $('#gebBtn li').map(function () {
+    return this.id;
+  }).get();
 
-    for (let index = 0; index < liIds.length; index++) {
-        const ElementID = liIds[index];
+  for (let index = 0; index < liIds.length; index++) {
+    const ElementID = liIds[index];
 
-        $('#' + ElementID).click(function (event) {
-            console.log("ID: " + arr[index].id);
-            var meinObjekt = {
-                id: arr[index].id
-            };
+    $('#' + ElementID).click(function (event) {
+      console.log("ID: " + arr[index].id);
+      var meinObjekt = {
+        id: arr[index].id
+      };
 
-            var formData = new FormData();
-            for (var schluessel in meinObjekt) {
-                formData.append(schluessel, meinObjekt[schluessel]);
-            }
+      var formData = new FormData();
+      for (var schluessel in meinObjekt) {
+        formData.append(schluessel, meinObjekt[schluessel]);
+      }
 
-            $.ajax({
-                url: 'http://localhost:8000/api/etage/laden',
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                cache: false,
-                processData: false,
-                dataType: 'json'
-            }).done(function (response) {
-                zeigeEtage(response, arr);
-
-            }).fail(function (xhr) {
-                console.log('error received');
-            });
-        });
-    }
-}
-
-function zeigeEtage(response, gebBtn) {
-    $('#grid-unten').empty();
-    var tmp = '';
-
-    if (response.length == 0) {
-        tmp = 'Keine Etagen vorhanden';
-        return;
-    }
-
-    //tmp += '<div></div>'
-    tmp += '<ul class="list-group">';
-
-
-    //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
-    tmpGebBtn = '<ul class="GebOnEtage" id="gebBtn">';
-    console.log("log test");
-    var i = 1;
-    gebBtn.forEach(obj => {
-
-        tmpGebBtn += '<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>';
-        console.log('<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>');
-    });
-    tmpGebBtn += '</ul>';
-    $('#grid-unten').append('<div></div>');
-    $('#grid-unten').append(tmpGebBtn);
-
-    ladeGrundrisse(gebBtn);
-    //-------------------------
-
-    response.forEach(obj => {
-        tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
-    });
-
-    tmp += '</ul>';
-    $('#grid-unten').append(tmp);
-
-    const svg = document.createElement("object");
-    const svgHolder = document.createElement("div");
-
-    svgHolder.id = "svgHolder"
-    svg.id = "etageSVG";
-    svg.data = "../img/" + response[0].Grundriss;
-    svg.type = "image/svg+xml"
-
-    document.getElementById("grid-unten").appendChild(svgHolder);
-    document.getElementById("svgHolder").appendChild(svg);
-
-    for (let index = 0; index < response.length; index++) {
-        const element = response[index];
-        // #EtageBtn2101
-        $('#EtageBtn' + response[index].id).click(function (event) {
-            svg.data = "../img/" + response[index].Grundriss;
-        });
-
-    }
-    svgHover("etageSVG", ".roomSVG")
-    clickHouse("etageSVG", ".roomSVG", "test")
-}
-
-function loadButtons() {
-    // main leeren
-    $('#grid-unten').empty();
-    console.log("test");
-
-
-    // send form with ajax
-    $.ajax({
-        url: 'http://localhost:8000/api/etage/ladenGeb',
-        type: 'get',
+      $.ajax({
+        url: 'http://localhost:8000/api/etage/laden',
+        type: 'POST',
+        data: formData,
         contentType: false,
         cache: false,
         processData: false,
         dataType: 'json'
-    }).done(function (response) {
-        console.log('response received');
-        console.log(response);
-        zeigeGebaeude(response);
-        ladeGrundrisse(response);
+      }).done(function (response) {
+        zeigeEtage(response, arr);
 
-    }).fail(function (xhr) {
-        console.log('Fehler bekommen beim Laden der Geäude aus der DB!');
+      }).fail(function (xhr) {
+        console.log('error received');
+      });
     });
+  }
 }
 
+function zeigeEtage(response, gebBtn) {
+  $('#grid-unten').empty();
+  var tmp = '';
+
+  if (response.length == 0) {
+    tmp = 'Keine Etagen vorhanden';
+    return;
+  }
+
+  //tmp += '<div></div>'
+  tmp += '<ul class="list-group">';
+
+
+  //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
+  tmpGebBtn = '<ul class="GebOnEtage" id="gebBtn">';
+  console.log("log test");
+  var i = 1;
+  gebBtn.forEach(obj => {
+
+    tmpGebBtn += '<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>';
+    console.log('<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>');
+  });
+  tmpGebBtn += '</ul>';
+  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append(tmpGebBtn);
+
+  ladeGrundrisse(gebBtn);
+  //-------------------------
+
+  response.forEach(obj => {
+    tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
+  });
+
+  tmp += '</ul>';
+  $('#grid-unten').append(tmp);
+
+  const svg = document.createElement("object");
+  const svgHolder = document.createElement("div");
+
+  svgHolder.id = "svgHolder"
+  svg.id = "etageSVG";
+  svg.data = "../img/" + response[0].Grundriss;
+  svg.type = "image/svg+xml"
+
+  document.getElementById("grid-unten").appendChild(svgHolder);
+  document.getElementById("svgHolder").appendChild(svg);
+
+  for (let index = 0; index < response.length; index++) {
+    const element = response[index];
+    // #EtageBtn2101
+    $('#EtageBtn' + response[index].id).click(function (event) {
+      svg.data = "../img/" + response[index].Grundriss;
+    });
+
+  }
+  svgHover("etageSVG", ".roomSVG")
+  clickHouse("etageSVG", ".roomSVG", "test")
+}
+
+function loadButtons() {
+  // main leeren
+  $('#grid-unten').empty();
+  console.log("test");
+
+
+  // send form with ajax
+  $.ajax({
+    url: 'http://localhost:8000/api/etage/ladenGeb',
+    type: 'get',
+    contentType: false,
+    cache: false,
+    processData: false,
+    dataType: 'json'
+  }).done(function (response) {
+    console.log('response received');
+    console.log(response);
+    zeigeGebaeude(response);
+    ladeGrundrisse(response);
+
+  }).fail(function (xhr) {
+    console.log('Fehler bekommen beim Laden der Geäude aus der DB!');
+  });
+}
 
 function storniereBuchung(ids) {
 
-    console.log("Die BuchungsIDs zum Stornieren: ", ids);
-    ids.forEach(id => {
+  console.log("Die BuchungsIDs zum Stornieren: ", ids);
+  ids.forEach(id => {
 
-        // send form with ajax
-        $.ajax({
-            url: 'http://localhost:8000/api/buchung/' + id,
-            type: 'delete',
-            contentType: false,
-            cache: false,
-            processData: false,
-            dataType: 'json'
-        }).done(function (response) {
-            console.log('Stornierung = ' + response);
-            meineBuchungen();
-        }).fail(function (xhr) {
-            console.log('error received');
-
-        });
+    // send form with ajax
+    $.ajax({
+      url: 'http://localhost:8000/api/buchung/' + id,
+      type: 'delete',
+      contentType: false,
+      cache: false,
+      processData: false,
+      dataType: 'json'
+    }).done(function (response) {
+      console.log('Stornierung = ' + response);
+      meineBuchungen();
+    }).fail(function (xhr) {
+      console.log('Die Stornierung des Termins war nicht erfolgreich!');
 
     });
-
-
+  });
 }
 
+function impressum() {
+  $('#grid-unten').empty();
+  $('#loginArea').empty();
 
+  // disable default event
+  event.preventDefault();
 
-
-function impressum(){
-    $('#grid-unten').empty();
-    $('#loginArea').empty();
-
-    // disable default event
-    event.preventDefault();
-
-    var meinString = `
+  var meinString = `
 
     <div>
     <h1 id="textarea-h1">Impressum</h1>
@@ -414,21 +437,21 @@ function impressum(){
 `;
 
 
-    $('#grid-unten').append('<div></div>');
-    $('#grid-unten').append(meinString);
+  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append(meinString);
 
-    $('#loginArea').append('<div></div>');
-    $('#loginArea').append(meinString);
+  $('#loginArea').append('<div></div>');
+  $('#loginArea').append(meinString);
 
 }
 
-function aboutUs(){
-    $('#grid-unten').empty();
-    $('#loginArea').empty();
-    // disable default event
-    event.preventDefault();
+function aboutUs() {
+  $('#grid-unten').empty();
+  $('#loginArea').empty();
+  // disable default event
+  event.preventDefault();
 
-    var meinString = `
+  var meinString = `
         <h1 id="textarea-h1">Unsere Gründergeschichte</h1>
         <div>
           <p>
@@ -447,8 +470,8 @@ function aboutUs(){
 `;
 
 
-    $('#grid-unten').append(meinString);
-    $('#loginArea').append(meinString);
+  $('#grid-unten').append(meinString);
+  $('#loginArea').append(meinString);
 
 }
 

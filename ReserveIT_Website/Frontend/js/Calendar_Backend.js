@@ -29,7 +29,7 @@ function calenderStart() {
 }
 
 function ladeAlleBuchugenByRaumID() {
-
+    
     var raumID = sessionStorage.getItem('RaumID').replace(/_/g, '');
 
     console.log("RaumID: ", raumID);
@@ -81,7 +81,7 @@ function ladeAlleBuchugenByRaumID() {
     });
 }
 
-
+/* Diese Funktion wird nicht mehr benötigt
 function ladeAlleBuchugenByTime() {
     // send form with ajax
     $.ajax({
@@ -116,8 +116,7 @@ function ladeAlleBuchugenByTime() {
 
     });
 }
-
-
+*/
 
 // In dieser Funktion darfst du dich austuben Habibi @SG4747
 function zeigeFarben(arr) {
@@ -155,7 +154,6 @@ function zeigeFarben(arr) {
     });
 }
 
-
 // Diese Funktion setzt die Hintergrundfarbe einer Zelle in einer Tabelle
 function markiereZelle(spaltenindex, zeilenindex, farbe) {
     var tabelle = document.getElementById('calendar');
@@ -184,8 +182,6 @@ function markiereZelle(spaltenindex, zeilenindex, farbe) {
     }
 }
 
-
-
 //--------------------------------------------------------//
 // Dies Funktion wird aktiviert, wenn auf den Buchungsbutton
 // im Kalender geklickt wird.
@@ -207,24 +203,20 @@ function createBooking() {
     }
 
     var zellenSpalte = window.cellPos;
-
-
     var datum = $('#bookDate').val();
     var start = $('#bookStart').val();
     var end = $('#bookEnd').val();
-    //var matNr = $('#bookDate').val();
+    var matNr = sessionStorage.getItem('matrikelNr');
     var raumID = sessionStorage.getItem('RaumID').replace(/_/g, '');
     var buchungCode = generateRandomString();
-
     var startDate = datum + " " + start + ":00";
     var endDate = datum + " " + end + ":00";
-    //var matNr = event.matNr;
 
 
     // convert data of form to object
     var meinObjekt = {
         RaumID: raumID,
-        BenutzerID: 12345,
+        BenutzerID: matNr,
         Startzeit: startDate,
         Endzeit: endDate,
         BuchungCode: buchungCode,
@@ -240,7 +232,6 @@ function createBooking() {
     for (var schluessel in meinObjekt) {
         formData.append(schluessel, meinObjekt[schluessel]);
     }
-//hi
 
     // send form with ajax
     $.ajax({
@@ -259,7 +250,6 @@ function createBooking() {
         console.log('Fehler beim Erstellen des Termins');
     });
 }
-
 
 function createDateFromDateString(dateString) {
     const parts = dateString.split('.');
@@ -317,7 +307,6 @@ function checkBackgroundColor() {
         console.error('Tabelle existiert nicht');
     }
 }
-
 
 function buchungPruefen(arr) {
     const datumBuchungsfenster = document.getElementById('bookDate').value;
