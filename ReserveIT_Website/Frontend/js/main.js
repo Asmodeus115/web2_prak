@@ -31,7 +31,7 @@ function clickHouse(id, klassenname, test){
 
         }
         else {
-          // console.log("gebäude geklickt");
+        console.log("gebäude geklickt " + element.id);
         }
         return element.id;
       });

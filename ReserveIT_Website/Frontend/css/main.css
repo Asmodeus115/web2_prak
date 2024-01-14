@@ -276,10 +276,10 @@ a{
 
 }
 
-#etageSVG{
+/* #etageSVG{
   width: 100%;
   height: 100%;
-}
+} */
 
 /*---------------------------------------------*/
 
@@ -675,6 +675,10 @@ text-align: center;
 
 .show {display: block;}
 
+#tabelle{
+  right: 20%;
+}
+
 
 
 
@@ -719,6 +723,7 @@ text-align: center;
       width: 100%;
       height: 100%;
       grid-row: 3;
+      background-color: green;
   }
 
   .navigationEtage li {
@@ -734,6 +739,7 @@ text-align: center;
   }
 
   #etageSVG {
-    background-color: green;
+    background-color: blue;
   }
+
 }
