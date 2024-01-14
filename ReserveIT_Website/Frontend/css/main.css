@@ -701,7 +701,6 @@ text-align: center;
 
     
   #grid-unten{
-  flex: 1;
   grid-template-columns: 1fr;
   margin-bottom: 40%;
   }
@@ -728,10 +727,13 @@ text-align: center;
   }
 
   .calendararea {
-    grid-row: 3;
-    /* margin: 5% 0 5% 25%; */
-    
-    
-    /* left: 70%; */
+    width: 80%;
+    margin:0;
+    left: 0;
+    padding: 2% 4% 2% 2% ;
+  }
+
+  #etageSVG {
+    background-color: green;
   }
 }
