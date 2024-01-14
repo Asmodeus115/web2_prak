@@ -305,15 +305,19 @@ function zeigeEtage(response, gebBtn) {
 
 
   //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
-  tmpGebBtn = '<ul class="GebOnEtage" id="gebBtn">';
+  tmpGebBtn = '<div class="GebOnEtage dropdown" onclick="toggleDropdown()" id="gebBtn">';
+  tmpGebBtn += '<button class="dropbtn">Etage</button>'
+  tmpGebBtn += '<div id="myDropdown" class="dropdown-content">'
   console.log("log test");
   var i = 1;
   gebBtn.forEach(obj => {
 
-    tmpGebBtn += '<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>';
-    console.log('<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>');
+    tmpGebBtn += '<a id="GebBtn' + obj.id + '">' + obj.id + '</a>'
+    //tmpGebBtn += '<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>';
+    //console.log('<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>');
   });
-  tmpGebBtn += '</ul>';
+  tmpGebBtn += '</div>'
+  tmpGebBtn += '</div>';
   $('#grid-unten').append('<div></div>');
   $('#grid-unten').append(tmpGebBtn);
 
