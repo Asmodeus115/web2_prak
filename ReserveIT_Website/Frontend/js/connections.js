@@ -300,13 +300,12 @@ function zeigeEtage(response, gebBtn) {
     return;
   }
 
-  //tmp += '<div></div>'
-  tmp += '<ul class="list-group">';
+  
 
 
   //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
   tmpGebBtn = '<div class="GebOnEtage dropdown" onclick="toggleDropdown()" id="gebBtn">';
-  tmpGebBtn += '<button class="dropbtn">Etage</button>'
+  tmpGebBtn += '<button class="dropbtn">Gebäude</button>'
   tmpGebBtn += '<div id="myDropdown" class="dropdown-content">'
   console.log("log test");
   var i = 1;
@@ -324,8 +323,11 @@ function zeigeEtage(response, gebBtn) {
   ladeGrundrisse(gebBtn);
   //-------------------------
 
+  //tmp += '<div></div>'
+  tmp += '<ul class="list-group navigationEtage">';
+
   response.forEach(obj => {
-    tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
+    tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn">' + obj.Bezeichnung + '</li>';
   });
 
   tmp += '</ul>';

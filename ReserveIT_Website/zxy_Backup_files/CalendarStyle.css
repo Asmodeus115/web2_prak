@@ -136,25 +136,6 @@ input{
     border-bottom: 1px solid var(--font-color)
 }
 
-.button {
-    margin-top: 15%;
-    margin-bottom: 2%;
-    padding: 2%;
-    background-color: var(--font-color);
-    color: white;
-    cursor: pointer;
-    border-radius: 10px;
-    width: 48%;
-    text-align: center;
-}
-
-#submitButton{
-    right: 0px;
-}
-
-.button:hover, .button:focus {
-    opacity: 0.9;
-}
 
 
 

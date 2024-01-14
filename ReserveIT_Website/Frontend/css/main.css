@@ -11,6 +11,34 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+/* Allgemeine Sachen*/
+:root {
+  --grid-color: #cecece; /* Farbe Fuer die Rahmen*/
+  --time-color: #777; /* Farbe fuer die Zeiten*/
+  --slot-hover-color: rgba(80, 78, 78, 0.043);
+  --shadow-color: rgba(0,0,0,0.3); /* Schatten fuer das Fenster was sich oeffnet*/
+  --font-color: #222;
+  --color-red: rgb(190, 35, 15);
+  --color-blue: rgb(54, 92, 175);
+  --colo-lightblue: rgba(39, 73, 159, 0.128);
+  --colo-lightgrey: rgba(140, 146, 161, 0.128);
+  --color-green: rgb(21, 129, 21);
+  --color-orange: rgb(233, 153, 4);
+  --slotHeight: 30px; 
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--font-color); 
+}
+
+input{
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  border: none;
+}
+
 html {
   color: #222;
   line-height: 1.4;
@@ -319,9 +347,8 @@ a{
 .footer {
   margin-top: 4%;
   background-color: rgba(41, 40, 40, 0.815);
-  right: 0;
-  left: 0;
-  bottom: 0;
+  display: flex;
+  flex-direction: column;
 
 }
 
@@ -479,7 +506,136 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+/* --- Kalender --- */
+/* Gesamter Kalender mit Rahmen */
 
+.calendararea {
+  width: 50vw;
+  padding: 1% 10% 1% 1%;
+  border: 2px solid var(--grid-color);
+  border-radius: 20px;
+  margin: 5% 0 5% 25%;
+  position: relative;
+  background-color: white;
+  left: 70%;
+}
+
+/* Datum Navigation*/
+#navigation{
+  text-align: center;
+  align-items: center;
+}
+
+#currentDate {
+  margin: 0 2% 0 2%;
+  font-size: clamp(15px, 2.5vw, 40px); /* clamp(minimum, preferred, maximum); */
+}
+
+#prevWeekBtn:hover, #nextWeekBtn:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+#prevWeekBtn, #nextWeekBtn{
+  transition: opacity 0.3s;
+  cursor: pointer;
+  opacity: 0.9;
+  user-select: none;
+  font-size: clamp(15px, 10.0vw, 50px);
+}
+
+/* Nur Tabellenkoerper */
+#calendar {
+  border-collapse: collapse;
+  margin: 2%;
+  
+}
+
+
+#calendar th, #calendar td{
+  border: 1px solid #ccc;
+  padding: 1%;
+}
+
+#calendar th {
+  text-align: center;
+  background-color: var(--time-color);
+}
+
+.currentDay{
+  color: rgba(7, 7, 7, 0.189);
+  font-size: 12px;
+}
+
+#calendar th:not(:first-child), #calendar td:not(:first-child) {
+width: 120px;
+}
+
+
+/* Breite für die Spalte mit der Uhrzeit festlegen */
+#calendar th:first-child, #calendar td:first-child {
+width: 60px;
+text-align: center;
+}
+
+.day-cell:hover {
+  background-color: rgba(0, 0, 0, 0.062);
+  cursor: pointer;
+}
+
+/* Buchungsfenster */
+#buchungsfenster {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px var(--shadow-color);
+  left: 50%;
+  Top: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* sorgt dafuer, dass es ueber allem anderen ist*/
+  padding: 1%;
+  width: fit-content;
+  min-width: 12.5%;
+  height: fit-content;
+}
+
+.bookDescriptor {
+  font-weight: bold;
+  display: inline-block;
+  margin: 5% 2.5% 1.25% 0;
+}
+
+.shortInput {
+  border-bottom: 1px solid var(--grid-color);
+  padding: 5% 1%; 
+}
+
+.shortInput:focus { /* damit man die Eingabefelder besser erkennt*/
+  border-bottom: 1px solid var(--font-color)
+}
+
+.button {
+  margin-top: 15%;
+  margin-bottom: 2%;
+  padding: 2%;
+  background-color: var(--font-color);
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 48%;
+  text-align: center;
+}
+
+#submitButton{
+  right: 0px;
+}
+
+.button:hover, .button:focus {
+  opacity: 0.9;
+}
+
+/* --- Dropdownmenue --- */
 .dropbtn {
   background-color: #3498DB;
   color: white;
@@ -529,6 +685,7 @@ tr:nth-child(even) {
   #grid-oben{
       grid-template-columns: 1fr;
       margin-bottom: 50%;
+      
   }
 
   #logo {
@@ -549,10 +706,9 @@ tr:nth-child(even) {
   margin-bottom: 40%;
   }
 
-  #sidebar {
-      /* display: none; */
-      background-color: green;
-  }    
+  /* #sidebar {
+      display: none;
+  }     */
 
   #sidebar li{
       width: 100%;
@@ -566,34 +722,16 @@ tr:nth-child(even) {
       grid-row: 3;
   }
 
-  /* For tablets: */
-  .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
-}
+  .navigationEtage li {
+    width: 100%;
+    font-size: 100%;
+  }
 
-
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
+  .calendararea {
+    grid-row: 3;
+    /* margin: 5% 0 5% 25%; */
+    
+    
+    /* left: 70%; */
+  }
 }
