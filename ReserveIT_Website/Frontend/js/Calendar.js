@@ -240,6 +240,8 @@ class WeeklyCalendar {
         alert('Das ausgewählte Datum liegt in der Vergangenheit.\nBitte wählen Sie ein gültiges Datum.');
         return; // Verlasse die Methode, wenn das Datum ungültig ist
       }
+      
+      this.validateDate();
 
       // für die Datenbank:
       window.cellPos = parseInt(cellPos, 10) + 1;
@@ -252,7 +254,6 @@ class WeeklyCalendar {
 
 
       this.openBookingWindow();
-      this.validateDate();
     }
   }
 

@@ -135,8 +135,8 @@ function meineBuchungen() {
       tmp.text('Keine Buchung vorhanden');
       return;
     }
-
-    tmp = '<table id="tabelle"><tr>';
+    tmp = '<div id="meineBuchungen">';
+    tmp += '<div class="table-container"><table id="tabelle"><tr id="tabellenkopf">';
     tmp += '<th>Nr</th>';
     tmp += '<th>RaumID</th>';
     tmp += '<th>BenutzerID</th>';
@@ -155,11 +155,12 @@ function meineBuchungen() {
       tmp += '<td>' + obj.Startzeit + '</td>';
       tmp += '<td>' + obj.Endzeit + '</td>';
       tmp += '<td>' + obj.BuchungCode + '</td>';
-      tmp += '<td><input class="storinerenBtn" type="checkbox" id=' + obj.id + '> Stornieren </td>';
+      tmp += '<td><input class="stornierenBtn" type="checkbox" id=' + obj.id + '></td>';
       tmp += '</tr>';
       i++;
     });
-    tmp += '</table>';
+    tmp += '</table></div>';
+    tmp += '</div>';
     $('#grid-unten').append(tmp);
   }
 
@@ -194,7 +195,7 @@ function meineBuchungen() {
     var SlotsToCancle = [];
     var showBtn = 0;
 
-    var checkbox = document.getElementsByClassName('storinerenBtn');
+    var checkbox = document.getElementsByClassName('stornierenBtn');
     $('#grid-unten').append('<div></div>')
     $('#grid-unten').append('<button  id="conformStorno" type="submit" value="Stornierung bestätigen">Absenden</button>');
 
