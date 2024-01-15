@@ -32,8 +32,6 @@ function clickHouse(id, klassenname, test) {
 
         } else {
 
-
-
           var meinObjekt = {
             id: element.id
           };
@@ -58,14 +56,7 @@ function clickHouse(id, klassenname, test) {
           }).fail(function (xhr) {
             console.log('error received');
           });
-        }
-<<<<<<< HEAD
-
-=======
-        else {
-        console.log("gebäude geklickt " + element.id);
-        }
->>>>>>> 11eb873ed755f345578221b11ddb80e1a9fdaf86
+        } 
         return element.id;
       });
     });
