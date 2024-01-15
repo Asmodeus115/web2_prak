@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW Standard 2021 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve"  width="100%" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
 viewBox="0 0 27093.32 20320"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <g id="_2508240725328">
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="20965.05" y="3124.98" width="2924.14" height="5738.13"/>
+   <rect id="201_005" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="20965.05" y="3124.98" width="2924.14" height="5738.13"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="16466.37" y="5887.06" width="674.81" height="1423.13"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17141.18" y="5887.06" width="2294.32" height="1423.13"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12012.7" y="5925.17" width="4453.68" height="2937.95"/>
@@ -22,22 +22,22 @@ viewBox="0 0 27093.32 20320"
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13053.93" y="14024.82" width="1959.63" height="881.38"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13053.93" y="14906.91" width="1960.67" height="919.75"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12012.69" y="14025.53" width="1041.24" height="1800.43"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6344.37" y="14025.53" width="5668.33" height="1804.75"/>
+   <rect id="201_0222" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6344.37" y="14025.53" width="5668.33" height="1804.75"/>
    <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="4859.79,14025.54 6348.17,14025.54 6344.36,15845.1 15021.79,15824.33 15026.81,16837.58 4859.79,16837.58 "/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3285.26" y="14023.45" width="1574.53" height="2814.12"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="361.13" y="16837.58" width="2924.14" height="2854"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3285.26" y="16837.58" width="5983.24" height="2854"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9268.49" y="16837.58" width="5758.31" height="2854"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="15026.8" y="16837.58" width="7242.87" height="2854"/>
+   <rect id="201_021" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3285.26" y="14023.45" width="1574.53" height="2814.12"/>
+   <rect id="201_020" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="361.13" y="16837.58" width="2924.14" height="2854"/>
+   <rect id="201_019" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3285.26" y="16837.58" width="5983.24" height="2854"/>
+   <rect id="201_018" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9268.49" y="16837.58" width="5758.31" height="2854"/>
+   <rect id="201_017" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="15026.8" y="16837.58" width="7242.87" height="2854"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="22269.68" y="16837.58" width="1619.52" height="2854"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="23870.43" y="15494.52" width="1278.39" height="1344.23"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="23873.87" y="11213.5" width="2939.47" height="5625.25"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="20830.1" y="11213.48" width="3058.95" height="4281.02"/>
+   <rect id="201_014" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="20830.1" y="11213.48" width="3058.95" height="4281.02"/>
    <g transform="matrix(1.07186 0 0 1 6624.46 -4318.84)">
-    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">005</text>
+    <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">005</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 6624.46 -4318.84)">
-    <text x="13546.66" y="10722.62"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">Vorlesung</text>
+    <text x="13546.66" y="10722.62"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">Vorlesung</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 2913.06 -7598.5)">
     <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">006</text>
@@ -73,13 +73,13 @@ viewBox="0 0 27093.32 20320"
     <text x="13546.66" y="10671.95"  fill="black" font-weight="bold" font-size="447.65px" font-family="Arial">Kopierraum</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 6461.83 2887.27)">
-    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">014</text>
+    <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">014</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 6461.83 2887.27)">
-    <text x="13546.66" y="10621.29"  fill="black" font-weight="bold" font-size="391.69px" font-family="Arial">Studentische</text>
+    <text x="13546.66" y="10621.29"  fill="white" font-weight="bold" font-size="391.69px" font-family="Arial">Studentische</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 6461.83 2887.27)">
-    <text x="13546.66" y="11058.87"  fill="black" font-weight="bold" font-size="391.69px" font-family="Arial">Arbeitsplätze</text>
+    <text x="13546.66" y="11058.87"  fill="white" font-weight="bold" font-size="391.69px" font-family="Arial">Arbeitsplätze</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 9428.76 3223.84)">
     <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">015</text>
@@ -100,43 +100,43 @@ viewBox="0 0 27093.32 20320"
     <text x="13546.66" y="10570.64"  fill="black" font-weight="bold" font-size="335.74px" font-family="Arial">Sommer</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 2845.57 7951.68)">
-    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">017</text>
+    <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">017</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 2845.57 7951.68)">
-    <text x="13546.66" y="10722.62"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">Vorlesung</text>
+    <text x="13546.66" y="10722.62"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">Vorlesung</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -3655 7951.68)">
-    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">018</text>
+    <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">018</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -3655 7951.68)">
-    <text x="13546.66" y="10722.62"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">Vorlesung</text>
+    <text x="13546.66" y="10722.62"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">Vorlesung</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -9525.79 7951.68)">
-    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">019</text>
+    <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">019</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -9525.79 7951.68)">
-    <text x="13546.66" y="10722.62"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">Projekte</text>
+    <text x="13546.66" y="10722.62"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">Projekte</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -13763.1 7951.68)">
-    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">020</text>
+    <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">020</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -13763.1 7951.68)">
-    <text x="13546.66" y="10722.62"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">Projekte</text>
+    <text x="13546.66" y="10722.62"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">Projekte</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -11128.7 5068.02)">
-    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">021</text>
+    <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">021</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -11128.7 5068.02)">
-    <text x="13546.66" y="10519.97"  fill="black" font-weight="bold" font-size="279.78px" font-family="Arial">Std.</text>
+    <text x="13546.66" y="10519.97"  fill="white" font-weight="bold" font-size="279.78px" font-family="Arial">Std.</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -11128.7 5068.02)">
-    <text x="13546.66" y="10832.53"  fill="black" font-weight="bold" font-size="279.78px" font-family="Arial">Arbeitspl.</text>
+    <text x="13546.66" y="10832.53"  fill="white" font-weight="bold" font-size="279.78px" font-family="Arial">Arbeitspl.</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -7775.25 4618.28)">
-    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">022</text>
+    <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">022</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -7775.25 4618.28)">
-    <text x="13546.66" y="10722.62"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">Stud. Arbeitsplätze</text>
+    <text x="13546.66" y="10722.62"  fill="white" font-weight="bold" font-size="503.62px" font-family="Arial">Stud. Arbeitsplätze</text>
    </g>
    <g transform="matrix(1.07186 0 0 1 -936.39 4483.57)">
     <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="503.62px" font-family="Arial">024</text>
