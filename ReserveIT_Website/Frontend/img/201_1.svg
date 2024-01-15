@@ -8,7 +8,7 @@ viewBox="0 0 27093.32 20320"
  <g id="Ebene_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <g id="_2508240725328">
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="20965.05" y="3124.98" width="2924.14" height="5738.13"/>
+   <rect id="201_005" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="20965.05" y="3124.98" width="2924.14" height="5738.13"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="16466.37" y="5887.06" width="674.81" height="1423.13"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="17141.18" y="5887.06" width="2294.32" height="1423.13"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12012.7" y="5925.17" width="4453.68" height="2937.95"/>
@@ -22,13 +22,13 @@ viewBox="0 0 27093.32 20320"
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13053.93" y="14024.82" width="1959.63" height="881.38"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="13053.93" y="14906.91" width="1960.67" height="919.75"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="12012.69" y="14025.53" width="1041.24" height="1800.43"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6344.37" y="14025.53" width="5668.33" height="1804.75"/>
+   <rect id="201_0222" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="6344.37" y="14025.53" width="5668.33" height="1804.75"/>
    <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="4859.79,14025.54 6348.17,14025.54 6344.36,15845.1 15021.79,15824.33 15026.81,16837.58 4859.79,16837.58 "/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3285.26" y="14023.45" width="1574.53" height="2814.12"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="361.13" y="16837.58" width="2924.14" height="2854"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3285.26" y="16837.58" width="5983.24" height="2854"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9268.49" y="16837.58" width="5758.31" height="2854"/>
-   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="15026.8" y="16837.58" width="7242.87" height="2854"/>
+   <rect id="201_021" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3285.26" y="14023.45" width="1574.53" height="2814.12"/>
+   <rect id="201_020" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="361.13" y="16837.58" width="2924.14" height="2854"/>
+   <rect id="201_019" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="3285.26" y="16837.58" width="5983.24" height="2854"/>
+   <rect id="201_018" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9268.49" y="16837.58" width="5758.31" height="2854"/>
+   <rect id="201_017" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="15026.8" y="16837.58" width="7242.87" height="2854"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="22269.68" y="16837.58" width="1619.52" height="2854"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="23870.43" y="15494.52" width="1278.39" height="1344.23"/>
    <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="23873.87" y="11213.5" width="2939.47" height="5625.25"/>
