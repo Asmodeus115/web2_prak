@@ -1,4 +1,4 @@
-const helper = require('../helper.js');
+// const helper = require('../Backend/helper.js');
 
 class GalerieDao {
 

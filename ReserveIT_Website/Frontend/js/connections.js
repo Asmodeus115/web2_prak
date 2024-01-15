@@ -3,7 +3,6 @@
 // Sie prüft, ob der User schon existiert. Falls ja,
 // wird der User an die index.html weitergeleitet.
 
-
 function doLoginProcess() {
 
   console.log("doLoginProcess startet!");
@@ -232,43 +231,9 @@ function meineBuchungen() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //--------------------------------------------------------//
 // Diese Funktion soll die .svg Dateien der Grundrisse aus
 // der Datenbank holen und anzeigen.
-
-
-
-function getSVGElementIDsByClassName(className) {
-  var elementsWithClass = document.getElementsByClassName(className);
-  var ids = [];
-
-  for (var i = 0; i < elementsWithClass.length; i++) {
-    ids.push(elementsWithClass[i].id);
-  }
-
-  return ids;
-}
-
-
 
 
 
@@ -377,34 +342,33 @@ function zeigeEtage(etagen) {
     }
 
     console.log('etagen:', etagen, '\ngebBtn:', gebBtn);
-    //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
+    //-------------- Hier wir die Dropdown-Menü für Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
     var tmpGebBtn = '<div class="GebOnEtage dropdown" onclick="toggleDropdown()" id="gebBtn">';
     tmpGebBtn += '<button class="dropbtn">Gebäude</button>'
     tmpGebBtn += '<div  id="myDropdown" class="dropdown-content">'
     gebBtn.forEach(gebaeude => {
       tmpGebBtn += '<a  id="GebBtn' + gebaeude.id + '">' + gebaeude.id + '</a>'
-      //tmpGebBtn += '<li id="GebBtn' + gebaeude.id + '" class="btnOnEtage btn' + gebaeude.id + '" type="button">' + gebaeude.id + '</li>';
     });
     tmpGebBtn += '</div>'
     tmpGebBtn += '</div>';
     $('#grid-unten').append('<div></div>');
     $('#grid-unten').append(tmpGebBtn);
 
-
     ladeGrundrisse(gebBtn);
     //-------------------------
 
+    // Hier wird die Sidebar für Etagen erstellt.
     etageBtn += '<ul id="navigationEtage" class="list-group">';
     etagen.forEach(obj => {
       etageBtn += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
     });
-
     etageBtn += '</ul>';
     $('#grid-unten').append(etageBtn);
 
+
+    // Hier wird der Grundriss geladen und angezeigt.
     const svg = document.createElement("object");
     const svgHolder = document.createElement("div");
-
     svgHolder.id = "svgHolder";
     svg.id = "etageSVG";
     svg.data = "../img/" + etagen[0].Grundriss;
