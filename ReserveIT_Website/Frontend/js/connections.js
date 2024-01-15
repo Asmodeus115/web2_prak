@@ -93,16 +93,16 @@ function isUserLogedin() {
     //alert("Logedin: ", isUserLogedin);
     $('#loginArea').empty();
     console.log("login geleert");
-    
+
     signedInLinkBar();
     loginKiller();
     runMain();
 
-  } else if(isUserLogedin == 0 || isUserLogedin == null ) {
+  } else if (isUserLogedin == 0 || isUserLogedin == null) {
     console.log("isUserLogedin = ", isUserLogedin);
     doLoginProcess();
-  } else{
-    alert("Was anderens:",  isUserLogedin);
+  } else {
+    alert("Was anderens:", isUserLogedin);
   }
 }
 
@@ -110,7 +110,7 @@ function signedInLinkBar() {
   document.getElementById("linkleiste").innerHTML = '<button id="lageplanBtn" class="btn lageplanBtn" type="button">Lageplan</button><button class="btn aboutBtn" id="ueberunsBtn" type="button" onclick="aboutUs()">Über uns</button> <button id="meineBuchungenBtn" class="btn buchungenBtn" type="button" onclick="meineBuchungen()">Meine Buchungen</button><button class="btn" id="impressumBtn" type="button" onclick="impressum()">Impressum</button> <button class="btn" id="signOut()" type="button" onclick="logoutBtn()">Log out</button>';
 }
 
-function loginKiller(){
+function loginKiller() {
   console.log("loginKiller startet");
   document.getElementById("loginArea").classList.remove("align");
   document.getElementById("loginArea").id = "grid-unten";
@@ -229,43 +229,106 @@ function meineBuchungen() {
   });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //--------------------------------------------------------//
 // Diese Funktion soll die .svg Dateien der Grundrisse aus
 // der Datenbank holen und anzeigen.
-function zeigeGebaeude(arr) {
-  loadLageplan()
-  let tmp;
 
-  if (arr.length === 0) {
-    tmp.text('Keine Gebäude vorhanden');
+
+
+function getSVGElementIDsByClassName(className) {
+  var elementsWithClass = document.getElementsByClassName(className);
+  var ids = [];
+
+  for (var i = 0; i < elementsWithClass.length; i++) {
+    ids.push(elementsWithClass[i].id);
+  }
+
+  return ids;
+}
+
+
+
+
+
+function ladeAlleGebAusDerDB() {
+  // main leeren
+  $('#grid-unten').empty();
+
+  // send form with ajax
+  $.ajax({
+    url: 'http://localhost:8000/api/etage/ladenGeb',
+    type: 'get',
+    contentType: false,
+    cache: false,
+    processData: false,
+    dataType: 'json'
+  }).done(function (response) {
+    console.log('response received. Inhalt der Gebäude Tabelle: ', response);
+
+    generiereGebBtnAufSidebar(response);
+    ladeGrundrisse(response);
+
+  }).fail(function (xhr) {
+    console.log('Fehler bekommen beim Laden der Geäude aus der DB!');
+  });
+}
+
+function generiereGebBtnAufSidebar(alleGebaeude) {
+  loadLageplan()
+
+  var gebBtn;
+  if (alleGebaeude.length === 0) {
+    gebBtn.text('Keine Gebäude vorhanden');
     return;
   }
 
-  tmp = '<ul class="list-group" id="gebBtn">';
+  gebBtn = '<ul class="list-group" id="gebBtn">';
 
-  console.log("log test");
-  var i = 1;
-  arr.forEach(obj => {
-    tmp += '<li id="GebBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.id + '</li>';
-    console.log('<li id="GebBtn' + obj.Name + '" class="list-group btn' + obj.Name + '">' + obj.Name + '</li>');
+  alleGebaeude.forEach(gebaeude => {
+    gebBtn += '<li id="GebBtn' + gebaeude.id + '" class="list-group btn' + gebaeude.id + '">' + gebaeude.id + '</li>';
+    console.log('<li id="GebBtn' + gebaeude.Name + '" class="list-group btn' + gebaeude.Name + '">' + gebaeude.Name + '</li>');
   });
-  tmp += '</ul>';
-  $('#sidebar').append(tmp);
+  gebBtn += '</ul>';
+  $('#sidebar').append(gebBtn);
 }
 
-function ladeGrundrisse(arr) {
-  // IDs der Debäude Buttons in LiLds speichern
-  var liIds = $('#gebBtn li').map(function () {
+function ladeGrundrisse(alleGebaeude) {
+  // IDs der Gebäude Buttons in LiLds speichern
+  var gebaeudeIDs = $('#gebBtn li').map(function () {
     return this.id;
   }).get();
 
-  for (let index = 0; index < liIds.length; index++) {
-    const ElementID = liIds[index];
+  for (let index = 0; index < gebaeudeIDs.length; index++) {
+    const gebaeudeID = gebaeudeIDs[index];
 
-    $('#' + ElementID).click(function (event) {
-      console.log("ID: " + arr[index].id);
+
+    $('#' + gebaeudeID).click(function (event) {
+      console.log("ID: " + alleGebaeude[index].id);
+
       var meinObjekt = {
-        id: arr[index].id
+        id: alleGebaeude[index].id
       };
 
       var formData = new FormData();
@@ -282,7 +345,8 @@ function ladeGrundrisse(arr) {
         processData: false,
         dataType: 'json'
       }).done(function (response) {
-        zeigeEtage(response, arr);
+
+        zeigeEtage(response);
 
       }).fail(function (xhr) {
         console.log('error received');
@@ -291,78 +355,9 @@ function ladeGrundrisse(arr) {
   }
 }
 
-function zeigeEtage(response, gebBtn) {
-  $('#grid-unten').empty();
-  var tmp = '';
 
-  if (response.length == 0) {
-    tmp = 'Keine Etagen vorhanden';
-    return;
-  }
+function zeigeEtage(etagen) {
 
-  
-
-
-  //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
-  tmpGebBtn = '<div class="GebOnEtage dropdown" onclick="toggleDropdown()" id="gebBtn">';
-  tmpGebBtn += '<button class="dropbtn">Gebäude</button>'
-  tmpGebBtn += '<div id="myDropdown" class="dropdown-content">'
-  console.log("log test");
-  var i = 1;
-  gebBtn.forEach(obj => {
-
-    tmpGebBtn += '<a id="GebBtn' + obj.id + '">' + obj.id + '</a>'
-    //tmpGebBtn += '<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>';
-    //console.log('<li id="GebBtn' + obj.id + '" class="btnOnEtage btn' + obj.id + '" type="button">' + obj.id + '</li>');
-  });
-  tmpGebBtn += '</div>'
-  tmpGebBtn += '</div>';
-  $('#grid-unten').append('<div></div>');
-  $('#grid-unten').append(tmpGebBtn);
-
-  ladeGrundrisse(gebBtn);
-  //-------------------------
-
-  //tmp += '<div></div>'
-  tmp += '<ul class="list-group navigationEtage">';
-
-  response.forEach(obj => {
-    tmp += '<li id="EtageBtn' + obj.id + '" class="list-group btn">' + obj.Bezeichnung + '</li>';
-  });
-
-  tmp += '</ul>';
-  $('#grid-unten').append(tmp);
-
-  const svg = document.createElement("object");
-  const svgHolder = document.createElement("div");
-
-  svgHolder.id = "svgHolder"
-  svg.id = "etageSVG";
-  svg.data = "../img/" + response[0].Grundriss;
-  svg.type = "image/svg+xml"
-
-  document.getElementById("grid-unten").appendChild(svgHolder);
-  document.getElementById("svgHolder").appendChild(svg);
-
-  for (let index = 0; index < response.length; index++) {
-    const element = response[index];
-    // #EtageBtn2101
-    $('#EtageBtn' + response[index].id).click(function (event) {
-      svg.data = "../img/" + response[index].Grundriss;
-    });
-
-  }
-  svgHover("etageSVG", ".roomSVG")
-  clickHouse("etageSVG", ".roomSVG", "test")
-}
-
-function loadButtons() {
-  // main leeren
-  $('#grid-unten').empty();
-  console.log("test");
-
-
-  // send form with ajax
   $.ajax({
     url: 'http://localhost:8000/api/etage/ladenGeb',
     type: 'get',
@@ -371,18 +366,83 @@ function loadButtons() {
     processData: false,
     dataType: 'json'
   }).done(function (response) {
-    console.log('response received');
-    console.log(response);
-    zeigeGebaeude(response);
-    ladeGrundrisse(response);
+
+    gebBtn = response;
+    $('#grid-unten').empty();
+
+    var etageBtn = '';
+    if (etagen.length == 0) {
+      etageBtn = 'Keine Etagen vorhanden';
+      return;
+    }
+
+    console.log('etagen:', etagen, '\ngebBtn:', gebBtn);
+    //-------------- Hier werden die Buttons der Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
+    var tmpGebBtn = '<div class="GebOnEtage dropdown" onclick="toggleDropdown()" id="gebBtn">';
+    tmpGebBtn += '<button class="dropbtn">Gebäude</button>'
+    tmpGebBtn += '<div  id="myDropdown" class="dropdown-content">'
+    gebBtn.forEach(gebaeude => {
+      tmpGebBtn += '<a  id="GebBtn' + gebaeude.id + '">' + gebaeude.id + '</a>'
+      //tmpGebBtn += '<li id="GebBtn' + gebaeude.id + '" class="btnOnEtage btn' + gebaeude.id + '" type="button">' + gebaeude.id + '</li>';
+    });
+    tmpGebBtn += '</div>'
+    tmpGebBtn += '</div>';
+    $('#grid-unten').append('<div></div>');
+    $('#grid-unten').append(tmpGebBtn);
+
+
+    ladeGrundrisse(gebBtn);
+    //-------------------------
+
+    etageBtn += '<ul id="navigationEtage" class="list-group">';
+    etagen.forEach(obj => {
+      etageBtn += '<li id="EtageBtn' + obj.id + '" class="list-group btn' + obj.id + '">' + obj.Bezeichnung + '</li>';
+    });
+
+    etageBtn += '</ul>';
+    $('#grid-unten').append(etageBtn);
+
+    const svg = document.createElement("object");
+    const svgHolder = document.createElement("div");
+
+    svgHolder.id = "svgHolder";
+    svg.id = "etageSVG";
+    svg.data = "../img/" + etagen[0].Grundriss;
+    svg.type = "image/svg+xml";
+
+    document.getElementById("grid-unten").appendChild(svgHolder);
+    document.getElementById("svgHolder").appendChild(svg);
+
+    for (let index = 0; index < etagen.length; index++) {
+      $('#EtageBtn' + etagen[index].id).click(function (event) {
+        svg.data = "../img/" + etagen[index].Grundriss;
+      });
+    }
+
+    svgHover("etageSVG", ".roomSVG");
+    clickHouse("etageSVG", ".roomSVG", "test");
+
 
   }).fail(function (xhr) {
     console.log('Fehler bekommen beim Laden der Geäude aus der DB!');
   });
+
+
 }
 
-function storniereBuchung(ids) {
 
+
+
+
+
+
+
+
+
+
+
+
+function storniereBuchung(ids) {
   console.log("Die BuchungsIDs zum Stornieren: ", ids);
   ids.forEach(id => {
 
@@ -527,12 +587,12 @@ function aboutUs() {
 `;
 
 
-$('#grid-unten').append('<div></div>');
-$('#grid-unten').append(meinString);
+  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append(meinString);
 
-$('#loginArea').append('<div></div>');
-$('#loginArea').append(meinString);
-  
+  $('#loginArea').append('<div></div>');
+  $('#loginArea').append(meinString);
+
 
 }
 
@@ -542,6 +602,7 @@ function kontakt() {
 
   // disable default event
   event.preventDefault();
+
 
   var meinString = `
   <div class="textarea">
@@ -587,12 +648,12 @@ function kontakt() {
 `;
 
 
-  
-$('#grid-unten').append('<div></div>');
-$('#grid-unten').append(meinString);
 
-$('#loginArea').append('<div></div>');
-$('#loginArea').append(meinString);
+  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append(meinString);
+
+  $('#loginArea').append('<div></div>');
+  $('#loginArea').append(meinString);
 
 }
 
@@ -945,12 +1006,12 @@ function datenschutz() {
 `;
 
 
-  
-$('#grid-unten').append('<div></div>');
-$('#grid-unten').append(meinString);
 
-$('#loginArea').append('<div></div>');
-$('#loginArea').append(meinString);
+  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append(meinString);
+
+  $('#loginArea').append('<div></div>');
+  $('#loginArea').append(meinString);
 
 }
 
@@ -989,12 +1050,12 @@ function agb() {
 `;
 
 
-  
-$('#grid-unten').append('<div></div>');
-$('#grid-unten').append(meinString);
 
-$('#loginArea').append('<div></div>');
-$('#loginArea').append(meinString);
+  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append(meinString);
+
+  $('#loginArea').append('<div></div>');
+  $('#loginArea').append(meinString);
 
 }
 

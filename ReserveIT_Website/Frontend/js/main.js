@@ -1,24 +1,25 @@
 isUserLogedin();
 
-function calendar(){
+function calendar() {
   loadCalendar();
   calenderStart();
 }
 
-function runMain(){
+function runMain() {
   console.log("runMain startet");
-  loadButtons();
+  ladeAlleGebAusDerDB();
   loadLageplan();
 }
 
-function clickHouse(id, klassenname, test){
+function clickHouse(id, klassenname, test) {
   let svgObject = document.getElementById(id);
-  svgObject.addEventListener("load", function loadHover(){
+  svgObject.addEventListener("load", function loadHover() {
     let svgDocument = svgObject.contentDocument;
     let clickable = svgDocument.querySelectorAll(klassenname);
+    console.log(clickable);
 
-    clickable.forEach(function (element){
-      element.addEventListener("click", function(){
+    clickable.forEach(function (element) {
+      element.addEventListener("click", function () {
         if (element.id.length > 3) {
           calendar();
           document.getElementById('roomNumber').innerHTML = element.id;
@@ -29,17 +30,48 @@ function clickHouse(id, klassenname, test){
           // Speichern in sessionStorage
           sessionStorage.setItem('RaumID', RaumID);
 
+        } else {
+
+
+
+          var meinObjekt = {
+            id: element.id
+          };
+
+          var formData = new FormData();
+          for (var schluessel in meinObjekt) {
+            formData.append(schluessel, meinObjekt[schluessel]);
+          }
+
+          $.ajax({
+            url: 'http://localhost:8000/api/etage/laden',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: 'json'
+          }).done(function (response) {
+
+            zeigeEtage(response);
+
+          }).fail(function (xhr) {
+            console.log('error received');
+          });
         }
-        else {
-          // console.log("gebäude geklickt");
-        }
+
         return element.id;
       });
     });
   });
 }
 
-function loadLageplan(){
+
+
+
+
+
+function loadLageplan() {
   removeChild("grid-unten");
   const gridHolder = document.createElement("div");
   const svgHolder = document.createElement("div");
@@ -55,46 +87,46 @@ function loadLageplan(){
   document.getElementById("grid-unten").appendChild(svgHolder)
   document.getElementById("svgHolder").appendChild(svg);
   svgHover("lageplan", ".gebSVG");
-  clickHouse("lageplan", ".gebSVG","test");
+  clickHouse("lageplan", ".gebSVG", "test");
 }
 
-function removeChild(parent){
+function removeChild(parent) {
   parent = document.getElementById(parent);
-  while (parent.firstChild){
+  while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
 
-function svgHover(id, klassenname){
+function svgHover(id, klassenname) {
   console.log("funktion gestartet")
   let svgObject = document.getElementById(id);
-  svgObject.addEventListener("load", function loadHover(){
+  svgObject.addEventListener("load", function loadHover() {
     console.log("let");
     let svgDocument = svgObject.contentDocument;
     let hoverItem = svgDocument.querySelectorAll(klassenname);
 
-    hoverItem.forEach(function (element){
+    hoverItem.forEach(function (element) {
       console.log("funktion addelement")
-      element.addEventListener("mouseenter", function (){
+      element.addEventListener("mouseenter", function () {
         element.style.opacity = "0.9";
         element.style.fill = "#333";
         element.style.cursor = "pointer"
       });
-      element.addEventListener("mouseleave", function(){
+      element.addEventListener("mouseleave", function () {
         element.style.opacity = "1";
-        element.style.fill="";
+        element.style.fill = "";
       });
     });
   });
 }
 
-function loadCalendar(){
+function loadCalendar() {
   removeChild("grid-unten");
   const gridHolder = document.createElement("div");
   const calendarHolder = document.createElement("div");
   const calendar = document.createElement("div");
   calendarHolder.id = "calenderHolder";
-  calendar.id ="mainCalendar";
+  calendar.id = "mainCalendar";
 
   document.getElementById("grid-unten").appendChild(gridHolder);
   document.getElementById("grid-unten").appendChild(calendarHolder);
@@ -103,7 +135,7 @@ function loadCalendar(){
   const myCalendar = new WeeklyCalendar();
 }
 
-function loginBtn(){
+function loginBtn() {
   document.getElementById("loginArea").innerHTML = '<div class="grid">\n' +
     '\n' +
     '      <form id="signInBtn" class="form login">\n' +
@@ -150,7 +182,7 @@ function loginBtn(){
     '          d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z" />\n' +
     '      </symbol>\n' +
     '    </svg>'
-    //doLoginProcess();
+  //doLoginProcess();
 }
 
 function logoutBtn() {
@@ -164,9 +196,45 @@ function logoutBtn() {
 function toggleDropdown() {
   var dropdown = document.getElementById("myDropdown");
   dropdown.classList.toggle("show");
+
+  // Event-Listener für Änderungen im Dropdown-Menü
+  var dropdownContent = document.getElementById('gebBtn').querySelector('.dropdown-content');
+
+  dropdownContent.addEventListener('click', function (event) {
+    // Überprüfe, ob das geklickte Element ein <a>-Element ist
+    if (event.target.tagName === 'A') {
+
+      var ausgewaehlteGebaeude = event.target.textContent;
+      console.log('Ausgewählter Link:', ausgewaehlteGebaeude);
+
+      var meinObjekt = {
+        id: ausgewaehlteGebaeude
+      };
+
+      var formData = new FormData();
+      for (var schluessel in meinObjekt) {
+        formData.append(schluessel, meinObjekt[schluessel]);
+      }
+
+      $.ajax({
+        url: 'http://localhost:8000/api/etage/laden',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType: 'json'
+      }).done(function (response) {
+        zeigeEtage(response);
+      }).fail(function (xhr) {
+        console.log('error received');
+      });
+    }
+  });
+
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
