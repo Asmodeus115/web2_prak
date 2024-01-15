@@ -288,7 +288,6 @@ function ladeGrundrisse(alleGebaeude) {
   for (let index = 0; index < gebaeudeIDs.length; index++) {
     const gebaeudeID = gebaeudeIDs[index];
 
-
     $('#' + gebaeudeID).click(function (event) {
       console.log("ID: " + alleGebaeude[index].id);
 
@@ -337,11 +336,12 @@ function zeigeEtage(etagen) {
 
     var etageBtn = '';
     if (etagen.length == 0) {
-      etageBtn = 'Keine Etagen vorhanden';
+      alert('Keine Etagen vorhanden');
       return;
     }
 
     console.log('etagen:', etagen, '\ngebBtn:', gebBtn);
+
     //-------------- Hier wir die Dropdown-Menü für Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
     var tmpGebBtn = '<div class="GebOnEtage dropdown" onclick="toggleDropdown()" id="gebBtn">';
     tmpGebBtn += '<button class="dropbtn">Gebäude</button>'
@@ -371,39 +371,28 @@ function zeigeEtage(etagen) {
     const svgHolder = document.createElement("div");
     svgHolder.id = "svgHolder";
     svg.id = "etageSVG";
-    svg.data = "../img/" + etagen[0].Grundriss;
+    svg.data = etagen[0].Grundriss;
     svg.type = "image/svg+xml";
 
     document.getElementById("grid-unten").appendChild(svgHolder);
     document.getElementById("svgHolder").appendChild(svg);
 
+    console.log(etagen);
+
     for (let index = 0; index < etagen.length; index++) {
       $('#EtageBtn' + etagen[index].id).click(function (event) {
-        svg.data = "../img/" + etagen[index].Grundriss;
+        svg.data =  etagen[index].Grundriss;
       });
     }
+
 
     svgHover("etageSVG", ".roomSVG");
     clickHouse("etageSVG", ".roomSVG", "test");
 
-
   }).fail(function (xhr) {
     console.log('Fehler bekommen beim Laden der Geäude aus der DB!');
   });
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
