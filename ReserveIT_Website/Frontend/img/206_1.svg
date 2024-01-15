@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW Standard 2021 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" class="206" width="100%" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
 viewBox="0 0 9260.4 20320"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
@@ -31,19 +31,19 @@ viewBox="0 0 9260.4 20320"
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="1909.33,388.93 2303.99,388.93 2303.99,3348.91 2320.24,4138.24 2238.22,4138.24 2238.22,9926.67 2595.93,9926.67 2607.94,10375.4 659.56,10354.23 659.56,9860.89 1876.43,9860.89 1876.43,4138.24 1021.33,4138.24 1019.83,3348.91 725.33,3348.91 725.33,2888.47 1087.1,2888.47 1054.22,1836.03 1909.33,1828.27 "/>
   <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="2303.99,3348.91 6612.42,3348.91 6612.42,4138.24 5198.21,4138.24 5198.21,10420.01 2607.94,10375.4 2595.93,9926.67 4770.66,9926.67 4770.66,4138.24 2303.99,4138.24 "/>
   <ellipse id="206_017" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" cx="4343.1" cy="18202.29" rx="1611.55" ry="1623.91"/>
-  <text x="1109.16" y="825.67"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">029</text>
-  <text x="1109.14" y="4424.18"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">025</text>
-  <text x="1108.97" y="6075.01"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">024</text>
-  <text x="1100.34" y="8141.68"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">023</text>
-  <text x="1102.72" y="9043.59"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">022</text>
-  <text x="1064.48" y="9659.32"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">021</text>
-  <text x="3211.4" y="6583.16"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">050</text>
-  <text x="3217.87" y="9407.61"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">049</text>
-  <text x="5558.88" y="4738.43"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">044</text>
-  <text x="5580.72" y="6021.67"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">045</text>
-  <text x="5586.2" y="7362.45"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">046</text>
-  <text x="5542.67" y="8334.07"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">047</text>
-  <text x="5531.82" y="9706.03"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">048</text>
-  <text x="3973.79" y="18293.26"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">017</text>
+  <text x="1109.16" y="825.67"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">029</text>
+  <text x="1109.14" y="4424.18"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">025</text>
+  <text x="1108.97" y="6075.01"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">024</text>
+  <text x="1100.34" y="8141.68"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">023</text>
+  <text x="1102.72" y="9043.59"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">022</text>
+  <text x="1064.48" y="9659.32"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">021</text>
+  <text x="3211.4" y="6583.16"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">050</text>
+  <text x="3217.87" y="9407.61"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">049</text>
+  <text x="5558.88" y="4738.43"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">044</text>
+  <text x="5580.72" y="6021.67"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">045</text>
+  <text x="5586.2" y="7362.45"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">046</text>
+  <text x="5542.67" y="8334.07"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">047</text>
+  <text x="5531.82" y="9706.03"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">048</text>
+  <text x="3973.79" y="18293.26"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">017</text>
  </g>
 </svg>

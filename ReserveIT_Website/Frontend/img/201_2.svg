@@ -24,24 +24,24 @@ viewBox="0 0 27093.32 20320"
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="19251.45" y="16072.25" width="2579.11" height="3996.16"/>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="21830.56" y="16072.25" width="1289.56" height="3996.16"/>
   <rect id="201_109" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="19242.7" y="12146.83" width="7704.48" height="3925.41"/>
-  <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="23120.12,4551.4 19256.39,4551.4 19242.7,8231.04 17394.31,8238.91 17421.13,12161.11 23120.12,12161.11 "/>
+  <polygon id="201_114" class="roomSVG" fill="#00336A" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="23120.12,4551.4 19256.39,4551.4 19242.7,8231.04 17394.31,8238.91 17421.13,12161.11 23120.12,12161.11 "/>
   <g transform="matrix(0.978504 0 0 1 5537.42 -7711.31)">
-   <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">116</text>
+   <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">116</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 5537.42 -7711.31)">
-   <text x="13546.66" y="10729.89"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">Pool</text>
+   <text x="13546.66" y="10729.89"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">Pool</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 7430.34 -2219.59)">
-   <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">114</text>
+   <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">114</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 7430.34 -2219.59)">
-   <text x="13546.66" y="10729.89"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">Pool</text>
+   <text x="13546.66" y="10729.89"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">Pool</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 9034.13 3949.54)">
-   <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">109</text>
+   <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">109</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 9034.13 3949.54)">
-   <text x="13546.66" y="10729.89"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">BA Pool</text>
+   <text x="13546.66" y="10729.89"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">BA Pool</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 8605.28 7630.99)">
    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="485.01px" font-family="Arial">107</text>
@@ -77,16 +77,16 @@ viewBox="0 0 27093.32 20320"
    <text x="13546.66" y="10729.89"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">Büro Mitarbeiter</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 -5778.75 7401.84)">
-   <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">103</text>
+   <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">103</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 -5778.75 7401.84)">
-   <text x="13546.66" y="10729.89"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">Multimedia</text>
+   <text x="13546.66" y="10729.89"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">Multimedia</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 -3136.9 2863.48)">
-   <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">112</text>
+   <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">112</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 -3136.9 2863.48)">
-   <text x="13546.66" y="10729.89"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">Bquarium</text>
+   <text x="13546.66" y="10729.89"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">Bquarium</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 469.503 3198.68)">
    <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">111</text>
@@ -94,16 +94,16 @@ viewBox="0 0 27093.32 20320"
   <g transform="matrix(0.978504 0 0 1 469.503 3198.68)">
   </g>
   <g transform="matrix(0.978504 0 0 1 -5231.76 2957.2)">
-   <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">113</text>
+   <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">113</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 -5231.76 2957.2)">
-   <text x="13546.66" y="10575.95"  fill="black" font-weight="bold" font-size="340.08px" font-family="Arial">Aquarium</text>
+   <text x="13546.66" y="10575.95"  fill="white" font-weight="bold" font-size="340.08px" font-family="Arial">Aquarium</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 -10842 5845.01)">
-   <text x="13546.66" y="10160"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">102</text>
+   <text x="13546.66" y="10160"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">102</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 -10842 5845.01)">
-   <text x="13546.66" y="10729.89"  fill="black" font-weight="bold" font-size="510.12px" font-family="Arial">Pool</text>
+   <text x="13546.66" y="10729.89"  fill="white" font-weight="bold" font-size="510.12px" font-family="Arial">Pool</text>
   </g>
   <g transform="matrix(0.978504 0 0 1 -10842 5845.01)">
   </g>

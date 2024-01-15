@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW Standard 2021 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" class="206" height="100%" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
 viewBox="0 0 9260.4 20320"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
@@ -20,12 +20,12 @@ viewBox="0 0 9260.4 20320"
    <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="2361.36,10195.19 3673.98,10242.16 8178.55,16817.8 6129.74,17768.41 6019.97,17451.53 5727.28,17102.97 5215.08,16722.73 4593.12,16500.92 3897.98,16469.24 2654.04,12159.78 2324.77,12159.78 "/>
    <ellipse fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" cx="4208.12" cy="18049.94" rx="1829.31" ry="1636.43"/>
    <polygon fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" points="1885.73,245.42 2361.36,245.42 2361.36,1734.71 2324.77,12508.34 1629.63,12508.34 1629.63,10036.74 274.36,10036.74 275.94,9624.82 1885.73,9624.82 1885.73,3160.64 275.94,3160.64 275.94,1734.71 1885.73,1734.71 "/>
-   <text x="722.43" y="1051.02"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">311</text>
-   <text x="704.17" y="3563.06"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">306</text>
-   <text x="722.59" y="4150.32"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">305</text>
-   <text x="682.82" y="6058.61"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">304</text>
-   <text x="691.88" y="8680.51"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">303</text>
-   <text x="589.18" y="11341.92"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">301</text>
+   <text x="722.43" y="1051.02"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">311</text>
+   <text x="704.17" y="3563.06"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">306</text>
+   <text x="722.59" y="4150.32"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">305</text>
+   <text x="682.82" y="6058.61"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">304</text>
+   <text x="691.88" y="8680.51"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">303</text>
+   <text x="589.18" y="11341.92"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">301</text>
   </g>
  </g>
 </svg>

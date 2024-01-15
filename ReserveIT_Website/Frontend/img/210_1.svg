@@ -35,15 +35,15 @@ viewBox="0 0 27093.32 10583.32"
   <text x="10376.96" y="2046.85"  fill="black" font-weight="bold" font-size="349.6px" font-family="Arial">WC</text>
   <text x="12175.47" y="2080.66"  fill="black" font-weight="bold" font-size="349.6px" font-family="Arial">Treppenhaus</text>
   <text x="16633.05" y="1701.29"  fill="black" font-weight="bold" font-size="349.6px" font-family="Arial">Sekretariat</text>
-  <text x="1654.46" y="7339.48"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">010</text>
-  <text x="1654.46" y="7694.18"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Labor Programmentwicklung</text>
+  <text x="1654.46" y="7339.48"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">010</text>
+  <text x="1654.46" y="7694.18"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Labor Programmentwicklung</text>
   <rect fill="none" stroke="black" stroke-width="26.45" stroke-miterlimit="22.9256" x="9783.43" y="4724.46" width="1833.05" height="3142.39"/>
   <text x="8085.85" y="5852.48"  fill="black" font-weight="bold" font-size="349.6px" font-family="Arial">011</text>
   <text x="8085.85" y="6243.04"  fill="black" font-weight="bold" font-size="349.6px" font-family="Arial">EDV </text>
   <text x="8085.85" y="6633.6"  fill="black" font-weight="bold" font-size="349.6px" font-family="Arial">Werkstatt</text>
-  <text x="13543.5" y="7272.36"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">003</text>
-  <text x="13543.5" y="7627.06"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">Labor Informationstechnik</text>
-  <text x="22091.35" y="7246.65"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">002</text>
-  <text x="22091.35" y="7601.35"  fill="black" font-weight="bold" font-size="317.5px" font-family="Arial">PC Pool</text>
+  <text x="13543.5" y="7272.36"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">003</text>
+  <text x="13543.5" y="7627.06"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">Labor Informationstechnik</text>
+  <text x="22091.35" y="7246.65"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">002</text>
+  <text x="22091.35" y="7601.35"  fill="white" font-weight="bold" font-size="317.5px" font-family="Arial">PC Pool</text>
  </g>
 </svg>

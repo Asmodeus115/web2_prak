@@ -88,22 +88,22 @@ viewBox="0 0 27093.32 10583.32"
    <text x="13546.66" y="5644.69"  fill="black" font-weight="bold" font-size="316.01px" font-family="Arial">Kopierraum</text>
   </g>
   <g transform="matrix(1.02782 0 0 1 2727.95 867.238)">
-   <text x="13546.66" y="5291.66"  fill="black" font-weight="bold" font-size="341.99px" font-family="Arial">103 </text>
+   <text x="13546.66" y="5291.66"  fill="white" font-weight="bold" font-size="341.99px" font-family="Arial">103 </text>
   </g>
   <g transform="matrix(1.02782 0 0 1 2727.95 867.238)">
-   <text x="13546.66" y="5673.71"  fill="black" font-weight="bold" font-size="341.99px" font-family="Arial">Besprechungsraum</text>
+   <text x="13546.66" y="5673.71"  fill="white" font-weight="bold" font-size="341.99px" font-family="Arial">Besprechungsraum</text>
   </g>
   <g transform="matrix(1.02782 0 0 1 2054.22 -3561.98)">
-   <text x="13546.66" y="5291.66"  fill="black" font-weight="bold" font-size="341.99px" font-family="Arial">101 </text>
+   <text x="13546.66" y="5291.66"  fill="white" font-weight="bold" font-size="341.99px" font-family="Arial">101 </text>
   </g>
   <g transform="matrix(1.02782 0 0 1 2054.22 -3561.98)">
-   <text x="13546.66" y="5673.71"  fill="black" font-weight="bold" font-size="341.99px" font-family="Arial">Studentischer Übungsraum</text>
+   <text x="13546.66" y="5673.71"  fill="white" font-weight="bold" font-size="341.99px" font-family="Arial">Studentischer Übungsraum</text>
   </g>
   <g transform="matrix(1.02782 0 0 1 7979.98 -1333.68)">
-   <text x="13546.66" y="5291.66"  fill="black" font-weight="bold" font-size="341.99px" font-family="Arial">102 </text>
+   <text x="13546.66" y="5291.66"  fill="white" font-weight="bold" font-size="341.99px" font-family="Arial">102 </text>
   </g>
   <g transform="matrix(1.02782 0 0 1 7979.98 -1333.68)">
-   <text x="13546.66" y="5673.71"  fill="black" font-weight="bold" font-size="341.99px" font-family="Arial">IT Security / Netzwerke</text>
+   <text x="13546.66" y="5673.71"  fill="white" font-weight="bold" font-size="341.99px" font-family="Arial">IT Security / Netzwerke</text>
   </g>
  </g>
 </svg>
