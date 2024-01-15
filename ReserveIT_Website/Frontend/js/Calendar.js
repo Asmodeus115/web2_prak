@@ -252,6 +252,7 @@ class WeeklyCalendar {
 
 
       this.openBookingWindow();
+      this.validateDate();
     }
   }
 
