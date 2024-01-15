@@ -1,4 +1,3 @@
-
 function calenderStart() {
     $(document).ready(function () {
         console.log("form submit called");
@@ -187,6 +186,9 @@ function markiereZelle(spaltenindex, zeilenindex, farbe) {
 // Es wird einen Eintrag (Buchung) in der Datenbank erstellt.
 function createBooking() {
     console.log("Erstellung einer Buchung startet!");
+
+    // disable default event
+    event.preventDefault();
 
     function generateRandomString() {
         var length = 8;
