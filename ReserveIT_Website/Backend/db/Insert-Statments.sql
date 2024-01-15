@@ -28,7 +28,7 @@ INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2064, '3-OG',
 
 INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2101, 'EG', '..\img\210_1.svg' ,210);
 INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2102, '1-OG', '..\img\210_2.svg' ,210);
-INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2103, '2-OG', '..\img\201_3.svg' ,210);
+INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2103, '2-OG', '..\img\210_3.svg' ,210);
 
 --INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (1, 'Campus_Albstadt', '..\img\campusplan_raeume_albstadt.svg', 2);
 
@@ -162,7 +162,6 @@ INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (2, 'Professor' );
 INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (3, 'Mitarbeiter');
 INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (4, 'Sonstiges');
 
-INSERT INTO Lageplan(id, pfad) VALUES (1, '../img/campusplan_raeume_albstadt.svg');
 
 
 

@@ -1,20 +1,17 @@
-const helper = require('../helper.js');
-const fileHelper = require('../fileHelper.js');
+const helper = require('../Backend/helper.js');
+const fileHelper = require('../Backend/fileHelper.js');
 const path = require('path');
 const GalerieDao = require('../dao/b_calendarDoa.js');
 const express = require('express');
 var serviceRouter = express.Router();
-const helper = require('../helper.js');
-const fileHelper = require('../fileHelper.js');
+const helper = require('../Backend/helper.js');
+const fileHelper = require('../Backend/fileHelper.js');
 const path = require('path');
 const calendarDoa = require('../dao/b_calendarDoa.js');
 const express = require('express');
 var serviceRouter = express.Router();
 
-
 console.log('- Service Calendar');
-
-
 
 serviceRouter.post('/buchung/aufladen', async(request, response) => {
     console.log('Service Buchung: upload einer Buchung');
