@@ -2,7 +2,6 @@ function calenderStart() {
     $(document).ready(function () {
         console.log("form submit called");
 
-
         ladeAlleBuchugenByRaumID();
 
         $('#submitButton').click(function () {
@@ -14,15 +13,6 @@ function calenderStart() {
             ladeAlleBuchugenByRaumID();
         });
 
-        // Wenn auf btn aktuell Kalender geklickt wird, werden alle Buchungen
-        // des Users angezeigt.
-        $('#sexyAnton').click(function () {
-            ladeAlleBuchugenByTime();
-            $('#prevWeekBtn, #nextWeekBtn').click(function () {
-                entferneFarben();
-                ladeAlleBuchugenByTime();
-            });
-        });
 
     });
 }
@@ -79,44 +69,8 @@ function ladeAlleBuchugenByRaumID() {
     });
 }
 
-/* Diese Funktion wird nicht mehr benötigt
-function ladeAlleBuchugenByTime() {
-    // send form with ajax
-    $.ajax({
-        url: 'http://localhost:8000/api/buchung/alleladen',
-        type: 'GET',
-        contentType: 'application/json; charset=utf-8',
-        cache: false,
-        dataType: 'json'
-    }).done(function (response) {
-        console.log('Alle Buchung erfolgreich aus der DB geholt!');
-        console.log(response);
-        zeigeFarben(response);
-        checkBackgroundColor();
 
-        $('.day-cell').click(function () {
-            buchungPruefen(response);
-        });
-        $('#bookDate').blur(function () {
-            buchungPruefen(response);
-        });
 
-        $('#bookStart').blur(function () {
-            buchungPruefen(response);
-        });
-
-        $('#bookEnd').blur(function () {
-            buchungPruefen(response);
-        });
-
-    }).fail(function (xhr) {
-        console.log('Es ist ein Fehler beim Holen aufgetreten\n' + xhr);
-
-    });
-}
-*/
-
-// In dieser Funktion darfst du dich austuben Habibi @SG4747
 function zeigeFarben(arr) {
     console.log('Hier ist zeigeFarben Funktion');
     // Hier ist dein Spielplatz @SG4747

@@ -23,7 +23,7 @@ serviceRouter.get('/buchung/gib/:id', function(request, response) {
 });
 
 
-// Service Klasse für den Button Meine Buchungen
+// Service Klasse
 serviceRouter.post('/buchung/ladeMeineBuchungen', function(request, response) {
     console.log('Service Buchung: Client requested all records');
     console.log(request.body.BenutzerID);
@@ -39,7 +39,7 @@ serviceRouter.post('/buchung/ladeMeineBuchungen', function(request, response) {
     }
 });
 
-// Service Klasse für das farbige Zeigen das Termine im Kalender
+// Service Klasse 
 serviceRouter.get('/buchung/alleladen', function(request, response) {
     console.log('Service Buchung: Client requested all records');
 
@@ -54,7 +54,7 @@ serviceRouter.get('/buchung/alleladen', function(request, response) {
     }
 });
 
-// Service Klasse für das farbige Zeigen das Termine im Kalender
+// Service Klasse 
 serviceRouter.post('/buchung/ladeBuchugenByRaumID', function(request, response) {
     console.log('Service Buchung: Client requested all records of a room');
 
@@ -68,8 +68,6 @@ serviceRouter.post('/buchung/ladeBuchugenByRaumID', function(request, response) 
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
     }
 });
-
-
 
 
 serviceRouter.get('/buchung/existiert/:id', function(request, response) {
@@ -104,7 +102,6 @@ serviceRouter.post('/buchung/erstellen', function(request, response) {
     if (helper.isUndefined(request.body.ZellenSpalte)) 
         errorMsgs.push('ZellenSpalte fehlt');
 
-
     if (errorMsgs.length > 0) {
         console.log('Service Buchung: Creation not possible, data missing');
         response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
@@ -122,35 +119,6 @@ serviceRouter.post('/buchung/erstellen', function(request, response) {
     }    
 });
 
-serviceRouter.put('/buchung', function(request, response) {
-    console.log('Service Buchung: Client requested update of existing record');
-
-    var errorMsgs=[];
-    if (helper.isUndefined(request.body.RaumID)) 
-        errorMsgs.push('RaumID fehlt');
-    if (helper.isUndefined(request.body.BenutzerID)) 
-        errorMsgs.push('BenutzerID fehlt');
-    if (helper.isUndefined(request.body.Startzeit)) 
-        errorMsgs.push('Startzeit fehlt');
-    if (helper.isUndefined(request.body.Endzeit)) 
-        errorMsgs.push('Endzeit fehlt');
-
-    if (errorMsgs.length > 0) {
-        console.log('Service Buchung: Update not possible, data missing');
-        response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
-        return;
-    }
-
-    const buchungDao = new BuchungDao(request.app.locals.dbConnection);
-    try {
-        var obj = buchungDao.update(request.body.RaumID, request.body.BenutzerID, request.body.Startzeit, request.body.Endzeit, request.body.BuchungCode);
-        console.log('Service Buchung: Record updated, id=' + request.body.id);
-        response.status(200).json(obj);
-    } catch (ex) {
-        console.error('Service Buchung: Error updating record by id. Exception occured: ' + ex.message);
-        response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
-    }    
-});
 
 serviceRouter.delete('/buchung/:id', function(request, response) {
     console.log('Service Buchung: Client requested deletion of record, id=' + request.params.id);
