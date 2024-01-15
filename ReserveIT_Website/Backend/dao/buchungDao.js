@@ -34,8 +34,6 @@ class BuchungDao {
             console.log(result[i].RaumID);
 
         }
-
-
         return result;
     }
 
@@ -81,8 +79,6 @@ class BuchungDao {
         return result;
     }
 
-
-    
 
     loadAll() {
         var sql = 'SELECT * FROM Buchung WHERE Startzeit >= date(\'now\')';

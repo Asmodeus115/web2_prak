@@ -77,7 +77,6 @@ function ladeAlleBuchugenByRaumID() {
 
     }).fail(function (xhr) {
         console.log('Es ist ein Fehler beim Holen aufgetreten\n' + xhr);
-
     });
 }
 
@@ -189,9 +188,6 @@ function markiereZelle(spaltenindex, zeilenindex, farbe) {
 function createBooking() {
     console.log("Erstellung einer Buchung startet!");
 
-    // disable default event
-    event.preventDefault();
-
     function generateRandomString() {
         var length = 8;
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -212,7 +208,6 @@ function createBooking() {
     var startDate = datum + " " + start + ":00";
     var endDate = datum + " " + end + ":00";
 
-
     // convert data of form to object
     var meinObjekt = {
         RaumID: raumID,
@@ -225,8 +220,6 @@ function createBooking() {
 
     // Erstellen Sie ein neues FormData-Objekt
     var formData = new FormData();
-
-    console.log(formData);
 
     // Fügen Sie jedes Element aus dem JSON-Objekt zum FormData-Objekt hinzu
     for (var schluessel in meinObjekt) {
