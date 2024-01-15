@@ -527,8 +527,8 @@ tr:nth-child(even) {
 }
 
 #currentDate {
-  margin: 0 2% 0 2%;
-  font-size: clamp(15px, 2.5vw, 40px); /* clamp(minimum, preferred, maximum); */
+  margin: 0;
+  font-size: clamp(2.5vw, 5vw, 40px); /* clamp(minimum, preferred, maximum); */
 }
 
 #prevWeekBtn:hover, #nextWeekBtn:hover{
@@ -539,7 +539,6 @@ tr:nth-child(even) {
 #prevWeekBtn, #nextWeekBtn{
   transition: opacity 0.3s;
   cursor: pointer;
-  opacity: 0.9;
   user-select: none;
   font-size: clamp(15px, 10.0vw, 50px);
 }
@@ -637,7 +636,7 @@ text-align: center;
 
 /* --- Dropdownmenue --- */
 .dropbtn {
-  background-color: #3498DB;
+  background-color: #333;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -646,7 +645,7 @@ text-align: center;
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+  opacity: 0.9;
 }
 
 .dropdown {
@@ -733,7 +732,7 @@ text-align: center;
   .calendararea {
     width: 80%;
     margin:0;
-    left: 0;
+    left: 7%;
     padding: 2% 4% 2% 2%;
   }
 
@@ -743,6 +742,24 @@ text-align: center;
 
   #navigationEtage li {
     font-size: 100%;
+    padding: 1%;
+    margin-bottom: 1%;
+    width: 100%;
+    border-radius: 10px;
+
+  }
+
+  .dropbtn{
+    background-color: #333;
+    border-radius: 10px;
+  }
+
+  #currentDate {
+    margin-bottom: 2%;
+  }
+
+  #prevWeekBtn, #nextWeekBtn{
+    font-size: clamp(5vw, 6vw, 10vw);
   }
 
 }
