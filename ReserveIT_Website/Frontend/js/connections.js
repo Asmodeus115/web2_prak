@@ -406,6 +406,7 @@ function zeigeEtage(etagen) {
 
 
 
+
 function storniereBuchung(ids) {
   console.log("Die BuchungsIDs zum Stornieren: ", ids);
   ids.forEach(id => {
