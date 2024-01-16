@@ -461,7 +461,7 @@ function impressum() {
   $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
-  $('#loginArea').append('<div></div>');
+  $('#loginArea').append('<div class="leererDIV"></div>');
   $('#loginArea').append(meinString);
 
 }
@@ -545,7 +545,7 @@ function aboutUs() {
   $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
-  $('#loginArea').append('<div></div>');
+  $('#loginArea').append('<div class="leererDIV"></div>');
   $('#loginArea').append(meinString);
 
 
@@ -572,32 +572,6 @@ function kontakt() {
         <li>Adresse: Musterstraße 33, 72458 Albstadt-Ebingen</li>
     </ul>
 
-    <h2>Kontaktformular</h2>
-
-    <p>Füllen Sie das untenstehende Formular aus, um uns direkt eine Nachricht zu senden:</p>
-
-    <form id="kontaktformular">
-
-      <label for="name">Vor- und Nachname:</label>
-      <div>
-          <input type="name" required id="kontaktname" name="name" class="shortInputKontaktformular">
-      </div><br>
-
-      <label for="email">E-Mail:</label>
-      <div>
-          <input type="email" required id="kontaktemail" name="email" class="shortInputKontaktformular">
-      </div><br>
-
-      <label for="description">Nachricht:</label>
-      <div>
-          <textarea name="description" id="kontaktnachricht" class="s8hortInputKontaktformular"></textarea>
-      </div>
-
-      <div id="kontaktformularAbesenden">
-          <input type="submit" id="submitButtonKontaktformular" value="Absenden" class="button">
-      </div>
-  </form>
-
 
 <p>Vielen Dank für Ihr Interesse an unserer Raumreservierungsplattform!</p>
 `;
@@ -607,7 +581,7 @@ function kontakt() {
   $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
-  $('#loginArea').append('<div></div>');
+  $('#loginArea').append('<div class="leererDIV"></div>');
   $('#loginArea').append(meinString);
 
 }
@@ -965,7 +939,7 @@ function datenschutz() {
   $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
-  $('#loginArea').append('<div></div>');
+  $('#loginArea').append('<div class="leererDIV"></div>');
   $('#loginArea').append(meinString);
 
 }
@@ -1009,7 +983,7 @@ function agb() {
   $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
-  $('#loginArea').append('<div></div>');
+  $('#loginArea').append('<div class="leererDIV"></div>');
   $('#loginArea').append(meinString);
 
 }

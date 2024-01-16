@@ -807,4 +807,8 @@ text-align: center;
     display: none;
   }
 
+  .loginLinkleiste{
+    padding: 10px;
+  }
+
 }
