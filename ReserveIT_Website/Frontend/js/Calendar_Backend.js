@@ -1,6 +1,5 @@
 function calenderStart() {
     $(document).ready(function () {
-        console.log("form submit called");
 
         ladeAlleBuchugenByRaumID();
 
@@ -21,7 +20,6 @@ function ladeAlleBuchugenByRaumID() {
     
     var raumID = sessionStorage.getItem('RaumID').replace(/_/g, '');
 
-    console.log("RaumID: ", raumID);
     const meinObjekt = {
         RaumID: raumID
     };
@@ -44,8 +42,7 @@ function ladeAlleBuchugenByRaumID() {
         processData: false,
         dataType: 'json'
     }).done(function (response) {
-        console.log('Alle Buchung erfolgreich aus der DB geholt!');
-        console.log(response);
+        
         zeigeFarben(response);
         checkBackgroundColor();
 
@@ -72,7 +69,7 @@ function ladeAlleBuchugenByRaumID() {
 
 
 function zeigeFarben(arr) {
-    console.log('Hier ist zeigeFarben Funktion');
+    
     // Hier ist dein Spielplatz @SG4747
     const endOfWeek = createDateFromDateString(window.endeDatum);
     const startOfWeek = createDateFromDateString(window.startDatum);
@@ -139,7 +136,7 @@ function markiereZelle(spaltenindex, zeilenindex, farbe) {
 // im Kalender geklickt wird.
 // Es wird einen Eintrag (Buchung) in der Datenbank erstellt.
 function createBooking() {
-    console.log("Erstellung einer Buchung startet!");
+    
 
     // disable default event
     event.preventDefault();

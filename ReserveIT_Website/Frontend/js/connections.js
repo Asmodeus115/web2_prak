@@ -5,12 +5,11 @@
 
 function doLoginProcess() {
 
-  console.log("doLoginProcess startet!");
 
   $('#signInBtn').submit(function (event) {
 
     const matrikelNr = document.getElementById('login__matrikelnr').value;
-    console.log("LogIn Vorgang startet.");
+
 
     var isUserLogedin = 0;
     sessionStorage.setItem('isUserLogedin', isUserLogedin);
@@ -33,7 +32,7 @@ function doLoginProcess() {
       formData.append(schluessel, meinObjekt[schluessel]);
     }
 
-    console.log(formData);
+    
 
     // send form with ajax
     $.ajax({
@@ -72,33 +71,23 @@ function doLoginProcess() {
   });
 }
 
-/*
-function ladeWebseite() {
-
-  //$('#grid-oben').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
-  $('#loginArea').attr("id", "grid-unten");
-  $('#grid-unten').removeAttr("class");
-  console.log("Neue Funkt");
-  //$('#loginArea').insertAfter('<main id="grid-unten"><h1>htest</h1></main>');
-}
-*/
 
 function isUserLogedin() {
   var isUserLogedin = sessionStorage.getItem('isUserLogedin');
-  console.log("isUserLogedin Funktion: \nWert= ", isUserLogedin);
+ 
 
   if (isUserLogedin == 1) {
-    console.log("User ist angemeldet");
+  
     //alert("Logedin: ", isUserLogedin);
     $('#loginArea').empty();
-    console.log("login geleert");
+   
 
     signedInLinkBar();
     loginKiller();
     runMain();
 
   } else if (isUserLogedin == 0 || isUserLogedin == null) {
-    console.log("isUserLogedin = ", isUserLogedin);
+   
     doLoginProcess();
   } else {
     alert("Was anderens:", isUserLogedin);
@@ -110,7 +99,7 @@ function signedInLinkBar() {
 }
 
 function loginKiller() {
-  console.log("loginKiller startet");
+
   document.getElementById("loginArea").classList.remove("align");
   document.getElementById("loginArea").id = "grid-unten";
   document.getElementById("logo").addEventListener("click", runMain);
@@ -129,10 +118,10 @@ function meineBuchungen() {
     $('#grid-unten').empty();
 
     $('#grid-unten').append('<div></div>')
-    var tmp;
+    var tmp ='';
 
     if (arr.length === 0) {
-      tmp.text('Keine Buchung vorhanden');
+      alert('Keine Buchung vorhanden');
       return;
     }
     tmp = '<div id="meineBuchungen">';
@@ -188,8 +177,7 @@ function meineBuchungen() {
     processData: false,
     dataType: 'json'
   }).done(function (response) {
-    console.log('response received');
-    console.log(response);
+  
     zeigeBuchungen(response);
 
     var SlotsToCancle = [];
@@ -210,11 +198,13 @@ function meineBuchungen() {
           SlotsToCancle = SlotsToCancle.filter(function (item) {
             return item !== id;
           });
-          console.log(SlotsToCancle);
+          
+          
         }
       });
 
-      console.log(SlotsToCancle);
+      
+      
     }
 
     $('#conformStorno').click(function () {
@@ -251,7 +241,7 @@ function ladeAlleGebAusDerDB() {
     processData: false,
     dataType: 'json'
   }).done(function (response) {
-    console.log('response received. Inhalt der Gebäude Tabelle: ', response);
+   
 
     generiereGebBtnAufSidebar(response);
     ladeGrundrisse(response);
@@ -274,7 +264,6 @@ function generiereGebBtnAufSidebar(alleGebaeude) {
 
   alleGebaeude.forEach(gebaeude => {
     gebBtn += '<li id="GebBtn' + gebaeude.id + '" class="list-group btn' + gebaeude.id + '">' + gebaeude.id + '</li>';
-    console.log('<li id="GebBtn' + gebaeude.Name + '" class="list-group btn' + gebaeude.Name + '">' + gebaeude.Name + '</li>');
   });
   gebBtn += '</ul>';
   $('#sidebar').append(gebBtn);
@@ -290,7 +279,7 @@ function ladeGrundrisse(alleGebaeude) {
     const gebaeudeID = gebaeudeIDs[index];
 
     $('#' + gebaeudeID).click(function (event) {
-      console.log("ID: " + alleGebaeude[index].id);
+      
 
       var meinObjekt = {
         id: alleGebaeude[index].id
@@ -341,7 +330,7 @@ function zeigeEtage(etagen) {
       return;
     }
 
-    console.log('etagen:', etagen, '\ngebBtn:', gebBtn);
+  
 
     //-------------- Hier wir die Dropdown-Menü für Gebäude ober dem Grundriss erstellt @Asmodeus115 @SG4747---------
     var tmpGebBtn = '<div class="GebOnEtage dropdown" onclick="toggleDropdown()" id="gebBtn">';
@@ -378,7 +367,7 @@ function zeigeEtage(etagen) {
     document.getElementById("grid-unten").appendChild(svgHolder);
     document.getElementById("svgHolder").appendChild(svg);
 
-    console.log(etagen);
+    
 
     for (let index = 0; index < etagen.length; index++) {
       $('#EtageBtn' + etagen[index].id).click(function (event) {
@@ -398,7 +387,7 @@ function zeigeEtage(etagen) {
 
 
 function storniereBuchung(ids) {
-  console.log("Die BuchungsIDs zum Stornieren: ", ids);
+  
   ids.forEach(id => {
 
     // send form with ajax
@@ -410,7 +399,7 @@ function storniereBuchung(ids) {
       processData: false,
       dataType: 'json'
     }).done(function (response) {
-      console.log('Stornierung = ' + response);
+      
       meineBuchungen();
     }).fail(function (xhr) {
       console.log('Die Stornierung des Termins war nicht erfolgreich!');

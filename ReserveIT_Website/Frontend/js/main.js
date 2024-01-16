@@ -6,7 +6,6 @@ function calendar() {
 }
 
 function runMain() {
-  console.log("runMain startet");
   ladeAlleGebAusDerDB();
   loadLageplan();
 }
@@ -16,7 +15,7 @@ function clickHouse(id, klassenname, test) {
   svgObject.addEventListener("load", function loadHover() {
     let svgDocument = svgObject.contentDocument;
     let clickable = svgDocument.querySelectorAll(klassenname);
-    console.log(clickable);
+    
 
     clickable.forEach(function (element) {
       element.addEventListener("click", function () {
@@ -95,15 +94,15 @@ function removeChild(parent) {
 }
 
 function svgHover(id, klassenname) {
-  console.log("funktion gestartet")
+  
   let svgObject = document.getElementById(id);
   svgObject.addEventListener("load", function loadHover() {
-    console.log("let");
+    
     let svgDocument = svgObject.contentDocument;
     let hoverItem = svgDocument.querySelectorAll(klassenname);
 
     hoverItem.forEach(function (element) {
-      console.log("funktion addelement")
+      
       element.addEventListener("mouseenter", function () {
         element.style.opacity = "0.9";
         element.style.fill = "#333";
@@ -202,7 +201,7 @@ function toggleDropdown() {
     if (event.target.tagName === 'A') {
 
       var ausgewaehlteGebaeude = event.target.textContent;
-      console.log('Ausgewählter Link:', ausgewaehlteGebaeude);
+      
 
       var meinObjekt = {
         id: ausgewaehlteGebaeude
