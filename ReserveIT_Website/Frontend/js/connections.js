@@ -458,7 +458,7 @@ function impressum() {
 `;
 
 
-  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
   $('#loginArea').append('<div></div>');
@@ -542,7 +542,7 @@ function aboutUs() {
 `;
 
 
-  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
   $('#loginArea').append('<div></div>');
@@ -604,7 +604,7 @@ function kontakt() {
 
 
 
-  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
   $('#loginArea').append('<div></div>');
@@ -962,7 +962,7 @@ function datenschutz() {
 
 
 
-  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
   $('#loginArea').append('<div></div>');
@@ -1006,7 +1006,7 @@ function agb() {
 
 
 
-  $('#grid-unten').append('<div></div>');
+  $('#grid-unten').append('<div class="leererDIV"></div>');
   $('#grid-unten').append(meinString);
 
   $('#loginArea').append('<div></div>');

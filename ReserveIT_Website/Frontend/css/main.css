@@ -271,7 +271,6 @@ a{
 #grid-unten{
   display: grid;
   grid-template-columns: 24% 76%;
-  grid-template-rows: 50% 50%;
   grid-gap: 5%;
 }
 
@@ -705,7 +704,7 @@ text-align: center;
 @media only screen and (max-width: 800px) {
   #grid-oben{
       grid-template-columns: 1fr;
-      margin-bottom: 50%;
+      margin-bottom: 30%;
       
   }
 
@@ -790,6 +789,22 @@ text-align: center;
   #conformStorno{
     width: 30%;
     margin: 1% 0 10% 35%;
+  }
+
+  .textarea {
+  background-color: white;
+  padding: 0;
+  margin: 2%;
+  max-width: 100%;
+  font-size: 100%;
+  }
+
+  #textarea-h1 {
+    font-size: 40px
+  }
+
+  .leererDIV{
+    display: none;
   }
 
 }
