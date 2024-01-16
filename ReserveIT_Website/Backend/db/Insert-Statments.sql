@@ -37,20 +37,19 @@ INSERT INTO Etage (id, Bezeichnung, Grundriss, GebaeudeID) VALUES (2103, '2-OG',
 
 -- 201-EG
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201005 , '201-005' , 2011);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201006 , '201-006' , 2011);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201007 , '201-007' , 2011);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201014 , '201-014' , 2011);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201017 , '201-017' , 2011);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201018 , '201-018' , 2011);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201019 , '201-019' , 2011);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201020 , '201-020' , 2011);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201021 , '201-021' , 2011);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201022 , '201-022' , 2011);
-
 -- 201-1.OG
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201102 , '201-102' , 2012);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201103 , '201-103' , 2012);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201109 , '201-109' , 2012);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201112 , '201-112' , 2012);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201113 , '201-113' , 2012);
+INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201109 , '201-109' , 2012);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201114 , '201-114' , 2012);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 201116 , '201-116' , 2012);
 -- 201-2.OG
@@ -69,7 +68,6 @@ INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 205142 , '205-142' , 2052);
 --------------------------------------------------------------------------------
 
 -- 206 - EG
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206017 , '206-017' , 2061);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206021 , '206-021' , 2061);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206022 , '206-022' , 2061);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206023 , '206-023' , 2061);
@@ -90,7 +88,6 @@ INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206106 , '206-106' , 2062);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206107 , '206-107' , 2062);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206108 , '206-108' , 2062);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206109 , '206-109' , 2062);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206110 , '206-110' , 2062);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206111 , '206-111' , 2062);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206112 , '206-112' , 2062);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206116 , '206-116' , 2062);
@@ -122,7 +119,6 @@ INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 206311 , '206-311' , 2064);
 -- 210 - EG
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210002 , '210-002' , 2101);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210003 , '210-003' , 2101);
-INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210010 , '210-010' , 2101);
 -- 210 - 1.OG
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210101 , '210-101' , 2102);
 INSERT INTO Raum (id, Bezeichnung, EtageID) VALUES ( 210102 , '210-102' , 2102);
@@ -160,7 +156,7 @@ INSERT INTO Benutzer (id, Benutzername, BenutzerrolleID, PersonID, passwort) VAL
 
 
 
---- Benutzerrolle
+
 INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (1, 'Student');
 INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (2, 'Professor' );
 INSERT INTO Benutzerrolle (id, Bezeichnung) VALUES (3, 'Mitarbeiter');
