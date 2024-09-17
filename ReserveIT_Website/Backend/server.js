@@ -22,11 +22,11 @@ try {
     console.log('Connect database...');
     const Database = require('better-sqlite3');
     const dbOptions = { verbose: console.log };
-    const dbFile = './db/ReserveIT_db_v2.sqlite'; 
+    const dbFile = './db/ReserveIT_db_v2.sqlite';
     const dbConnection = new Database(dbFile, dbOptions);
 
     // create server
-    const HTTP_PORT = 8000;
+    const HTTP_PORT = 8080;
     const express = require('express');
     const fileUpload = require('express-fileupload');
     const cors = require('cors');
@@ -36,7 +36,7 @@ try {
 
     console.log('Creating and configuring Web Server...');
     const app = express();
-    
+
     // provide service router with database connection / store the database connection in global server environment
     app.locals.dbConnection = dbConnection;
 
@@ -52,7 +52,7 @@ try {
     app.use(bodyParser.urlencoded({ extended: true}));
     app.use(bodyParser.json());
     app.use(function(request, response, next) {
-        response.setHeader('Access-Control-Allow-Origin', '*'); 
+        response.setHeader('Access-Control-Allow-Origin', '*');
         response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
         response.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         next();
@@ -71,7 +71,7 @@ try {
 
     serviceRouter = require('./services/etage.js');
     app.use(TOPLEVELPATH, serviceRouter);
-  
+
     // send default error message if no matching endpoint found
     app.use(function (request, response) {
         console.log('Error occured, 404, resource not found');
